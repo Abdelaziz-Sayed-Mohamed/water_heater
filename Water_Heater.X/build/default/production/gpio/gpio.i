@@ -15,6 +15,8 @@
 
 
 
+# 1 "gpio/gpio.h" 1
+# 11 "gpio/gpio.h"
 # 1 "gpio/gpio_Cfg.h" 1
 # 11 "gpio/gpio_Cfg.h"
 # 1 "gpio/../Config.h" 1
@@ -1883,16 +1885,26 @@ typedef int16_t intptr_t;
 typedef uint16_t uintptr_t;
 # 20 "gpio/../Config.h" 2
 # 11 "gpio/gpio_Cfg.h" 2
-# 9 "gpio/gpio.c" 2
-
-# 1 "gpio/gpio.h" 1
-# 26 "gpio/gpio.h"
+# 11 "gpio/gpio.h" 2
+# 24 "gpio/gpio.h"
 void GPIO_Init(void);
-# 10 "gpio/gpio.c" 2
+# 9 "gpio/gpio.c" 2
 
 
 
 void GPIO_Init(void)
 {
-# 27 "gpio/gpio.c"
+
+   (0==0)? ((TRISC &= ~(1<<5))):((TRISC|= (1<<5)));
+   (0==0)? ((TRISC &= ~(1<<2))):((TRISC|= (1<<2)));
+   (0==0)? ((TRISB &= ~(1<<4))):((TRISB|= (1<<4)));
+   (0==0)? ((TRISA &= ~(1<<5))):((TRISA|= (1<<5)));
+   (0==0)? ((TRISA &= ~(1<<4))):((TRISA|= (1<<4)));
+   (1==0)? ((TRISB &= ~(1<<1))):((TRISB|= (1<<1)));
+   (1==0)? ((TRISB &= ~(1<<2))):((TRISB|= (1<<2)));
+   (0==0)? ((TRISC &= ~(1<<3))):((TRISC|= (1<<3)));
+   (1==0)? ((TRISC &= ~(1<<4))):((TRISC|= (1<<4)));
+   (0==0)? (TRISD=0):(TRISD=1);
+
+
 }

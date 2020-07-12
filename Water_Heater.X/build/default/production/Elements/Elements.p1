@@ -1,10 +1,10 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"26 Elements/../WaterHeater_Mode/WaterHeater_Mode.h
-[; ;Elements/../WaterHeater_Mode/WaterHeater_Mode.h: 26: MODE_t Mode;
+"28 Elements/../WaterHeater_Mode/WaterHeater_Mode.h
+[; ;Elements/../WaterHeater_Mode/WaterHeater_Mode.h: 28: MODE_t Mode;
 [c E886 0 1 2 .. ]
 [n E886 _Select_Mode_t Off_Mode Normal_Mode Setting_Mode  ]
-"21
-[; ;Elements/../WaterHeater_Mode/WaterHeater_Mode.h: 21: {
+"23
+[; ;Elements/../WaterHeater_Mode/WaterHeater_Mode.h: 23: {
 [s S95 `E886 1 `uc 1 ]
 [n S95 _MODE_t Select_Mode Setting_Mode_Timer ]
 "12 Elements/../Temperature/Temperature.h
@@ -217,8 +217,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2363
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2363: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
-"26 Elements/../WaterHeater_Mode/WaterHeater_Mode.h
-[; ;Elements/../WaterHeater_Mode/WaterHeater_Mode.h: 26: MODE_t Mode;
+"28 Elements/../WaterHeater_Mode/WaterHeater_Mode.h
+[; ;Elements/../WaterHeater_Mode/WaterHeater_Mode.h: 28: MODE_t Mode;
 [v _Mode `S95 ~T0 @X0 1 e ]
 "20 Elements/../Temperature/Temperature.h
 [; ;Elements/../Temperature/Temperature.h: 20: TEMP_t Temperature;
@@ -405,37 +405,34 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;Elements/Elements.c: 80:           (PORTC|= (1<<2));
 [e =| _PORTC -> << -> 1 `i -> 2 `i `Vuc ]
 "81
-[; ;Elements/Elements.c: 81:           (PORTB|= (1<<4));
-[e =| _PORTB -> << -> 1 `i -> 4 `i `Vuc ]
-"82
-[; ;Elements/Elements.c: 82:     LED_Status=LED_ON ;
+[; ;Elements/Elements.c: 81:     LED_Status=LED_ON ;
 [e = _LED_Status . `E913 1 ]
-"84
-[; ;Elements/Elements.c: 84:          }
+"83
+[; ;Elements/Elements.c: 83:          }
 }
 [e :U 111 ]
 [e :U 110 ]
-"85
-[; ;Elements/Elements.c: 85:   }
+"84
+[; ;Elements/Elements.c: 84:   }
 }
 [e $U 112  ]
-"86
-[; ;Elements/Elements.c: 86:   else
+"85
+[; ;Elements/Elements.c: 85:   else
 [e :U 108 ]
-"87
-[; ;Elements/Elements.c: 87:   {
+"86
+[; ;Elements/Elements.c: 86:   {
 {
-"88
-[; ;Elements/Elements.c: 88:    (PORTC &= ~(1<<2));
+"87
+[; ;Elements/Elements.c: 87:    (PORTC &= ~(1<<2));
 [e =& _PORTC -> ~ << -> 1 `i -> 2 `i `Vuc ]
-"89
-[; ;Elements/Elements.c: 89:    (PORTC &= ~(1<<5));
+"88
+[; ;Elements/Elements.c: 88:    (PORTC &= ~(1<<5));
 [e =& _PORTC -> ~ << -> 1 `i -> 5 `i `Vuc ]
-"90
-[; ;Elements/Elements.c: 90:   }
+"89
+[; ;Elements/Elements.c: 89:   }
 }
 [e :U 112 ]
-"91
-[; ;Elements/Elements.c: 91: }
+"90
+[; ;Elements/Elements.c: 90: }
 [e :UE 107 ]
 }

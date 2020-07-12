@@ -1886,7 +1886,7 @@ typedef uint16_t uintptr_t;
 # 20 "Elements/../gpio/../Config.h" 2
 # 11 "Elements/../gpio/gpio_Cfg.h" 2
 # 11 "Elements/../gpio/gpio.h" 2
-# 26 "Elements/../gpio/gpio.h"
+# 24 "Elements/../gpio/gpio.h"
 void GPIO_Init(void);
 # 12 "Elements/Elements.h" 2
 # 21 "Elements/Elements.h"
@@ -1900,6 +1900,13 @@ void Elements_Control(uint8_t Average_Temp);
 # 10 "Elements/../WaterHeater_Mode/WaterHeater_Mode.h"
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
 # 10 "Elements/../WaterHeater_Mode/WaterHeater_Mode.h" 2
+
+
+# 1 "Elements/../WaterHeater_Mode/WaterHeater_Mode_Cfg.h" 1
+# 10 "Elements/../WaterHeater_Mode/WaterHeater_Mode_Cfg.h"
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdbool.h" 1 3
+# 10 "Elements/../WaterHeater_Mode/WaterHeater_Mode_Cfg.h" 2
+# 12 "Elements/../WaterHeater_Mode/WaterHeater_Mode.h" 2
 
 
 typedef enum _Select_Mode_t
@@ -2014,7 +2021,6 @@ void Elements_Control(uint8_t Average_Temp)
 
           (PORTC &= ~(1<<5));
           (PORTC|= (1<<2));
-          (PORTB|= (1<<4));
     LED_Status=LED_ON ;
 
          }

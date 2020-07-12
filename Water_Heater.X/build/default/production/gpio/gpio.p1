@@ -1,4 +1,16 @@
 Version 4.0 HI-TECH Software Intermediate Code
+"1437 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 1437: extern volatile unsigned char TRISC __attribute__((address(0x087)));
+[v _TRISC `Vuc ~T0 @X0 0 e@135 ]
+"1375
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 1375: extern volatile unsigned char TRISB __attribute__((address(0x086)));
+[v _TRISB `Vuc ~T0 @X0 0 e@134 ]
+"1325
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 1325: extern volatile unsigned char TRISA __attribute__((address(0x085)));
+[v _TRISA `Vuc ~T0 @X0 0 e@133 ]
+"1499
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 1499: extern volatile unsigned char TRISD __attribute__((address(0x088)));
+[v _TRISD `Vuc ~T0 @X0 0 e@136 ]
 "7 gpio/../Config.h
 [p x FOSC = HS ]
 "8
@@ -195,14 +207,44 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2363
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2363: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
-"13 gpio/gpio.c
-[; ;gpio/gpio.c: 13: void GPIO_Init(void)
+"12 gpio/gpio.c
+[; ;gpio/gpio.c: 12: void GPIO_Init(void)
 [v _GPIO_Init `(v ~T0 @X0 1 ef ]
-"14
-[; ;gpio/gpio.c: 14: {
+"13
+[; ;gpio/gpio.c: 13: {
 {
 [e :U _GPIO_Init ]
 [f ]
+"15
+[; ;gpio/gpio.c: 15:    (0==0)? ((TRISC &= ~(1<<5))):((TRISC|= (1<<5)));
+[e ? == -> 0 `i -> 0 `i : -> =& _TRISC -> ~ << -> 1 `i -> 5 `i `Vuc `i -> =| _TRISC -> << -> 1 `i -> 5 `i `Vuc `i ]
+"16
+[; ;gpio/gpio.c: 16:    (0==0)? ((TRISC &= ~(1<<2))):((TRISC|= (1<<2)));
+[e ? == -> 0 `i -> 0 `i : -> =& _TRISC -> ~ << -> 1 `i -> 2 `i `Vuc `i -> =| _TRISC -> << -> 1 `i -> 2 `i `Vuc `i ]
+"17
+[; ;gpio/gpio.c: 17:    (0==0)? ((TRISB &= ~(1<<4))):((TRISB|= (1<<4)));
+[e ? == -> 0 `i -> 0 `i : -> =& _TRISB -> ~ << -> 1 `i -> 4 `i `Vuc `i -> =| _TRISB -> << -> 1 `i -> 4 `i `Vuc `i ]
+"18
+[; ;gpio/gpio.c: 18:    (0==0)? ((TRISA &= ~(1<<5))):((TRISA|= (1<<5)));
+[e ? == -> 0 `i -> 0 `i : -> =& _TRISA -> ~ << -> 1 `i -> 5 `i `Vuc `i -> =| _TRISA -> << -> 1 `i -> 5 `i `Vuc `i ]
+"19
+[; ;gpio/gpio.c: 19:    (0==0)? ((TRISA &= ~(1<<4))):((TRISA|= (1<<4)));
+[e ? == -> 0 `i -> 0 `i : -> =& _TRISA -> ~ << -> 1 `i -> 4 `i `Vuc `i -> =| _TRISA -> << -> 1 `i -> 4 `i `Vuc `i ]
+"20
+[; ;gpio/gpio.c: 20:    (1==0)? ((TRISB &= ~(1<<1))):((TRISB|= (1<<1)));
+[e ? == -> 1 `i -> 0 `i : -> =& _TRISB -> ~ << -> 1 `i -> 1 `i `Vuc `i -> =| _TRISB -> << -> 1 `i -> 1 `i `Vuc `i ]
+"21
+[; ;gpio/gpio.c: 21:    (1==0)? ((TRISB &= ~(1<<2))):((TRISB|= (1<<2)));
+[e ? == -> 1 `i -> 0 `i : -> =& _TRISB -> ~ << -> 1 `i -> 2 `i `Vuc `i -> =| _TRISB -> << -> 1 `i -> 2 `i `Vuc `i ]
+"22
+[; ;gpio/gpio.c: 22:    (0==0)? ((TRISC &= ~(1<<3))):((TRISC|= (1<<3)));
+[e ? == -> 0 `i -> 0 `i : -> =& _TRISC -> ~ << -> 1 `i -> 3 `i `Vuc `i -> =| _TRISC -> << -> 1 `i -> 3 `i `Vuc `i ]
+"23
+[; ;gpio/gpio.c: 23:    (1==0)? ((TRISC &= ~(1<<4))):((TRISC|= (1<<4)));
+[e ? == -> 1 `i -> 0 `i : -> =& _TRISC -> ~ << -> 1 `i -> 4 `i `Vuc `i -> =| _TRISC -> << -> 1 `i -> 4 `i `Vuc `i ]
+"24
+[; ;gpio/gpio.c: 24:    (0==0)? (TRISD=0):(TRISD=1);
+[e ? == -> 0 `i -> 0 `i : -> = _TRISD -> -> 0 `i `uc `i -> = _TRISD -> -> 1 `i `uc `i ]
 "27
 [; ;gpio/gpio.c: 27: }
 [e :UE 95 ]

@@ -1890,7 +1890,7 @@ typedef uint16_t uintptr_t;
 # 20 "Scheduler/../Elements/../gpio/../Config.h" 2
 # 11 "Scheduler/../Elements/../gpio/gpio_Cfg.h" 2
 # 11 "Scheduler/../Elements/../gpio/gpio.h" 2
-# 26 "Scheduler/../Elements/../gpio/gpio.h"
+# 24 "Scheduler/../Elements/../gpio/gpio.h"
 void GPIO_Init(void);
 # 12 "Scheduler/../Elements/Elements.h" 2
 # 21 "Scheduler/../Elements/Elements.h"
@@ -1955,6 +1955,13 @@ void ADC_Conv_MainFunction(void);
 # 10 "Scheduler/../WaterHeater_Mode/WaterHeater_Mode.h" 2
 
 
+# 1 "Scheduler/../WaterHeater_Mode/WaterHeater_Mode_Cfg.h" 1
+# 10 "Scheduler/../WaterHeater_Mode/WaterHeater_Mode_Cfg.h"
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdbool.h" 1 3
+# 10 "Scheduler/../WaterHeater_Mode/WaterHeater_Mode_Cfg.h" 2
+# 12 "Scheduler/../WaterHeater_Mode/WaterHeater_Mode.h" 2
+
+
 typedef enum _Select_Mode_t
 {
    Off_Mode=0,
@@ -2003,11 +2010,10 @@ void Mode_MainFunction(void);
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
 # 20 "Scheduler/../Display/../Config.h" 2
 # 10 "Scheduler/../Display/Display.h" 2
-
+# 25 "Scheduler/../Display/Display.h"
 void Display_Init(void);
 void Display_MainFunction(void);
 void Display_Blink(uint16_t Times_Ms,uint16_t Task_Peroid);
-void Display_Off(void);
 # 6 "Scheduler/Tasks.c" 2
 
 # 1 "Scheduler/../Temperature/Temperature.h" 1

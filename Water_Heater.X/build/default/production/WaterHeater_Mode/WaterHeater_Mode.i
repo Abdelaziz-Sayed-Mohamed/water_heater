@@ -1890,9 +1890,16 @@ extern __bank0 __bit __timeout;
 # 20 "WaterHeater_Mode/../gpio/../Config.h" 2
 # 11 "WaterHeater_Mode/../gpio/gpio_Cfg.h" 2
 # 11 "WaterHeater_Mode/../gpio/gpio.h" 2
-# 26 "WaterHeater_Mode/../gpio/gpio.h"
+# 24 "WaterHeater_Mode/../gpio/gpio.h"
 void GPIO_Init(void);
 # 11 "WaterHeater_Mode/WaterHeater_Mode.h" 2
+
+# 1 "WaterHeater_Mode/WaterHeater_Mode_Cfg.h" 1
+# 10 "WaterHeater_Mode/WaterHeater_Mode_Cfg.h"
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdbool.h" 1 3
+# 10 "WaterHeater_Mode/WaterHeater_Mode_Cfg.h" 2
+# 12 "WaterHeater_Mode/WaterHeater_Mode.h" 2
+
 
 typedef enum _Select_Mode_t
 {
@@ -1916,11 +1923,6 @@ void Reset_Setting_Timer(void);
 void Mode_MainFunction(void);
 # 8 "WaterHeater_Mode/WaterHeater_Mode.c" 2
 
-# 1 "WaterHeater_Mode/WaterHeater_Mode_Cfg.h" 1
-# 10 "WaterHeater_Mode/WaterHeater_Mode_Cfg.h"
-# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdbool.h" 1 3
-# 10 "WaterHeater_Mode/WaterHeater_Mode_Cfg.h" 2
-# 9 "WaterHeater_Mode/WaterHeater_Mode.c" 2
 
 # 1 "WaterHeater_Mode/../Temperature/Temperature.h" 1
 # 10 "WaterHeater_Mode/../Temperature/Temperature.h"
@@ -1970,6 +1972,9 @@ void Temperature_Calc(uint8_t ADC_VALUE);
 
 
 
+
+
+
 void Read_UP_DOWN_BUTTONS(void);
 void On_Off_Init(void);
 void EXTI_On_Off_CallBack(void);
@@ -1982,9 +1987,11 @@ void EXTI_On_Off_CallBack(void);
 void Mode_Init(void)
 {
 
- Temperature.Set_Temp=(60U);
- Mode.Select_Mode=Normal_Mode;
+ Mode.Select_Mode=Off_Mode;
  Mode.Setting_Mode_Timer=1;
+
+ Temperature.Set_Temp=(60U);
+
 }
 
 
@@ -1996,12 +2003,12 @@ void Mode_MainFunction(void)
    if(Mode.Select_Mode==Setting_Mode)
    {
     Start_Setting_Timer(5000,500);
-    if(((PORTB & (1<<2))==1) &&((PORTB & (1<<1))==0) && Temperature.Set_Temp !=(75U))
+    if((((PORTB>>2)&1)==0) &&(((PORTB>>1)&1)==1) && Temperature.Set_Temp !=(75U))
      {
       Temperature.Set_Temp += (5U);
       Reset_Setting_Timer();
      }
-     else if(((PORTB & (1<<2))==0) &&((PORTB & (1<<1))==1) && Temperature.Set_Temp !=(35U))
+     else if((((PORTB>>2)&1)==1) &&(((PORTB>>1)&1)==0) && Temperature.Set_Temp !=(35U))
      {
       Temperature.Set_Temp -= (5U);
       Reset_Setting_Timer();

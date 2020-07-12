@@ -78,7 +78,6 @@ void Elements_Control(uint8_t Average_Temp)
 
         	 _HEATER_OFF                      //Turn Off Heater
         	 _COOLER_ON                        //Turn On Cooler
-        	 _LED_ON                           //Turn On LED
 			 LED_Status=LED_ON ;
 
          }

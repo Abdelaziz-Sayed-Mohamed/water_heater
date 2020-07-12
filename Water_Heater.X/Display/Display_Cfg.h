@@ -9,11 +9,7 @@
 #define DISPLAY_CFG_H_
 
 
-#define _7SEGMENT_PORT_    PORTD
-#define _DIGIT1_PORT_      PORTA
-#define _DIGIT1_PIN_       5
-#define _DIGIT2_PORT_      PORTA
-#define _DIGIT2_PIN_       4
+
 
 #define a               0
 #define b               1

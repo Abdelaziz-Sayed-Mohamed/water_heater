@@ -8,6 +8,7 @@ Scheduler/../Elements/../gpio/../Config.h  \
 Scheduler/../ADC/ADC.h  \
 Scheduler/../ADC/../Config.h  \
 Scheduler/../WaterHeater_Mode/WaterHeater_Mode.h  \
+Scheduler/../WaterHeater_Mode/WaterHeater_Mode_Cfg.h  \
 Scheduler/../Display/Display.h  \
 Scheduler/../Display/../Config.h  \
 Scheduler/../Temperature/Temperature.h 

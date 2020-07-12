@@ -1957,8 +1957,8 @@ typedef struct{
 }Scheduler_Intity_t ;
 
 
-extern uint8_t Scheduler_ActivationFlags[( 3u )] ;
-extern const Scheduler_Intity_t Scheduler_Intitys[( 3u )];
+extern uint8_t Scheduler_ActivationFlags[( 3U )] ;
+extern const Scheduler_Intity_t Scheduler_Intitys[( 3U )];
 # 3 "Scheduler/Scheduler_cfg.c" 2
 
 
@@ -1967,9 +1967,9 @@ extern const Scheduler_Intity_t Scheduler_Intitys[( 3u )];
 
 
 
-uint8_t Scheduler_ActivationFlags[( 3u )] ;
+uint8_t Scheduler_ActivationFlags[( 3U )] ;
 
-const Scheduler_Intity_t Scheduler_Intitys[( 3u )]={
+const Scheduler_Intity_t Scheduler_Intitys[( 3U )]={
  {.fuction_ptr = &Scheduler_Task1 , .Peroid = (20UL) } ,
  {.fuction_ptr = &Scheduler_Task2 , .Peroid = (100UL) } ,
  {.fuction_ptr = &Scheduler_Task3 , .Peroid = (500UL) }

@@ -210,10 +210,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2363: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
 "10 Scheduler/Scheduler_cfg.c
-[; ;Scheduler/Scheduler_cfg.c: 10: uint8_t Scheduler_ActivationFlags[( 3u )] ;
+[; ;Scheduler/Scheduler_cfg.c: 10: uint8_t Scheduler_ActivationFlags[( 3U )] ;
 [v _Scheduler_ActivationFlags `uc ~T0 @X0 -> 3 `i e ]
 "12
-[; ;Scheduler/Scheduler_cfg.c: 12: const Scheduler_Intity_t Scheduler_Intitys[( 3u )]={
+[; ;Scheduler/Scheduler_cfg.c: 12: const Scheduler_Intity_t Scheduler_Intitys[( 3U )]={
 [v _Scheduler_Intitys `CS95 ~T0 @X0 -> 3 `i e ]
 [i _Scheduler_Intitys
 :U ..

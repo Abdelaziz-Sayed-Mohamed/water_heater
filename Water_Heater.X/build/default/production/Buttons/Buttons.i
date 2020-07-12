@@ -1885,6 +1885,9 @@ typedef uint16_t uintptr_t;
 
 
 
+
+
+
 void Read_UP_DOWN_BUTTONS(void);
 void On_Off_Init(void);
 void EXTI_On_Off_CallBack(void);
@@ -1924,9 +1927,16 @@ void EXTI_On_Off_CallBack(void);
 # 20 "Buttons/../WaterHeater_Mode/../gpio/../Config.h" 2
 # 11 "Buttons/../WaterHeater_Mode/../gpio/gpio_Cfg.h" 2
 # 11 "Buttons/../WaterHeater_Mode/../gpio/gpio.h" 2
-# 26 "Buttons/../WaterHeater_Mode/../gpio/gpio.h"
+# 24 "Buttons/../WaterHeater_Mode/../gpio/gpio.h"
 void GPIO_Init(void);
 # 11 "Buttons/../WaterHeater_Mode/WaterHeater_Mode.h" 2
+
+# 1 "Buttons/../WaterHeater_Mode/WaterHeater_Mode_Cfg.h" 1
+# 10 "Buttons/../WaterHeater_Mode/WaterHeater_Mode_Cfg.h"
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdbool.h" 1 3
+# 10 "Buttons/../WaterHeater_Mode/WaterHeater_Mode_Cfg.h" 2
+# 12 "Buttons/../WaterHeater_Mode/WaterHeater_Mode.h" 2
+
 
 typedef enum _Select_Mode_t
 {
@@ -1959,7 +1969,7 @@ void On_Off_Init(void)
 
     TRISBbits.TRISB0=1;
     INTCONbits.INTE=1;
-    INTCONbits.RBIF=0;
+    INTCONbits.INTF=0;
     INTEDG=1;
 
 }
@@ -1983,7 +1993,7 @@ void EXTI_On_Off_CallBack(void)
 
 void Read_UP_DOWN_BUTTONS(void)
 {
-    if((((PORTB & (1<<2))==1) ||((PORTB & (1<<1))==1)) && Mode.Select_Mode==Normal_Mode)
+    if(((((PORTB>>2)&1)==0) ||(((PORTB>>1)&1)==0)) && Mode.Select_Mode==Normal_Mode)
     {
       Mode.Select_Mode=Setting_Mode;
     }

@@ -15,10 +15,12 @@
 
 void Mode_Init(void)
 {
-
-	Temperature.Set_Temp=DEFAULT_SET_TEMP;
-	Mode.Select_Mode=Normal_Mode;
+  
+	Mode.Select_Mode=Off_Mode;
 	Mode.Setting_Mode_Timer=1;
+    #ifndef EEPROM
+	Temperature.Set_Temp=DEFAULT_SET_TEMP;
+    #endif
 }
 
 
@@ -30,12 +32,12 @@ void Mode_MainFunction(void)
    if(Mode.Select_Mode==Setting_Mode)
    {
 	   Start_Setting_Timer(5000,500); //Its Mean Time out event after 5 Sec if we Mapped Mode_MainFunction On 500ms Task Period
-	   if((READ_PIN(UP_BUTTON_PORT,UP_BUTTON_PIN)==true) &&(READ_PIN(DOWN_BUTTON_PORT,DOWN_BUTTON_PIN)==false) && Temperature.Set_Temp !=MAX_SET_TEMP) //Check the up button pressed and down button not pressed and setting limit time not expired
+	   if((READ_PIN(UP_BUTTON_PORT,UP_BUTTON_PIN)==Button_Pressed) &&(READ_PIN(DOWN_BUTTON_PORT,DOWN_BUTTON_PIN)==Button_NotPressed) && Temperature.Set_Temp !=MAX_SET_TEMP) //Check the up button pressed and down button not pressed and setting limit time not expired
 	    {
 	  	  Temperature.Set_Temp += TEMP_STEP;  //increase the set temperature by 5 degrees
 	  	  Reset_Setting_Timer();   //reset the setting time counter
 	    }
-	    else if((READ_PIN(UP_BUTTON_PORT,UP_BUTTON_PIN)==false) &&(READ_PIN(DOWN_BUTTON_PORT,DOWN_BUTTON_PIN)==true) && Temperature.Set_Temp !=MIN_SET_TEMP) //Check the down button pressed and up button not pressed and setting limit time not expired
+	    else if((READ_PIN(UP_BUTTON_PORT,UP_BUTTON_PIN)==Button_NotPressed) &&(READ_PIN(DOWN_BUTTON_PORT,DOWN_BUTTON_PIN)==Button_Pressed) && Temperature.Set_Temp !=MIN_SET_TEMP) //Check the down button pressed and up button not pressed and setting limit time not expired
 	    {
 	  	  Temperature.Set_Temp -= TEMP_STEP; //decrease the set temperature by 5 degrees
 	  	  Reset_Setting_Timer();  //reset the setting time counter

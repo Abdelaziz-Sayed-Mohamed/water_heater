@@ -1,27 +1,27 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"26 WaterHeater_Mode/WaterHeater_Mode.h
-[; ;WaterHeater_Mode/WaterHeater_Mode.h: 26: MODE_t Mode;
+"28 WaterHeater_Mode/WaterHeater_Mode.h
+[; ;WaterHeater_Mode/WaterHeater_Mode.h: 28: MODE_t Mode;
 [c E879 0 1 2 .. ]
 [n E879 _Select_Mode_t Off_Mode Normal_Mode Setting_Mode  ]
-"21
-[; ;WaterHeater_Mode/WaterHeater_Mode.h: 21: {
+"23
+[; ;WaterHeater_Mode/WaterHeater_Mode.h: 23: {
 [s S95 `E879 1 `uc 1 ]
 [n S95 _MODE_t Select_Mode Setting_Mode_Timer ]
 "12 WaterHeater_Mode/../Temperature/Temperature.h
 [; ;WaterHeater_Mode/../Temperature/Temperature.h: 12: {
 [s S96 `uc 1 `uc 1 `uc 1 :1 `uc 1 `uc 1 ]
 [n S96 _TEMP_t Temp_Value Average_Value Set_Temp Average_Value_Ready_Flag Average_NValues ]
-"14 WaterHeater_Mode/../Buttons/Buttons.h
-[; ;WaterHeater_Mode/../Buttons/Buttons.h: 14: void Read_UP_DOWN_BUTTONS(void);
+"17 WaterHeater_Mode/../Buttons/Buttons.h
+[; ;WaterHeater_Mode/../Buttons/Buttons.h: 17: void Read_UP_DOWN_BUTTONS(void);
 [v _Read_UP_DOWN_BUTTONS `(v ~T0 @X0 0 ef ]
-"29 WaterHeater_Mode/WaterHeater_Mode.h
-[; ;WaterHeater_Mode/WaterHeater_Mode.h: 29: void Start_Setting_Timer(uint16_t Timer_Ms ,uint16_t Peroid_Task);
+"31 WaterHeater_Mode/WaterHeater_Mode.h
+[; ;WaterHeater_Mode/WaterHeater_Mode.h: 31: void Start_Setting_Timer(uint16_t Timer_Ms ,uint16_t Peroid_Task);
 [v _Start_Setting_Timer `(v ~T0 @X0 0 ef2`ui`ui ]
 "216 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 216: extern volatile unsigned char PORTB __attribute__((address(0x006)));
 [v _PORTB `Vuc ~T0 @X0 0 e@6 ]
-"30 WaterHeater_Mode/WaterHeater_Mode.h
-[; ;WaterHeater_Mode/WaterHeater_Mode.h: 30: void Reset_Setting_Timer(void);
+"32 WaterHeater_Mode/WaterHeater_Mode.h
+[; ;WaterHeater_Mode/WaterHeater_Mode.h: 32: void Reset_Setting_Timer(void);
 [v _Reset_Setting_Timer `(v ~T0 @X0 0 ef ]
 "7 WaterHeater_Mode/../Buttons/../Config.h
 [p x FOSC = HS ]
@@ -219,8 +219,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2363
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2363: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
-"26 WaterHeater_Mode/WaterHeater_Mode.h
-[; ;WaterHeater_Mode/WaterHeater_Mode.h: 26: MODE_t Mode;
+"28 WaterHeater_Mode/WaterHeater_Mode.h
+[; ;WaterHeater_Mode/WaterHeater_Mode.h: 28: MODE_t Mode;
 [v _Mode `S95 ~T0 @X0 1 e ]
 "20 WaterHeater_Mode/../Temperature/Temperature.h
 [; ;WaterHeater_Mode/../Temperature/Temperature.h: 20: TEMP_t Temperature;
@@ -250,149 +250,149 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _Mode_Init ]
 [f ]
 "19
-[; ;WaterHeater_Mode/WaterHeater_Mode.c: 19:  Temperature.Set_Temp=(60U);
-[e = . _Temperature 2 -> -> 60 `ui `uc ]
+[; ;WaterHeater_Mode/WaterHeater_Mode.c: 19:  Mode.Select_Mode=Off_Mode;
+[e = . _Mode 0 . `E879 0 ]
 "20
-[; ;WaterHeater_Mode/WaterHeater_Mode.c: 20:  Mode.Select_Mode=Normal_Mode;
-[e = . _Mode 0 . `E879 1 ]
-"21
-[; ;WaterHeater_Mode/WaterHeater_Mode.c: 21:  Mode.Setting_Mode_Timer=1;
+[; ;WaterHeater_Mode/WaterHeater_Mode.c: 20:  Mode.Setting_Mode_Timer=1;
 [e = . _Mode 1 -> -> 1 `i `uc ]
 "22
-[; ;WaterHeater_Mode/WaterHeater_Mode.c: 22: }
+[; ;WaterHeater_Mode/WaterHeater_Mode.c: 22:  Temperature.Set_Temp=(60U);
+[e = . _Temperature 2 -> -> 60 `ui `uc ]
+"24
+[; ;WaterHeater_Mode/WaterHeater_Mode.c: 24: }
 [e :UE 97 ]
 }
-"26
-[; ;WaterHeater_Mode/WaterHeater_Mode.c: 26: void Mode_MainFunction(void)
+"28
+[; ;WaterHeater_Mode/WaterHeater_Mode.c: 28: void Mode_MainFunction(void)
 [v _Mode_MainFunction `(v ~T0 @X0 1 ef ]
-"27
-[; ;WaterHeater_Mode/WaterHeater_Mode.c: 27: {
+"29
+[; ;WaterHeater_Mode/WaterHeater_Mode.c: 29: {
 {
 [e :U _Mode_MainFunction ]
 [f ]
-"28
-[; ;WaterHeater_Mode/WaterHeater_Mode.c: 28:  Read_UP_DOWN_BUTTONS();
-[e ( _Read_UP_DOWN_BUTTONS ..  ]
 "30
-[; ;WaterHeater_Mode/WaterHeater_Mode.c: 30:    if(Mode.Select_Mode==Setting_Mode)
-[e $ ! == -> . _Mode 0 `ui -> . `E879 2 `ui 99  ]
-"31
-[; ;WaterHeater_Mode/WaterHeater_Mode.c: 31:    {
-{
+[; ;WaterHeater_Mode/WaterHeater_Mode.c: 30:  Read_UP_DOWN_BUTTONS();
+[e ( _Read_UP_DOWN_BUTTONS ..  ]
 "32
-[; ;WaterHeater_Mode/WaterHeater_Mode.c: 32:     Start_Setting_Timer(5000,500);
-[e ( _Start_Setting_Timer (2 , -> -> 5000 `i `ui -> -> 500 `i `ui ]
+[; ;WaterHeater_Mode/WaterHeater_Mode.c: 32:    if(Mode.Select_Mode==Setting_Mode)
+[e $ ! == -> . _Mode 0 `ui -> . `E879 2 `ui 99  ]
 "33
-[; ;WaterHeater_Mode/WaterHeater_Mode.c: 33:     if(((PORTB & (1<<2))==1) &&((PORTB & (1<<1))==0) && Temperature.Set_Temp !=(75U))
-[e $ ! && && == & -> _PORTB `i << -> 1 `i -> 2 `i -> 1 `i == & -> _PORTB `i << -> 1 `i -> 1 `i -> 0 `i != -> . _Temperature 2 `ui -> 75 `ui 100  ]
-"34
-[; ;WaterHeater_Mode/WaterHeater_Mode.c: 34:      {
+[; ;WaterHeater_Mode/WaterHeater_Mode.c: 33:    {
 {
+"34
+[; ;WaterHeater_Mode/WaterHeater_Mode.c: 34:     Start_Setting_Timer(5000,500);
+[e ( _Start_Setting_Timer (2 , -> -> 5000 `i `ui -> -> 500 `i `ui ]
 "35
-[; ;WaterHeater_Mode/WaterHeater_Mode.c: 35:       Temperature.Set_Temp += (5U);
-[e =+ . _Temperature 2 -> -> 5 `ui `uc ]
+[; ;WaterHeater_Mode/WaterHeater_Mode.c: 35:     if((((PORTB>>2)&1)==0) &&(((PORTB>>1)&1)==1) && Temperature.Set_Temp !=(75U))
+[e $ ! && && == & >> -> _PORTB `i -> 2 `i -> 1 `i -> 0 `i == & >> -> _PORTB `i -> 1 `i -> 1 `i -> 1 `i != -> . _Temperature 2 `ui -> 75 `ui 100  ]
 "36
-[; ;WaterHeater_Mode/WaterHeater_Mode.c: 36:       Reset_Setting_Timer();
-[e ( _Reset_Setting_Timer ..  ]
+[; ;WaterHeater_Mode/WaterHeater_Mode.c: 36:      {
+{
 "37
-[; ;WaterHeater_Mode/WaterHeater_Mode.c: 37:      }
+[; ;WaterHeater_Mode/WaterHeater_Mode.c: 37:       Temperature.Set_Temp += (5U);
+[e =+ . _Temperature 2 -> -> 5 `ui `uc ]
+"38
+[; ;WaterHeater_Mode/WaterHeater_Mode.c: 38:       Reset_Setting_Timer();
+[e ( _Reset_Setting_Timer ..  ]
+"39
+[; ;WaterHeater_Mode/WaterHeater_Mode.c: 39:      }
 }
 [e $U 101  ]
-"38
-[; ;WaterHeater_Mode/WaterHeater_Mode.c: 38:      else if(((PORTB & (1<<2))==0) &&((PORTB & (1<<1))==1) && Temperature.Set_Temp !=(35U))
-[e :U 100 ]
-[e $ ! && && == & -> _PORTB `i << -> 1 `i -> 2 `i -> 0 `i == & -> _PORTB `i << -> 1 `i -> 1 `i -> 1 `i != -> . _Temperature 2 `ui -> 35 `ui 102  ]
-"39
-[; ;WaterHeater_Mode/WaterHeater_Mode.c: 39:      {
-{
 "40
-[; ;WaterHeater_Mode/WaterHeater_Mode.c: 40:       Temperature.Set_Temp -= (5U);
-[e =- . _Temperature 2 -> -> 5 `ui `uc ]
+[; ;WaterHeater_Mode/WaterHeater_Mode.c: 40:      else if((((PORTB>>2)&1)==1) &&(((PORTB>>1)&1)==0) && Temperature.Set_Temp !=(35U))
+[e :U 100 ]
+[e $ ! && && == & >> -> _PORTB `i -> 2 `i -> 1 `i -> 1 `i == & >> -> _PORTB `i -> 1 `i -> 1 `i -> 0 `i != -> . _Temperature 2 `ui -> 35 `ui 102  ]
 "41
-[; ;WaterHeater_Mode/WaterHeater_Mode.c: 41:       Reset_Setting_Timer();
-[e ( _Reset_Setting_Timer ..  ]
+[; ;WaterHeater_Mode/WaterHeater_Mode.c: 41:      {
+{
+"42
+[; ;WaterHeater_Mode/WaterHeater_Mode.c: 42:       Temperature.Set_Temp -= (5U);
+[e =- . _Temperature 2 -> -> 5 `ui `uc ]
 "43
-[; ;WaterHeater_Mode/WaterHeater_Mode.c: 43:      }
+[; ;WaterHeater_Mode/WaterHeater_Mode.c: 43:       Reset_Setting_Timer();
+[e ( _Reset_Setting_Timer ..  ]
+"45
+[; ;WaterHeater_Mode/WaterHeater_Mode.c: 45:      }
 }
 [e :U 102 ]
 [e :U 101 ]
-"44
-[; ;WaterHeater_Mode/WaterHeater_Mode.c: 44:    }
+"46
+[; ;WaterHeater_Mode/WaterHeater_Mode.c: 46:    }
 }
 [e :U 99 ]
-"47
-[; ;WaterHeater_Mode/WaterHeater_Mode.c: 47: }
+"49
+[; ;WaterHeater_Mode/WaterHeater_Mode.c: 49: }
 [e :UE 98 ]
 }
-"52
-[; ;WaterHeater_Mode/WaterHeater_Mode.c: 52: void Reset_Setting_Timer(void)
+"54
+[; ;WaterHeater_Mode/WaterHeater_Mode.c: 54: void Reset_Setting_Timer(void)
 [v _Reset_Setting_Timer `(v ~T0 @X0 1 ef ]
-"53
-[; ;WaterHeater_Mode/WaterHeater_Mode.c: 53: {
+"55
+[; ;WaterHeater_Mode/WaterHeater_Mode.c: 55: {
 {
 [e :U _Reset_Setting_Timer ]
 [f ]
-"54
-[; ;WaterHeater_Mode/WaterHeater_Mode.c: 54:  if(Mode.Select_Mode==Setting_Mode)
-[e $ ! == -> . _Mode 0 `ui -> . `E879 2 `ui 104  ]
-"55
-[; ;WaterHeater_Mode/WaterHeater_Mode.c: 55:  {
-{
 "56
-[; ;WaterHeater_Mode/WaterHeater_Mode.c: 56:    Mode.Setting_Mode_Timer=1;
-[e = . _Mode 1 -> -> 1 `i `uc ]
+[; ;WaterHeater_Mode/WaterHeater_Mode.c: 56:  if(Mode.Select_Mode==Setting_Mode)
+[e $ ! == -> . _Mode 0 `ui -> . `E879 2 `ui 104  ]
 "57
-[; ;WaterHeater_Mode/WaterHeater_Mode.c: 57:  }
+[; ;WaterHeater_Mode/WaterHeater_Mode.c: 57:  {
+{
+"58
+[; ;WaterHeater_Mode/WaterHeater_Mode.c: 58:    Mode.Setting_Mode_Timer=1;
+[e = . _Mode 1 -> -> 1 `i `uc ]
+"59
+[; ;WaterHeater_Mode/WaterHeater_Mode.c: 59:  }
 }
 [e :U 104 ]
-"59
-[; ;WaterHeater_Mode/WaterHeater_Mode.c: 59: }
+"61
+[; ;WaterHeater_Mode/WaterHeater_Mode.c: 61: }
 [e :UE 103 ]
 }
-"61
-[; ;WaterHeater_Mode/WaterHeater_Mode.c: 61: void Start_Setting_Timer(uint16_t Timer_Ms ,uint16_t Peroid_Task)
+"63
+[; ;WaterHeater_Mode/WaterHeater_Mode.c: 63: void Start_Setting_Timer(uint16_t Timer_Ms ,uint16_t Peroid_Task)
 [v _Start_Setting_Timer `(v ~T0 @X0 1 ef2`ui`ui ]
-"62
-[; ;WaterHeater_Mode/WaterHeater_Mode.c: 62: {
+"64
+[; ;WaterHeater_Mode/WaterHeater_Mode.c: 64: {
 {
 [e :U _Start_Setting_Timer ]
-"61
-[; ;WaterHeater_Mode/WaterHeater_Mode.c: 61: void Start_Setting_Timer(uint16_t Timer_Ms ,uint16_t Peroid_Task)
+"63
+[; ;WaterHeater_Mode/WaterHeater_Mode.c: 63: void Start_Setting_Timer(uint16_t Timer_Ms ,uint16_t Peroid_Task)
 [v _Timer_Ms `ui ~T0 @X0 1 r1 ]
 [v _Peroid_Task `ui ~T0 @X0 1 r2 ]
-"62
-[; ;WaterHeater_Mode/WaterHeater_Mode.c: 62: {
-[f ]
-"63
-[; ;WaterHeater_Mode/WaterHeater_Mode.c: 63:  if(Mode.Setting_Mode_Timer*Peroid_Task==Timer_Ms)
-[e $ ! == * -> . _Mode 1 `ui _Peroid_Task _Timer_Ms 106  ]
 "64
-[; ;WaterHeater_Mode/WaterHeater_Mode.c: 64:  {
-{
+[; ;WaterHeater_Mode/WaterHeater_Mode.c: 64: {
+[f ]
+"65
+[; ;WaterHeater_Mode/WaterHeater_Mode.c: 65:  if(Mode.Setting_Mode_Timer*Peroid_Task==Timer_Ms)
+[e $ ! == * -> . _Mode 1 `ui _Peroid_Task _Timer_Ms 106  ]
 "66
-[; ;WaterHeater_Mode/WaterHeater_Mode.c: 66:   Mode.Select_Mode=Normal_Mode;
+[; ;WaterHeater_Mode/WaterHeater_Mode.c: 66:  {
+{
+"68
+[; ;WaterHeater_Mode/WaterHeater_Mode.c: 68:   Mode.Select_Mode=Normal_Mode;
 [e = . _Mode 0 . `E879 1 ]
-"67
-[; ;WaterHeater_Mode/WaterHeater_Mode.c: 67:   Mode.Setting_Mode_Timer=1;
-[e = . _Mode 1 -> -> 1 `i `uc ]
 "69
-[; ;WaterHeater_Mode/WaterHeater_Mode.c: 69:  }
+[; ;WaterHeater_Mode/WaterHeater_Mode.c: 69:   Mode.Setting_Mode_Timer=1;
+[e = . _Mode 1 -> -> 1 `i `uc ]
+"71
+[; ;WaterHeater_Mode/WaterHeater_Mode.c: 71:  }
 }
 [e $U 107  ]
-"70
-[; ;WaterHeater_Mode/WaterHeater_Mode.c: 70:  else
-[e :U 106 ]
-"71
-[; ;WaterHeater_Mode/WaterHeater_Mode.c: 71:  {
-{
 "72
-[; ;WaterHeater_Mode/WaterHeater_Mode.c: 72:   Mode.Setting_Mode_Timer++;
-[e ++ . _Mode 1 -> -> 1 `i `uc ]
+[; ;WaterHeater_Mode/WaterHeater_Mode.c: 72:  else
+[e :U 106 ]
 "73
-[; ;WaterHeater_Mode/WaterHeater_Mode.c: 73:  }
+[; ;WaterHeater_Mode/WaterHeater_Mode.c: 73:  {
+{
+"74
+[; ;WaterHeater_Mode/WaterHeater_Mode.c: 74:   Mode.Setting_Mode_Timer++;
+[e ++ . _Mode 1 -> -> 1 `i `uc ]
+"75
+[; ;WaterHeater_Mode/WaterHeater_Mode.c: 75:  }
 }
 [e :U 107 ]
-"75
-[; ;WaterHeater_Mode/WaterHeater_Mode.c: 75: }
+"77
+[; ;WaterHeater_Mode/WaterHeater_Mode.c: 77: }
 [e :UE 105 ]
 }

@@ -2018,14 +2018,15 @@ typedef struct{
 }Scheduler_Intity_t ;
 
 
-extern uint8_t Scheduler_ActivationFlags[( 3u )] ;
-extern const Scheduler_Intity_t Scheduler_Intitys[( 3u )];
+extern uint8_t Scheduler_ActivationFlags[( 3U )] ;
+extern const Scheduler_Intity_t Scheduler_Intitys[( 3U )];
 # 11 "Interrupt/../Timer/../Scheduler/Scheduler.h" 2
 
 void Scheduler_Init(void);
 void Scheduler_Start(void);
 void Scheduler_ActivateTask(uint32_t SystemTick);
 # 11 "Interrupt/../Timer/Timer.h" 2
+
 
 
 
@@ -2064,6 +2065,9 @@ void Timer0_Init(void);
 
 
 
+
+
+
 void Read_UP_DOWN_BUTTONS(void);
 void On_Off_Init(void);
 void EXTI_On_Off_CallBack(void);
@@ -2072,16 +2076,16 @@ void EXTI_On_Off_CallBack(void);
 
 void __attribute__((picinterrupt(("")))) myISR(void)
 {
- if(INTCONbits.RBIF)
+ if(INTCONbits.INTF)
  {
-        INTCONbits.RBIF=0;
+        INTCONbits.INTF=0;
   EXTI_On_Off_CallBack();
 
  }
  else if(INTCONbits.TMR0IF)
  {
         INTCONbits.TMR0IF=0;
-        TMR0=6;
+        TMR0=100;
   Timer0_CallBack();
 
  }

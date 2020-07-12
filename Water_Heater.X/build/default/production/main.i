@@ -1917,7 +1917,7 @@ typedef uint16_t uintptr_t;
 # 20 "./gpio/../Config.h" 2
 # 11 "./gpio/gpio_Cfg.h" 2
 # 11 "./gpio/gpio.h" 2
-# 26 "./gpio/gpio.h"
+# 24 "./gpio/gpio.h"
 void GPIO_Init(void);
 # 25 "main.c" 2
 
@@ -2078,8 +2078,8 @@ typedef struct{
 }Scheduler_Intity_t ;
 
 
-extern uint8_t Scheduler_ActivationFlags[( 3u )] ;
-extern const Scheduler_Intity_t Scheduler_Intitys[( 3u )];
+extern uint8_t Scheduler_ActivationFlags[( 3U )] ;
+extern const Scheduler_Intity_t Scheduler_Intitys[( 3U )];
 # 11 "./Scheduler/Scheduler.h" 2
 
 void Scheduler_Init(void);
@@ -2119,6 +2119,7 @@ void Scheduler_ActivateTask(uint32_t SystemTick);
 
 
 
+
 void Timer0_CallBack(void);
 void Timer0_Init(void);
 # 28 "main.c" 2
@@ -2149,11 +2150,10 @@ void Timer0_Init(void);
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
 # 20 "./Display/../Config.h" 2
 # 10 "./Display/Display.h" 2
-
+# 25 "./Display/Display.h"
 void Display_Init(void);
 void Display_MainFunction(void);
 void Display_Blink(uint16_t Times_Ms,uint16_t Task_Peroid);
-void Display_Off(void);
 # 29 "main.c" 2
 
 # 1 "./Elements/Elements.h" 1
@@ -2193,6 +2193,9 @@ void Elements_Control(uint8_t Average_Temp);
 
 
 
+
+
+
 void Read_UP_DOWN_BUTTONS(void);
 void On_Off_Init(void);
 void EXTI_On_Off_CallBack(void);
@@ -2221,6 +2224,13 @@ void Temperature_Calc(uint8_t ADC_VALUE);
 # 10 "./WaterHeater_Mode/WaterHeater_Mode.h"
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
 # 10 "./WaterHeater_Mode/WaterHeater_Mode.h" 2
+
+
+# 1 "./WaterHeater_Mode/WaterHeater_Mode_Cfg.h" 1
+# 10 "./WaterHeater_Mode/WaterHeater_Mode_Cfg.h"
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdbool.h" 1 3
+# 10 "./WaterHeater_Mode/WaterHeater_Mode_Cfg.h" 2
+# 12 "./WaterHeater_Mode/WaterHeater_Mode.h" 2
 
 
 typedef enum _Select_Mode_t
@@ -2299,7 +2309,6 @@ void main(void) {
   ADC_Start_Conv();
   Scheduler_Init();
   Timer0_Init();
-
   Scheduler_Start();
     while(1)
     {}

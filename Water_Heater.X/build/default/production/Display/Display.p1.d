@@ -7,4 +7,5 @@ Display/../WaterHeater_Mode/WaterHeater_Mode.h  \
 Display/../WaterHeater_Mode/../gpio/gpio.h  \
 Display/../WaterHeater_Mode/../gpio/gpio_Cfg.h  \
 Display/../WaterHeater_Mode/../gpio/../Config.h  \
+Display/../WaterHeater_Mode/WaterHeater_Mode_Cfg.h  \
 Display/../Temperature/Temperature.h 

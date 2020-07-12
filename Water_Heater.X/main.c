@@ -46,8 +46,7 @@ void main(void) {
   Mode_Init();
   ADC_Start_Conv();
   Scheduler_Init();
-  Timer0_Init();
-  
+  Timer0_Init(); 
   Scheduler_Start();    
     while(1)
     {}

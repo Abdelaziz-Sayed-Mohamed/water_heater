@@ -9,6 +9,8 @@
 #define WATERHEATER_MODE_H_
 #include "stdint.h"
 #include"../gpio/gpio.h"
+#include"WaterHeater_Mode_Cfg.h"
+
 typedef enum _Select_Mode_t
 {
    Off_Mode=0,

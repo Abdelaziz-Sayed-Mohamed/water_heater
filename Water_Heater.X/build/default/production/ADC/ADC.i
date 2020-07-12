@@ -1958,9 +1958,16 @@ void Temperature_Calc(uint8_t ADC_VALUE);
 # 20 "ADC/../WaterHeater_Mode/../gpio/../Config.h" 2
 # 11 "ADC/../WaterHeater_Mode/../gpio/gpio_Cfg.h" 2
 # 11 "ADC/../WaterHeater_Mode/../gpio/gpio.h" 2
-# 26 "ADC/../WaterHeater_Mode/../gpio/gpio.h"
+# 24 "ADC/../WaterHeater_Mode/../gpio/gpio.h"
 void GPIO_Init(void);
 # 11 "ADC/../WaterHeater_Mode/WaterHeater_Mode.h" 2
+
+# 1 "ADC/../WaterHeater_Mode/WaterHeater_Mode_Cfg.h" 1
+# 10 "ADC/../WaterHeater_Mode/WaterHeater_Mode_Cfg.h"
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdbool.h" 1 3
+# 10 "ADC/../WaterHeater_Mode/WaterHeater_Mode_Cfg.h" 2
+# 12 "ADC/../WaterHeater_Mode/WaterHeater_Mode.h" 2
+
 
 typedef enum _Select_Mode_t
 {

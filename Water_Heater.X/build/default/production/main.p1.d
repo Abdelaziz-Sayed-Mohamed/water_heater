@@ -19,6 +19,7 @@ Buttons/Buttons.h  \
 Buttons/../Config.h  \
 Temperature/Temperature.h  \
 WaterHeater_Mode/WaterHeater_Mode.h  \
+WaterHeater_Mode/WaterHeater_Mode_Cfg.h  \
 Average/Average.h  \
 Average/Average_Cfg.h  \
 Interrupt/Interrupt.h  \

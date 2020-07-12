@@ -19,7 +19,7 @@ void __interrupt() myISR(void)
 	else if(_IS_TIMER0_FLAG)
 	{   
         _RESET_TIMER0_FLAG;
-        TMR0=6;
+        TMR0=Reload_Timer0;
 		Timer0_CallBack();
 		
 	}

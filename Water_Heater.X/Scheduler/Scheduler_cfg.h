@@ -8,8 +8,8 @@
 #include "stdint.h"
 #include"../Config.h"
 
-#define NumberOfTasks		        ( 3u )
-#define SystemTickPeriodms			(1UL)		/*in Hz*/
+#define NumberOfTasks		        ( 3U )
+#define SystemTickPeriodms			(20UL)		/*in Ms*/
 
 typedef struct{
   void (* fuction_ptr   )(void)  ;

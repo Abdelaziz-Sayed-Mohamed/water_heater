@@ -1885,11 +1885,10 @@ typedef int16_t intptr_t;
 typedef uint16_t uintptr_t;
 # 20 "Display/../Config.h" 2
 # 10 "Display/Display.h" 2
-
+# 25 "Display/Display.h"
 void Display_Init(void);
 void Display_MainFunction(void);
 void Display_Blink(uint16_t Times_Ms,uint16_t Task_Peroid);
-void Display_Off(void);
 # 9 "Display/Display.c" 2
 
 # 1 "Display/../WaterHeater_Mode/WaterHeater_Mode.h" 1
@@ -1926,9 +1925,16 @@ void Display_Off(void);
 # 20 "Display/../WaterHeater_Mode/../gpio/../Config.h" 2
 # 11 "Display/../WaterHeater_Mode/../gpio/gpio_Cfg.h" 2
 # 11 "Display/../WaterHeater_Mode/../gpio/gpio.h" 2
-# 26 "Display/../WaterHeater_Mode/../gpio/gpio.h"
+# 24 "Display/../WaterHeater_Mode/../gpio/gpio.h"
 void GPIO_Init(void);
 # 11 "Display/../WaterHeater_Mode/WaterHeater_Mode.h" 2
+
+# 1 "Display/../WaterHeater_Mode/WaterHeater_Mode_Cfg.h" 1
+# 10 "Display/../WaterHeater_Mode/WaterHeater_Mode_Cfg.h"
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdbool.h" 1 3
+# 10 "Display/../WaterHeater_Mode/WaterHeater_Mode_Cfg.h" 2
+# 12 "Display/../WaterHeater_Mode/WaterHeater_Mode.h" 2
+
 
 typedef enum _Select_Mode_t
 {
@@ -1983,23 +1989,19 @@ Enable_Display_t Enable_Display;
 
 void Display_Init(void)
 {
-
- TRISD=0;
- TRISAbits.TRISA4=0;
- TRISAbits.TRISA5=0;
  (PORTA &= ~(1<<5)) ;
  (PORTA &= ~(1<<4)) ;
- PORTD=0;
+ PORTD=0b00111111;
 }
 
 
 
 void Display_MainFunction(void)
 {
- uint8_t Digit_1=0;
- uint8_t Digit_2=0;
- uint8_t Tempreture=0;
- uint8_t Display=0;
+ static uint8_t Digit_1=0;
+ static uint8_t Digit_2=0;
+ static uint8_t Tempreture=0;
+ static uint8_t Display=0;
  static uint8_t Enable_Digit_Selector=1;
 
   if(Mode.Select_Mode==Normal_Mode)
@@ -2013,7 +2015,8 @@ void Display_MainFunction(void)
   }
   else if(Mode.Select_Mode==Off_Mode)
   {
-   Display_Off();
+  (PORTA &= ~(1<<5)) ;
+  (PORTA &= ~(1<<4)) ;
   }
 
 
@@ -2023,7 +2026,7 @@ void Display_MainFunction(void)
   {
          Digit_1=Tempreture%10;
          Digit_2=Tempreture/10;
-         Enable_Digit_Selector^=Enable_Digit_Selector;
+         Enable_Digit_Selector^=1;
 
          if(Enable_Digit_Selector==0)
          {
@@ -2073,7 +2076,7 @@ void Display_MainFunction(void)
              break;
 
           case 7:
-             PORTD=0b01000111;
+             PORTD=0b00000111;
              break;
 
           case 8:
@@ -2106,7 +2109,8 @@ void Display_Blink(uint16_t Times_Ms,uint16_t Task_Peroid)
       if(Enable_Display==Enable_Display_On)
       {
        Enable_Display=Enable_Display_Off;
-       Display_Off();
+        (PORTA &= ~(1<<5)) ;
+        (PORTA &= ~(1<<4)) ;
 
       }
       else if(Enable_Display==Enable_Display_Off)
@@ -2116,13 +2120,4 @@ void Display_Blink(uint16_t Times_Ms,uint16_t Task_Peroid)
       Counter=1;
   }
   Counter++;
-}
-
-
-void Display_Off(void)
-{
-
- (PORTA &= ~(1<<5)) ;
- (PORTA &= ~(1<<4)) ;
-
 }

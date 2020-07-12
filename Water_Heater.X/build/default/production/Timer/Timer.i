@@ -1990,14 +1990,15 @@ typedef struct{
 }Scheduler_Intity_t ;
 
 
-extern uint8_t Scheduler_ActivationFlags[( 3u )] ;
-extern const Scheduler_Intity_t Scheduler_Intitys[( 3u )];
+extern uint8_t Scheduler_ActivationFlags[( 3U )] ;
+extern const Scheduler_Intity_t Scheduler_Intitys[( 3U )];
 # 11 "Timer/../Scheduler/Scheduler.h" 2
 
 void Scheduler_Init(void);
 void Scheduler_Start(void);
 void Scheduler_ActivateTask(uint32_t SystemTick);
 # 11 "Timer/Timer.h" 2
+
 
 
 
@@ -2016,15 +2017,15 @@ void Timer0_Init(void)
      OPTION_REGbits.PSA=0;
 
 
-     OPTION_REGbits.PS0=0;
+     OPTION_REGbits.PS0=1;
      OPTION_REGbits.PS1=1;
-     OPTION_REGbits.PS2=0;
+     OPTION_REGbits.PS2=1;
 
 
         INTCONbits.TMR0IE=1;
         INTCONbits.PEIE=1;
         INTCONbits.GIE=1;
-     TMR0=6;
+     TMR0=100;
         INTCONbits.TMR0IF=0;
 
 }

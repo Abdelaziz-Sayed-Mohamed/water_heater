@@ -21,23 +21,19 @@ Enable_Display_t  Enable_Display;
 
 void Display_Init(void)
 {
-
-	TRISD=OUTPUT;
-	TRISAbits.TRISA4=OUTPUT;
-	TRISAbits.TRISA5=OUTPUT;
-	RESET_PIN(_DIGIT1_PORT_,_DIGIT1_PIN_) ;
-	RESET_PIN(_DIGIT2_PORT_,_DIGIT2_PIN_) ;
-	_7SEGMENT_PORT_=0;
+	RESET_PIN(DIGIT1_PORT,DIGIT1_PIN) ;
+	RESET_PIN(DIGIT2_PORT,DIGIT2_PIN) ;
+	_7SEGMENT_PORT=Display_Zero;
 }
 
 
 
 void Display_MainFunction(void) //This Function should be Mapped On 20ms Task To can Blink 2 Digit 7Segment Every 1 Sec If Setting Mode Enabled
 {
- uint8_t Digit_1=0;
- uint8_t Digit_2=0;
- uint8_t Tempreture=0;
- uint8_t Display=0;
+ static uint8_t Digit_1=0;
+ static uint8_t Digit_2=0;
+ static uint8_t Tempreture=0;
+ static uint8_t Display=0;
  static uint8_t Enable_Digit_Selector=1;
 
   if(Mode.Select_Mode==Normal_Mode)
@@ -51,7 +47,8 @@ void Display_MainFunction(void) //This Function should be Mapped On 20ms Task To
   }
   else if(Mode.Select_Mode==Off_Mode)
   {
-	  Display_Off();
+	 RESET_PIN(DIGIT1_PORT,DIGIT1_PIN) ;
+	 RESET_PIN(DIGIT2_PORT,DIGIT2_PIN) ;
   }
 
 
@@ -61,20 +58,20 @@ void Display_MainFunction(void) //This Function should be Mapped On 20ms Task To
 	 {
          Digit_1=Tempreture%10;
          Digit_2=Tempreture/10;
-         Enable_Digit_Selector^=Enable_Digit_Selector;
+         Enable_Digit_Selector^=1;
 
          if(Enable_Digit_Selector==0)
          {
   	       Display=Digit_1;
-           RESET_PIN(_DIGIT2_PORT_,_DIGIT2_PIN_);
-           SET_PIN(_DIGIT1_PORT_,_DIGIT1_PIN_)  ;
+           RESET_PIN(DIGIT2_PORT,DIGIT2_PIN);
+           SET_PIN(DIGIT1_PORT,DIGIT1_PIN)  ;
 
          }
          else if(Enable_Digit_Selector==1)
          {
   	       Display=Digit_2;
-  	       RESET_PIN(_DIGIT1_PORT_,_DIGIT1_PIN_);
-  	       SET_PIN(_DIGIT2_PORT_,_DIGIT2_PIN_);
+  	       RESET_PIN(DIGIT1_PORT,DIGIT1_PIN);
+  	       SET_PIN(DIGIT2_PORT,DIGIT2_PIN);
 
          }
 
@@ -83,43 +80,43 @@ void Display_MainFunction(void) //This Function should be Mapped On 20ms Task To
          switch(Display)
          {
           case 0:
-             _7SEGMENT_PORT_=0b00111111;
+             _7SEGMENT_PORT=Display_Zero;
              break;
 
           case 1:
-             _7SEGMENT_PORT_=0b00000110;
+             _7SEGMENT_PORT=Display_One;
              break;
 
           case 2:
-             _7SEGMENT_PORT_=0b01011011;
+             _7SEGMENT_PORT=Display_Two;
              break;
 
           case 3:
-             _7SEGMENT_PORT_=0b01001111;
+             _7SEGMENT_PORT=Display_Three;
              break;
 
           case 4:
-             _7SEGMENT_PORT_=0b01100110;
+             _7SEGMENT_PORT=Display_Four;
              break;
 
           case 5:
-             _7SEGMENT_PORT_=0b01101101;
+             _7SEGMENT_PORT=Display_Five;
              break;
 
           case 6:
-             _7SEGMENT_PORT_=0b01111101;
+             _7SEGMENT_PORT=Display_Six;
              break;
 
           case 7:
-             _7SEGMENT_PORT_=0b01000111;
+             _7SEGMENT_PORT=Display_Seven;
              break;
 
           case 8:
-             _7SEGMENT_PORT_=0b01111111;
+             _7SEGMENT_PORT=Display_Eight;
              break;
 
           case 9:
-             _7SEGMENT_PORT_=0b01101111;
+             _7SEGMENT_PORT=Display_Nine;
              break;
 
          }
@@ -144,7 +141,8 @@ void Display_Blink(uint16_t Times_Ms,uint16_t Task_Peroid)
       if(Enable_Display==Enable_Display_On)
       {
     	  Enable_Display=Enable_Display_Off;
-    	  Display_Off();
+    	   RESET_PIN(DIGIT1_PORT,DIGIT1_PIN) ;
+	       RESET_PIN(DIGIT2_PORT,DIGIT2_PIN) ;
 
       }
       else if(Enable_Display==Enable_Display_Off)
@@ -154,14 +152,5 @@ void Display_Blink(uint16_t Times_Ms,uint16_t Task_Peroid)
       Counter=1;
   }
   Counter++;
-}
-
-
-void Display_Off(void)
-{
-
-	RESET_PIN(_DIGIT1_PORT_,_DIGIT1_PIN_) ;
-	RESET_PIN(_DIGIT2_PORT_,_DIGIT2_PIN_) ;
-
 }
 

@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=ADC/ADC.c main.c Average/Average.c Buttons/Buttons.c Display/Display.c Elements/Elements.c gpio/gpio.c Interrupt/Interrupt.c Scheduler/Scheduler.c Scheduler/Scheduler_cfg.c Scheduler/Tasks.c Temperature/Temperature.c Timer/Timer.c WaterHeater_Mode/WaterHeater_Mode.c WaterHeater_Mode/WaterHeater_Mode_Cfg.c
+SOURCEFILES_QUOTED_IF_SPACED=ADC/ADC.c main.c Average/Average.c Buttons/Buttons.c Display/Display.c Elements/Elements.c gpio/gpio.c Interrupt/Interrupt.c Scheduler/Scheduler.c Scheduler/Scheduler_cfg.c Scheduler/Tasks.c Temperature/Temperature.c Timer/Timer.c WaterHeater_Mode/WaterHeater_Mode.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/ADC/ADC.p1 ${OBJECTDIR}/main.p1 ${OBJECTDIR}/Average/Average.p1 ${OBJECTDIR}/Buttons/Buttons.p1 ${OBJECTDIR}/Display/Display.p1 ${OBJECTDIR}/Elements/Elements.p1 ${OBJECTDIR}/gpio/gpio.p1 ${OBJECTDIR}/Interrupt/Interrupt.p1 ${OBJECTDIR}/Scheduler/Scheduler.p1 ${OBJECTDIR}/Scheduler/Scheduler_cfg.p1 ${OBJECTDIR}/Scheduler/Tasks.p1 ${OBJECTDIR}/Temperature/Temperature.p1 ${OBJECTDIR}/Timer/Timer.p1 ${OBJECTDIR}/WaterHeater_Mode/WaterHeater_Mode.p1 ${OBJECTDIR}/WaterHeater_Mode/WaterHeater_Mode_Cfg.p1
-POSSIBLE_DEPFILES=${OBJECTDIR}/ADC/ADC.p1.d ${OBJECTDIR}/main.p1.d ${OBJECTDIR}/Average/Average.p1.d ${OBJECTDIR}/Buttons/Buttons.p1.d ${OBJECTDIR}/Display/Display.p1.d ${OBJECTDIR}/Elements/Elements.p1.d ${OBJECTDIR}/gpio/gpio.p1.d ${OBJECTDIR}/Interrupt/Interrupt.p1.d ${OBJECTDIR}/Scheduler/Scheduler.p1.d ${OBJECTDIR}/Scheduler/Scheduler_cfg.p1.d ${OBJECTDIR}/Scheduler/Tasks.p1.d ${OBJECTDIR}/Temperature/Temperature.p1.d ${OBJECTDIR}/Timer/Timer.p1.d ${OBJECTDIR}/WaterHeater_Mode/WaterHeater_Mode.p1.d ${OBJECTDIR}/WaterHeater_Mode/WaterHeater_Mode_Cfg.p1.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/ADC/ADC.p1 ${OBJECTDIR}/main.p1 ${OBJECTDIR}/Average/Average.p1 ${OBJECTDIR}/Buttons/Buttons.p1 ${OBJECTDIR}/Display/Display.p1 ${OBJECTDIR}/Elements/Elements.p1 ${OBJECTDIR}/gpio/gpio.p1 ${OBJECTDIR}/Interrupt/Interrupt.p1 ${OBJECTDIR}/Scheduler/Scheduler.p1 ${OBJECTDIR}/Scheduler/Scheduler_cfg.p1 ${OBJECTDIR}/Scheduler/Tasks.p1 ${OBJECTDIR}/Temperature/Temperature.p1 ${OBJECTDIR}/Timer/Timer.p1 ${OBJECTDIR}/WaterHeater_Mode/WaterHeater_Mode.p1
+POSSIBLE_DEPFILES=${OBJECTDIR}/ADC/ADC.p1.d ${OBJECTDIR}/main.p1.d ${OBJECTDIR}/Average/Average.p1.d ${OBJECTDIR}/Buttons/Buttons.p1.d ${OBJECTDIR}/Display/Display.p1.d ${OBJECTDIR}/Elements/Elements.p1.d ${OBJECTDIR}/gpio/gpio.p1.d ${OBJECTDIR}/Interrupt/Interrupt.p1.d ${OBJECTDIR}/Scheduler/Scheduler.p1.d ${OBJECTDIR}/Scheduler/Scheduler_cfg.p1.d ${OBJECTDIR}/Scheduler/Tasks.p1.d ${OBJECTDIR}/Temperature/Temperature.p1.d ${OBJECTDIR}/Timer/Timer.p1.d ${OBJECTDIR}/WaterHeater_Mode/WaterHeater_Mode.p1.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/ADC/ADC.p1 ${OBJECTDIR}/main.p1 ${OBJECTDIR}/Average/Average.p1 ${OBJECTDIR}/Buttons/Buttons.p1 ${OBJECTDIR}/Display/Display.p1 ${OBJECTDIR}/Elements/Elements.p1 ${OBJECTDIR}/gpio/gpio.p1 ${OBJECTDIR}/Interrupt/Interrupt.p1 ${OBJECTDIR}/Scheduler/Scheduler.p1 ${OBJECTDIR}/Scheduler/Scheduler_cfg.p1 ${OBJECTDIR}/Scheduler/Tasks.p1 ${OBJECTDIR}/Temperature/Temperature.p1 ${OBJECTDIR}/Timer/Timer.p1 ${OBJECTDIR}/WaterHeater_Mode/WaterHeater_Mode.p1 ${OBJECTDIR}/WaterHeater_Mode/WaterHeater_Mode_Cfg.p1
+OBJECTFILES=${OBJECTDIR}/ADC/ADC.p1 ${OBJECTDIR}/main.p1 ${OBJECTDIR}/Average/Average.p1 ${OBJECTDIR}/Buttons/Buttons.p1 ${OBJECTDIR}/Display/Display.p1 ${OBJECTDIR}/Elements/Elements.p1 ${OBJECTDIR}/gpio/gpio.p1 ${OBJECTDIR}/Interrupt/Interrupt.p1 ${OBJECTDIR}/Scheduler/Scheduler.p1 ${OBJECTDIR}/Scheduler/Scheduler_cfg.p1 ${OBJECTDIR}/Scheduler/Tasks.p1 ${OBJECTDIR}/Temperature/Temperature.p1 ${OBJECTDIR}/Timer/Timer.p1 ${OBJECTDIR}/WaterHeater_Mode/WaterHeater_Mode.p1
 
 # Source Files
-SOURCEFILES=ADC/ADC.c main.c Average/Average.c Buttons/Buttons.c Display/Display.c Elements/Elements.c gpio/gpio.c Interrupt/Interrupt.c Scheduler/Scheduler.c Scheduler/Scheduler_cfg.c Scheduler/Tasks.c Temperature/Temperature.c Timer/Timer.c WaterHeater_Mode/WaterHeater_Mode.c WaterHeater_Mode/WaterHeater_Mode_Cfg.c
+SOURCEFILES=ADC/ADC.c main.c Average/Average.c Buttons/Buttons.c Display/Display.c Elements/Elements.c gpio/gpio.c Interrupt/Interrupt.c Scheduler/Scheduler.c Scheduler/Scheduler_cfg.c Scheduler/Tasks.c Temperature/Temperature.c Timer/Timer.c WaterHeater_Mode/WaterHeater_Mode.c
 
 
 
@@ -206,14 +206,6 @@ ${OBJECTDIR}/WaterHeater_Mode/WaterHeater_Mode.p1: WaterHeater_Mode/WaterHeater_
 	@-${MV} ${OBJECTDIR}/WaterHeater_Mode/WaterHeater_Mode.d ${OBJECTDIR}/WaterHeater_Mode/WaterHeater_Mode.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/WaterHeater_Mode/WaterHeater_Mode.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/WaterHeater_Mode/WaterHeater_Mode_Cfg.p1: WaterHeater_Mode/WaterHeater_Mode_Cfg.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/WaterHeater_Mode" 
-	@${RM} ${OBJECTDIR}/WaterHeater_Mode/WaterHeater_Mode_Cfg.p1.d 
-	@${RM} ${OBJECTDIR}/WaterHeater_Mode/WaterHeater_Mode_Cfg.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/WaterHeater_Mode/WaterHeater_Mode_Cfg.p1 WaterHeater_Mode/WaterHeater_Mode_Cfg.c 
-	@-${MV} ${OBJECTDIR}/WaterHeater_Mode/WaterHeater_Mode_Cfg.d ${OBJECTDIR}/WaterHeater_Mode/WaterHeater_Mode_Cfg.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/WaterHeater_Mode/WaterHeater_Mode_Cfg.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
 else
 ${OBJECTDIR}/ADC/ADC.p1: ADC/ADC.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/ADC" 
@@ -326,14 +318,6 @@ ${OBJECTDIR}/WaterHeater_Mode/WaterHeater_Mode.p1: WaterHeater_Mode/WaterHeater_
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/WaterHeater_Mode/WaterHeater_Mode.p1 WaterHeater_Mode/WaterHeater_Mode.c 
 	@-${MV} ${OBJECTDIR}/WaterHeater_Mode/WaterHeater_Mode.d ${OBJECTDIR}/WaterHeater_Mode/WaterHeater_Mode.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/WaterHeater_Mode/WaterHeater_Mode.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
-${OBJECTDIR}/WaterHeater_Mode/WaterHeater_Mode_Cfg.p1: WaterHeater_Mode/WaterHeater_Mode_Cfg.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/WaterHeater_Mode" 
-	@${RM} ${OBJECTDIR}/WaterHeater_Mode/WaterHeater_Mode_Cfg.p1.d 
-	@${RM} ${OBJECTDIR}/WaterHeater_Mode/WaterHeater_Mode_Cfg.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/WaterHeater_Mode/WaterHeater_Mode_Cfg.p1 WaterHeater_Mode/WaterHeater_Mode_Cfg.c 
-	@-${MV} ${OBJECTDIR}/WaterHeater_Mode/WaterHeater_Mode_Cfg.d ${OBJECTDIR}/WaterHeater_Mode/WaterHeater_Mode_Cfg.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/WaterHeater_Mode/WaterHeater_Mode_Cfg.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 endif
 

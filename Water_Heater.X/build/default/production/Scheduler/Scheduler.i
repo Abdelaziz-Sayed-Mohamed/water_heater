@@ -1965,8 +1965,8 @@ typedef struct{
 }Scheduler_Intity_t ;
 
 
-extern uint8_t Scheduler_ActivationFlags[( 3u )] ;
-extern const Scheduler_Intity_t Scheduler_Intitys[( 3u )];
+extern uint8_t Scheduler_ActivationFlags[( 3U )] ;
+extern const Scheduler_Intity_t Scheduler_Intitys[( 3U )];
 # 11 "Scheduler/Scheduler.h" 2
 
 void Scheduler_Init(void);
@@ -1981,7 +1981,7 @@ void Scheduler_Start(void)
 {
   while(1)
   {
- for( uint8_t IntityIndex = 0 ; IntityIndex < ( 3u ) ; IntityIndex++ )
+ for( uint8_t IntityIndex = 0 ; IntityIndex < ( 3U ) ; IntityIndex++ )
  {
   if( Scheduler_ActivationFlags[IntityIndex] == 1 )
   {
@@ -2003,9 +2003,9 @@ void Scheduler_ActivateTask(uint32_t SystemTick)
 {
   uint32_t SystemTick_Loc=SystemTick;
 
-  for( uint8_t IntityIndex = 0 ; IntityIndex < ( 3u ) ; IntityIndex++ )
+  for( uint8_t IntityIndex = 0 ; IntityIndex < ( 3U ) ; IntityIndex++ )
   {
-    if( ( ((SystemTick_Loc)%(Scheduler_Intitys[IntityIndex].Peroid/(1UL)))?0:1 ) )
+    if( ( ((SystemTick_Loc)%(Scheduler_Intitys[IntityIndex].Peroid/(20UL)))?0:1 ) )
     {
      Scheduler_ActivationFlags[IntityIndex] = 1 ;
     }
