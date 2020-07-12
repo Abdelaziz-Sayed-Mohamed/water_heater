@@ -11,13 +11,6 @@
 #include"../gpio/gpio.h"
 #include"../Temperature/Temperature.h"
 
-typedef enum _Enable_Display_t
-{
-	Enable_Display_Off=0,
-	Enable_Display_On=1,
-}Enable_Display_t;
-
-Enable_Display_t  Enable_Display;
 
 void Display_Init(void)
 {
@@ -58,16 +51,16 @@ void Display_MainFunction(void) //This Function should be Mapped On 20ms Task To
 	 {
          Digit_1=Tempreture%10;
          Digit_2=Tempreture/10;
-         Enable_Digit_Selector^=1;
-
-         if(Enable_Digit_Selector==0)
+         Toggle_Enable_Digit_Selector;
+         
+         if(IS_Digit_1_Enabled)
          {
   	       Display=Digit_1;
            RESET_PIN(DIGIT2_PORT,DIGIT2_PIN);
            SET_PIN(DIGIT1_PORT,DIGIT1_PIN)  ;
 
          }
-         else if(Enable_Digit_Selector==1)
+         else if(IS_Digit_2_Enabled)
          {
   	       Display=Digit_2;
   	       RESET_PIN(DIGIT1_PORT,DIGIT1_PIN);
@@ -124,7 +117,7 @@ void Display_MainFunction(void) //This Function should be Mapped On 20ms Task To
 
 	 if(Mode.Select_Mode==Setting_Mode)
 	 {
-		 Display_Blink(1000,20);
+		 Display_Blink(Display_Blink_Time,Display_Blink_TaskPeroid);
 
 	 }
   }
@@ -143,13 +136,12 @@ void Display_Blink(uint16_t Times_Ms,uint16_t Task_Peroid)
     	  Enable_Display=Enable_Display_Off;
     	   RESET_PIN(DIGIT1_PORT,DIGIT1_PIN) ;
 	       RESET_PIN(DIGIT2_PORT,DIGIT2_PIN) ;
-
       }
       else if(Enable_Display==Enable_Display_Off)
       {
     	  Enable_Display=Enable_Display_On;
       }
-      Counter=1;
+        ResetDisplayCounter;
   }
   Counter++;
 }

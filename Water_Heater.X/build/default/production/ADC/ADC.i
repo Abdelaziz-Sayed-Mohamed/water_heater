@@ -1882,13 +1882,7 @@ typedef int16_t intptr_t;
 typedef uint16_t uintptr_t;
 # 20 "ADC/../Config.h" 2
 # 10 "ADC/ADC.h" 2
-
-
-
-
-
-
-
+# 21 "ADC/ADC.h"
 typedef struct _ADC_t
 {
    uint8_t ADC_INIT_FLAG :1;
@@ -1910,6 +1904,10 @@ void ADC_Conv_MainFunction(void);
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
 # 10 "ADC/../Temperature/Temperature.h" 2
 
+
+
+
+
 typedef struct _TEMP_t
 {
  uint8_t Temp_Value;
@@ -1920,6 +1918,9 @@ typedef struct _TEMP_t
 }TEMP_t;
 
 TEMP_t Temperature;
+
+
+
 
 void Temperature_Calc(uint8_t ADC_VALUE);
 # 9 "ADC/ADC.c" 2
@@ -1984,10 +1985,15 @@ typedef struct _MODE_t
 }MODE_t;
 
 MODE_t Mode;
+
+
+
+
+
+
 void Mode_Init(void);
 void Select_Mode(void);
 void Start_Setting_Timer(uint16_t Timer_Ms ,uint16_t Peroid_Task);
-void Reset_Setting_Timer(void);
 void Mode_MainFunction(void);
 # 10 "ADC/ADC.c" 2
 
@@ -1996,7 +2002,6 @@ void Mode_MainFunction(void);
 void ADC_Init(void)
 {
 
-    TRISAbits.TRISA2=1;
     ADCON1bits.ADFM=1;
 
     ADCON0bits.ADCS0=1 ;
@@ -2035,8 +2040,7 @@ void ADC_Conv_MainFunction(void)
      if(ADCON0bits.GO_DONE==0)
      {
       ADC_Value_Ready_CallBack();
-     ADCON0bits.GO_DONE=1;
-
+      ADCON0bits.GO_DONE=1;
      }
  }
 }

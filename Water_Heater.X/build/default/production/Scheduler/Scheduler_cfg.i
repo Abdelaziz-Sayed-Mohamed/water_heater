@@ -1972,5 +1972,5 @@ uint8_t Scheduler_ActivationFlags[( 3U )] ;
 const Scheduler_Intity_t Scheduler_Intitys[( 3U )]={
  {.fuction_ptr = &Scheduler_Task1 , .Peroid = (20UL) } ,
  {.fuction_ptr = &Scheduler_Task2 , .Peroid = (100UL) } ,
- {.fuction_ptr = &Scheduler_Task3 , .Peroid = (500UL) }
+ {.fuction_ptr = &Scheduler_Task3 , .Peroid = (200UL) }
 };

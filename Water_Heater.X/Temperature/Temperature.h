@@ -8,6 +8,10 @@
 #ifndef TEMPERATURE_H_
 #define TEMPERATURE_H_
 #include "stdint.h"
+
+
+#define NValues 9
+#define Set_Average_Value_Ready_Flag   Temperature.Average_Value_Ready_Flag=1
 typedef struct _TEMP_t
 {
 	uint8_t Temp_Value;
@@ -19,6 +23,9 @@ typedef struct _TEMP_t
 
 TEMP_t Temperature;
 
+
+
+ 
 void Temperature_Calc(uint8_t ADC_VALUE);
 
 #endif /* TEMPERATURE_H_ */

@@ -17,9 +17,9 @@ void Temperature_Calc(uint8_t ADC_VALUE)
 	Average_Value(Temperature.Temp_Value, &Temperature.Average_Value);
 	Temperature.Average_NValues=(Temperature.Average_NValues+1)%AVERAGE_BUFFER_SIZE;
 
-	if(Temperature.Average_NValues==9)
+	if(Temperature.Average_NValues==NValues)
 	{
-	   Temperature.Average_Value_Ready_Flag=1;
+       Set_Average_Value_Ready_Flag;
 	}
 
 

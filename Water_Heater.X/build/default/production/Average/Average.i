@@ -157,14 +157,14 @@ typedef uint16_t uintptr_t;
 void Average_Value(uint8_t Value,uint8_t *Avrage_Values);
 # 7 "Average/Average.c" 2
 
-static uint8_t Average_Nvalues = 10 ;
+static uint8_t Average_Nvalues = 10U ;
 static uint32_t temb_val[10U];
-
+uint32_t Avrage_buffer=0;
 
 void Average_Value(uint8_t Value,uint8_t *Avrage_Values)
 {
- uint32_t Avrage_buffer=0;
 
+    Avrage_buffer=0;
  temb_val[Average_Nvalues]=Value;
 
  Average_Nvalues= (Average_Nvalues+1)%10U;

@@ -13,7 +13,6 @@
 void ADC_Init(void)
 {
 
-    TRISAbits.TRISA2=1; //A2 Input Pin
     ADCON1bits.ADFM=1;//Right Justified
     /*Configure Clock Conversion as FOSC/16*/
     ADCON0bits.ADCS0=1 ;
@@ -33,27 +32,26 @@ void ADC_Init(void)
 
     ADCON0bits.ADON=1;//Enable ADC Module
     ADCON0bits.GO_DONE=0; //Stop Conversion
-    ADC_Info.ADC_INIT_FLAG=1;
+    SET_ADC_INIT_FLAG;
 }
 
 void ADC_Start_Conv(void)
-{
-	if (ADC_Info.ADC_INIT_FLAG==1)
+{    
+	if (IS_ADC_INIT)
 	{
-	    _ADC_START_CONV ;  //Start Conversion
-	    ADC_Info.ADC_START_FLAG=1;
+	    ADC_START_CONV ;  //Start Conversion
+	    SET_ADC_START_FLAG;
 	}
 }
 
 void ADC_Conv_MainFunction(void)
 {
-	if(ADC_Info.ADC_INIT_FLAG==1 && ADC_Info.ADC_START_FLAG==1 && Mode.Select_Mode==Normal_Mode)
+	if(IS_ADC_INIT && IS_ADC_STARTED  && Mode.Select_Mode==Normal_Mode)
 	{
-	    if(_IS_CONV_DONE)
+	    if(IS_CONV_DONE)
 	    {
 	   	 ADC_Value_Ready_CallBack();
-	   	_ADC_START_CONV;
-
+	   	 ADC_START_CONV;
 	    }
 	}
 }

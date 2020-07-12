@@ -237,15 +237,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;gpio/gpio.c: 21:    (1==0)? ((TRISB &= ~(1<<2))):((TRISB|= (1<<2)));
 [e ? == -> 1 `i -> 0 `i : -> =& _TRISB -> ~ << -> 1 `i -> 2 `i `Vuc `i -> =| _TRISB -> << -> 1 `i -> 2 `i `Vuc `i ]
 "22
-[; ;gpio/gpio.c: 22:    (0==0)? ((TRISC &= ~(1<<3))):((TRISC|= (1<<3)));
-[e ? == -> 0 `i -> 0 `i : -> =& _TRISC -> ~ << -> 1 `i -> 3 `i `Vuc `i -> =| _TRISC -> << -> 1 `i -> 3 `i `Vuc `i ]
+[; ;gpio/gpio.c: 22:    (1==0)? ((TRISB &= ~(1<<0))):((TRISB|= (1<<0)));
+[e ? == -> 1 `i -> 0 `i : -> =& _TRISB -> ~ << -> 1 `i -> 0 `i `Vuc `i -> =| _TRISB -> << -> 1 `i -> 0 `i `Vuc `i ]
 "23
-[; ;gpio/gpio.c: 23:    (1==0)? ((TRISC &= ~(1<<4))):((TRISC|= (1<<4)));
-[e ? == -> 1 `i -> 0 `i : -> =& _TRISC -> ~ << -> 1 `i -> 4 `i `Vuc `i -> =| _TRISC -> << -> 1 `i -> 4 `i `Vuc `i ]
+[; ;gpio/gpio.c: 23:    (1==0)? ((TRISA &= ~(1<<2))):((TRISA|= (1<<2)));
+[e ? == -> 1 `i -> 0 `i : -> =& _TRISA -> ~ << -> 1 `i -> 2 `i `Vuc `i -> =| _TRISA -> << -> 1 `i -> 2 `i `Vuc `i ]
 "24
-[; ;gpio/gpio.c: 24:    (0==0)? (TRISD=0):(TRISD=1);
+[; ;gpio/gpio.c: 24:    (0==0)? ((TRISC &= ~(1<<3))):((TRISC|= (1<<3)));
+[e ? == -> 0 `i -> 0 `i : -> =& _TRISC -> ~ << -> 1 `i -> 3 `i `Vuc `i -> =| _TRISC -> << -> 1 `i -> 3 `i `Vuc `i ]
+"25
+[; ;gpio/gpio.c: 25:    (1==0)? ((TRISC &= ~(1<<4))):((TRISC|= (1<<4)));
+[e ? == -> 1 `i -> 0 `i : -> =& _TRISC -> ~ << -> 1 `i -> 4 `i `Vuc `i -> =| _TRISC -> << -> 1 `i -> 4 `i `Vuc `i ]
+"26
+[; ;gpio/gpio.c: 26:    (0==0)? (TRISD=0):(TRISD=1);
 [e ? == -> 0 `i -> 0 `i : -> = _TRISD -> -> 0 `i `uc `i -> = _TRISD -> -> 1 `i `uc `i ]
-"27
-[; ;gpio/gpio.c: 27: }
+"32
+[; ;gpio/gpio.c: 32: }
 [e :UE 95 ]
 }

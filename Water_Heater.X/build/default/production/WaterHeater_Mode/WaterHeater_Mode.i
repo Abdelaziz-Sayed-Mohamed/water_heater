@@ -1916,10 +1916,15 @@ typedef struct _MODE_t
 }MODE_t;
 
 MODE_t Mode;
+
+
+
+
+
+
 void Mode_Init(void);
 void Select_Mode(void);
 void Start_Setting_Timer(uint16_t Timer_Ms ,uint16_t Peroid_Task);
-void Reset_Setting_Timer(void);
 void Mode_MainFunction(void);
 # 8 "WaterHeater_Mode/WaterHeater_Mode.c" 2
 
@@ -1928,6 +1933,10 @@ void Mode_MainFunction(void);
 # 10 "WaterHeater_Mode/../Temperature/Temperature.h"
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
 # 10 "WaterHeater_Mode/../Temperature/Temperature.h" 2
+
+
+
+
 
 typedef struct _TEMP_t
 {
@@ -1939,6 +1948,9 @@ typedef struct _TEMP_t
 }TEMP_t;
 
 TEMP_t Temperature;
+
+
+
 
 void Temperature_Calc(uint8_t ADC_VALUE);
 # 10 "WaterHeater_Mode/WaterHeater_Mode.c" 2
@@ -2002,16 +2014,17 @@ void Mode_MainFunction(void)
 
    if(Mode.Select_Mode==Setting_Mode)
    {
-    Start_Setting_Timer(5000,500);
+
+    Start_Setting_Timer(5000,200);
     if((((PORTB>>2)&1)==0) &&(((PORTB>>1)&1)==1) && Temperature.Set_Temp !=(75U))
      {
       Temperature.Set_Temp += (5U);
-      Reset_Setting_Timer();
+      Mode.Setting_Mode_Timer=1;
      }
      else if((((PORTB>>2)&1)==1) &&(((PORTB>>1)&1)==0) && Temperature.Set_Temp !=(35U))
      {
       Temperature.Set_Temp -= (5U);
-      Reset_Setting_Timer();
+      Mode.Setting_Mode_Timer=1;
 
      }
    }
@@ -2020,16 +2033,6 @@ void Mode_MainFunction(void)
 }
 
 
-
-
-void Reset_Setting_Timer(void)
-{
- if(Mode.Select_Mode==Setting_Mode)
- {
-   Mode.Setting_Mode_Timer=1;
- }
-
-}
 
 void Start_Setting_Timer(uint16_t Timer_Ms ,uint16_t Peroid_Task)
 {

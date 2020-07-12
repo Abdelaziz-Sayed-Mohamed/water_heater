@@ -227,7 +227,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 :U ..
 &U _Scheduler_Task3
--> 500 `ul
+-> 200 `ul
 ..
 ..
 ]

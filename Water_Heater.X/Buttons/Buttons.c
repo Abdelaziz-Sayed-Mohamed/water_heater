@@ -12,10 +12,10 @@
 void On_Off_Init(void)
 {
 
-    TRISBbits.TRISB0=1;          //Configure PB0 As Input Pin
     INTCONbits.INTE=1;           //Enable External Interrupt
-    _RESET_EXTI_ON_OFF_FLAG;     //Clear External Interrupt Flag
     INTEDG=1;                    //Configure Interrupt In Rising Edge
+    RESET_EXTI_ON_OFF_FLAG;      //Clear External Interrupt Flag
+    
 
 }
 

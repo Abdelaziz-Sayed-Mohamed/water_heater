@@ -7,18 +7,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;Buttons/../WaterHeater_Mode/WaterHeater_Mode.h: 23: {
 [s S95 `E882 1 `uc 1 ]
 [n S95 _MODE_t Select_Mode Setting_Mode_Timer ]
-"1381 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
-[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 1381:     struct {
-[s S56 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S56 . TRISB0 TRISB1 TRISB2 TRISB3 TRISB4 TRISB5 TRISB6 TRISB7 ]
-"1380
-[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 1380: typedef union {
-[u S55 `S56 1 ]
-[n S55 . . ]
-"1392
-[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 1392: extern volatile TRISBbits_t TRISBbits __attribute__((address(0x086)));
-[v _TRISBbits `VS55 ~T0 @X0 0 e@134 ]
-"460
+"460 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 460:     struct {
 [s S18 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S18 . RBIF INTF TMR0IF RBIE INTE TMR0IE PEIE GIE ]
@@ -263,17 +252,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _On_Off_Init ]
 [f ]
 "15
-[; ;Buttons/Buttons.c: 15:     TRISBbits.TRISB0=1;
-[e = . . _TRISBbits 0 0 -> -> 1 `i `uc ]
-"16
-[; ;Buttons/Buttons.c: 16:     INTCONbits.INTE=1;
+[; ;Buttons/Buttons.c: 15:     INTCONbits.INTE=1;
 [e = . . _INTCONbits 0 4 -> -> 1 `i `uc ]
+"16
+[; ;Buttons/Buttons.c: 16:     INTEDG=1;
+[e = _INTEDG -> -> 1 `i `b ]
 "17
 [; ;Buttons/Buttons.c: 17:     INTCONbits.INTF=0;
 [e = . . _INTCONbits 0 1 -> -> 0 `i `uc ]
-"18
-[; ;Buttons/Buttons.c: 18:     INTEDG=1;
-[e = _INTEDG -> -> 1 `i `b ]
 "20
 [; ;Buttons/Buttons.c: 20: }
 [e :UE 96 ]

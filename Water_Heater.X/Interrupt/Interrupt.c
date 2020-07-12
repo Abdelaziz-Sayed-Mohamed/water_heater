@@ -10,15 +10,15 @@
 
 void __interrupt() myISR(void)
 {
-	if(_IS_EXTI_ON_OFF_FLAG)
+	if(IS_EXTI_ON_OFF_FLAG)
 	{   
-        _RESET_EXTI_ON_OFF_FLAG;
+        RESET_EXTI_ON_OFF_FLAG;
 		EXTI_On_Off_CallBack();
 		
 	}
-	else if(_IS_TIMER0_FLAG)
+	else if(IS_TIMER0_FLAG)
 	{   
-        _RESET_TIMER0_FLAG;
+        RESET_TIMER0_FLAG;
         TMR0=Reload_Timer0;
 		Timer0_CallBack();
 		

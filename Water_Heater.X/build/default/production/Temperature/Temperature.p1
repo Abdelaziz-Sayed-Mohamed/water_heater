@@ -1,17 +1,17 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"12 Temperature/Temperature.h
-[; ;Temperature/Temperature.h: 12: {
+"16 Temperature/Temperature.h
+[; ;Temperature/Temperature.h: 16: {
 [s S1 `uc 1 `uc 1 `uc 1 :1 `uc 1 `uc 1 ]
 [n S1 _TEMP_t Temp_Value Average_Value Set_Temp Average_Value_Ready_Flag Average_NValues ]
-"18 Temperature/../ADC/ADC.h
-[; ;Temperature/../ADC/ADC.h: 18: {
+"22 Temperature/../ADC/ADC.h
+[; ;Temperature/../ADC/ADC.h: 22: {
 [s S96 :1 `uc 1 :1 `uc 1 ]
 [n S96 _ADC_t ADC_INIT_FLAG ADC_START_FLAG ]
 "14 Temperature/../Average/Average.h
 [; ;Temperature/../Average/Average.h: 14: void Average_Value(uint8_t Value,uint8_t *Avrage_Values);
 [v _Average_Value `(v ~T0 @X0 0 ef2`uc`*uc ]
-"20 Temperature/Temperature.h
-[; ;Temperature/Temperature.h: 20: TEMP_t Temperature;
+"24 Temperature/Temperature.h
+[; ;Temperature/Temperature.h: 24: TEMP_t Temperature;
 [v _Temperature `S1 ~T0 @X0 1 e ]
 "7 Temperature/../ADC/../Config.h
 [p x FOSC = HS ]
@@ -209,8 +209,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2363
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2363: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
-"24 Temperature/../ADC/ADC.h
-[; ;Temperature/../ADC/ADC.h: 24: ADC_t ADC_Info;
+"28 Temperature/../ADC/ADC.h
+[; ;Temperature/../ADC/ADC.h: 28: ADC_t ADC_Info;
 [v _ADC_Info `S96 ~T0 @X0 1 e ]
 "14 Temperature/Temperature.c
 [; ;Temperature/Temperature.c: 14: void Temperature_Calc(uint8_t ADC_VALUE)
@@ -241,7 +241,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;Temperature/Temperature.c: 21:  {
 {
 "22
-[; ;Temperature/Temperature.c: 22:     Temperature.Average_Value_Ready_Flag=1;
+[; ;Temperature/Temperature.c: 22:        Temperature.Average_Value_Ready_Flag=1;
 [e = . _Temperature 3 -> -> 1 `i `uc ]
 "23
 [; ;Temperature/Temperature.c: 23:  }

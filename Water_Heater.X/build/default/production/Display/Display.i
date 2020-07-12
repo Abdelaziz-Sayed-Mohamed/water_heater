@@ -1885,7 +1885,15 @@ typedef int16_t intptr_t;
 typedef uint16_t uintptr_t;
 # 20 "Display/../Config.h" 2
 # 10 "Display/Display.h" 2
-# 25 "Display/Display.h"
+# 33 "Display/Display.h"
+typedef enum _Enable_Display_t
+{
+ Enable_Display_Off=0,
+ Enable_Display_On=1,
+}Enable_Display_t;
+
+Enable_Display_t Enable_Display;
+
 void Display_Init(void);
 void Display_MainFunction(void);
 void Display_Blink(uint16_t Times_Ms,uint16_t Task_Peroid);
@@ -1951,10 +1959,15 @@ typedef struct _MODE_t
 }MODE_t;
 
 MODE_t Mode;
+
+
+
+
+
+
 void Mode_Init(void);
 void Select_Mode(void);
 void Start_Setting_Timer(uint16_t Timer_Ms ,uint16_t Peroid_Task);
-void Reset_Setting_Timer(void);
 void Mode_MainFunction(void);
 # 10 "Display/Display.c" 2
 
@@ -1963,6 +1976,10 @@ void Mode_MainFunction(void);
 # 10 "Display/../Temperature/Temperature.h"
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
 # 10 "Display/../Temperature/Temperature.h" 2
+
+
+
+
 
 typedef struct _TEMP_t
 {
@@ -1975,17 +1992,13 @@ typedef struct _TEMP_t
 
 TEMP_t Temperature;
 
+
+
+
 void Temperature_Calc(uint8_t ADC_VALUE);
 # 12 "Display/Display.c" 2
 
 
-typedef enum _Enable_Display_t
-{
- Enable_Display_Off=0,
- Enable_Display_On=1,
-}Enable_Display_t;
-
-Enable_Display_t Enable_Display;
 
 void Display_Init(void)
 {
@@ -2111,13 +2124,12 @@ void Display_Blink(uint16_t Times_Ms,uint16_t Task_Peroid)
        Enable_Display=Enable_Display_Off;
         (PORTA &= ~(1<<5)) ;
         (PORTA &= ~(1<<4)) ;
-
       }
       else if(Enable_Display==Enable_Display_Off)
       {
        Enable_Display=Enable_Display_On;
       }
-      Counter=1;
+        Counter =1;
   }
   Counter++;
 }

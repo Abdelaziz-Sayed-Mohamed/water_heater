@@ -1953,10 +1953,15 @@ typedef struct _MODE_t
 }MODE_t;
 
 MODE_t Mode;
+
+
+
+
+
+
 void Mode_Init(void);
 void Select_Mode(void);
 void Start_Setting_Timer(uint16_t Timer_Ms ,uint16_t Peroid_Task);
-void Reset_Setting_Timer(void);
 void Mode_MainFunction(void);
 # 9 "Buttons/Buttons.c" 2
 
@@ -1967,10 +1972,10 @@ void Mode_MainFunction(void);
 void On_Off_Init(void)
 {
 
-    TRISBbits.TRISB0=1;
     INTCONbits.INTE=1;
-    INTCONbits.INTF=0;
     INTEDG=1;
+    INTCONbits.INTF=0;
+
 
 }
 

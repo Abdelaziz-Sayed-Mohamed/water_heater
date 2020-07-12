@@ -10,8 +10,12 @@
 #include "../Config.h"
 #define ADC_RESOLUTION       0.4882
 
-#define _ADC_START_CONV       ADCON0bits.GO_DONE=1
-#define _IS_CONV_DONE         ADCON0bits.GO_DONE==0
+#define ADC_START_CONV       ADCON0bits.GO_DONE=1
+#define IS_ADC_STARTED       ADC_Info.ADC_START_FLAG==1
+#define IS_CONV_DONE         ADCON0bits.GO_DONE==0
+#define IS_ADC_INIT          ADC_Info.ADC_INIT_FLAG==1
+#define SET_ADC_INIT_FLAG    ADC_Info.ADC_INIT_FLAG=1
+#define SET_ADC_START_FLAG   ADC_Info.ADC_START_FLAG=1
 
 
 typedef struct _ADC_t

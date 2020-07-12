@@ -18,10 +18,27 @@
 #define _LED_ON      SET_PIN(LED_PORT,LED_PIN);          //Turn On LED
 #define _LED_OFF     RESET_PIN(LED_PORT,LED_PIN);        //Turn Off LED
 #define _LED_BLINK   TOGGLE_PIN(LED_PORT,LED_PIN);       //Turn Off LED
+
+
+#define LED_BLINK_TIME 1000
+#define LED_BLINK_TaskPeroid 100
+#define ResetLedCounter     Counter=1
+
+
+typedef enum _LED_STATUS_t
+{
+	 LED_OFF=0,
+	 LED_ON=1,
+	 LED_BLINK=2
+}LED_STATUS_t ;
+
+LED_STATUS_t LED_Status;
+
+
 void LED_BLINKING(uint16_t Time_Ms,uint16_t Task_Peroid);
 void Elements_Init(void);
 void LED_MainFunction(void);
-void Elements_Control(uint8_t Average_Temp);
+void Elements_MainFunction(void);
 #endif /* ELEMENTS_H_ */
 
 

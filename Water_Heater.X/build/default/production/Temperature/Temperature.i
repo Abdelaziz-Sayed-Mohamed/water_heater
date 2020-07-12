@@ -151,6 +151,10 @@ typedef int16_t intptr_t;
 typedef uint16_t uintptr_t;
 # 10 "Temperature/Temperature.h" 2
 
+
+
+
+
 typedef struct _TEMP_t
 {
  uint8_t Temp_Value;
@@ -161,6 +165,9 @@ typedef struct _TEMP_t
 }TEMP_t;
 
 TEMP_t Temperature;
+
+
+
 
 void Temperature_Calc(uint8_t ADC_VALUE);
 # 8 "Temperature/Temperature.c" 2
@@ -1913,13 +1920,7 @@ extern __bank0 __bit __timeout;
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
 # 20 "Temperature/../ADC/../Config.h" 2
 # 10 "Temperature/../ADC/ADC.h" 2
-
-
-
-
-
-
-
+# 21 "Temperature/../ADC/ADC.h"
 typedef struct _ADC_t
 {
    uint8_t ADC_INIT_FLAG :1;
@@ -1947,7 +1948,7 @@ void Temperature_Calc(uint8_t ADC_VALUE)
 
  if(Temperature.Average_NValues==9)
  {
-    Temperature.Average_Value_Ready_Flag=1;
+       Temperature.Average_Value_Ready_Flag=1;
  }
 
 

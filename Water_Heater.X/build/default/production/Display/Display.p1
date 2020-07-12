@@ -1,28 +1,28 @@
 Version 4.0 HI-TECH Software Intermediate Code
+"39 Display/Display.h
+[; ;Display/Display.h: 39: Enable_Display_t Enable_Display;
+[c E878 0 1 .. ]
+[n E878 _Enable_Display_t Enable_Display_Off Enable_Display_On  ]
 "28 Display/../WaterHeater_Mode/WaterHeater_Mode.h
 [; ;Display/../WaterHeater_Mode/WaterHeater_Mode.h: 28: MODE_t Mode;
-[c E884 0 1 2 .. ]
-[n E884 _Select_Mode_t Off_Mode Normal_Mode Setting_Mode  ]
+[c E889 0 1 2 .. ]
+[n E889 _Select_Mode_t Off_Mode Normal_Mode Setting_Mode  ]
 "23
 [; ;Display/../WaterHeater_Mode/WaterHeater_Mode.h: 23: {
-[s S95 `E884 1 `uc 1 ]
+[s S95 `E889 1 `uc 1 ]
 [n S95 _MODE_t Select_Mode Setting_Mode_Timer ]
-"12 Display/../Temperature/Temperature.h
-[; ;Display/../Temperature/Temperature.h: 12: {
+"16 Display/../Temperature/Temperature.h
+[; ;Display/../Temperature/Temperature.h: 16: {
 [s S96 `uc 1 `uc 1 `uc 1 :1 `uc 1 `uc 1 ]
 [n S96 _TEMP_t Temp_Value Average_Value Set_Temp Average_Value_Ready_Flag Average_NValues ]
-"20 Display/Display.c
-[; ;Display/Display.c: 20: Enable_Display_t Enable_Display;
-[c E911 0 1 .. ]
-[n E911 _Enable_Display_t Enable_Display_Off Enable_Display_On  ]
 "166 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 166: extern volatile unsigned char PORTA __attribute__((address(0x005)));
 [v _PORTA `Vuc ~T0 @X0 0 e@5 ]
 "340
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 340: extern volatile unsigned char PORTD __attribute__((address(0x008)));
 [v _PORTD `Vuc ~T0 @X0 0 e@8 ]
-"27 Display/Display.h
-[; ;Display/Display.h: 27: void Display_Blink(uint16_t Times_Ms,uint16_t Task_Peroid);
+"43 Display/Display.h
+[; ;Display/Display.h: 43: void Display_Blink(uint16_t Times_Ms,uint16_t Task_Peroid);
 [v _Display_Blink `(v ~T0 @X0 0 ef2`ui`ui ]
 "7 Display/../WaterHeater_Mode/../gpio/../Config.h
 [p x FOSC = HS ]
@@ -220,6 +220,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2363
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2363: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
+"39 Display/Display.h
+[; ;Display/Display.h: 39: Enable_Display_t Enable_Display;
+[v _Enable_Display `E878 ~T0 @X0 1 e ]
 "7 Display/../WaterHeater_Mode/../gpio/../Config.h
 [p x FOSC = HS ]
 "8
@@ -239,283 +242,280 @@ Version 4.0 HI-TECH Software Intermediate Code
 "28 Display/../WaterHeater_Mode/WaterHeater_Mode.h
 [; ;Display/../WaterHeater_Mode/WaterHeater_Mode.h: 28: MODE_t Mode;
 [v _Mode `S95 ~T0 @X0 1 e ]
-"20 Display/../Temperature/Temperature.h
-[; ;Display/../Temperature/Temperature.h: 20: TEMP_t Temperature;
+"24 Display/../Temperature/Temperature.h
+[; ;Display/../Temperature/Temperature.h: 24: TEMP_t Temperature;
 [v _Temperature `S96 ~T0 @X0 1 e ]
-"20 Display/Display.c
-[; ;Display/Display.c: 20: Enable_Display_t Enable_Display;
-[v _Enable_Display `E911 ~T0 @X0 1 e ]
-"22
-[; ;Display/Display.c: 22: void Display_Init(void)
+"15 Display/Display.c
+[; ;Display/Display.c: 15: void Display_Init(void)
 [v _Display_Init `(v ~T0 @X0 1 ef ]
-"23
-[; ;Display/Display.c: 23: {
+"16
+[; ;Display/Display.c: 16: {
 {
 [e :U _Display_Init ]
 [f ]
-"24
-[; ;Display/Display.c: 24:  (PORTA &= ~(1<<5)) ;
+"17
+[; ;Display/Display.c: 17:  (PORTA &= ~(1<<5)) ;
 [e =& _PORTA -> ~ << -> 1 `i -> 5 `i `Vuc ]
-"25
-[; ;Display/Display.c: 25:  (PORTA &= ~(1<<4)) ;
+"18
+[; ;Display/Display.c: 18:  (PORTA &= ~(1<<4)) ;
 [e =& _PORTA -> ~ << -> 1 `i -> 4 `i `Vuc ]
-"26
-[; ;Display/Display.c: 26:  PORTD=0b00111111;
+"19
+[; ;Display/Display.c: 19:  PORTD=0b00111111;
 [e = _PORTD -> -> 63 `i `uc ]
-"27
-[; ;Display/Display.c: 27: }
+"20
+[; ;Display/Display.c: 20: }
 [e :UE 97 ]
 }
-"31
-[; ;Display/Display.c: 31: void Display_MainFunction(void)
+"24
+[; ;Display/Display.c: 24: void Display_MainFunction(void)
 [v _Display_MainFunction `(v ~T0 @X0 1 ef ]
-"32
-[; ;Display/Display.c: 32: {
+"25
+[; ;Display/Display.c: 25: {
 {
 [e :U _Display_MainFunction ]
 [f ]
-"33
-[; ;Display/Display.c: 33:  static uint8_t Digit_1=0;
-[v F918 `uc ~T0 @X0 1 s Digit_1 ]
+"26
+[; ;Display/Display.c: 26:  static uint8_t Digit_1=0;
+[v F917 `uc ~T0 @X0 1 s Digit_1 ]
+[i F917
+-> -> 0 `i `uc
+]
+"27
+[; ;Display/Display.c: 27:  static uint8_t Digit_2=0;
+[v F918 `uc ~T0 @X0 1 s Digit_2 ]
 [i F918
 -> -> 0 `i `uc
 ]
-"34
-[; ;Display/Display.c: 34:  static uint8_t Digit_2=0;
-[v F919 `uc ~T0 @X0 1 s Digit_2 ]
+"28
+[; ;Display/Display.c: 28:  static uint8_t Tempreture=0;
+[v F919 `uc ~T0 @X0 1 s Tempreture ]
 [i F919
 -> -> 0 `i `uc
 ]
-"35
-[; ;Display/Display.c: 35:  static uint8_t Tempreture=0;
-[v F920 `uc ~T0 @X0 1 s Tempreture ]
+"29
+[; ;Display/Display.c: 29:  static uint8_t Display=0;
+[v F920 `uc ~T0 @X0 1 s Display ]
 [i F920
 -> -> 0 `i `uc
 ]
-"36
-[; ;Display/Display.c: 36:  static uint8_t Display=0;
-[v F921 `uc ~T0 @X0 1 s Display ]
+"30
+[; ;Display/Display.c: 30:  static uint8_t Enable_Digit_Selector=1;
+[v F921 `uc ~T0 @X0 1 s Enable_Digit_Selector ]
 [i F921
--> -> 0 `i `uc
-]
-"37
-[; ;Display/Display.c: 37:  static uint8_t Enable_Digit_Selector=1;
-[v F922 `uc ~T0 @X0 1 s Enable_Digit_Selector ]
-[i F922
 -> -> 1 `i `uc
 ]
-"39
-[; ;Display/Display.c: 39:   if(Mode.Select_Mode==Normal_Mode)
-[e $ ! == -> . _Mode 0 `ui -> . `E884 1 `ui 99  ]
-"40
-[; ;Display/Display.c: 40:   {
+"32
+[; ;Display/Display.c: 32:   if(Mode.Select_Mode==Normal_Mode)
+[e $ ! == -> . _Mode 0 `ui -> . `E889 1 `ui 99  ]
+"33
+[; ;Display/Display.c: 33:   {
 {
-"41
-[; ;Display/Display.c: 41:    Tempreture=Temperature.Average_Value;
-[e = F920 . _Temperature 1 ]
-"42
-[; ;Display/Display.c: 42:    Enable_Display=Enable_Display_On;
-[e = _Enable_Display . `E911 1 ]
-"43
-[; ;Display/Display.c: 43:   }
+"34
+[; ;Display/Display.c: 34:    Tempreture=Temperature.Average_Value;
+[e = F919 . _Temperature 1 ]
+"35
+[; ;Display/Display.c: 35:    Enable_Display=Enable_Display_On;
+[e = _Enable_Display . `E878 1 ]
+"36
+[; ;Display/Display.c: 36:   }
 }
 [e $U 100  ]
-"44
-[; ;Display/Display.c: 44:   else if(Mode.Select_Mode==Setting_Mode)
+"37
+[; ;Display/Display.c: 37:   else if(Mode.Select_Mode==Setting_Mode)
 [e :U 99 ]
-[e $ ! == -> . _Mode 0 `ui -> . `E884 2 `ui 101  ]
-"45
-[; ;Display/Display.c: 45:   {
+[e $ ! == -> . _Mode 0 `ui -> . `E889 2 `ui 101  ]
+"38
+[; ;Display/Display.c: 38:   {
 {
-"46
-[; ;Display/Display.c: 46:    Tempreture=Temperature.Set_Temp;
-[e = F920 . _Temperature 2 ]
-"47
-[; ;Display/Display.c: 47:   }
+"39
+[; ;Display/Display.c: 39:    Tempreture=Temperature.Set_Temp;
+[e = F919 . _Temperature 2 ]
+"40
+[; ;Display/Display.c: 40:   }
 }
 [e $U 102  ]
-"48
-[; ;Display/Display.c: 48:   else if(Mode.Select_Mode==Off_Mode)
+"41
+[; ;Display/Display.c: 41:   else if(Mode.Select_Mode==Off_Mode)
 [e :U 101 ]
-[e $ ! == -> . _Mode 0 `ui -> . `E884 0 `ui 103  ]
-"49
-[; ;Display/Display.c: 49:   {
+[e $ ! == -> . _Mode 0 `ui -> . `E889 0 `ui 103  ]
+"42
+[; ;Display/Display.c: 42:   {
 {
-"50
-[; ;Display/Display.c: 50:   (PORTA &= ~(1<<5)) ;
+"43
+[; ;Display/Display.c: 43:   (PORTA &= ~(1<<5)) ;
 [e =& _PORTA -> ~ << -> 1 `i -> 5 `i `Vuc ]
-"51
-[; ;Display/Display.c: 51:   (PORTA &= ~(1<<4)) ;
+"44
+[; ;Display/Display.c: 44:   (PORTA &= ~(1<<4)) ;
 [e =& _PORTA -> ~ << -> 1 `i -> 4 `i `Vuc ]
-"52
-[; ;Display/Display.c: 52:   }
+"45
+[; ;Display/Display.c: 45:   }
 }
 [e :U 103 ]
 [e :U 102 ]
 [e :U 100 ]
-"55
-[; ;Display/Display.c: 55:  if(Mode.Select_Mode!=Off_Mode)
-[e $ ! != -> . _Mode 0 `ui -> . `E884 0 `ui 104  ]
+"48
+[; ;Display/Display.c: 48:  if(Mode.Select_Mode!=Off_Mode)
+[e $ ! != -> . _Mode 0 `ui -> . `E889 0 `ui 104  ]
+"49
+[; ;Display/Display.c: 49:  {
+{
+"50
+[; ;Display/Display.c: 50:   if(Enable_Display==Enable_Display_On)
+[e $ ! == -> _Enable_Display `ui -> . `E878 1 `ui 105  ]
+"51
+[; ;Display/Display.c: 51:   {
+{
+"52
+[; ;Display/Display.c: 52:          Digit_1=Tempreture%10;
+[e = F917 -> % -> F919 `i -> 10 `i `uc ]
+"53
+[; ;Display/Display.c: 53:          Digit_2=Tempreture/10;
+[e = F918 -> / -> F919 `i -> 10 `i `uc ]
+"54
+[; ;Display/Display.c: 54:          Enable_Digit_Selector^=1;
+[e =^ F921 -> -> 1 `i `uc ]
 "56
-[; ;Display/Display.c: 56:  {
-{
+[; ;Display/Display.c: 56:          if(Enable_Digit_Selector==0)
+[e $ ! == -> F921 `i -> 0 `i 106  ]
 "57
-[; ;Display/Display.c: 57:   if(Enable_Display==Enable_Display_On)
-[e $ ! == -> _Enable_Display `ui -> . `E911 1 `ui 105  ]
-"58
-[; ;Display/Display.c: 58:   {
+[; ;Display/Display.c: 57:          {
 {
+"58
+[; ;Display/Display.c: 58:           Display=Digit_1;
+[e = F920 F917 ]
 "59
-[; ;Display/Display.c: 59:          Digit_1=Tempreture%10;
-[e = F918 -> % -> F920 `i -> 10 `i `uc ]
+[; ;Display/Display.c: 59:            (PORTA &= ~(1<<4));
+[e =& _PORTA -> ~ << -> 1 `i -> 4 `i `Vuc ]
 "60
-[; ;Display/Display.c: 60:          Digit_2=Tempreture/10;
-[e = F919 -> / -> F920 `i -> 10 `i `uc ]
-"61
-[; ;Display/Display.c: 61:          Enable_Digit_Selector^=1;
-[e =^ F922 -> -> 1 `i `uc ]
+[; ;Display/Display.c: 60:            (PORTA|= (1<<5)) ;
+[e =| _PORTA -> << -> 1 `i -> 5 `i `Vuc ]
+"62
+[; ;Display/Display.c: 62:          }
+}
+[e $U 107  ]
 "63
-[; ;Display/Display.c: 63:          if(Enable_Digit_Selector==0)
-[e $ ! == -> F922 `i -> 0 `i 106  ]
+[; ;Display/Display.c: 63:          else if(Enable_Digit_Selector==1)
+[e :U 106 ]
+[e $ ! == -> F921 `i -> 1 `i 108  ]
 "64
 [; ;Display/Display.c: 64:          {
 {
 "65
-[; ;Display/Display.c: 65:           Display=Digit_1;
-[e = F921 F918 ]
+[; ;Display/Display.c: 65:           Display=Digit_2;
+[e = F920 F918 ]
 "66
-[; ;Display/Display.c: 66:            (PORTA &= ~(1<<4));
-[e =& _PORTA -> ~ << -> 1 `i -> 4 `i `Vuc ]
+[; ;Display/Display.c: 66:           (PORTA &= ~(1<<5));
+[e =& _PORTA -> ~ << -> 1 `i -> 5 `i `Vuc ]
 "67
-[; ;Display/Display.c: 67:            (PORTA|= (1<<5)) ;
-[e =| _PORTA -> << -> 1 `i -> 5 `i `Vuc ]
+[; ;Display/Display.c: 67:           (PORTA|= (1<<4));
+[e =| _PORTA -> << -> 1 `i -> 4 `i `Vuc ]
 "69
 [; ;Display/Display.c: 69:          }
 }
-[e $U 107  ]
-"70
-[; ;Display/Display.c: 70:          else if(Enable_Digit_Selector==1)
-[e :U 106 ]
-[e $ ! == -> F922 `i -> 1 `i 108  ]
-"71
-[; ;Display/Display.c: 71:          {
-{
-"72
-[; ;Display/Display.c: 72:           Display=Digit_2;
-[e = F921 F919 ]
-"73
-[; ;Display/Display.c: 73:           (PORTA &= ~(1<<5));
-[e =& _PORTA -> ~ << -> 1 `i -> 5 `i `Vuc ]
-"74
-[; ;Display/Display.c: 74:           (PORTA|= (1<<4));
-[e =| _PORTA -> << -> 1 `i -> 4 `i `Vuc ]
-"76
-[; ;Display/Display.c: 76:          }
-}
 [e :U 108 ]
 [e :U 107 ]
-"80
-[; ;Display/Display.c: 80:          switch(Display)
+"73
+[; ;Display/Display.c: 73:          switch(Display)
 [e $U 110  ]
-"81
-[; ;Display/Display.c: 81:          {
+"74
+[; ;Display/Display.c: 74:          {
 {
-"82
-[; ;Display/Display.c: 82:           case 0:
+"75
+[; ;Display/Display.c: 75:           case 0:
 [e :U 111 ]
-"83
-[; ;Display/Display.c: 83:              PORTD=0b00111111;
+"76
+[; ;Display/Display.c: 76:              PORTD=0b00111111;
 [e = _PORTD -> -> 63 `i `uc ]
-"84
-[; ;Display/Display.c: 84:              break;
+"77
+[; ;Display/Display.c: 77:              break;
 [e $U 109  ]
-"86
-[; ;Display/Display.c: 86:           case 1:
+"79
+[; ;Display/Display.c: 79:           case 1:
 [e :U 112 ]
-"87
-[; ;Display/Display.c: 87:              PORTD=0b00000110;
+"80
+[; ;Display/Display.c: 80:              PORTD=0b00000110;
 [e = _PORTD -> -> 6 `i `uc ]
-"88
-[; ;Display/Display.c: 88:              break;
+"81
+[; ;Display/Display.c: 81:              break;
 [e $U 109  ]
-"90
-[; ;Display/Display.c: 90:           case 2:
+"83
+[; ;Display/Display.c: 83:           case 2:
 [e :U 113 ]
-"91
-[; ;Display/Display.c: 91:              PORTD=0b01011011;
+"84
+[; ;Display/Display.c: 84:              PORTD=0b01011011;
 [e = _PORTD -> -> 91 `i `uc ]
-"92
-[; ;Display/Display.c: 92:              break;
+"85
+[; ;Display/Display.c: 85:              break;
 [e $U 109  ]
-"94
-[; ;Display/Display.c: 94:           case 3:
+"87
+[; ;Display/Display.c: 87:           case 3:
 [e :U 114 ]
-"95
-[; ;Display/Display.c: 95:              PORTD=0b01001111;
+"88
+[; ;Display/Display.c: 88:              PORTD=0b01001111;
 [e = _PORTD -> -> 79 `i `uc ]
-"96
-[; ;Display/Display.c: 96:              break;
+"89
+[; ;Display/Display.c: 89:              break;
 [e $U 109  ]
-"98
-[; ;Display/Display.c: 98:           case 4:
+"91
+[; ;Display/Display.c: 91:           case 4:
 [e :U 115 ]
-"99
-[; ;Display/Display.c: 99:              PORTD=0b01100110;
+"92
+[; ;Display/Display.c: 92:              PORTD=0b01100110;
 [e = _PORTD -> -> 102 `i `uc ]
-"100
-[; ;Display/Display.c: 100:              break;
+"93
+[; ;Display/Display.c: 93:              break;
 [e $U 109  ]
-"102
-[; ;Display/Display.c: 102:           case 5:
+"95
+[; ;Display/Display.c: 95:           case 5:
 [e :U 116 ]
-"103
-[; ;Display/Display.c: 103:              PORTD=0b01101101;
+"96
+[; ;Display/Display.c: 96:              PORTD=0b01101101;
 [e = _PORTD -> -> 109 `i `uc ]
-"104
-[; ;Display/Display.c: 104:              break;
+"97
+[; ;Display/Display.c: 97:              break;
 [e $U 109  ]
-"106
-[; ;Display/Display.c: 106:           case 6:
+"99
+[; ;Display/Display.c: 99:           case 6:
 [e :U 117 ]
-"107
-[; ;Display/Display.c: 107:              PORTD=0b01111101;
+"100
+[; ;Display/Display.c: 100:              PORTD=0b01111101;
 [e = _PORTD -> -> 125 `i `uc ]
-"108
-[; ;Display/Display.c: 108:              break;
+"101
+[; ;Display/Display.c: 101:              break;
 [e $U 109  ]
-"110
-[; ;Display/Display.c: 110:           case 7:
+"103
+[; ;Display/Display.c: 103:           case 7:
 [e :U 118 ]
-"111
-[; ;Display/Display.c: 111:              PORTD=0b00000111;
+"104
+[; ;Display/Display.c: 104:              PORTD=0b00000111;
 [e = _PORTD -> -> 7 `i `uc ]
-"112
-[; ;Display/Display.c: 112:              break;
+"105
+[; ;Display/Display.c: 105:              break;
 [e $U 109  ]
-"114
-[; ;Display/Display.c: 114:           case 8:
+"107
+[; ;Display/Display.c: 107:           case 8:
 [e :U 119 ]
-"115
-[; ;Display/Display.c: 115:              PORTD=0b01111111;
+"108
+[; ;Display/Display.c: 108:              PORTD=0b01111111;
 [e = _PORTD -> -> 127 `i `uc ]
-"116
-[; ;Display/Display.c: 116:              break;
+"109
+[; ;Display/Display.c: 109:              break;
 [e $U 109  ]
-"118
-[; ;Display/Display.c: 118:           case 9:
+"111
+[; ;Display/Display.c: 111:           case 9:
 [e :U 120 ]
-"119
-[; ;Display/Display.c: 119:              PORTD=0b01101111;
+"112
+[; ;Display/Display.c: 112:              PORTD=0b01101111;
 [e = _PORTD -> -> 111 `i `uc ]
-"120
-[; ;Display/Display.c: 120:              break;
+"113
+[; ;Display/Display.c: 113:              break;
 [e $U 109  ]
-"122
-[; ;Display/Display.c: 122:          }
+"115
+[; ;Display/Display.c: 115:          }
 }
 [e $U 109  ]
 [e :U 110 ]
-[e [\ -> F921 `i , $ -> 0 `i 111
+[e [\ -> F920 `i , $ -> 0 `i 111
  , $ -> 1 `i 112
  , $ -> 2 `i 113
  , $ -> 3 `i 114
@@ -527,102 +527,102 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> 9 `i 120
  109 ]
 [e :U 109 ]
+"116
+[; ;Display/Display.c: 116:   }
+}
+[e :U 105 ]
+"118
+[; ;Display/Display.c: 118:   if(Mode.Select_Mode==Setting_Mode)
+[e $ ! == -> . _Mode 0 `ui -> . `E889 2 `ui 121  ]
+"119
+[; ;Display/Display.c: 119:   {
+{
+"120
+[; ;Display/Display.c: 120:    Display_Blink(1000,20);
+[e ( _Display_Blink (2 , -> -> 1000 `i `ui -> -> 20 `i `ui ]
+"122
+[; ;Display/Display.c: 122:   }
+}
+[e :U 121 ]
 "123
 [; ;Display/Display.c: 123:   }
 }
-[e :U 105 ]
-"125
-[; ;Display/Display.c: 125:   if(Mode.Select_Mode==Setting_Mode)
-[e $ ! == -> . _Mode 0 `ui -> . `E884 2 `ui 121  ]
-"126
-[; ;Display/Display.c: 126:   {
-{
-"127
-[; ;Display/Display.c: 127:    Display_Blink(1000,20);
-[e ( _Display_Blink (2 , -> -> 1000 `i `ui -> -> 20 `i `ui ]
-"129
-[; ;Display/Display.c: 129:   }
-}
-[e :U 121 ]
-"130
-[; ;Display/Display.c: 130:   }
-}
 [e :U 104 ]
-"132
-[; ;Display/Display.c: 132: }
+"125
+[; ;Display/Display.c: 125: }
 [e :UE 98 ]
 }
-"135
-[; ;Display/Display.c: 135: void Display_Blink(uint16_t Times_Ms,uint16_t Task_Peroid)
+"128
+[; ;Display/Display.c: 128: void Display_Blink(uint16_t Times_Ms,uint16_t Task_Peroid)
 [v _Display_Blink `(v ~T0 @X0 1 ef2`ui`ui ]
-"136
-[; ;Display/Display.c: 136: {
+"129
+[; ;Display/Display.c: 129: {
 {
 [e :U _Display_Blink ]
-"135
-[; ;Display/Display.c: 135: void Display_Blink(uint16_t Times_Ms,uint16_t Task_Peroid)
+"128
+[; ;Display/Display.c: 128: void Display_Blink(uint16_t Times_Ms,uint16_t Task_Peroid)
 [v _Times_Ms `ui ~T0 @X0 1 r1 ]
 [v _Task_Peroid `ui ~T0 @X0 1 r2 ]
-"136
-[; ;Display/Display.c: 136: {
+"129
+[; ;Display/Display.c: 129: {
 [f ]
-"137
-[; ;Display/Display.c: 137:   uint8_t static Counter=1;
-[v F926 `uc ~T0 @X0 1 s Counter ]
-[i F926
+"130
+[; ;Display/Display.c: 130:   uint8_t static Counter=1;
+[v F925 `uc ~T0 @X0 1 s Counter ]
+[i F925
 -> -> 1 `i `uc
 ]
-"139
-[; ;Display/Display.c: 139:   if(Counter*Task_Peroid==Times_Ms)
-[e $ ! == * -> F926 `ui _Task_Peroid _Times_Ms 123  ]
-"140
-[; ;Display/Display.c: 140:   {
+"132
+[; ;Display/Display.c: 132:   if(Counter*Task_Peroid==Times_Ms)
+[e $ ! == * -> F925 `ui _Task_Peroid _Times_Ms 123  ]
+"133
+[; ;Display/Display.c: 133:   {
 {
-"141
-[; ;Display/Display.c: 141:       if(Enable_Display==Enable_Display_On)
-[e $ ! == -> _Enable_Display `ui -> . `E911 1 `ui 124  ]
-"142
-[; ;Display/Display.c: 142:       {
+"134
+[; ;Display/Display.c: 134:       if(Enable_Display==Enable_Display_On)
+[e $ ! == -> _Enable_Display `ui -> . `E878 1 `ui 124  ]
+"135
+[; ;Display/Display.c: 135:       {
 {
-"143
-[; ;Display/Display.c: 143:        Enable_Display=Enable_Display_Off;
-[e = _Enable_Display . `E911 0 ]
-"144
-[; ;Display/Display.c: 144:         (PORTA &= ~(1<<5)) ;
+"136
+[; ;Display/Display.c: 136:        Enable_Display=Enable_Display_Off;
+[e = _Enable_Display . `E878 0 ]
+"137
+[; ;Display/Display.c: 137:         (PORTA &= ~(1<<5)) ;
 [e =& _PORTA -> ~ << -> 1 `i -> 5 `i `Vuc ]
-"145
-[; ;Display/Display.c: 145:         (PORTA &= ~(1<<4)) ;
+"138
+[; ;Display/Display.c: 138:         (PORTA &= ~(1<<4)) ;
 [e =& _PORTA -> ~ << -> 1 `i -> 4 `i `Vuc ]
-"147
-[; ;Display/Display.c: 147:       }
+"139
+[; ;Display/Display.c: 139:       }
 }
 [e $U 125  ]
-"148
-[; ;Display/Display.c: 148:       else if(Enable_Display==Enable_Display_Off)
+"140
+[; ;Display/Display.c: 140:       else if(Enable_Display==Enable_Display_Off)
 [e :U 124 ]
-[e $ ! == -> _Enable_Display `ui -> . `E911 0 `ui 126  ]
-"149
-[; ;Display/Display.c: 149:       {
+[e $ ! == -> _Enable_Display `ui -> . `E878 0 `ui 126  ]
+"141
+[; ;Display/Display.c: 141:       {
 {
-"150
-[; ;Display/Display.c: 150:        Enable_Display=Enable_Display_On;
-[e = _Enable_Display . `E911 1 ]
-"151
-[; ;Display/Display.c: 151:       }
+"142
+[; ;Display/Display.c: 142:        Enable_Display=Enable_Display_On;
+[e = _Enable_Display . `E878 1 ]
+"143
+[; ;Display/Display.c: 143:       }
 }
 [e :U 126 ]
 [e :U 125 ]
-"152
-[; ;Display/Display.c: 152:       Counter=1;
-[e = F926 -> -> 1 `i `uc ]
-"153
-[; ;Display/Display.c: 153:   }
+"144
+[; ;Display/Display.c: 144:         Counter =1;
+[e = F925 -> -> 1 `i `uc ]
+"145
+[; ;Display/Display.c: 145:   }
 }
 [e :U 123 ]
-"154
-[; ;Display/Display.c: 154:   Counter++;
-[e ++ F926 -> -> 1 `i `uc ]
-"155
-[; ;Display/Display.c: 155: }
+"146
+[; ;Display/Display.c: 146:   Counter++;
+[e ++ F925 -> -> 1 `i `uc ]
+"147
+[; ;Display/Display.c: 147: }
 [e :UE 122 ]
 }

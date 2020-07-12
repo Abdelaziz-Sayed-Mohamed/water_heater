@@ -8,15 +8,6 @@
 #include"../WaterHeater_Mode/WaterHeater_Mode.h"
 #include"../Temperature/Temperature.h"
 
-typedef enum _LED_STATUS_t
-{
-	 LED_OFF=0,
-	 LED_ON=1,
-	 LED_BLINK=2
-}LED_STATUS_t ;
-
-LED_STATUS_t LED_Status;
-
 void Elements_Init(void)
 {
 	_LED_OFF
@@ -33,7 +24,8 @@ void LED_BLINKING(uint16_t Time_Ms,uint16_t Task_Peroid)
    if(Counter*Task_Peroid==Time_Ms)
    {
 	   _LED_BLINK
-	   Counter=1;
+       ResetLedCounter;        
+	   
    }
    else
    {
@@ -45,8 +37,9 @@ void LED_BLINKING(uint16_t Time_Ms,uint16_t Task_Peroid)
 void LED_MainFunction(void)
 {
 	if(LED_Status==LED_BLINK && Mode.Select_Mode==Normal_Mode)
-	{
-		LED_BLINKING(1000,100);  //Its mean LED_MainFunction mapped on Task_peroid 100 ms and we need LED blink every 1 Sec
+	{   
+
+		LED_BLINKING(LED_BLINK_TIME,LED_BLINK_TaskPeroid);  //Its mean LED_MainFunction mapped on Task_peroid 100 ms and we need LED blink every 1 Sec
 	}
 	else if(LED_Status==LED_ON && Mode.Select_Mode==Normal_Mode)
 	{
@@ -62,18 +55,18 @@ void LED_MainFunction(void)
 
 
 
-void Elements_Control(uint8_t Average_Temp)
+void Elements_MainFunction(void)
 {
   if(Temperature.Average_Value_Ready_Flag==1 && Mode.Select_Mode==Normal_Mode)
   {
 
-        if(Average_Temp < (Temperature.Set_Temp - MARGIN)) // Check if the Temperature lower than Temperature Set
+        if(Temperature.Average_Value < (Temperature.Set_Temp - MARGIN)) // Check if the Temperature lower than Temperature Set
          {
         	_COOLER_OFF                        //Turn Off Cooler
         	_HEATER_ON                         //Turn On Heater
 			LED_Status=LED_BLINK ;             //LED Blinking Every 1 Sec
 
-         }else if(Average_Temp > (Temperature.Set_Temp + MARGIN)) // Check if the Temperature Higher than Temperature Set
+         }else if(Temperature.Average_Value > (Temperature.Set_Temp + MARGIN)) // Check if the Temperature Higher than Temperature Set
          {
 
         	 _HEATER_OFF                      //Turn Off Heater

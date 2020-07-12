@@ -1889,11 +1889,21 @@ typedef uint16_t uintptr_t;
 # 24 "Elements/../gpio/gpio.h"
 void GPIO_Init(void);
 # 12 "Elements/Elements.h" 2
-# 21 "Elements/Elements.h"
+# 28 "Elements/Elements.h"
+typedef enum _LED_STATUS_t
+{
+  LED_OFF=0,
+  LED_ON=1,
+  LED_BLINK=2
+}LED_STATUS_t ;
+
+LED_STATUS_t LED_Status;
+
+
 void LED_BLINKING(uint16_t Time_Ms,uint16_t Task_Peroid);
 void Elements_Init(void);
 void LED_MainFunction(void);
-void Elements_Control(uint8_t Average_Temp);
+void Elements_MainFunction(void);
 # 7 "Elements/Elements.c" 2
 
 # 1 "Elements/../WaterHeater_Mode/WaterHeater_Mode.h" 1
@@ -1924,10 +1934,15 @@ typedef struct _MODE_t
 }MODE_t;
 
 MODE_t Mode;
+
+
+
+
+
+
 void Mode_Init(void);
 void Select_Mode(void);
 void Start_Setting_Timer(uint16_t Timer_Ms ,uint16_t Peroid_Task);
-void Reset_Setting_Timer(void);
 void Mode_MainFunction(void);
 # 8 "Elements/Elements.c" 2
 
@@ -1935,6 +1950,10 @@ void Mode_MainFunction(void);
 # 10 "Elements/../Temperature/Temperature.h"
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
 # 10 "Elements/../Temperature/Temperature.h" 2
+
+
+
+
 
 typedef struct _TEMP_t
 {
@@ -1947,18 +1966,12 @@ typedef struct _TEMP_t
 
 TEMP_t Temperature;
 
+
+
+
 void Temperature_Calc(uint8_t ADC_VALUE);
 # 9 "Elements/Elements.c" 2
 
-
-typedef enum _LED_STATUS_t
-{
-  LED_OFF=0,
-  LED_ON=1,
-  LED_BLINK=2
-}LED_STATUS_t ;
-
-LED_STATUS_t LED_Status;
 
 void Elements_Init(void)
 {
@@ -1976,7 +1989,8 @@ void LED_BLINKING(uint16_t Time_Ms,uint16_t Task_Peroid)
    if(Counter*Task_Peroid==Time_Ms)
    {
     (PORTB^= (1<<4));
-    Counter=1;
+       Counter=1;
+
    }
    else
    {
@@ -1989,6 +2003,7 @@ void LED_MainFunction(void)
 {
  if(LED_Status==LED_BLINK && Mode.Select_Mode==Normal_Mode)
  {
+
   LED_BLINKING(1000,100);
  }
  else if(LED_Status==LED_ON && Mode.Select_Mode==Normal_Mode)
@@ -2005,18 +2020,18 @@ void LED_MainFunction(void)
 
 
 
-void Elements_Control(uint8_t Average_Temp)
+void Elements_MainFunction(void)
 {
   if(Temperature.Average_Value_Ready_Flag==1 && Mode.Select_Mode==Normal_Mode)
   {
 
-        if(Average_Temp < (Temperature.Set_Temp - (5U)))
+        if(Temperature.Average_Value < (Temperature.Set_Temp - (5U)))
          {
          (PORTC &= ~(1<<2));
          (PORTC|= (1<<5));
    LED_Status=LED_BLINK ;
 
-         }else if(Average_Temp > (Temperature.Set_Temp + (5U)))
+         }else if(Temperature.Average_Value > (Temperature.Set_Temp + (5U)))
          {
 
           (PORTC &= ~(1<<5));

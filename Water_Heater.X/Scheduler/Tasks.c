@@ -17,14 +17,12 @@ void Scheduler_Task2(void)	/*100ms*/
 {
 	ADC_Conv_MainFunction();
 	LED_MainFunction();
-
-
+    
 }
 /* Start Task3 function */
-void Scheduler_Task3(void) /*500ms*/
+void Scheduler_Task3(void) /*200ms*/
 {
-
-	Elements_Control(Temperature.Average_Value);
-	Mode_MainFunction();
+    Mode_MainFunction();
+	Elements_MainFunction();
 
 }

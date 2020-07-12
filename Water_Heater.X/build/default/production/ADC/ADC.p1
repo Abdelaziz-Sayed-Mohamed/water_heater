@@ -1,10 +1,10 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"18 ADC/ADC.h
-[; ;ADC/ADC.h: 18: {
+"22 ADC/ADC.h
+[; ;ADC/ADC.h: 22: {
 [s S95 :1 `uc 1 :1 `uc 1 ]
 [n S95 _ADC_t ADC_INIT_FLAG ADC_START_FLAG ]
-"12 ADC/../Temperature/Temperature.h
-[; ;ADC/../Temperature/Temperature.h: 12: {
+"16 ADC/../Temperature/Temperature.h
+[; ;ADC/../Temperature/Temperature.h: 16: {
 [s S96 `uc 1 `uc 1 `uc 1 :1 `uc 1 `uc 1 ]
 [n S96 _TEMP_t Temp_Value Average_Value Set_Temp Average_Value_Ready_Flag Average_NValues ]
 "28 ADC/../WaterHeater_Mode/WaterHeater_Mode.h
@@ -15,18 +15,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;ADC/../WaterHeater_Mode/WaterHeater_Mode.h: 23: {
 [s S97 `E899 1 `uc 1 ]
 [n S97 _MODE_t Select_Mode Setting_Mode_Timer ]
-"1331 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
-[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 1331:     struct {
-[s S54 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S54 . TRISA0 TRISA1 TRISA2 TRISA3 TRISA4 TRISA5 ]
-"1330
-[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 1330: typedef union {
-[u S53 `S54 1 ]
-[n S53 . . ]
-"1340
-[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 1340: extern volatile TRISAbits_t TRISAbits __attribute__((address(0x085)));
-[v _TRISAbits `VS53 ~T0 @X0 0 e@133 ]
-"2235
+"2235 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2235:     struct {
 [s S91 :4 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S91 . PCFG . ADCS2 ADFM ]
@@ -64,8 +53,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1190
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 1190: extern volatile ADCON0bits_t ADCON0bits __attribute__((address(0x01F)));
 [v _ADCON0bits `VS45 ~T0 @X0 0 e@31 ]
-"29 ADC/ADC.h
-[; ;ADC/ADC.h: 29: void ADC_Value_Ready_CallBack(void);
+"33 ADC/ADC.h
+[; ;ADC/ADC.h: 33: void ADC_Value_Ready_CallBack(void);
 [v _ADC_Value_Ready_CallBack `(v ~T0 @X0 0 ef ]
 "1152 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 1152: extern volatile unsigned char ADRESH __attribute__((address(0x01E)));
@@ -73,8 +62,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2222
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2222: extern volatile unsigned char ADRESL __attribute__((address(0x09E)));
 [v _ADRESL `Vuc ~T0 @X0 0 e@158 ]
-"22 ADC/../Temperature/Temperature.h
-[; ;ADC/../Temperature/Temperature.h: 22: void Temperature_Calc(uint8_t ADC_VALUE);
+"29 ADC/../Temperature/Temperature.h
+[; ;ADC/../Temperature/Temperature.h: 29: void Temperature_Calc(uint8_t ADC_VALUE);
 [v _Temperature_Calc `(v ~T0 @X0 0 ef1`uc ]
 "7 ADC/../WaterHeater_Mode/../gpio/../Config.h
 [p x FOSC = HS ]
@@ -272,11 +261,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2363
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2363: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
-"24 ADC/ADC.h
-[; ;ADC/ADC.h: 24: ADC_t ADC_Info;
+"28 ADC/ADC.h
+[; ;ADC/ADC.h: 28: ADC_t ADC_Info;
 [v _ADC_Info `S95 ~T0 @X0 1 e ]
-"20 ADC/../Temperature/Temperature.h
-[; ;ADC/../Temperature/Temperature.h: 20: TEMP_t Temperature;
+"24 ADC/../Temperature/Temperature.h
+[; ;ADC/../Temperature/Temperature.h: 24: TEMP_t Temperature;
 [v _Temperature `S96 ~T0 @X0 1 e ]
 "7 ADC/../WaterHeater_Mode/../gpio/../Config.h
 [p x FOSC = HS ]
@@ -306,136 +295,133 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _ADC_Init ]
 [f ]
 "16
-[; ;ADC/ADC.c: 16:     TRISAbits.TRISA2=1;
-[e = . . _TRISAbits 0 2 -> -> 1 `i `uc ]
-"17
-[; ;ADC/ADC.c: 17:     ADCON1bits.ADFM=1;
+[; ;ADC/ADC.c: 16:     ADCON1bits.ADFM=1;
 [e = . . _ADCON1bits 0 3 -> -> 1 `i `uc ]
-"19
-[; ;ADC/ADC.c: 19:     ADCON0bits.ADCS0=1 ;
+"18
+[; ;ADC/ADC.c: 18:     ADCON0bits.ADCS0=1 ;
 [e = . . _ADCON0bits 1 5 -> -> 1 `i `uc ]
-"20
-[; ;ADC/ADC.c: 20:     ADCON0bits.ADCS1=0;
+"19
+[; ;ADC/ADC.c: 19:     ADCON0bits.ADCS1=0;
 [e = . . _ADCON0bits 1 6 -> -> 0 `i `uc ]
-"21
-[; ;ADC/ADC.c: 21:     ADCON1bits.ADCS2=1 ;
+"20
+[; ;ADC/ADC.c: 20:     ADCON1bits.ADCS2=1 ;
 [e = . . _ADCON1bits 0 2 -> -> 1 `i `uc ]
-"24
-[; ;ADC/ADC.c: 24:     ADCON0bits.CHS0=0;
+"23
+[; ;ADC/ADC.c: 23:     ADCON0bits.CHS0=0;
 [e = . . _ADCON0bits 1 2 -> -> 0 `i `uc ]
-"25
-[; ;ADC/ADC.c: 25:     ADCON0bits.CHS1=1;
+"24
+[; ;ADC/ADC.c: 24:     ADCON0bits.CHS1=1;
 [e = . . _ADCON0bits 1 3 -> -> 1 `i `uc ]
-"26
-[; ;ADC/ADC.c: 26:     ADCON0bits.CHS2=0;
+"25
+[; ;ADC/ADC.c: 25:     ADCON0bits.CHS2=0;
 [e = . . _ADCON0bits 1 4 -> -> 0 `i `uc ]
-"29
-[; ;ADC/ADC.c: 29:     ADCON1bits.PCFG0=0;
+"28
+[; ;ADC/ADC.c: 28:     ADCON1bits.PCFG0=0;
 [e = . . _ADCON1bits 1 0 -> -> 0 `i `uc ]
-"30
-[; ;ADC/ADC.c: 30:     ADCON1bits.PCFG1=1;
+"29
+[; ;ADC/ADC.c: 29:     ADCON1bits.PCFG1=1;
 [e = . . _ADCON1bits 1 1 -> -> 1 `i `uc ]
-"31
-[; ;ADC/ADC.c: 31:     ADCON1bits.PCFG2=0;
+"30
+[; ;ADC/ADC.c: 30:     ADCON1bits.PCFG2=0;
 [e = . . _ADCON1bits 1 2 -> -> 0 `i `uc ]
-"32
-[; ;ADC/ADC.c: 32:     ADCON1bits.PCFG3=0;
+"31
+[; ;ADC/ADC.c: 31:     ADCON1bits.PCFG3=0;
 [e = . . _ADCON1bits 1 3 -> -> 0 `i `uc ]
-"34
-[; ;ADC/ADC.c: 34:     ADCON0bits.ADON=1;
+"33
+[; ;ADC/ADC.c: 33:     ADCON0bits.ADON=1;
 [e = . . _ADCON0bits 0 0 -> -> 1 `i `uc ]
-"35
-[; ;ADC/ADC.c: 35:     ADCON0bits.GO_DONE=0;
+"34
+[; ;ADC/ADC.c: 34:     ADCON0bits.GO_DONE=0;
 [e = . . _ADCON0bits 3 1 -> -> 0 `i `uc ]
-"36
-[; ;ADC/ADC.c: 36:     ADC_Info.ADC_INIT_FLAG=1;
+"35
+[; ;ADC/ADC.c: 35:     ADC_Info.ADC_INIT_FLAG=1;
 [e = . _ADC_Info 0 -> -> 1 `i `uc ]
-"37
-[; ;ADC/ADC.c: 37: }
+"36
+[; ;ADC/ADC.c: 36: }
 [e :UE 98 ]
 }
-"39
-[; ;ADC/ADC.c: 39: void ADC_Start_Conv(void)
+"38
+[; ;ADC/ADC.c: 38: void ADC_Start_Conv(void)
 [v _ADC_Start_Conv `(v ~T0 @X0 1 ef ]
-"40
-[; ;ADC/ADC.c: 40: {
+"39
+[; ;ADC/ADC.c: 39: {
 {
 [e :U _ADC_Start_Conv ]
 [f ]
-"41
-[; ;ADC/ADC.c: 41:  if (ADC_Info.ADC_INIT_FLAG==1)
+"40
+[; ;ADC/ADC.c: 40:  if (ADC_Info.ADC_INIT_FLAG==1)
 [e $ ! == -> . _ADC_Info 0 `i -> 1 `i 100  ]
-"42
-[; ;ADC/ADC.c: 42:  {
+"41
+[; ;ADC/ADC.c: 41:  {
 {
-"43
-[; ;ADC/ADC.c: 43:      ADCON0bits.GO_DONE=1 ;
+"42
+[; ;ADC/ADC.c: 42:      ADCON0bits.GO_DONE=1 ;
 [e = . . _ADCON0bits 3 1 -> -> 1 `i `uc ]
-"44
-[; ;ADC/ADC.c: 44:      ADC_Info.ADC_START_FLAG=1;
+"43
+[; ;ADC/ADC.c: 43:      ADC_Info.ADC_START_FLAG=1;
 [e = . _ADC_Info 1 -> -> 1 `i `uc ]
-"45
-[; ;ADC/ADC.c: 45:  }
+"44
+[; ;ADC/ADC.c: 44:  }
 }
 [e :U 100 ]
-"46
-[; ;ADC/ADC.c: 46: }
+"45
+[; ;ADC/ADC.c: 45: }
 [e :UE 99 ]
 }
-"48
-[; ;ADC/ADC.c: 48: void ADC_Conv_MainFunction(void)
+"47
+[; ;ADC/ADC.c: 47: void ADC_Conv_MainFunction(void)
 [v _ADC_Conv_MainFunction `(v ~T0 @X0 1 ef ]
-"49
-[; ;ADC/ADC.c: 49: {
+"48
+[; ;ADC/ADC.c: 48: {
 {
 [e :U _ADC_Conv_MainFunction ]
 [f ]
-"50
-[; ;ADC/ADC.c: 50:  if(ADC_Info.ADC_INIT_FLAG==1 && ADC_Info.ADC_START_FLAG==1 && Mode.Select_Mode==Normal_Mode)
+"49
+[; ;ADC/ADC.c: 49:  if(ADC_Info.ADC_INIT_FLAG==1 && ADC_Info.ADC_START_FLAG==1 && Mode.Select_Mode==Normal_Mode)
 [e $ ! && && == -> . _ADC_Info 0 `i -> 1 `i == -> . _ADC_Info 1 `i -> 1 `i == -> . _Mode 0 `ui -> . `E899 1 `ui 102  ]
+"50
+[; ;ADC/ADC.c: 50:  {
+{
 "51
-[; ;ADC/ADC.c: 51:  {
-{
-"52
-[; ;ADC/ADC.c: 52:      if(ADCON0bits.GO_DONE==0)
+[; ;ADC/ADC.c: 51:      if(ADCON0bits.GO_DONE==0)
 [e $ ! == -> . . _ADCON0bits 3 1 `i -> 0 `i 103  ]
-"53
-[; ;ADC/ADC.c: 53:      {
+"52
+[; ;ADC/ADC.c: 52:      {
 {
-"54
-[; ;ADC/ADC.c: 54:       ADC_Value_Ready_CallBack();
+"53
+[; ;ADC/ADC.c: 53:       ADC_Value_Ready_CallBack();
 [e ( _ADC_Value_Ready_CallBack ..  ]
-"55
-[; ;ADC/ADC.c: 55:      ADCON0bits.GO_DONE=1;
+"54
+[; ;ADC/ADC.c: 54:       ADCON0bits.GO_DONE=1;
 [e = . . _ADCON0bits 3 1 -> -> 1 `i `uc ]
-"57
-[; ;ADC/ADC.c: 57:      }
+"55
+[; ;ADC/ADC.c: 55:      }
 }
 [e :U 103 ]
-"58
-[; ;ADC/ADC.c: 58:  }
+"56
+[; ;ADC/ADC.c: 56:  }
 }
 [e :U 102 ]
-"59
-[; ;ADC/ADC.c: 59: }
+"57
+[; ;ADC/ADC.c: 57: }
 [e :UE 101 ]
 }
-"61
-[; ;ADC/ADC.c: 61: void ADC_Value_Ready_CallBack(void)
+"59
+[; ;ADC/ADC.c: 59: void ADC_Value_Ready_CallBack(void)
 [v _ADC_Value_Ready_CallBack `(v ~T0 @X0 1 ef ]
-"62
-[; ;ADC/ADC.c: 62: {
+"60
+[; ;ADC/ADC.c: 60: {
 {
 [e :U _ADC_Value_Ready_CallBack ]
 [f ]
-"63
-[; ;ADC/ADC.c: 63:   uint16_t ADC_Value=(ADRESH<<8)|(ADRESL);
+"61
+[; ;ADC/ADC.c: 61:   uint16_t ADC_Value=(ADRESH<<8)|(ADRESL);
 [v _ADC_Value `ui ~T0 @X0 1 a ]
 [e = _ADC_Value -> | << -> _ADRESH `i -> 8 `i -> _ADRESL `i `ui ]
-"64
-[; ;ADC/ADC.c: 64:   Temperature_Calc(ADC_Value);
+"62
+[; ;ADC/ADC.c: 62:   Temperature_Calc(ADC_Value);
 [e ( _Temperature_Calc (1 -> _ADC_Value `uc ]
-"66
-[; ;ADC/ADC.c: 66: }
+"64
+[; ;ADC/ADC.c: 64: }
 [e :UE 104 ]
 }

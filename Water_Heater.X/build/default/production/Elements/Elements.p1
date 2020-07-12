@@ -1,20 +1,20 @@
 Version 4.0 HI-TECH Software Intermediate Code
+"35 Elements/Elements.h
+[; ;Elements/Elements.h: 35: LED_STATUS_t LED_Status;
+[c E879 0 1 2 .. ]
+[n E879 _LED_STATUS_t LED_OFF LED_ON LED_BLINK  ]
 "28 Elements/../WaterHeater_Mode/WaterHeater_Mode.h
 [; ;Elements/../WaterHeater_Mode/WaterHeater_Mode.h: 28: MODE_t Mode;
-[c E886 0 1 2 .. ]
-[n E886 _Select_Mode_t Off_Mode Normal_Mode Setting_Mode  ]
+[c E891 0 1 2 .. ]
+[n E891 _Select_Mode_t Off_Mode Normal_Mode Setting_Mode  ]
 "23
 [; ;Elements/../WaterHeater_Mode/WaterHeater_Mode.h: 23: {
-[s S95 `E886 1 `uc 1 ]
+[s S95 `E891 1 `uc 1 ]
 [n S95 _MODE_t Select_Mode Setting_Mode_Timer ]
-"12 Elements/../Temperature/Temperature.h
-[; ;Elements/../Temperature/Temperature.h: 12: {
+"16 Elements/../Temperature/Temperature.h
+[; ;Elements/../Temperature/Temperature.h: 16: {
 [s S96 `uc 1 `uc 1 `uc 1 :1 `uc 1 `uc 1 ]
 [n S96 _TEMP_t Temp_Value Average_Value Set_Temp Average_Value_Ready_Flag Average_NValues ]
-"18 Elements/Elements.c
-[; ;Elements/Elements.c: 18: LED_STATUS_t LED_Status;
-[c E913 0 1 2 .. ]
-[n E913 _LED_STATUS_t LED_OFF LED_ON LED_BLINK  ]
 "216 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 216: extern volatile unsigned char PORTB __attribute__((address(0x006)));
 [v _PORTB `Vuc ~T0 @X0 0 e@6 ]
@@ -217,222 +217,217 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2363
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2363: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
+"35 Elements/Elements.h
+[; ;Elements/Elements.h: 35: LED_STATUS_t LED_Status;
+[v _LED_Status `E879 ~T0 @X0 1 e ]
 "28 Elements/../WaterHeater_Mode/WaterHeater_Mode.h
 [; ;Elements/../WaterHeater_Mode/WaterHeater_Mode.h: 28: MODE_t Mode;
 [v _Mode `S95 ~T0 @X0 1 e ]
-"20 Elements/../Temperature/Temperature.h
-[; ;Elements/../Temperature/Temperature.h: 20: TEMP_t Temperature;
+"24 Elements/../Temperature/Temperature.h
+[; ;Elements/../Temperature/Temperature.h: 24: TEMP_t Temperature;
 [v _Temperature `S96 ~T0 @X0 1 e ]
-"18 Elements/Elements.c
-[; ;Elements/Elements.c: 18: LED_STATUS_t LED_Status;
-[v _LED_Status `E913 ~T0 @X0 1 e ]
-"20
-[; ;Elements/Elements.c: 20: void Elements_Init(void)
+"11 Elements/Elements.c
+[; ;Elements/Elements.c: 11: void Elements_Init(void)
 [v _Elements_Init `(v ~T0 @X0 1 ef ]
-"21
-[; ;Elements/Elements.c: 21: {
+"12
+[; ;Elements/Elements.c: 12: {
 {
 [e :U _Elements_Init ]
 [f ]
-"22
-[; ;Elements/Elements.c: 22:  (PORTB &= ~(1<<4));
+"13
+[; ;Elements/Elements.c: 13:  (PORTB &= ~(1<<4));
 [e =& _PORTB -> ~ << -> 1 `i -> 4 `i `Vuc ]
-"23
-[; ;Elements/Elements.c: 23:  (PORTC &= ~(1<<5));
+"14
+[; ;Elements/Elements.c: 14:  (PORTC &= ~(1<<5));
 [e =& _PORTC -> ~ << -> 1 `i -> 5 `i `Vuc ]
-"24
-[; ;Elements/Elements.c: 24:  (PORTC &= ~(1<<2));
+"15
+[; ;Elements/Elements.c: 15:  (PORTC &= ~(1<<2));
 [e =& _PORTC -> ~ << -> 1 `i -> 2 `i `Vuc ]
-"26
-[; ;Elements/Elements.c: 26: }
+"17
+[; ;Elements/Elements.c: 17: }
 [e :UE 97 ]
 }
-"29
-[; ;Elements/Elements.c: 29: void LED_BLINKING(uint16_t Time_Ms,uint16_t Task_Peroid)
+"20
+[; ;Elements/Elements.c: 20: void LED_BLINKING(uint16_t Time_Ms,uint16_t Task_Peroid)
 [v _LED_BLINKING `(v ~T0 @X0 1 ef2`ui`ui ]
-"30
-[; ;Elements/Elements.c: 30: {
+"21
+[; ;Elements/Elements.c: 21: {
 {
 [e :U _LED_BLINKING ]
-"29
-[; ;Elements/Elements.c: 29: void LED_BLINKING(uint16_t Time_Ms,uint16_t Task_Peroid)
+"20
+[; ;Elements/Elements.c: 20: void LED_BLINKING(uint16_t Time_Ms,uint16_t Task_Peroid)
 [v _Time_Ms `ui ~T0 @X0 1 r1 ]
 [v _Task_Peroid `ui ~T0 @X0 1 r2 ]
-"30
-[; ;Elements/Elements.c: 30: {
+"21
+[; ;Elements/Elements.c: 21: {
 [f ]
-"31
-[; ;Elements/Elements.c: 31:  static uint8_t Counter=1;
-[v F923 `uc ~T0 @X0 1 s Counter ]
-[i F923
+"22
+[; ;Elements/Elements.c: 22:  static uint8_t Counter=1;
+[v F921 `uc ~T0 @X0 1 s Counter ]
+[i F921
 -> -> 1 `i `uc
 ]
-"33
-[; ;Elements/Elements.c: 33:    if(Counter*Task_Peroid==Time_Ms)
-[e $ ! == * -> F923 `ui _Task_Peroid _Time_Ms 99  ]
-"34
-[; ;Elements/Elements.c: 34:    {
+"24
+[; ;Elements/Elements.c: 24:    if(Counter*Task_Peroid==Time_Ms)
+[e $ ! == * -> F921 `ui _Task_Peroid _Time_Ms 99  ]
+"25
+[; ;Elements/Elements.c: 25:    {
 {
-"35
-[; ;Elements/Elements.c: 35:     (PORTB^= (1<<4));
+"26
+[; ;Elements/Elements.c: 26:     (PORTB^= (1<<4));
 [e =^ _PORTB -> << -> 1 `i -> 4 `i `Vuc ]
-"36
-[; ;Elements/Elements.c: 36:     Counter=1;
-[e = F923 -> -> 1 `i `uc ]
-"37
-[; ;Elements/Elements.c: 37:    }
+"27
+[; ;Elements/Elements.c: 27:        Counter=1;
+[e = F921 -> -> 1 `i `uc ]
+"29
+[; ;Elements/Elements.c: 29:    }
 }
 [e $U 100  ]
-"38
-[; ;Elements/Elements.c: 38:    else
+"30
+[; ;Elements/Elements.c: 30:    else
 [e :U 99 ]
-"39
-[; ;Elements/Elements.c: 39:    {
+"31
+[; ;Elements/Elements.c: 31:    {
 {
-"40
-[; ;Elements/Elements.c: 40:     Counter++;
-[e ++ F923 -> -> 1 `i `uc ]
-"41
-[; ;Elements/Elements.c: 41:    }
+"32
+[; ;Elements/Elements.c: 32:     Counter++;
+[e ++ F921 -> -> 1 `i `uc ]
+"33
+[; ;Elements/Elements.c: 33:    }
 }
 [e :U 100 ]
-"43
-[; ;Elements/Elements.c: 43: }
+"35
+[; ;Elements/Elements.c: 35: }
 [e :UE 98 ]
 }
-"45
-[; ;Elements/Elements.c: 45: void LED_MainFunction(void)
+"37
+[; ;Elements/Elements.c: 37: void LED_MainFunction(void)
 [v _LED_MainFunction `(v ~T0 @X0 1 ef ]
-"46
-[; ;Elements/Elements.c: 46: {
+"38
+[; ;Elements/Elements.c: 38: {
 {
 [e :U _LED_MainFunction ]
 [f ]
-"47
-[; ;Elements/Elements.c: 47:  if(LED_Status==LED_BLINK && Mode.Select_Mode==Normal_Mode)
-[e $ ! && == -> _LED_Status `ui -> . `E913 2 `ui == -> . _Mode 0 `ui -> . `E886 1 `ui 102  ]
-"48
-[; ;Elements/Elements.c: 48:  {
+"39
+[; ;Elements/Elements.c: 39:  if(LED_Status==LED_BLINK && Mode.Select_Mode==Normal_Mode)
+[e $ ! && == -> _LED_Status `ui -> . `E879 2 `ui == -> . _Mode 0 `ui -> . `E891 1 `ui 102  ]
+"40
+[; ;Elements/Elements.c: 40:  {
 {
-"49
-[; ;Elements/Elements.c: 49:   LED_BLINKING(1000,100);
+"42
+[; ;Elements/Elements.c: 42:   LED_BLINKING(1000,100);
 [e ( _LED_BLINKING (2 , -> -> 1000 `i `ui -> -> 100 `i `ui ]
-"50
-[; ;Elements/Elements.c: 50:  }
+"43
+[; ;Elements/Elements.c: 43:  }
 }
 [e $U 103  ]
-"51
-[; ;Elements/Elements.c: 51:  else if(LED_Status==LED_ON && Mode.Select_Mode==Normal_Mode)
+"44
+[; ;Elements/Elements.c: 44:  else if(LED_Status==LED_ON && Mode.Select_Mode==Normal_Mode)
 [e :U 102 ]
-[e $ ! && == -> _LED_Status `ui -> . `E913 1 `ui == -> . _Mode 0 `ui -> . `E886 1 `ui 104  ]
-"52
-[; ;Elements/Elements.c: 52:  {
+[e $ ! && == -> _LED_Status `ui -> . `E879 1 `ui == -> . _Mode 0 `ui -> . `E891 1 `ui 104  ]
+"45
+[; ;Elements/Elements.c: 45:  {
 {
-"53
-[; ;Elements/Elements.c: 53:   (PORTB|= (1<<4));
+"46
+[; ;Elements/Elements.c: 46:   (PORTB|= (1<<4));
 [e =| _PORTB -> << -> 1 `i -> 4 `i `Vuc ]
-"54
-[; ;Elements/Elements.c: 54:  }
+"47
+[; ;Elements/Elements.c: 47:  }
 }
 [e $U 105  ]
-"55
-[; ;Elements/Elements.c: 55:  else if((Mode.Select_Mode==Off_Mode) || (Mode.Select_Mode==Setting_Mode))
+"48
+[; ;Elements/Elements.c: 48:  else if((Mode.Select_Mode==Off_Mode) || (Mode.Select_Mode==Setting_Mode))
 [e :U 104 ]
-[e $ ! || == -> . _Mode 0 `ui -> . `E886 0 `ui == -> . _Mode 0 `ui -> . `E886 2 `ui 106  ]
-"56
-[; ;Elements/Elements.c: 56:  {
+[e $ ! || == -> . _Mode 0 `ui -> . `E891 0 `ui == -> . _Mode 0 `ui -> . `E891 2 `ui 106  ]
+"49
+[; ;Elements/Elements.c: 49:  {
 {
-"57
-[; ;Elements/Elements.c: 57:   (PORTB &= ~(1<<4));
+"50
+[; ;Elements/Elements.c: 50:   (PORTB &= ~(1<<4));
 [e =& _PORTB -> ~ << -> 1 `i -> 4 `i `Vuc ]
-"58
-[; ;Elements/Elements.c: 58:  }
+"51
+[; ;Elements/Elements.c: 51:  }
 }
 [e :U 106 ]
 [e :U 105 ]
 [e :U 103 ]
-"60
-[; ;Elements/Elements.c: 60: }
+"53
+[; ;Elements/Elements.c: 53: }
 [e :UE 101 ]
 }
-"65
-[; ;Elements/Elements.c: 65: void Elements_Control(uint8_t Average_Temp)
-[v _Elements_Control `(v ~T0 @X0 1 ef1`uc ]
-"66
-[; ;Elements/Elements.c: 66: {
+"58
+[; ;Elements/Elements.c: 58: void Elements_MainFunction(void)
+[v _Elements_MainFunction `(v ~T0 @X0 1 ef ]
+"59
+[; ;Elements/Elements.c: 59: {
 {
-[e :U _Elements_Control ]
-"65
-[; ;Elements/Elements.c: 65: void Elements_Control(uint8_t Average_Temp)
-[v _Average_Temp `uc ~T0 @X0 1 r1 ]
-"66
-[; ;Elements/Elements.c: 66: {
+[e :U _Elements_MainFunction ]
 [f ]
-"67
-[; ;Elements/Elements.c: 67:   if(Temperature.Average_Value_Ready_Flag==1 && Mode.Select_Mode==Normal_Mode)
-[e $ ! && == -> . _Temperature 3 `i -> 1 `i == -> . _Mode 0 `ui -> . `E886 1 `ui 108  ]
-"68
-[; ;Elements/Elements.c: 68:   {
+"60
+[; ;Elements/Elements.c: 60:   if(Temperature.Average_Value_Ready_Flag==1 && Mode.Select_Mode==Normal_Mode)
+[e $ ! && == -> . _Temperature 3 `i -> 1 `i == -> . _Mode 0 `ui -> . `E891 1 `ui 108  ]
+"61
+[; ;Elements/Elements.c: 61:   {
 {
-"70
-[; ;Elements/Elements.c: 70:         if(Average_Temp < (Temperature.Set_Temp - (5U)))
-[e $ ! < -> _Average_Temp `ui - -> . _Temperature 2 `ui -> 5 `ui 109  ]
-"71
-[; ;Elements/Elements.c: 71:          {
+"63
+[; ;Elements/Elements.c: 63:         if(Temperature.Average_Value < (Temperature.Set_Temp - (5U)))
+[e $ ! < -> . _Temperature 1 `ui - -> . _Temperature 2 `ui -> 5 `ui 109  ]
+"64
+[; ;Elements/Elements.c: 64:          {
 {
-"72
-[; ;Elements/Elements.c: 72:          (PORTC &= ~(1<<2));
+"65
+[; ;Elements/Elements.c: 65:          (PORTC &= ~(1<<2));
 [e =& _PORTC -> ~ << -> 1 `i -> 2 `i `Vuc ]
-"73
-[; ;Elements/Elements.c: 73:          (PORTC|= (1<<5));
+"66
+[; ;Elements/Elements.c: 66:          (PORTC|= (1<<5));
 [e =| _PORTC -> << -> 1 `i -> 5 `i `Vuc ]
-"74
-[; ;Elements/Elements.c: 74:    LED_Status=LED_BLINK ;
-[e = _LED_Status . `E913 2 ]
-"76
-[; ;Elements/Elements.c: 76:          }else if(Average_Temp > (Temperature.Set_Temp + (5U)))
+"67
+[; ;Elements/Elements.c: 67:    LED_Status=LED_BLINK ;
+[e = _LED_Status . `E879 2 ]
+"69
+[; ;Elements/Elements.c: 69:          }else if(Temperature.Average_Value > (Temperature.Set_Temp + (5U)))
 }
 [e $U 110  ]
 [e :U 109 ]
-[e $ ! > -> _Average_Temp `ui + -> . _Temperature 2 `ui -> 5 `ui 111  ]
-"77
-[; ;Elements/Elements.c: 77:          {
+[e $ ! > -> . _Temperature 1 `ui + -> . _Temperature 2 `ui -> 5 `ui 111  ]
+"70
+[; ;Elements/Elements.c: 70:          {
 {
-"79
-[; ;Elements/Elements.c: 79:           (PORTC &= ~(1<<5));
+"72
+[; ;Elements/Elements.c: 72:           (PORTC &= ~(1<<5));
 [e =& _PORTC -> ~ << -> 1 `i -> 5 `i `Vuc ]
-"80
-[; ;Elements/Elements.c: 80:           (PORTC|= (1<<2));
+"73
+[; ;Elements/Elements.c: 73:           (PORTC|= (1<<2));
 [e =| _PORTC -> << -> 1 `i -> 2 `i `Vuc ]
-"81
-[; ;Elements/Elements.c: 81:     LED_Status=LED_ON ;
-[e = _LED_Status . `E913 1 ]
-"83
-[; ;Elements/Elements.c: 83:          }
+"74
+[; ;Elements/Elements.c: 74:     LED_Status=LED_ON ;
+[e = _LED_Status . `E879 1 ]
+"76
+[; ;Elements/Elements.c: 76:          }
 }
 [e :U 111 ]
 [e :U 110 ]
-"84
-[; ;Elements/Elements.c: 84:   }
+"77
+[; ;Elements/Elements.c: 77:   }
 }
 [e $U 112  ]
-"85
-[; ;Elements/Elements.c: 85:   else
+"78
+[; ;Elements/Elements.c: 78:   else
 [e :U 108 ]
-"86
-[; ;Elements/Elements.c: 86:   {
+"79
+[; ;Elements/Elements.c: 79:   {
 {
-"87
-[; ;Elements/Elements.c: 87:    (PORTC &= ~(1<<2));
+"80
+[; ;Elements/Elements.c: 80:    (PORTC &= ~(1<<2));
 [e =& _PORTC -> ~ << -> 1 `i -> 2 `i `Vuc ]
-"88
-[; ;Elements/Elements.c: 88:    (PORTC &= ~(1<<5));
+"81
+[; ;Elements/Elements.c: 81:    (PORTC &= ~(1<<5));
 [e =& _PORTC -> ~ << -> 1 `i -> 5 `i `Vuc ]
-"89
-[; ;Elements/Elements.c: 89:   }
+"82
+[; ;Elements/Elements.c: 82:   }
 }
 [e :U 112 ]
-"90
-[; ;Elements/Elements.c: 90: }
+"83
+[; ;Elements/Elements.c: 83: }
 [e :UE 107 ]
 }

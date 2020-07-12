@@ -1,13 +1,19 @@
 Version 4.0 HI-TECH Software Intermediate Code
 "8 Average/Average.c
-[; ;Average/Average.c: 8: static uint8_t Average_Nvalues = 10 ;
+[; ;Average/Average.c: 8: static uint8_t Average_Nvalues = 10U ;
 [v _Average_Nvalues `uc ~T0 @X0 1 s ]
 [i _Average_Nvalues
--> -> 10 `i `uc
+-> -> 10 `ui `uc
 ]
 "9
 [; ;Average/Average.c: 9: static uint32_t temb_val[10U];
 [v _temb_val `ul ~T0 @X0 -> 10 `i s ]
+"10
+[; ;Average/Average.c: 10: uint32_t Avrage_buffer=0;
+[v _Avrage_buffer `ul ~T0 @X0 1 e ]
+[i _Avrage_buffer
+-> -> -> 0 `i `l `ul
+]
 "12
 [; ;Average/Average.c: 12: void Average_Value(uint8_t Value,uint8_t *Avrage_Values)
 [v _Average_Value `(v ~T0 @X0 1 ef2`uc`*uc ]
@@ -22,9 +28,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "13
 [; ;Average/Average.c: 13: {
 [f ]
-"14
-[; ;Average/Average.c: 14:  uint32_t Avrage_buffer=0;
-[v _Avrage_buffer `ul ~T0 @X0 1 a ]
+"15
+[; ;Average/Average.c: 15:     Avrage_buffer=0;
 [e = _Avrage_buffer -> -> -> 0 `i `l `ul ]
 "16
 [; ;Average/Average.c: 16:  temb_val[Average_Nvalues]=Value;

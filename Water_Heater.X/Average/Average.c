@@ -5,14 +5,14 @@
  *      Author: Abdelaziz Sayed
  */
 #include "Average.h"
-static uint8_t Average_Nvalues = 10 ;
+static uint8_t Average_Nvalues = AVERAGE_BUFFER_SIZE ;
 static uint32_t temb_val[AVERAGE_BUFFER_SIZE];
-
+uint32_t Avrage_buffer=0;
 
 void Average_Value(uint8_t Value,uint8_t *Avrage_Values)
 {
-	uint32_t Avrage_buffer=0;
-
+	
+    Avrage_buffer=0;
 	temb_val[Average_Nvalues]=Value;
 
 	Average_Nvalues= (Average_Nvalues+1)%AVERAGE_BUFFER_SIZE;

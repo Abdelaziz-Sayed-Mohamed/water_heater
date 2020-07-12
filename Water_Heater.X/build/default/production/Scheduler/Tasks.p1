@@ -1,35 +1,43 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"18 Scheduler/../ADC/ADC.h
-[; ;Scheduler/../ADC/ADC.h: 18: {
+"35 Scheduler/../Elements/Elements.h
+[; ;Scheduler/../Elements/Elements.h: 35: LED_STATUS_t LED_Status;
+[c E882 0 1 2 .. ]
+[n E882 _LED_STATUS_t LED_OFF LED_ON LED_BLINK  ]
+"22 Scheduler/../ADC/ADC.h
+[; ;Scheduler/../ADC/ADC.h: 22: {
 [s S95 :1 `uc 1 :1 `uc 1 ]
 [n S95 _ADC_t ADC_INIT_FLAG ADC_START_FLAG ]
 "28 Scheduler/../WaterHeater_Mode/WaterHeater_Mode.h
 [; ;Scheduler/../WaterHeater_Mode/WaterHeater_Mode.h: 28: MODE_t Mode;
-[c E899 0 1 2 .. ]
-[n E899 _Select_Mode_t Off_Mode Normal_Mode Setting_Mode  ]
+[c E904 0 1 2 .. ]
+[n E904 _Select_Mode_t Off_Mode Normal_Mode Setting_Mode  ]
 "23
 [; ;Scheduler/../WaterHeater_Mode/WaterHeater_Mode.h: 23: {
-[s S96 `E899 1 `uc 1 ]
+[s S96 `E904 1 `uc 1 ]
 [n S96 _MODE_t Select_Mode Setting_Mode_Timer ]
-"12 Scheduler/../Temperature/Temperature.h
-[; ;Scheduler/../Temperature/Temperature.h: 12: {
+"39 Scheduler/../Display/Display.h
+[; ;Scheduler/../Display/Display.h: 39: Enable_Display_t Enable_Display;
+[c E920 0 1 .. ]
+[n E920 _Enable_Display_t Enable_Display_Off Enable_Display_On  ]
+"16 Scheduler/../Temperature/Temperature.h
+[; ;Scheduler/../Temperature/Temperature.h: 16: {
 [s S97 `uc 1 `uc 1 `uc 1 :1 `uc 1 `uc 1 ]
 [n S97 _TEMP_t Temp_Value Average_Value Set_Temp Average_Value_Ready_Flag Average_NValues ]
-"26 Scheduler/../Display/Display.h
-[; ;Scheduler/../Display/Display.h: 26: void Display_MainFunction(void);
+"42 Scheduler/../Display/Display.h
+[; ;Scheduler/../Display/Display.h: 42: void Display_MainFunction(void);
 [v _Display_MainFunction `(v ~T0 @X0 0 ef ]
-"30 Scheduler/../ADC/ADC.h
-[; ;Scheduler/../ADC/ADC.h: 30: void ADC_Conv_MainFunction(void);
+"34 Scheduler/../ADC/ADC.h
+[; ;Scheduler/../ADC/ADC.h: 34: void ADC_Conv_MainFunction(void);
 [v _ADC_Conv_MainFunction `(v ~T0 @X0 0 ef ]
-"23 Scheduler/../Elements/Elements.h
-[; ;Scheduler/../Elements/Elements.h: 23: void LED_MainFunction(void);
+"40 Scheduler/../Elements/Elements.h
+[; ;Scheduler/../Elements/Elements.h: 40: void LED_MainFunction(void);
 [v _LED_MainFunction `(v ~T0 @X0 0 ef ]
-"24
-[; ;Scheduler/../Elements/Elements.h: 24: void Elements_Control(uint8_t Average_Temp);
-[v _Elements_Control `(v ~T0 @X0 0 ef1`uc ]
-"33 Scheduler/../WaterHeater_Mode/WaterHeater_Mode.h
-[; ;Scheduler/../WaterHeater_Mode/WaterHeater_Mode.h: 33: void Mode_MainFunction(void);
+"38 Scheduler/../WaterHeater_Mode/WaterHeater_Mode.h
+[; ;Scheduler/../WaterHeater_Mode/WaterHeater_Mode.h: 38: void Mode_MainFunction(void);
 [v _Mode_MainFunction `(v ~T0 @X0 0 ef ]
+"41 Scheduler/../Elements/Elements.h
+[; ;Scheduler/../Elements/Elements.h: 41: void Elements_MainFunction(void);
+[v _Elements_MainFunction `(v ~T0 @X0 0 ef ]
 "7 Scheduler/../Display/../Config.h
 [p x FOSC = HS ]
 "8
@@ -226,6 +234,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2363
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2363: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
+"35 Scheduler/../Elements/Elements.h
+[; ;Scheduler/../Elements/Elements.h: 35: LED_STATUS_t LED_Status;
+[v _LED_Status `E882 ~T0 @X0 1 e ]
 "7 Scheduler/../Display/../Config.h
 [p x FOSC = HS ]
 "8
@@ -242,8 +253,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [p x WRT = OFF ]
 "14
 [p x CP = OFF ]
-"24 Scheduler/../ADC/ADC.h
-[; ;Scheduler/../ADC/ADC.h: 24: ADC_t ADC_Info;
+"28 Scheduler/../ADC/ADC.h
+[; ;Scheduler/../ADC/ADC.h: 28: ADC_t ADC_Info;
 [v _ADC_Info `S95 ~T0 @X0 1 e ]
 "28 Scheduler/../WaterHeater_Mode/WaterHeater_Mode.h
 [; ;Scheduler/../WaterHeater_Mode/WaterHeater_Mode.h: 28: MODE_t Mode;
@@ -264,8 +275,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [p x WRT = OFF ]
 "14
 [p x CP = OFF ]
-"20 Scheduler/../Temperature/Temperature.h
-[; ;Scheduler/../Temperature/Temperature.h: 20: TEMP_t Temperature;
+"39 Scheduler/../Display/Display.h
+[; ;Scheduler/../Display/Display.h: 39: Enable_Display_t Enable_Display;
+[v _Enable_Display `E920 ~T0 @X0 1 e ]
+"24 Scheduler/../Temperature/Temperature.h
+[; ;Scheduler/../Temperature/Temperature.h: 24: TEMP_t Temperature;
 [v _Temperature `S97 ~T0 @X0 1 e ]
 "10 Scheduler/Tasks.c
 [; ;Scheduler/Tasks.c: 10: void Scheduler_Task1(void)
@@ -296,25 +310,25 @@ Version 4.0 HI-TECH Software Intermediate Code
 "19
 [; ;Scheduler/Tasks.c: 19:  LED_MainFunction();
 [e ( _LED_MainFunction ..  ]
-"22
-[; ;Scheduler/Tasks.c: 22: }
+"21
+[; ;Scheduler/Tasks.c: 21: }
 [e :UE 99 ]
 }
-"24
-[; ;Scheduler/Tasks.c: 24: void Scheduler_Task3(void)
+"23
+[; ;Scheduler/Tasks.c: 23: void Scheduler_Task3(void)
 [v _Scheduler_Task3 `(v ~T0 @X0 1 ef ]
-"25
-[; ;Scheduler/Tasks.c: 25: {
+"24
+[; ;Scheduler/Tasks.c: 24: {
 {
 [e :U _Scheduler_Task3 ]
 [f ]
-"27
-[; ;Scheduler/Tasks.c: 27:  Elements_Control(Temperature.Average_Value);
-[e ( _Elements_Control (1 . _Temperature 1 ]
-"28
-[; ;Scheduler/Tasks.c: 28:  Mode_MainFunction();
+"25
+[; ;Scheduler/Tasks.c: 25:     Mode_MainFunction();
 [e ( _Mode_MainFunction ..  ]
-"30
-[; ;Scheduler/Tasks.c: 30: }
+"26
+[; ;Scheduler/Tasks.c: 26:  Elements_MainFunction();
+[e ( _Elements_MainFunction ..  ]
+"28
+[; ;Scheduler/Tasks.c: 28: }
 [e :UE 100 ]
 }

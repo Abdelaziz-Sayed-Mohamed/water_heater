@@ -1,45 +1,53 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"18 ./ADC/ADC.h
-[; ;./ADC/ADC.h: 18: {
+"22 ./ADC/ADC.h
+[; ;./ADC/ADC.h: 22: {
 [s S95 :1 `uc 1 :1 `uc 1 ]
 [n S95 _ADC_t ADC_INIT_FLAG ADC_START_FLAG ]
-"12 ./Temperature/Temperature.h
-[; ;./Temperature/Temperature.h: 12: {
+"39 ./Display/Display.h
+[; ;./Display/Display.h: 39: Enable_Display_t Enable_Display;
+[c E990 0 1 .. ]
+[n E990 _Enable_Display_t Enable_Display_Off Enable_Display_On  ]
+"35 ./Elements/Elements.h
+[; ;./Elements/Elements.h: 35: LED_STATUS_t LED_Status;
+[c E1000 0 1 2 .. ]
+[n E1000 _LED_STATUS_t LED_OFF LED_ON LED_BLINK  ]
+"16 ./Temperature/Temperature.h
+[; ;./Temperature/Temperature.h: 16: {
 [s S97 `uc 1 `uc 1 `uc 1 :1 `uc 1 `uc 1 ]
 [n S97 _TEMP_t Temp_Value Average_Value Set_Temp Average_Value_Ready_Flag Average_NValues ]
 "28 ./WaterHeater_Mode/WaterHeater_Mode.h
 [; ;./WaterHeater_Mode/WaterHeater_Mode.h: 28: MODE_t Mode;
-[c E1015 0 1 2 .. ]
-[n E1015 _Select_Mode_t Off_Mode Normal_Mode Setting_Mode  ]
+[c E1025 0 1 2 .. ]
+[n E1025 _Select_Mode_t Off_Mode Normal_Mode Setting_Mode  ]
 "23
 [; ;./WaterHeater_Mode/WaterHeater_Mode.h: 23: {
-[s S98 `E1015 1 `uc 1 ]
+[s S98 `E1025 1 `uc 1 ]
 [n S98 _MODE_t Select_Mode Setting_Mode_Timer ]
 [p mainexit ]
 "24 ./WaterHeater_Mode/../gpio/gpio.h
 [v _GPIO_Init `(v ~T0 @X0 0 ef ]
-"26 ./ADC/ADC.h
-[; ;./ADC/ADC.h: 26: void ADC_Init(void);
+"30 ./ADC/ADC.h
+[; ;./ADC/ADC.h: 30: void ADC_Init(void);
 [v _ADC_Init `(v ~T0 @X0 0 ef ]
 "18 ./Buttons/Buttons.h
 [; ;./Buttons/Buttons.h: 18: void On_Off_Init(void);
 [v _On_Off_Init `(v ~T0 @X0 0 ef ]
-"25 ./Display/Display.h
-[; ;./Display/Display.h: 25: void Display_Init(void);
+"41 ./Display/Display.h
+[; ;./Display/Display.h: 41: void Display_Init(void);
 [v _Display_Init `(v ~T0 @X0 0 ef ]
-"22 ./Elements/Elements.h
-[; ;./Elements/Elements.h: 22: void Elements_Init(void);
+"39 ./Elements/Elements.h
+[; ;./Elements/Elements.h: 39: void Elements_Init(void);
 [v _Elements_Init `(v ~T0 @X0 0 ef ]
-"29 ./WaterHeater_Mode/WaterHeater_Mode.h
-[; ;./WaterHeater_Mode/WaterHeater_Mode.h: 29: void Mode_Init(void);
+"35 ./WaterHeater_Mode/WaterHeater_Mode.h
+[; ;./WaterHeater_Mode/WaterHeater_Mode.h: 35: void Mode_Init(void);
 [v _Mode_Init `(v ~T0 @X0 0 ef ]
-"27 ./ADC/ADC.h
-[; ;./ADC/ADC.h: 27: void ADC_Start_Conv(void);
+"31 ./ADC/ADC.h
+[; ;./ADC/ADC.h: 31: void ADC_Start_Conv(void);
 [v _ADC_Start_Conv `(v ~T0 @X0 0 ef ]
 "12 ./Timer/../Scheduler/Scheduler.h
 [v _Scheduler_Init `(v ~T0 @X0 0 ef ]
-"18 ./Timer/Timer.h
-[; ;./Timer/Timer.h: 18: void Timer0_Init(void);
+"17 ./Timer/Timer.h
+[; ;./Timer/Timer.h: 17: void Timer0_Init(void);
 [v _Timer0_Init `(v ~T0 @X0 0 ef ]
 "13 ./Timer/../Scheduler/Scheduler.h
 [v _Scheduler_Start `(v ~T0 @X0 0 ef ]
@@ -287,8 +295,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [p x WRT = OFF ]
 "14
 [p x CP = OFF ]
-"24 ./ADC/ADC.h
-[; ;./ADC/ADC.h: 24: ADC_t ADC_Info;
+"28 ./ADC/ADC.h
+[; ;./ADC/ADC.h: 28: ADC_t ADC_Info;
 [v _ADC_Info `S95 ~T0 @X0 1 e ]
 "7 ./Interrupt/../Config.h
 [p x FOSC = HS ]
@@ -338,7 +346,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [p x WRT = OFF ]
 "14
 [p x CP = OFF ]
-"7
+"39 ./Display/Display.h
+[; ;./Display/Display.h: 39: Enable_Display_t Enable_Display;
+[v _Enable_Display `E990 ~T0 @X0 1 e ]
+"35 ./Elements/Elements.h
+[; ;./Elements/Elements.h: 35: LED_STATUS_t LED_Status;
+[v _LED_Status `E1000 ~T0 @X0 1 e ]
+"7 ./Interrupt/../Config.h
 [p x FOSC = HS ]
 "8
 [p x WDTE = OFF ]
@@ -354,8 +368,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [p x WRT = OFF ]
 "14
 [p x CP = OFF ]
-"20 ./Temperature/Temperature.h
-[; ;./Temperature/Temperature.h: 20: TEMP_t Temperature;
+"24 ./Temperature/Temperature.h
+[; ;./Temperature/Temperature.h: 24: TEMP_t Temperature;
 [v _Temperature `S97 ~T0 @X0 1 e ]
 "28 ./WaterHeater_Mode/WaterHeater_Mode.h
 [; ;./WaterHeater_Mode/WaterHeater_Mode.h: 28: MODE_t Mode;

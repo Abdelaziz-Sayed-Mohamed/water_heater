@@ -1893,11 +1893,21 @@ typedef uint16_t uintptr_t;
 # 24 "Scheduler/../Elements/../gpio/gpio.h"
 void GPIO_Init(void);
 # 12 "Scheduler/../Elements/Elements.h" 2
-# 21 "Scheduler/../Elements/Elements.h"
+# 28 "Scheduler/../Elements/Elements.h"
+typedef enum _LED_STATUS_t
+{
+  LED_OFF=0,
+  LED_ON=1,
+  LED_BLINK=2
+}LED_STATUS_t ;
+
+LED_STATUS_t LED_Status;
+
+
 void LED_BLINKING(uint16_t Time_Ms,uint16_t Task_Peroid);
 void Elements_Init(void);
 void LED_MainFunction(void);
-void Elements_Control(uint8_t Average_Temp);
+void Elements_MainFunction(void);
 # 3 "Scheduler/Tasks.c" 2
 
 # 1 "Scheduler/../ADC/ADC.h" 1
@@ -1926,13 +1936,7 @@ void Elements_Control(uint8_t Average_Temp);
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
 # 20 "Scheduler/../ADC/../Config.h" 2
 # 10 "Scheduler/../ADC/ADC.h" 2
-
-
-
-
-
-
-
+# 21 "Scheduler/../ADC/ADC.h"
 typedef struct _ADC_t
 {
    uint8_t ADC_INIT_FLAG :1;
@@ -1977,10 +1981,15 @@ typedef struct _MODE_t
 }MODE_t;
 
 MODE_t Mode;
+
+
+
+
+
+
 void Mode_Init(void);
 void Select_Mode(void);
 void Start_Setting_Timer(uint16_t Timer_Ms ,uint16_t Peroid_Task);
-void Reset_Setting_Timer(void);
 void Mode_MainFunction(void);
 # 5 "Scheduler/Tasks.c" 2
 
@@ -2010,7 +2019,15 @@ void Mode_MainFunction(void);
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
 # 20 "Scheduler/../Display/../Config.h" 2
 # 10 "Scheduler/../Display/Display.h" 2
-# 25 "Scheduler/../Display/Display.h"
+# 33 "Scheduler/../Display/Display.h"
+typedef enum _Enable_Display_t
+{
+ Enable_Display_Off=0,
+ Enable_Display_On=1,
+}Enable_Display_t;
+
+Enable_Display_t Enable_Display;
+
 void Display_Init(void);
 void Display_MainFunction(void);
 void Display_Blink(uint16_t Times_Ms,uint16_t Task_Peroid);
@@ -2020,6 +2037,10 @@ void Display_Blink(uint16_t Times_Ms,uint16_t Task_Peroid);
 # 10 "Scheduler/../Temperature/Temperature.h"
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
 # 10 "Scheduler/../Temperature/Temperature.h" 2
+
+
+
+
 
 typedef struct _TEMP_t
 {
@@ -2031,6 +2052,9 @@ typedef struct _TEMP_t
 }TEMP_t;
 
 TEMP_t Temperature;
+
+
+
 
 void Temperature_Calc(uint8_t ADC_VALUE);
 # 7 "Scheduler/Tasks.c" 2
@@ -2048,13 +2072,11 @@ void Scheduler_Task2(void)
  ADC_Conv_MainFunction();
  LED_MainFunction();
 
-
 }
 
 void Scheduler_Task3(void)
 {
-
- Elements_Control(Temperature.Average_Value);
- Mode_MainFunction();
+    Mode_MainFunction();
+ Elements_MainFunction();
 
 }

@@ -31,16 +31,17 @@ void Mode_MainFunction(void)
 
    if(Mode.Select_Mode==Setting_Mode)
    {
-	   Start_Setting_Timer(5000,500); //Its Mean Time out event after 5 Sec if we Mapped Mode_MainFunction On 500ms Task Period
+
+	   Start_Setting_Timer(Setting_Time,Setting_Timer_TaskPeroid); //Its Mean Time out event after 5 Sec if we Mapped Mode_MainFunction On 500ms Task Period
 	   if((READ_PIN(UP_BUTTON_PORT,UP_BUTTON_PIN)==Button_Pressed) &&(READ_PIN(DOWN_BUTTON_PORT,DOWN_BUTTON_PIN)==Button_NotPressed) && Temperature.Set_Temp !=MAX_SET_TEMP) //Check the up button pressed and down button not pressed and setting limit time not expired
 	    {
 	  	  Temperature.Set_Temp += TEMP_STEP;  //increase the set temperature by 5 degrees
-	  	  Reset_Setting_Timer();   //reset the setting time counter
+	  	  Reset_Setting_Timer;   //reset the setting time counter
 	    }
 	    else if((READ_PIN(UP_BUTTON_PORT,UP_BUTTON_PIN)==Button_NotPressed) &&(READ_PIN(DOWN_BUTTON_PORT,DOWN_BUTTON_PIN)==Button_Pressed) && Temperature.Set_Temp !=MIN_SET_TEMP) //Check the down button pressed and up button not pressed and setting limit time not expired
 	    {
 	  	  Temperature.Set_Temp -= TEMP_STEP; //decrease the set temperature by 5 degrees
-	  	  Reset_Setting_Timer();  //reset the setting time counter
+	  	  Reset_Setting_Timer;  //reset the setting time counter
 
 	    }
    }
@@ -50,23 +51,13 @@ void Mode_MainFunction(void)
 
 
 
-
-void Reset_Setting_Timer(void)
-{
-	if(Mode.Select_Mode==Setting_Mode)
-	{
-		 Mode.Setting_Mode_Timer=1;
-	}
-
-}
-
 void Start_Setting_Timer(uint16_t Timer_Ms ,uint16_t Peroid_Task)
 {
 	if(Mode.Setting_Mode_Timer*Peroid_Task==Timer_Ms)
 	{
 		//TODO:Write Temperature.Set_Temp in the flash
 		Mode.Select_Mode=Normal_Mode;
-		Mode.Setting_Mode_Timer=1;
+		Reset_Setting_Timer;
 
 	}
 	else

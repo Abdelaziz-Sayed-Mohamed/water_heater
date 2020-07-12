@@ -22,8 +22,8 @@ void Timer0_Init(void)
         INTCONbits.TMR0IE=1; //Enable Timer 0 Interrupt
         INTCONbits.PEIE=1;   //Enable Peripheral Interrupt
         INTCONbits.GIE=1;    //Enable All Global Interrupt
-	    TMR0=Reload_Timer0;              //Preload Timer 0 to Get 1ms Per OverFlow
-        _RESET_TIMER0_FLAG; //Clear Timer 0 Interrupt Flag
+	    TMR0=Reload_Timer0;  //Preload Timer 0 to Get 1ms Per OverFlow
+        RESET_TIMER0_FLAG; //Clear Timer 0 Interrupt Flag
 
 }
 

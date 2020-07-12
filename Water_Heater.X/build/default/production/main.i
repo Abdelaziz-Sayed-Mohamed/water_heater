@@ -1947,13 +1947,7 @@ void GPIO_Init(void);
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
 # 20 "./ADC/../Config.h" 2
 # 10 "./ADC/ADC.h" 2
-
-
-
-
-
-
-
+# 21 "./ADC/ADC.h"
 typedef struct _ADC_t
 {
    uint8_t ADC_INIT_FLAG :1;
@@ -2119,7 +2113,6 @@ void Scheduler_ActivateTask(uint32_t SystemTick);
 
 
 
-
 void Timer0_CallBack(void);
 void Timer0_Init(void);
 # 28 "main.c" 2
@@ -2150,18 +2143,36 @@ void Timer0_Init(void);
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
 # 20 "./Display/../Config.h" 2
 # 10 "./Display/Display.h" 2
-# 25 "./Display/Display.h"
+# 33 "./Display/Display.h"
+typedef enum _Enable_Display_t
+{
+ Enable_Display_Off=0,
+ Enable_Display_On=1,
+}Enable_Display_t;
+
+Enable_Display_t Enable_Display;
+
 void Display_Init(void);
 void Display_MainFunction(void);
 void Display_Blink(uint16_t Times_Ms,uint16_t Task_Peroid);
 # 29 "main.c" 2
 
 # 1 "./Elements/Elements.h" 1
-# 21 "./Elements/Elements.h"
+# 28 "./Elements/Elements.h"
+typedef enum _LED_STATUS_t
+{
+  LED_OFF=0,
+  LED_ON=1,
+  LED_BLINK=2
+}LED_STATUS_t ;
+
+LED_STATUS_t LED_Status;
+
+
 void LED_BLINKING(uint16_t Time_Ms,uint16_t Task_Peroid);
 void Elements_Init(void);
 void LED_MainFunction(void);
-void Elements_Control(uint8_t Average_Temp);
+void Elements_MainFunction(void);
 # 30 "main.c" 2
 
 # 1 "./Buttons/Buttons.h" 1
@@ -2206,6 +2217,10 @@ void EXTI_On_Off_CallBack(void);
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
 # 10 "./Temperature/Temperature.h" 2
 
+
+
+
+
 typedef struct _TEMP_t
 {
  uint8_t Temp_Value;
@@ -2216,6 +2231,9 @@ typedef struct _TEMP_t
 }TEMP_t;
 
 TEMP_t Temperature;
+
+
+
 
 void Temperature_Calc(uint8_t ADC_VALUE);
 # 32 "main.c" 2
@@ -2248,10 +2266,15 @@ typedef struct _MODE_t
 }MODE_t;
 
 MODE_t Mode;
+
+
+
+
+
+
 void Mode_Init(void);
 void Select_Mode(void);
 void Start_Setting_Timer(uint16_t Timer_Ms ,uint16_t Peroid_Task);
-void Reset_Setting_Timer(void);
 void Mode_MainFunction(void);
 # 33 "main.c" 2
 

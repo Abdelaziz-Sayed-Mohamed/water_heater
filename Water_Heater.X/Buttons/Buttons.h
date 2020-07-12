@@ -9,8 +9,8 @@
 #define BUTTONS_H_
 
 #include "../Config.h"
-#define _IS_EXTI_ON_OFF_FLAG     INTCONbits.INTF
-#define _RESET_EXTI_ON_OFF_FLAG  INTCONbits.INTF=0
+#define IS_EXTI_ON_OFF_FLAG     INTCONbits.INTF
+#define RESET_EXTI_ON_OFF_FLAG  INTCONbits.INTF=0
 
 #define Button_Pressed              0
 #define Button_NotPressed           1
