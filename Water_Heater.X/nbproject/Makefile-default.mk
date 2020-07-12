@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=
+SOURCEFILES_QUOTED_IF_SPACED=ADC/ADC.c main.c Average/Average.c Buttons/Buttons.c Display/Display.c Elements/Elements.c gpio/gpio.c Interrupt/Interrupt.c Scheduler/Scheduler.c Scheduler/Scheduler_cfg.c Scheduler/Tasks.c Temperature/Temperature.c Timer/Timer.c WaterHeater_Mode/WaterHeater_Mode.c WaterHeater_Mode/WaterHeater_Mode_Cfg.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=
-POSSIBLE_DEPFILES=
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/ADC/ADC.p1 ${OBJECTDIR}/main.p1 ${OBJECTDIR}/Average/Average.p1 ${OBJECTDIR}/Buttons/Buttons.p1 ${OBJECTDIR}/Display/Display.p1 ${OBJECTDIR}/Elements/Elements.p1 ${OBJECTDIR}/gpio/gpio.p1 ${OBJECTDIR}/Interrupt/Interrupt.p1 ${OBJECTDIR}/Scheduler/Scheduler.p1 ${OBJECTDIR}/Scheduler/Scheduler_cfg.p1 ${OBJECTDIR}/Scheduler/Tasks.p1 ${OBJECTDIR}/Temperature/Temperature.p1 ${OBJECTDIR}/Timer/Timer.p1 ${OBJECTDIR}/WaterHeater_Mode/WaterHeater_Mode.p1 ${OBJECTDIR}/WaterHeater_Mode/WaterHeater_Mode_Cfg.p1
+POSSIBLE_DEPFILES=${OBJECTDIR}/ADC/ADC.p1.d ${OBJECTDIR}/main.p1.d ${OBJECTDIR}/Average/Average.p1.d ${OBJECTDIR}/Buttons/Buttons.p1.d ${OBJECTDIR}/Display/Display.p1.d ${OBJECTDIR}/Elements/Elements.p1.d ${OBJECTDIR}/gpio/gpio.p1.d ${OBJECTDIR}/Interrupt/Interrupt.p1.d ${OBJECTDIR}/Scheduler/Scheduler.p1.d ${OBJECTDIR}/Scheduler/Scheduler_cfg.p1.d ${OBJECTDIR}/Scheduler/Tasks.p1.d ${OBJECTDIR}/Temperature/Temperature.p1.d ${OBJECTDIR}/Timer/Timer.p1.d ${OBJECTDIR}/WaterHeater_Mode/WaterHeater_Mode.p1.d ${OBJECTDIR}/WaterHeater_Mode/WaterHeater_Mode_Cfg.p1.d
 
 # Object Files
-OBJECTFILES=
+OBJECTFILES=${OBJECTDIR}/ADC/ADC.p1 ${OBJECTDIR}/main.p1 ${OBJECTDIR}/Average/Average.p1 ${OBJECTDIR}/Buttons/Buttons.p1 ${OBJECTDIR}/Display/Display.p1 ${OBJECTDIR}/Elements/Elements.p1 ${OBJECTDIR}/gpio/gpio.p1 ${OBJECTDIR}/Interrupt/Interrupt.p1 ${OBJECTDIR}/Scheduler/Scheduler.p1 ${OBJECTDIR}/Scheduler/Scheduler_cfg.p1 ${OBJECTDIR}/Scheduler/Tasks.p1 ${OBJECTDIR}/Temperature/Temperature.p1 ${OBJECTDIR}/Timer/Timer.p1 ${OBJECTDIR}/WaterHeater_Mode/WaterHeater_Mode.p1 ${OBJECTDIR}/WaterHeater_Mode/WaterHeater_Mode_Cfg.p1
 
 # Source Files
-SOURCEFILES=
+SOURCEFILES=ADC/ADC.c main.c Average/Average.c Buttons/Buttons.c Display/Display.c Elements/Elements.c gpio/gpio.c Interrupt/Interrupt.c Scheduler/Scheduler.c Scheduler/Scheduler_cfg.c Scheduler/Tasks.c Temperature/Temperature.c Timer/Timer.c WaterHeater_Mode/WaterHeater_Mode.c WaterHeater_Mode/WaterHeater_Mode_Cfg.c
 
 
 
@@ -94,7 +94,247 @@ MP_PROCESSOR_OPTION=16F877A
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: compile
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
+${OBJECTDIR}/ADC/ADC.p1: ADC/ADC.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/ADC" 
+	@${RM} ${OBJECTDIR}/ADC/ADC.p1.d 
+	@${RM} ${OBJECTDIR}/ADC/ADC.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/ADC/ADC.p1 ADC/ADC.c 
+	@-${MV} ${OBJECTDIR}/ADC/ADC.d ${OBJECTDIR}/ADC/ADC.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/ADC/ADC.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/main.p1: main.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/main.p1.d 
+	@${RM} ${OBJECTDIR}/main.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/main.p1 main.c 
+	@-${MV} ${OBJECTDIR}/main.d ${OBJECTDIR}/main.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/main.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/Average/Average.p1: Average/Average.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/Average" 
+	@${RM} ${OBJECTDIR}/Average/Average.p1.d 
+	@${RM} ${OBJECTDIR}/Average/Average.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/Average/Average.p1 Average/Average.c 
+	@-${MV} ${OBJECTDIR}/Average/Average.d ${OBJECTDIR}/Average/Average.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/Average/Average.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/Buttons/Buttons.p1: Buttons/Buttons.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/Buttons" 
+	@${RM} ${OBJECTDIR}/Buttons/Buttons.p1.d 
+	@${RM} ${OBJECTDIR}/Buttons/Buttons.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/Buttons/Buttons.p1 Buttons/Buttons.c 
+	@-${MV} ${OBJECTDIR}/Buttons/Buttons.d ${OBJECTDIR}/Buttons/Buttons.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/Buttons/Buttons.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/Display/Display.p1: Display/Display.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/Display" 
+	@${RM} ${OBJECTDIR}/Display/Display.p1.d 
+	@${RM} ${OBJECTDIR}/Display/Display.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/Display/Display.p1 Display/Display.c 
+	@-${MV} ${OBJECTDIR}/Display/Display.d ${OBJECTDIR}/Display/Display.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/Display/Display.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/Elements/Elements.p1: Elements/Elements.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/Elements" 
+	@${RM} ${OBJECTDIR}/Elements/Elements.p1.d 
+	@${RM} ${OBJECTDIR}/Elements/Elements.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/Elements/Elements.p1 Elements/Elements.c 
+	@-${MV} ${OBJECTDIR}/Elements/Elements.d ${OBJECTDIR}/Elements/Elements.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/Elements/Elements.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/gpio/gpio.p1: gpio/gpio.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/gpio" 
+	@${RM} ${OBJECTDIR}/gpio/gpio.p1.d 
+	@${RM} ${OBJECTDIR}/gpio/gpio.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/gpio/gpio.p1 gpio/gpio.c 
+	@-${MV} ${OBJECTDIR}/gpio/gpio.d ${OBJECTDIR}/gpio/gpio.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/gpio/gpio.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/Interrupt/Interrupt.p1: Interrupt/Interrupt.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/Interrupt" 
+	@${RM} ${OBJECTDIR}/Interrupt/Interrupt.p1.d 
+	@${RM} ${OBJECTDIR}/Interrupt/Interrupt.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/Interrupt/Interrupt.p1 Interrupt/Interrupt.c 
+	@-${MV} ${OBJECTDIR}/Interrupt/Interrupt.d ${OBJECTDIR}/Interrupt/Interrupt.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/Interrupt/Interrupt.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/Scheduler/Scheduler.p1: Scheduler/Scheduler.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/Scheduler" 
+	@${RM} ${OBJECTDIR}/Scheduler/Scheduler.p1.d 
+	@${RM} ${OBJECTDIR}/Scheduler/Scheduler.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/Scheduler/Scheduler.p1 Scheduler/Scheduler.c 
+	@-${MV} ${OBJECTDIR}/Scheduler/Scheduler.d ${OBJECTDIR}/Scheduler/Scheduler.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/Scheduler/Scheduler.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/Scheduler/Scheduler_cfg.p1: Scheduler/Scheduler_cfg.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/Scheduler" 
+	@${RM} ${OBJECTDIR}/Scheduler/Scheduler_cfg.p1.d 
+	@${RM} ${OBJECTDIR}/Scheduler/Scheduler_cfg.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/Scheduler/Scheduler_cfg.p1 Scheduler/Scheduler_cfg.c 
+	@-${MV} ${OBJECTDIR}/Scheduler/Scheduler_cfg.d ${OBJECTDIR}/Scheduler/Scheduler_cfg.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/Scheduler/Scheduler_cfg.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/Scheduler/Tasks.p1: Scheduler/Tasks.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/Scheduler" 
+	@${RM} ${OBJECTDIR}/Scheduler/Tasks.p1.d 
+	@${RM} ${OBJECTDIR}/Scheduler/Tasks.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/Scheduler/Tasks.p1 Scheduler/Tasks.c 
+	@-${MV} ${OBJECTDIR}/Scheduler/Tasks.d ${OBJECTDIR}/Scheduler/Tasks.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/Scheduler/Tasks.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/Temperature/Temperature.p1: Temperature/Temperature.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/Temperature" 
+	@${RM} ${OBJECTDIR}/Temperature/Temperature.p1.d 
+	@${RM} ${OBJECTDIR}/Temperature/Temperature.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/Temperature/Temperature.p1 Temperature/Temperature.c 
+	@-${MV} ${OBJECTDIR}/Temperature/Temperature.d ${OBJECTDIR}/Temperature/Temperature.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/Temperature/Temperature.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/Timer/Timer.p1: Timer/Timer.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/Timer" 
+	@${RM} ${OBJECTDIR}/Timer/Timer.p1.d 
+	@${RM} ${OBJECTDIR}/Timer/Timer.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/Timer/Timer.p1 Timer/Timer.c 
+	@-${MV} ${OBJECTDIR}/Timer/Timer.d ${OBJECTDIR}/Timer/Timer.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/Timer/Timer.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/WaterHeater_Mode/WaterHeater_Mode.p1: WaterHeater_Mode/WaterHeater_Mode.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/WaterHeater_Mode" 
+	@${RM} ${OBJECTDIR}/WaterHeater_Mode/WaterHeater_Mode.p1.d 
+	@${RM} ${OBJECTDIR}/WaterHeater_Mode/WaterHeater_Mode.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/WaterHeater_Mode/WaterHeater_Mode.p1 WaterHeater_Mode/WaterHeater_Mode.c 
+	@-${MV} ${OBJECTDIR}/WaterHeater_Mode/WaterHeater_Mode.d ${OBJECTDIR}/WaterHeater_Mode/WaterHeater_Mode.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/WaterHeater_Mode/WaterHeater_Mode.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/WaterHeater_Mode/WaterHeater_Mode_Cfg.p1: WaterHeater_Mode/WaterHeater_Mode_Cfg.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/WaterHeater_Mode" 
+	@${RM} ${OBJECTDIR}/WaterHeater_Mode/WaterHeater_Mode_Cfg.p1.d 
+	@${RM} ${OBJECTDIR}/WaterHeater_Mode/WaterHeater_Mode_Cfg.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/WaterHeater_Mode/WaterHeater_Mode_Cfg.p1 WaterHeater_Mode/WaterHeater_Mode_Cfg.c 
+	@-${MV} ${OBJECTDIR}/WaterHeater_Mode/WaterHeater_Mode_Cfg.d ${OBJECTDIR}/WaterHeater_Mode/WaterHeater_Mode_Cfg.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/WaterHeater_Mode/WaterHeater_Mode_Cfg.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
 else
+${OBJECTDIR}/ADC/ADC.p1: ADC/ADC.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/ADC" 
+	@${RM} ${OBJECTDIR}/ADC/ADC.p1.d 
+	@${RM} ${OBJECTDIR}/ADC/ADC.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/ADC/ADC.p1 ADC/ADC.c 
+	@-${MV} ${OBJECTDIR}/ADC/ADC.d ${OBJECTDIR}/ADC/ADC.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/ADC/ADC.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/main.p1: main.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/main.p1.d 
+	@${RM} ${OBJECTDIR}/main.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/main.p1 main.c 
+	@-${MV} ${OBJECTDIR}/main.d ${OBJECTDIR}/main.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/main.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/Average/Average.p1: Average/Average.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/Average" 
+	@${RM} ${OBJECTDIR}/Average/Average.p1.d 
+	@${RM} ${OBJECTDIR}/Average/Average.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/Average/Average.p1 Average/Average.c 
+	@-${MV} ${OBJECTDIR}/Average/Average.d ${OBJECTDIR}/Average/Average.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/Average/Average.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/Buttons/Buttons.p1: Buttons/Buttons.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/Buttons" 
+	@${RM} ${OBJECTDIR}/Buttons/Buttons.p1.d 
+	@${RM} ${OBJECTDIR}/Buttons/Buttons.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/Buttons/Buttons.p1 Buttons/Buttons.c 
+	@-${MV} ${OBJECTDIR}/Buttons/Buttons.d ${OBJECTDIR}/Buttons/Buttons.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/Buttons/Buttons.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/Display/Display.p1: Display/Display.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/Display" 
+	@${RM} ${OBJECTDIR}/Display/Display.p1.d 
+	@${RM} ${OBJECTDIR}/Display/Display.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/Display/Display.p1 Display/Display.c 
+	@-${MV} ${OBJECTDIR}/Display/Display.d ${OBJECTDIR}/Display/Display.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/Display/Display.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/Elements/Elements.p1: Elements/Elements.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/Elements" 
+	@${RM} ${OBJECTDIR}/Elements/Elements.p1.d 
+	@${RM} ${OBJECTDIR}/Elements/Elements.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/Elements/Elements.p1 Elements/Elements.c 
+	@-${MV} ${OBJECTDIR}/Elements/Elements.d ${OBJECTDIR}/Elements/Elements.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/Elements/Elements.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/gpio/gpio.p1: gpio/gpio.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/gpio" 
+	@${RM} ${OBJECTDIR}/gpio/gpio.p1.d 
+	@${RM} ${OBJECTDIR}/gpio/gpio.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/gpio/gpio.p1 gpio/gpio.c 
+	@-${MV} ${OBJECTDIR}/gpio/gpio.d ${OBJECTDIR}/gpio/gpio.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/gpio/gpio.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/Interrupt/Interrupt.p1: Interrupt/Interrupt.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/Interrupt" 
+	@${RM} ${OBJECTDIR}/Interrupt/Interrupt.p1.d 
+	@${RM} ${OBJECTDIR}/Interrupt/Interrupt.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/Interrupt/Interrupt.p1 Interrupt/Interrupt.c 
+	@-${MV} ${OBJECTDIR}/Interrupt/Interrupt.d ${OBJECTDIR}/Interrupt/Interrupt.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/Interrupt/Interrupt.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/Scheduler/Scheduler.p1: Scheduler/Scheduler.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/Scheduler" 
+	@${RM} ${OBJECTDIR}/Scheduler/Scheduler.p1.d 
+	@${RM} ${OBJECTDIR}/Scheduler/Scheduler.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/Scheduler/Scheduler.p1 Scheduler/Scheduler.c 
+	@-${MV} ${OBJECTDIR}/Scheduler/Scheduler.d ${OBJECTDIR}/Scheduler/Scheduler.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/Scheduler/Scheduler.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/Scheduler/Scheduler_cfg.p1: Scheduler/Scheduler_cfg.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/Scheduler" 
+	@${RM} ${OBJECTDIR}/Scheduler/Scheduler_cfg.p1.d 
+	@${RM} ${OBJECTDIR}/Scheduler/Scheduler_cfg.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/Scheduler/Scheduler_cfg.p1 Scheduler/Scheduler_cfg.c 
+	@-${MV} ${OBJECTDIR}/Scheduler/Scheduler_cfg.d ${OBJECTDIR}/Scheduler/Scheduler_cfg.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/Scheduler/Scheduler_cfg.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/Scheduler/Tasks.p1: Scheduler/Tasks.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/Scheduler" 
+	@${RM} ${OBJECTDIR}/Scheduler/Tasks.p1.d 
+	@${RM} ${OBJECTDIR}/Scheduler/Tasks.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/Scheduler/Tasks.p1 Scheduler/Tasks.c 
+	@-${MV} ${OBJECTDIR}/Scheduler/Tasks.d ${OBJECTDIR}/Scheduler/Tasks.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/Scheduler/Tasks.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/Temperature/Temperature.p1: Temperature/Temperature.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/Temperature" 
+	@${RM} ${OBJECTDIR}/Temperature/Temperature.p1.d 
+	@${RM} ${OBJECTDIR}/Temperature/Temperature.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/Temperature/Temperature.p1 Temperature/Temperature.c 
+	@-${MV} ${OBJECTDIR}/Temperature/Temperature.d ${OBJECTDIR}/Temperature/Temperature.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/Temperature/Temperature.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/Timer/Timer.p1: Timer/Timer.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/Timer" 
+	@${RM} ${OBJECTDIR}/Timer/Timer.p1.d 
+	@${RM} ${OBJECTDIR}/Timer/Timer.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/Timer/Timer.p1 Timer/Timer.c 
+	@-${MV} ${OBJECTDIR}/Timer/Timer.d ${OBJECTDIR}/Timer/Timer.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/Timer/Timer.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/WaterHeater_Mode/WaterHeater_Mode.p1: WaterHeater_Mode/WaterHeater_Mode.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/WaterHeater_Mode" 
+	@${RM} ${OBJECTDIR}/WaterHeater_Mode/WaterHeater_Mode.p1.d 
+	@${RM} ${OBJECTDIR}/WaterHeater_Mode/WaterHeater_Mode.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/WaterHeater_Mode/WaterHeater_Mode.p1 WaterHeater_Mode/WaterHeater_Mode.c 
+	@-${MV} ${OBJECTDIR}/WaterHeater_Mode/WaterHeater_Mode.d ${OBJECTDIR}/WaterHeater_Mode/WaterHeater_Mode.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/WaterHeater_Mode/WaterHeater_Mode.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/WaterHeater_Mode/WaterHeater_Mode_Cfg.p1: WaterHeater_Mode/WaterHeater_Mode_Cfg.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/WaterHeater_Mode" 
+	@${RM} ${OBJECTDIR}/WaterHeater_Mode/WaterHeater_Mode_Cfg.p1.d 
+	@${RM} ${OBJECTDIR}/WaterHeater_Mode/WaterHeater_Mode_Cfg.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/WaterHeater_Mode/WaterHeater_Mode_Cfg.p1 WaterHeater_Mode/WaterHeater_Mode_Cfg.c 
+	@-${MV} ${OBJECTDIR}/WaterHeater_Mode/WaterHeater_Mode_Cfg.d ${OBJECTDIR}/WaterHeater_Mode/WaterHeater_Mode_Cfg.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/WaterHeater_Mode/WaterHeater_Mode_Cfg.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
 endif
 
 # ------------------------------------------------------------------------------------
