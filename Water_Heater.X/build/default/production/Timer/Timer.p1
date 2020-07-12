@@ -309,7 +309,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "34
 [; ;Timer/Timer.c: 34:  Scheduler_ActivateTask(Tick_Num );
 [e ( _Scheduler_ActivateTask (1 _Tick_Num ]
-"36
-[; ;Timer/Timer.c: 36: }
+"35
+[; ;Timer/Timer.c: 35: }
 [e :UE 97 ]
 }

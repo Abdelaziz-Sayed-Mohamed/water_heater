@@ -355,79 +355,79 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;Elements/Elements.c: 53: }
 [e :UE 101 ]
 }
-"58
-[; ;Elements/Elements.c: 58: void Elements_MainFunction(void)
+"57
+[; ;Elements/Elements.c: 57: void Elements_MainFunction(void)
 [v _Elements_MainFunction `(v ~T0 @X0 1 ef ]
-"59
-[; ;Elements/Elements.c: 59: {
+"58
+[; ;Elements/Elements.c: 58: {
 {
 [e :U _Elements_MainFunction ]
 [f ]
-"60
-[; ;Elements/Elements.c: 60:   if(Temperature.Average_Value_Ready_Flag==1 && Mode.Select_Mode==Normal_Mode)
+"59
+[; ;Elements/Elements.c: 59:   if(Temperature.Average_Value_Ready_Flag==1 && Mode.Select_Mode==Normal_Mode)
 [e $ ! && == -> . _Temperature 3 `i -> 1 `i == -> . _Mode 0 `ui -> . `E891 1 `ui 108  ]
-"61
-[; ;Elements/Elements.c: 61:   {
+"60
+[; ;Elements/Elements.c: 60:   {
 {
-"63
-[; ;Elements/Elements.c: 63:         if(Temperature.Average_Value < (Temperature.Set_Temp - (5U)))
+"62
+[; ;Elements/Elements.c: 62:         if(Temperature.Average_Value < (Temperature.Set_Temp - (5U)))
 [e $ ! < -> . _Temperature 1 `ui - -> . _Temperature 2 `ui -> 5 `ui 109  ]
-"64
-[; ;Elements/Elements.c: 64:          {
+"63
+[; ;Elements/Elements.c: 63:          {
 {
-"65
-[; ;Elements/Elements.c: 65:          (PORTC &= ~(1<<2));
+"64
+[; ;Elements/Elements.c: 64:          (PORTC &= ~(1<<2));
 [e =& _PORTC -> ~ << -> 1 `i -> 2 `i `Vuc ]
-"66
-[; ;Elements/Elements.c: 66:          (PORTC|= (1<<5));
+"65
+[; ;Elements/Elements.c: 65:          (PORTC|= (1<<5));
 [e =| _PORTC -> << -> 1 `i -> 5 `i `Vuc ]
-"67
-[; ;Elements/Elements.c: 67:    LED_Status=LED_BLINK ;
+"66
+[; ;Elements/Elements.c: 66:    LED_Status=LED_BLINK ;
 [e = _LED_Status . `E879 2 ]
-"69
-[; ;Elements/Elements.c: 69:          }else if(Temperature.Average_Value > (Temperature.Set_Temp + (5U)))
+"68
+[; ;Elements/Elements.c: 68:          }else if(Temperature.Average_Value > (Temperature.Set_Temp + (5U)))
 }
 [e $U 110  ]
 [e :U 109 ]
 [e $ ! > -> . _Temperature 1 `ui + -> . _Temperature 2 `ui -> 5 `ui 111  ]
-"70
-[; ;Elements/Elements.c: 70:          {
+"69
+[; ;Elements/Elements.c: 69:          {
 {
-"72
-[; ;Elements/Elements.c: 72:           (PORTC &= ~(1<<5));
+"71
+[; ;Elements/Elements.c: 71:           (PORTC &= ~(1<<5));
 [e =& _PORTC -> ~ << -> 1 `i -> 5 `i `Vuc ]
-"73
-[; ;Elements/Elements.c: 73:           (PORTC|= (1<<2));
+"72
+[; ;Elements/Elements.c: 72:           (PORTC|= (1<<2));
 [e =| _PORTC -> << -> 1 `i -> 2 `i `Vuc ]
-"74
-[; ;Elements/Elements.c: 74:     LED_Status=LED_ON ;
+"73
+[; ;Elements/Elements.c: 73:     LED_Status=LED_ON ;
 [e = _LED_Status . `E879 1 ]
-"76
-[; ;Elements/Elements.c: 76:          }
+"75
+[; ;Elements/Elements.c: 75:          }
 }
 [e :U 111 ]
 [e :U 110 ]
-"77
-[; ;Elements/Elements.c: 77:   }
+"76
+[; ;Elements/Elements.c: 76:   }
 }
 [e $U 112  ]
-"78
-[; ;Elements/Elements.c: 78:   else
+"77
+[; ;Elements/Elements.c: 77:   else
 [e :U 108 ]
-"79
-[; ;Elements/Elements.c: 79:   {
+"78
+[; ;Elements/Elements.c: 78:   {
 {
-"80
-[; ;Elements/Elements.c: 80:    (PORTC &= ~(1<<2));
+"79
+[; ;Elements/Elements.c: 79:    (PORTC &= ~(1<<2));
 [e =& _PORTC -> ~ << -> 1 `i -> 2 `i `Vuc ]
-"81
-[; ;Elements/Elements.c: 81:    (PORTC &= ~(1<<5));
+"80
+[; ;Elements/Elements.c: 80:    (PORTC &= ~(1<<5));
 [e =& _PORTC -> ~ << -> 1 `i -> 5 `i `Vuc ]
-"82
-[; ;Elements/Elements.c: 82:   }
+"81
+[; ;Elements/Elements.c: 81:   }
 }
 [e :U 112 ]
-"83
-[; ;Elements/Elements.c: 83: }
+"82
+[; ;Elements/Elements.c: 82: }
 [e :UE 107 ]
 }

@@ -433,16 +433,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "52
 [; ;main.c: 52:   Scheduler_Start();
 [e ( _Scheduler_Start ..  ]
-"55
-[; ;main.c: 55:   while(1);
-[e :U 101 ]
-[e :U 100 ]
-[e $U 101  ]
-[e :U 102 ]
-"57
-[; ;main.c: 57:     return;
-[e $UE 99  ]
-"58
-[; ;main.c: 58: }
+"54
+[; ;main.c: 54: }
 [e :UE 99 ]
 }

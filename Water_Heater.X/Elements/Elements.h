@@ -20,10 +20,10 @@
 #define _LED_BLINK   TOGGLE_PIN(LED_PORT,LED_PIN);       //Turn Off LED
 
 
-#define LED_BLINK_TIME 1000
-#define LED_BLINK_TaskPeroid 100
-#define ResetLedCounter     Counter=1
-
+#define LED_BLINK_TIME            1000
+#define LED_BLINK_TaskPeroid      100
+#define ResetLedCounter           Counter=1
+#define IS_Average_Value_Ready    Temperature.Average_Value_Ready_Flag==1
 
 typedef enum _LED_STATUS_t
 {

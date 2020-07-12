@@ -23,15 +23,14 @@ void Timer0_Init(void)
         INTCONbits.PEIE=1;   //Enable Peripheral Interrupt
         INTCONbits.GIE=1;    //Enable All Global Interrupt
         
-	    TMR0=Reload_Timer0;  //Preload Timer 0 to Get 1ms Per OverFlow
+	    TMR0=Reload_Timer0;  //Preload Timer 0 to Get 20ms Per OverFlow
         RESET_TIMER0_FLAG; //Clear Timer 0 Interrupt Flag
 
 }
 
 void Timer0_CallBack(void)
 {
-	Tick_Num++;
+	Tick_Num++;                         //Increment Tick_Num every interrupt
 	Scheduler_ActivateTask(Tick_Num );
-
 }
 

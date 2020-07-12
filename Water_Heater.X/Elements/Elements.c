@@ -54,10 +54,9 @@ void LED_MainFunction(void)
 
 
 
-
 void Elements_MainFunction(void)
 {
-  if(Temperature.Average_Value_Ready_Flag==1 && Mode.Select_Mode==Normal_Mode)
+  if(IS_Average_Value_Ready && Mode.Select_Mode==Normal_Mode)           //Check if we read at least 10 ADC_VALUE and System in normal mode
   {
 
         if(Temperature.Average_Value < (Temperature.Set_Temp - MARGIN)) // Check if the Temperature lower than Temperature Set

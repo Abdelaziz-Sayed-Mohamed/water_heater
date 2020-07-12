@@ -2020,6 +2020,7 @@ void Display_MainFunction(void)
  static uint8_t Display=0;
  static uint8_t Enable_Digit_Selector=1;
 
+
   if(Mode.Select_Mode==Normal_Mode)
   {
    Tempreture=Temperature.Average_Value;
@@ -2042,6 +2043,7 @@ void Display_MainFunction(void)
   {
          Digit_1=Tempreture%10;
          Digit_2=Tempreture/10;
+
          Enable_Digit_Selector^=1;
 
          if(Enable_Digit_Selector==0)

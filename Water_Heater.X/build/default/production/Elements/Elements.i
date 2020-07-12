@@ -2022,7 +2022,6 @@ void LED_MainFunction(void)
 
 
 
-
 void Elements_MainFunction(void)
 {
   if(Temperature.Average_Value_Ready_Flag==1 && Mode.Select_Mode==Normal_Mode)

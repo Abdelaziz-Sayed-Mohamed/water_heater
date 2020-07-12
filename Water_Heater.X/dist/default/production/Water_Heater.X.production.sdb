@@ -130,13 +130,13 @@ Setting_Mode 2
 [v _Display_Init Display_Init `(v  1 e 1 0 ]
 "24
 [v _Display_MainFunction Display_MainFunction `(v  1 e 1 0 ]
-"128
+"130
 [v _Display_Blink Display_Blink `(v  1 e 1 0 ]
-"33 E:\study\Repos\water_heater\Water_Heater.X\EEPROM/EEPROM.c
+"9 E:\study\Repos\water_heater\Water_Heater.X\EEPROM/EEPROM.c
 [v _Get_EEPROM_Data Get_EEPROM_Data `(v  1 e 1 0 ]
-"53
+"29
 [v _Set_EEPROM_Data Set_EEPROM_Data `(v  1 e 1 0 ]
-"90
+"66
 [v _e2pext_r e2pext_r `(uc  1 e 1 0 ]
 "11 E:\study\Repos\water_heater\Water_Heater.X\Elements/Elements.c
 [v _Elements_Init Elements_Init `(v  1 e 1 0 ]
@@ -144,7 +144,7 @@ Setting_Mode 2
 [v _LED_BLINKING LED_BLINKING `(v  1 e 1 0 ]
 "37
 [v _LED_MainFunction LED_MainFunction `(v  1 e 1 0 ]
-"58
+"57
 [v _Elements_MainFunction Elements_MainFunction `(v  1 e 1 0 ]
 "12 E:\study\Repos\water_heater\Water_Heater.X\gpio/gpio.c
 [v _GPIO_Init GPIO_Init `(v  1 e 1 0 ]
@@ -182,9 +182,9 @@ Setting_Mode 2
 [v _Timer0_CallBack Timer0_CallBack `(v  1 e 1 0 ]
 "17 E:\study\Repos\water_heater\Water_Heater.X\WaterHeater_Mode/WaterHeater_Mode.c
 [v _Mode_Init Mode_Init `(v  1 e 1 0 ]
-"28
+"27
 [v _Mode_MainFunction Mode_MainFunction `(v  1 e 1 0 ]
-"54
+"53
 [v _Start_Setting_Timer Start_Setting_Timer `(v  1 e 1 0 ]
 "8 E:\study\Repos\water_heater\Water_Heater.X\Average/Average.c
 [v _Average_Nvalues Average_Nvalues `uc  1 s 1 Average_Nvalues ]
@@ -298,7 +298,7 @@ Setting_Mode 2
 `uc 1 Average_NValues 1 4 ]
 "26 E:\study\Repos\water_heater\Water_Heater.X/Temperature/Temperature.h
 [v _Temperature Temperature `S25  1 e 5 0 ]
-"31 E:\study\Repos\water_heater\Water_Heater.X\EEPROM/EEPROM.c
+"7 E:\study\Repos\water_heater\Water_Heater.X\EEPROM/EEPROM.c
 [v _EEPROM_Data EEPROM_Data `uc  1 e 1 0 ]
 "39 E:\study\Repos\water_heater\Water_Heater.X/Display/Display.h
 [v _Enable_Display Enable_Display `E990  1 e 1 0 ]
@@ -322,7 +322,7 @@ Setting_Mode 2
 "40 E:\study\Repos\water_heater\Water_Heater.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"58
+"54
 } 0
 "10 E:\study\Repos\water_heater\Water_Heater.X\Timer/Timer.c
 [v _Timer0_Init Timer0_Init `(v  1 e 1 0 ]
@@ -364,38 +364,38 @@ Setting_Mode 2
 {
 "30
 } 0
-"53 E:\study\Repos\water_heater\Water_Heater.X\EEPROM/EEPROM.c
+"29 E:\study\Repos\water_heater\Water_Heater.X\EEPROM/EEPROM.c
 [v _Set_EEPROM_Data Set_EEPROM_Data `(v  1 e 1 0 ]
 {
-"55
+"31
 [v Set_EEPROM_Data@ah ah `uc  1 s 1 ah ]
-"56
+"32
 [v Set_EEPROM_Data@al al `uc  1 s 1 al ]
-"57
+"33
 [v Set_EEPROM_Data@nt nt `uc  1 s 1 nt ]
-"88
+"64
 } 0
-"28 E:\study\Repos\water_heater\Water_Heater.X\WaterHeater_Mode/WaterHeater_Mode.c
+"27 E:\study\Repos\water_heater\Water_Heater.X\WaterHeater_Mode/WaterHeater_Mode.c
 [v _Mode_MainFunction Mode_MainFunction `(v  1 e 1 0 ]
 {
-"50
+"49
 } 0
-"54
+"53
 [v _Start_Setting_Timer Start_Setting_Timer `(v  1 e 1 0 ]
 {
 [v Start_Setting_Timer@Timer_Ms Timer_Ms `ui  1 p 2 28 ]
 [v Start_Setting_Timer@Peroid_Task Peroid_Task `ui  1 p 2 30 ]
-"68
+"67
 } 0
 "38 E:\study\Repos\water_heater\Water_Heater.X\Buttons/Buttons.c
 [v _Read_UP_DOWN_BUTTONS Read_UP_DOWN_BUTTONS `(v  1 e 1 0 ]
 {
 "44
 } 0
-"58 E:\study\Repos\water_heater\Water_Heater.X\Elements/Elements.c
+"57 E:\study\Repos\water_heater\Water_Heater.X\Elements/Elements.c
 [v _Elements_MainFunction Elements_MainFunction `(v  1 e 1 0 ]
 {
-"83
+"82
 } 0
 "37
 [v _LED_MainFunction LED_MainFunction `(v  1 e 1 0 ]
@@ -542,7 +542,7 @@ Setting_Mode 2
 [v Display_MainFunction@Display Display `uc  1 s 1 Display ]
 "30
 [v Display_MainFunction@Enable_Digit_Selector Enable_Digit_Selector `uc  1 s 1 Enable_Digit_Selector ]
-"125
+"127
 } 0
 "5 C:\Program Files (x86)\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
 [v ___awmod __awmod `(i  1 e 2 0 ]
@@ -568,14 +568,14 @@ Setting_Mode 2
 [v ___awdiv@dividend dividend `i  1 p 2 24 ]
 "41
 } 0
-"128 E:\study\Repos\water_heater\Water_Heater.X\Display/Display.c
+"130 E:\study\Repos\water_heater\Water_Heater.X\Display/Display.c
 [v _Display_Blink Display_Blink `(v  1 e 1 0 ]
 {
 [v Display_Blink@Times_Ms Times_Ms `ui  1 p 2 28 ]
 [v Display_Blink@Task_Peroid Task_Peroid `ui  1 p 2 30 ]
-"130
+"132
 [v Display_Blink@Counter Counter `uc  1 s 1 Counter ]
-"147
+"149
 } 0
 "15 C:\Program Files (x86)\Microchip\xc8\v2.20\pic\sources\c90\common\Umul16.c
 [v ___wmul __wmul `(ui  1 e 2 0 ]
@@ -614,29 +614,29 @@ Setting_Mode 2
 "17 E:\study\Repos\water_heater\Water_Heater.X\WaterHeater_Mode/WaterHeater_Mode.c
 [v _Mode_Init Mode_Init `(v  1 e 1 0 ]
 {
-"24
+"23
 } 0
-"33 E:\study\Repos\water_heater\Water_Heater.X\EEPROM/EEPROM.c
+"9 E:\study\Repos\water_heater\Water_Heater.X\EEPROM/EEPROM.c
 [v _Get_EEPROM_Data Get_EEPROM_Data `(v  1 e 1 0 ]
 {
-"39
+"15
 [v Get_EEPROM_Data@Temp Temp `uc  1 a 1 33 ]
-"38
+"14
 [v Get_EEPROM_Data@Flag Flag `uc  1 a 1 32 ]
-"50
+"26
 } 0
-"90
+"66
 [v _e2pext_r e2pext_r `(uc  1 e 1 0 ]
 {
-"93
+"69
 [v e2pext_r@ah ah `uc  1 a 1 30 ]
-"94
+"70
 [v e2pext_r@al al `uc  1 a 1 29 ]
-"92
+"68
 [v e2pext_r@ret ret `uc  1 a 1 28 ]
-"90
+"66
 [v e2pext_r@addr addr `ui  1 p 2 26 ]
-"123
+"99
 } 0
 "39 E:\study\Repos\water_heater\Water_Heater.X\I2C/I2C.c
 [v _i2c_wb i2c_wb `(v  1 e 1 0 ]
@@ -712,7 +712,7 @@ Setting_Mode 2
 "31 E:\study\Repos\water_heater\Water_Heater.X\Timer/Timer.c
 [v _Timer0_CallBack Timer0_CallBack `(v  1 e 1 0 ]
 {
-"36
+"35
 } 0
 "35 E:\study\Repos\water_heater\Water_Heater.X\Scheduler/Scheduler.c
 [v _Scheduler_ActivateTask Scheduler_ActivateTask `(v  1 e 1 0 ]

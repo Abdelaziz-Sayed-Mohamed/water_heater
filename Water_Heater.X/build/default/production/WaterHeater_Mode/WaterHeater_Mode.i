@@ -2014,7 +2014,6 @@ unsigned char e2pext_r(unsigned int addr);
 
 void Mode_Init(void)
 {
-
  Mode.Select_Mode=Off_Mode;
 
 

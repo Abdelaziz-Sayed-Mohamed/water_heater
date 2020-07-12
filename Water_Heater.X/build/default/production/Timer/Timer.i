@@ -2034,5 +2034,4 @@ void Timer0_CallBack(void)
 {
  Tick_Num++;
  Scheduler_ActivateTask(Tick_Num );
-
 }

@@ -28,7 +28,8 @@ void Display_MainFunction(void) //This Function should be Mapped On 20ms Task To
  static uint8_t Tempreture=0;
  static uint8_t Display=0;
  static uint8_t Enable_Digit_Selector=1;
-
+ 
+  /*Select What Will Displaying*/
   if(Mode.Select_Mode==Normal_Mode)
   {
 	  Tempreture=Temperature.Average_Value;
@@ -49,18 +50,19 @@ void Display_MainFunction(void) //This Function should be Mapped On 20ms Task To
  {
 	 if(Enable_Display==Enable_Display_On)
 	 {
-         Digit_1=Tempreture%10;
-         Digit_2=Tempreture/10;
-         Toggle_Enable_Digit_Selector;
+         Digit_1=Tempreture%10;         //Digit 1 value
+         Digit_2=Tempreture/10;         //Digit 2 value 
          
-         if(IS_Digit_1_Enabled)
+         Toggle_Enable_Digit_Selector;  //Switch between tow digits
+          
+         if(IS_Digit_1_Enabled)         //Enable Digit 1 and disable digit 2
          {
   	       Display=Digit_1;
            RESET_PIN(DIGIT2_PORT,DIGIT2_PIN);
            SET_PIN(DIGIT1_PORT,DIGIT1_PIN)  ;
 
          }
-         else if(IS_Digit_2_Enabled)
+         else if(IS_Digit_2_Enabled)    //Enable Digit 2 and disable digit 1
          {
   	       Display=Digit_2;
   	       RESET_PIN(DIGIT1_PORT,DIGIT1_PIN);
@@ -115,7 +117,7 @@ void Display_MainFunction(void) //This Function should be Mapped On 20ms Task To
          }
 	 }
 
-	 if(Mode.Select_Mode==Setting_Mode)
+	 if(Mode.Select_Mode==Setting_Mode)   //If system in setting mode Tow digits will Blinking every 1 Sec
 	 {
 		 Display_Blink(Display_Blink_Time,Display_Blink_TaskPeroid);
 
@@ -125,7 +127,7 @@ void Display_MainFunction(void) //This Function should be Mapped On 20ms Task To
 }
 
 
-void Display_Blink(uint16_t Times_Ms,uint16_t Task_Peroid)
+void Display_Blink(uint16_t Times_Ms,uint16_t Task_Peroid) 
 {
   uint8_t static Counter=1;
 

@@ -50,9 +50,5 @@ void main(void) {
   Scheduler_Init();
   Timer0_Init(); 
   Scheduler_Start();    
-  
  
-  while(1);
-    
-    return;
 }
