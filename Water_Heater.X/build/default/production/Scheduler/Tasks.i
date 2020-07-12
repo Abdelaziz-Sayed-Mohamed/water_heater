@@ -2073,7 +2073,6 @@ void Temperature_Calc(uint8_t ADC_VALUE);
 void Get_EEPROM_Data(void);
 void Set_EEPROM_Data(void);
 unsigned char e2pext_r(unsigned int addr);
-void e2pext_w(unsigned int addr, unsigned char val);
 # 8 "Scheduler/Tasks.c" 2
 
 

@@ -15,8 +15,7 @@ void On_Off_Init(void)
     INTCONbits.INTE=1;           //Enable External Interrupt
     INTEDG=1;                    //Configure Interrupt In Rising Edge
     RESET_EXTI_ON_OFF_FLAG;      //Clear External Interrupt Flag
-    
-
+   
 }
 
 

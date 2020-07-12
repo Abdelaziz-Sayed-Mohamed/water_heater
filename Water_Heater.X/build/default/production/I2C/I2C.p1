@@ -1,5 +1,8 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"284 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
+"278 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 278: extern volatile unsigned char PORTC __attribute__((address(0x007)));
+[v _PORTC `Vuc ~T0 @X0 0 e@7 ]
+"284
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 284:     struct {
 [s S10 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S10 . RC0 RC1 RC2 RC3 RC4 RC5 RC6 RC7 ]
@@ -10,17 +13,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "295
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 295: extern volatile PORTCbits_t PORTCbits __attribute__((address(0x007)));
 [v _PORTCbits `VS9 ~T0 @X0 0 e@7 ]
-"1443
-[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 1443:     struct {
-[s S58 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S58 . TRISC0 TRISC1 TRISC2 TRISC3 TRISC4 TRISC5 TRISC6 TRISC7 ]
-"1442
-[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 1442: typedef union {
-[u S57 `S58 1 ]
-[n S57 . . ]
-"1454
-[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 1454: extern volatile TRISCbits_t TRISCbits __attribute__((address(0x087)));
-[v _TRISCbits `VS57 ~T0 @X0 0 e@135 ]
+"1437
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 1437: extern volatile unsigned char TRISC __attribute__((address(0x087)));
+[v _TRISC `Vuc ~T0 @X0 0 e@135 ]
 "54 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 54: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
@@ -201,6 +196,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2363
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2363: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
+"7 I2C/../gpio/../Config.h
+[p x FOSC = HS ]
+"8
+[p x WDTE = OFF ]
+"9
+[p x PWRTE = OFF ]
+"10
+[p x BOREN = OFF ]
+"11
+[p x LVP = OFF ]
+"12
+[p x CPD = OFF ]
+"13
+[p x WRT = OFF ]
+"14
+[p x CP = OFF ]
 "4 I2C/I2C.c
 [; ;I2C/I2C.c: 4: void delay(void)
 [v _delay `(v ~T0 @X0 1 ef ]
@@ -240,219 +251,219 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;I2C/I2C.c: 16: }
 [e :UE 95 ]
 }
-"25
-[; ;I2C/I2C.c: 25: void i2c_start(void)
+"19
+[; ;I2C/I2C.c: 19: void i2c_start(void)
 [v _i2c_start `(v ~T0 @X0 1 ef ]
-"26
-[; ;I2C/I2C.c: 26: {
+"20
+[; ;I2C/I2C.c: 20: {
 {
 [e :U _i2c_start ]
 [f ]
+"23
+[; ;I2C/I2C.c: 23:   (PORTC|= (1<<3));
+[e =| _PORTC -> << -> 1 `i -> 3 `i `Vuc ]
+"24
+[; ;I2C/I2C.c: 24:   (PORTC|= (1<<4));
+[e =| _PORTC -> << -> 1 `i -> 4 `i `Vuc ]
+"25
+[; ;I2C/I2C.c: 25:   delay();
+[e ( _delay ..  ]
+"26
+[; ;I2C/I2C.c: 26:   (PORTC &= ~(1<<4));
+[e =& _PORTC -> ~ << -> 1 `i -> 4 `i `Vuc ]
 "27
-[; ;I2C/I2C.c: 27:   PORTCbits.RC3=1;
-[e = . . _PORTCbits 0 3 -> -> 1 `i `uc ]
+[; ;I2C/I2C.c: 27:   delay();
+[e ( _delay ..  ]
 "28
-[; ;I2C/I2C.c: 28:   PORTCbits.RC4=1;
-[e = . . _PORTCbits 0 4 -> -> 1 `i `uc ]
-"29
-[; ;I2C/I2C.c: 29:   delay();
-[e ( _delay ..  ]
-"30
-[; ;I2C/I2C.c: 30:   PORTCbits.RC4=0;
-[e = . . _PORTCbits 0 4 -> -> 0 `i `uc ]
-"31
-[; ;I2C/I2C.c: 31:   delay();
-[e ( _delay ..  ]
-"32
-[; ;I2C/I2C.c: 32: }
+[; ;I2C/I2C.c: 28: }
 [e :UE 96 ]
 }
-"34
-[; ;I2C/I2C.c: 34: void i2c_stop(void)
+"30
+[; ;I2C/I2C.c: 30: void i2c_stop(void)
 [v _i2c_stop `(v ~T0 @X0 1 ef ]
-"35
-[; ;I2C/I2C.c: 35: {
+"31
+[; ;I2C/I2C.c: 31: {
 {
 [e :U _i2c_stop ]
 [f ]
+"32
+[; ;I2C/I2C.c: 32:   (PORTC|= (1<<3));
+[e =| _PORTC -> << -> 1 `i -> 3 `i `Vuc ]
+"33
+[; ;I2C/I2C.c: 33:   (PORTC &= ~(1<<4));
+[e =& _PORTC -> ~ << -> 1 `i -> 4 `i `Vuc ]
+"34
+[; ;I2C/I2C.c: 34:   delay();
+[e ( _delay ..  ]
+"35
+[; ;I2C/I2C.c: 35:   (PORTC|= (1<<4));
+[e =| _PORTC -> << -> 1 `i -> 4 `i `Vuc ]
 "36
-[; ;I2C/I2C.c: 36:   PORTCbits.RC3=1;
-[e = . . _PORTCbits 0 3 -> -> 1 `i `uc ]
+[; ;I2C/I2C.c: 36:   delay();
+[e ( _delay ..  ]
 "37
-[; ;I2C/I2C.c: 37:   PORTCbits.RC4=0;
-[e = . . _PORTCbits 0 4 -> -> 0 `i `uc ]
-"38
-[; ;I2C/I2C.c: 38:   delay();
-[e ( _delay ..  ]
-"39
-[; ;I2C/I2C.c: 39:   PORTCbits.RC4=1;
-[e = . . _PORTCbits 0 4 -> -> 1 `i `uc ]
-"40
-[; ;I2C/I2C.c: 40:   delay();
-[e ( _delay ..  ]
-"41
-[; ;I2C/I2C.c: 41: }
+[; ;I2C/I2C.c: 37: }
 [e :UE 97 ]
 }
-"43
-[; ;I2C/I2C.c: 43: void i2c_wb(unsigned char val)
+"39
+[; ;I2C/I2C.c: 39: void i2c_wb(unsigned char val)
 [v _i2c_wb `(v ~T0 @X0 1 ef1`uc ]
-"44
-[; ;I2C/I2C.c: 44: {
+"40
+[; ;I2C/I2C.c: 40: {
 {
 [e :U _i2c_wb ]
-"43
-[; ;I2C/I2C.c: 43: void i2c_wb(unsigned char val)
+"39
+[; ;I2C/I2C.c: 39: void i2c_wb(unsigned char val)
 [v _val `uc ~T0 @X0 1 r1 ]
-"44
-[; ;I2C/I2C.c: 44: {
+"40
+[; ;I2C/I2C.c: 40: {
 [f ]
-"45
-[; ;I2C/I2C.c: 45:   unsigned char i;
+"41
+[; ;I2C/I2C.c: 41:   unsigned char i;
 [v _i `uc ~T0 @X0 1 a ]
-"46
-[; ;I2C/I2C.c: 46:   PORTCbits.RC3=0;
-[e = . . _PORTCbits 0 3 -> -> 0 `i `uc ]
-"47
-[; ;I2C/I2C.c: 47:   for(i=0;i<8;i++)
+"42
+[; ;I2C/I2C.c: 42:   (PORTC &= ~(1<<3));
+[e =& _PORTC -> ~ << -> 1 `i -> 3 `i `Vuc ]
+"43
+[; ;I2C/I2C.c: 43:   for(i=0;i<8;i++)
 {
 [e = _i -> -> 0 `i `uc ]
 [e $ < -> _i `i -> 8 `i 99  ]
 [e $U 100  ]
 [e :U 99 ]
-"48
-[; ;I2C/I2C.c: 48:   {
+"44
+[; ;I2C/I2C.c: 44:   {
 {
-"49
-[; ;I2C/I2C.c: 49:     PORTCbits.RC4=((val>>(7-i))& 0x01);
+"45
+[; ;I2C/I2C.c: 45:     PORTCbits.RC4=((val>>(7-i))& 0x01);
 [e = . . _PORTCbits 0 4 -> & >> -> _val `i - -> 7 `i -> _i `i -> 1 `i `uc ]
-"50
-[; ;I2C/I2C.c: 50:     PORTCbits.RC3=1;
-[e = . . _PORTCbits 0 3 -> -> 1 `i `uc ]
-"51
-[; ;I2C/I2C.c: 51:     delay();
+"46
+[; ;I2C/I2C.c: 46:     (PORTC|= (1<<3));
+[e =| _PORTC -> << -> 1 `i -> 3 `i `Vuc ]
+"47
+[; ;I2C/I2C.c: 47:     delay();
 [e ( _delay ..  ]
-"52
-[; ;I2C/I2C.c: 52:     PORTCbits.RC3=0;
-[e = . . _PORTCbits 0 3 -> -> 0 `i `uc ]
-"53
-[; ;I2C/I2C.c: 53:   }
+"48
+[; ;I2C/I2C.c: 48:     (PORTC &= ~(1<<3));
+[e =& _PORTC -> ~ << -> 1 `i -> 3 `i `Vuc ]
+"49
+[; ;I2C/I2C.c: 49:   }
 }
 [e ++ _i -> -> 1 `i `uc ]
 [e $ < -> _i `i -> 8 `i 99  ]
 [e :U 100 ]
 }
+"50
+[; ;I2C/I2C.c: 50:   (PORTC|= (1<<4));
+[e =| _PORTC -> << -> 1 `i -> 4 `i `Vuc ]
+"51
+[; ;I2C/I2C.c: 51:   delay();
+[e ( _delay ..  ]
+"52
+[; ;I2C/I2C.c: 52:   (PORTC|= (1<<3));
+[e =| _PORTC -> << -> 1 `i -> 3 `i `Vuc ]
+"53
+[; ;I2C/I2C.c: 53:   delay();
+[e ( _delay ..  ]
 "54
-[; ;I2C/I2C.c: 54:   PORTCbits.RC4=1;
-[e = . . _PORTCbits 0 4 -> -> 1 `i `uc ]
+[; ;I2C/I2C.c: 54:   (PORTC &= ~(1<<3));
+[e =& _PORTC -> ~ << -> 1 `i -> 3 `i `Vuc ]
 "55
-[; ;I2C/I2C.c: 55:   delay();
-[e ( _delay ..  ]
-"56
-[; ;I2C/I2C.c: 56:   PORTCbits.RC3=1;
-[e = . . _PORTCbits 0 3 -> -> 1 `i `uc ]
-"57
-[; ;I2C/I2C.c: 57:   delay();
-[e ( _delay ..  ]
-"58
-[; ;I2C/I2C.c: 58:   PORTCbits.RC3=0;
-[e = . . _PORTCbits 0 3 -> -> 0 `i `uc ]
-"59
-[; ;I2C/I2C.c: 59: }
+[; ;I2C/I2C.c: 55: }
 [e :UE 98 ]
 }
-"61
-[; ;I2C/I2C.c: 61: unsigned char i2c_rb(unsigned char ack)
+"57
+[; ;I2C/I2C.c: 57: unsigned char i2c_rb(unsigned char ack)
 [v _i2c_rb `(uc ~T0 @X0 1 ef1`uc ]
-"62
-[; ;I2C/I2C.c: 62: {
+"58
+[; ;I2C/I2C.c: 58: {
 {
 [e :U _i2c_rb ]
-"61
-[; ;I2C/I2C.c: 61: unsigned char i2c_rb(unsigned char ack)
+"57
+[; ;I2C/I2C.c: 57: unsigned char i2c_rb(unsigned char ack)
 [v _ack `uc ~T0 @X0 1 r1 ]
-"62
-[; ;I2C/I2C.c: 62: {
+"58
+[; ;I2C/I2C.c: 58: {
 [f ]
-"63
-[; ;I2C/I2C.c: 63:   char i;
+"59
+[; ;I2C/I2C.c: 59:   char i;
 [v _i `uc ~T0 @X0 1 a ]
-"64
-[; ;I2C/I2C.c: 64:   unsigned char ret=0;
+"60
+[; ;I2C/I2C.c: 60:   unsigned char ret=0;
 [v _ret `uc ~T0 @X0 1 a ]
 [e = _ret -> -> 0 `i `uc ]
-"66
-[; ;I2C/I2C.c: 66:   PORTCbits.RC3=0;
-[e = . . _PORTCbits 0 3 -> -> 0 `i `uc ]
-"67
-[; ;I2C/I2C.c: 67:   TRISCbits.TRISC4=1;
-[e = . . _TRISCbits 0 4 -> -> 1 `i `uc ]
-"68
-[; ;I2C/I2C.c: 68:   PORTCbits.RC4=1;
-[e = . . _PORTCbits 0 4 -> -> 1 `i `uc ]
-"69
-[; ;I2C/I2C.c: 69:   for(i=0;i<8;i++)
+"62
+[; ;I2C/I2C.c: 62:   (PORTC &= ~(1<<3));
+[e =& _PORTC -> ~ << -> 1 `i -> 3 `i `Vuc ]
+"63
+[; ;I2C/I2C.c: 63:   (1==0)? ((TRISC &= ~(1<<4))):((TRISC|= (1<<4)));
+[e ? == -> 1 `i -> 0 `i : -> =& _TRISC -> ~ << -> 1 `i -> 4 `i `Vuc `i -> =| _TRISC -> << -> 1 `i -> 4 `i `Vuc `i ]
+"64
+[; ;I2C/I2C.c: 64:   (PORTC|= (1<<4));
+[e =| _PORTC -> << -> 1 `i -> 4 `i `Vuc ]
+"65
+[; ;I2C/I2C.c: 65:   for(i=0;i<8;i++)
 {
 [e = _i -> -> 0 `i `uc ]
 [e $ < -> _i `i -> 8 `i 103  ]
 [e $U 104  ]
 [e :U 103 ]
-"70
-[; ;I2C/I2C.c: 70:   {
+"66
+[; ;I2C/I2C.c: 66:   {
 {
-"71
-[; ;I2C/I2C.c: 71:     PORTCbits.RC3=1;
-[e = . . _PORTCbits 0 3 -> -> 1 `i `uc ]
-"72
-[; ;I2C/I2C.c: 72:     delay();
+"67
+[; ;I2C/I2C.c: 67:     (PORTC|= (1<<3));
+[e =| _PORTC -> << -> 1 `i -> 3 `i `Vuc ]
+"68
+[; ;I2C/I2C.c: 68:     delay();
 [e ( _delay ..  ]
-"73
-[; ;I2C/I2C.c: 73:     ret|=(PORTCbits.RC4<<(7-i));
+"69
+[; ;I2C/I2C.c: 69:     ret|=(PORTCbits.RC4<<(7-i));
 [e =| _ret -> << -> . . _PORTCbits 0 4 `i - -> 7 `i -> _i `i `uc ]
-"74
-[; ;I2C/I2C.c: 74:     PORTCbits.RC3=0;
-[e = . . _PORTCbits 0 3 -> -> 0 `i `uc ]
-"75
-[; ;I2C/I2C.c: 75:   }
+"70
+[; ;I2C/I2C.c: 70:     (PORTC &= ~(1<<3));
+[e =& _PORTC -> ~ << -> 1 `i -> 3 `i `Vuc ]
+"71
+[; ;I2C/I2C.c: 71:   }
 }
 [e ++ _i -> -> 1 `i `uc ]
 [e $ < -> _i `i -> 8 `i 103  ]
 [e :U 104 ]
 }
-"76
-[; ;I2C/I2C.c: 76:   TRISCbits.TRISC4=0;
-[e = . . _TRISCbits 0 4 -> -> 0 `i `uc ]
-"77
-[; ;I2C/I2C.c: 77:   if(ack)
+"72
+[; ;I2C/I2C.c: 72:   (0==0)? ((TRISC &= ~(1<<4))):((TRISC|= (1<<4))) ;
+[e ? == -> 0 `i -> 0 `i : -> =& _TRISC -> ~ << -> 1 `i -> 4 `i `Vuc `i -> =| _TRISC -> << -> 1 `i -> 4 `i `Vuc `i ]
+"73
+[; ;I2C/I2C.c: 73:   if(ack)
 [e $ ! != -> _ack `i -> 0 `i 106  ]
-"78
-[; ;I2C/I2C.c: 78:     PORTCbits.RC4=0;
-[e = . . _PORTCbits 0 4 -> -> 0 `i `uc ]
+"74
+[; ;I2C/I2C.c: 74:     (PORTC &= ~(1<<4));
+[e =& _PORTC -> ~ << -> 1 `i -> 4 `i `Vuc ]
 [e $U 107  ]
-"79
-[; ;I2C/I2C.c: 79:   else
+"75
+[; ;I2C/I2C.c: 75:   else
 [e :U 106 ]
-"80
-[; ;I2C/I2C.c: 80:  PORTCbits.RC4=1;
-[e = . . _PORTCbits 0 4 -> -> 1 `i `uc ]
+"76
+[; ;I2C/I2C.c: 76:  (PORTC|= (1<<4));
+[e =| _PORTC -> << -> 1 `i -> 4 `i `Vuc ]
 [e :U 107 ]
-"81
-[; ;I2C/I2C.c: 81:   delay();
+"77
+[; ;I2C/I2C.c: 77:   delay();
 [e ( _delay ..  ]
+"78
+[; ;I2C/I2C.c: 78:   (PORTC|= (1<<3));
+[e =| _PORTC -> << -> 1 `i -> 3 `i `Vuc ]
+"79
+[; ;I2C/I2C.c: 79:   delay();
+[e ( _delay ..  ]
+"80
+[; ;I2C/I2C.c: 80:   (PORTC &= ~(1<<3));
+[e =& _PORTC -> ~ << -> 1 `i -> 3 `i `Vuc ]
 "82
-[; ;I2C/I2C.c: 82:   PORTCbits.RC3=1;
-[e = . . _PORTCbits 0 3 -> -> 1 `i `uc ]
-"83
-[; ;I2C/I2C.c: 83:   delay();
-[e ( _delay ..  ]
-"84
-[; ;I2C/I2C.c: 84:   PORTCbits.RC3=0;
-[e = . . _PORTCbits 0 3 -> -> 0 `i `uc ]
-"86
-[; ;I2C/I2C.c: 86:   return ret;
+[; ;I2C/I2C.c: 82:   return ret;
 [e ) _ret ]
 [e $UE 102  ]
-"87
-[; ;I2C/I2C.c: 87: }
+"83
+[; ;I2C/I2C.c: 83: }
 [e :UE 102 ]
 }

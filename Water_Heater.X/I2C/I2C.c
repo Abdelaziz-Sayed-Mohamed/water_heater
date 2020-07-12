@@ -1,5 +1,5 @@
 #include "I2C.h"
- 
+#include"../gpio/gpio.h"
 
 void delay(void)
 {
@@ -14,48 +14,44 @@ void delay(void)
   asm("NOP");
    
 }
-/*
-void i2c_init(void)
-{
-  TIDAT=0;
-  ICLK=1;
-  IDAT=1;
-}
-*/
+
+
 void i2c_start(void)
 {
-  ICLK=1;
-  IDAT=1;
+     
+    
+  SET_PIN(EEPROM_SCK_PORT,EEPROM_SCK_PIN);
+  SET_PIN(EEPROM_SDA_PORT,EEPROM_SDA_PIN);
   delay();
-  IDAT=0;
+  RESET_PIN(EEPROM_SDA_PORT,EEPROM_SDA_PIN);
   delay();
 }
 
 void i2c_stop(void)
 {
-  ICLK=1;
-  IDAT=0;
+  SET_PIN(EEPROM_SCK_PORT,EEPROM_SCK_PIN);
+  RESET_PIN(EEPROM_SDA_PORT,EEPROM_SDA_PIN);
   delay();
-  IDAT=1;
+  SET_PIN(EEPROM_SDA_PORT,EEPROM_SDA_PIN);
   delay();
 }
 
 void i2c_wb(unsigned char val)
 {
   unsigned char i;
-  ICLK=0;
+  RESET_PIN(EEPROM_SCK_PORT,EEPROM_SCK_PIN);
   for(i=0;i<8;i++)
   {
     IDAT=((val>>(7-i))& 0x01);
-    ICLK=1;
+    SET_PIN(EEPROM_SCK_PORT,EEPROM_SCK_PIN);
     delay();
-    ICLK=0;
+    RESET_PIN(EEPROM_SCK_PORT,EEPROM_SCK_PIN);
   }	
-  IDAT=1;
+  SET_PIN(EEPROM_SDA_PORT,EEPROM_SDA_PIN);
   delay();
-  ICLK=1;
+  SET_PIN(EEPROM_SCK_PORT,EEPROM_SCK_PIN);
   delay();
-  ICLK=0;
+  RESET_PIN(EEPROM_SCK_PORT,EEPROM_SCK_PIN);
 }
 
 unsigned char i2c_rb(unsigned char ack)
@@ -63,25 +59,25 @@ unsigned char i2c_rb(unsigned char ack)
   char i;
   unsigned char ret=0;
 
-  ICLK=0;
-  TIDAT=1;
-  IDAT=1;
+  RESET_PIN(EEPROM_SCK_PORT,EEPROM_SCK_PIN);
+  SET_PIN_DIRECTION(EEPROM_SDA_DIRECTION,EEPROM_SDA_PIN,INPUT);
+  SET_PIN(EEPROM_SDA_PORT,EEPROM_SDA_PIN);
   for(i=0;i<8;i++)
   {
-    ICLK=1;
+    SET_PIN(EEPROM_SCK_PORT,EEPROM_SCK_PIN);
     delay();
     ret|=(IDAT<<(7-i));
-    ICLK=0;
+    RESET_PIN(EEPROM_SCK_PORT,EEPROM_SCK_PIN);
   }
-  TIDAT=0;
+  SET_PIN_DIRECTION(EEPROM_SDA_DIRECTION,EEPROM_SDA_PIN,OUTPUT) ; 
   if(ack)
-    IDAT=0;
+    RESET_PIN(EEPROM_SDA_PORT,EEPROM_SDA_PIN);
   else
-	IDAT=1;
+	SET_PIN(EEPROM_SDA_PORT,EEPROM_SDA_PIN);
   delay();
-  ICLK=1;
+  SET_PIN(EEPROM_SCK_PORT,EEPROM_SCK_PIN);
   delay();
-  ICLK=0;
+  RESET_PIN(EEPROM_SCK_PORT,EEPROM_SCK_PIN);
 
   return ret;
 }

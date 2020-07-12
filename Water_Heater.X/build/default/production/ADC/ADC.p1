@@ -56,15 +56,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 "33 ADC/ADC.h
 [; ;ADC/ADC.h: 33: void ADC_Value_Ready_CallBack(void);
 [v _ADC_Value_Ready_CallBack `(v ~T0 @X0 0 ef ]
+"31 ADC/../Temperature/Temperature.h
+[; ;ADC/../Temperature/Temperature.h: 31: void Temperature_Calc(uint8_t ADC_VALUE);
+[v _Temperature_Calc `(v ~T0 @X0 0 ef1`uc ]
 "1152 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 1152: extern volatile unsigned char ADRESH __attribute__((address(0x01E)));
 [v _ADRESH `Vuc ~T0 @X0 0 e@30 ]
 "2222
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2222: extern volatile unsigned char ADRESL __attribute__((address(0x09E)));
 [v _ADRESL `Vuc ~T0 @X0 0 e@158 ]
-"31 ADC/../Temperature/Temperature.h
-[; ;ADC/../Temperature/Temperature.h: 31: void Temperature_Calc(uint8_t ADC_VALUE);
-[v _Temperature_Calc `(v ~T0 @X0 0 ef1`uc ]
 "7 ADC/../WaterHeater_Mode/../gpio/../Config.h
 [p x FOSC = HS ]
 "8
@@ -415,13 +415,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _ADC_Value_Ready_CallBack ]
 [f ]
 "61
-[; ;ADC/ADC.c: 61:   uint16_t ADC_Value=(ADRESH<<8)|(ADRESL);
-[v _ADC_Value `ui ~T0 @X0 1 a ]
-[e = _ADC_Value -> | << -> _ADRESH `i -> 8 `i -> _ADRESL `i `ui ]
-"62
-[; ;ADC/ADC.c: 62:   Temperature_Calc(ADC_Value);
-[e ( _Temperature_Calc (1 -> _ADC_Value `uc ]
-"64
-[; ;ADC/ADC.c: 64: }
+[; ;ADC/ADC.c: 61:   Temperature_Calc((ADRESH<<8)|(ADRESL));
+[e ( _Temperature_Calc (1 -> | << -> _ADRESH `i -> 8 `i -> _ADRESL `i `uc ]
+"63
+[; ;ADC/ADC.c: 63: }
 [e :UE 104 ]
 }

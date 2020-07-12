@@ -251,7 +251,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "26
 [; ;gpio/gpio.c: 26:    (0==0)? (TRISD=0):(TRISD=1);
 [e ? == -> 0 `i -> 0 `i : -> = _TRISD -> -> 0 `i `uc `i -> = _TRISD -> -> 1 `i `uc `i ]
-"32
-[; ;gpio/gpio.c: 32: }
+"28
+[; ;gpio/gpio.c: 28: }
 [e :UE 95 ]
 }

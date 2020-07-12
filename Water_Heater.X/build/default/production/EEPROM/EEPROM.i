@@ -1743,7 +1743,6 @@ void i2c_acktst(unsigned char val);
 void Get_EEPROM_Data(void);
 void Set_EEPROM_Data(void);
 unsigned char e2pext_r(unsigned int addr);
-void e2pext_w(unsigned int addr, unsigned char val);
 # 28 "EEPROM/EEPROM.c" 2
 # 1 "EEPROM/../WaterHeater_Mode/WaterHeater_Mode_Cfg.h" 1
 # 10 "EEPROM/../WaterHeater_Mode/WaterHeater_Mode_Cfg.h"
@@ -2002,37 +2001,4 @@ unsigned char e2pext_r(unsigned int addr)
   i2c_stop();
 
   return ret;
-}
-
-
-void e2pext_w(unsigned int addr, unsigned char val)
-{
-  unsigned int tmp;
-  unsigned char ah;
-  unsigned char al;
-  unsigned char nt;
-
-  tmp=val;
-  ah=(addr&0x0100)>>8;
-  al=addr&0x00FF;
-  nt=0;
-
-  do
-  {
-    i2c_start();
-    if(ah)
-    {
-      i2c_wb(0xA2);
-    }
-    else
-    {
-      i2c_wb(0xA0);
-    }
-    i2c_wb(al);
-    i2c_wb(tmp);
-    i2c_stop();
-
-    nt++;
-  }
-  while((tmp != e2pext_r(addr))&&(nt < 10));
 }

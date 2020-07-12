@@ -295,42 +295,38 @@ Version 4.0 HI-TECH Software Intermediate Code
 "36
 [; ;Scheduler/Scheduler.c: 36: {
 [f ]
-"37
-[; ;Scheduler/Scheduler.c: 37:   uint32_t SystemTick_Loc=SystemTick;
-[v _SystemTick_Loc `ul ~T0 @X0 1 a ]
-[e = _SystemTick_Loc _SystemTick ]
-"39
-[; ;Scheduler/Scheduler.c: 39:   for( uint8_t IntityIndex = 0 ; IntityIndex < ( 3U ) ; IntityIndex++ )
+"38
+[; ;Scheduler/Scheduler.c: 38:   for( uint8_t IntityIndex = 0 ; IntityIndex < ( 3U ) ; IntityIndex++ )
 {
 [v _IntityIndex `uc ~T0 @X0 1 a ]
 [e = _IntityIndex -> -> 0 `i `uc ]
 [e $ < -> _IntityIndex `ui -> 3 `ui 106  ]
 [e $U 107  ]
 [e :U 106 ]
+"39
+[; ;Scheduler/Scheduler.c: 39:   {
+{
 "40
-[; ;Scheduler/Scheduler.c: 40:   {
-{
+[; ;Scheduler/Scheduler.c: 40:     if( ( ((SystemTick)%(Scheduler_Intitys[IntityIndex].Peroid/(20UL)))?0:1 ) )
+[e $ ! != ? != % _SystemTick / . *U + &U _Scheduler_Intitys * -> _IntityIndex `ux -> -> # *U &U _Scheduler_Intitys `ui `ux 1 -> 20 `ul -> -> -> 0 `i `l `ul : -> 0 `i -> 1 `i -> 0 `i 109  ]
 "41
-[; ;Scheduler/Scheduler.c: 41:     if( ( ((SystemTick_Loc)%(Scheduler_Intitys[IntityIndex].Peroid/(20UL)))?0:1 ) )
-[e $ ! != ? != % _SystemTick_Loc / . *U + &U _Scheduler_Intitys * -> _IntityIndex `ux -> -> # *U &U _Scheduler_Intitys `ui `ux 1 -> 20 `ul -> -> -> 0 `i `l `ul : -> 0 `i -> 1 `i -> 0 `i 109  ]
-"42
-[; ;Scheduler/Scheduler.c: 42:     {
+[; ;Scheduler/Scheduler.c: 41:     {
 {
-"43
-[; ;Scheduler/Scheduler.c: 43:      Scheduler_ActivationFlags[IntityIndex] = 1 ;
+"42
+[; ;Scheduler/Scheduler.c: 42:      Scheduler_ActivationFlags[IntityIndex] = 1 ;
 [e = *U + &U _Scheduler_ActivationFlags * -> _IntityIndex `ux -> -> # *U &U _Scheduler_ActivationFlags `ui `ux -> -> 1 `i `uc ]
-"44
-[; ;Scheduler/Scheduler.c: 44:     }
+"43
+[; ;Scheduler/Scheduler.c: 43:     }
 }
 [e :U 109 ]
-"45
-[; ;Scheduler/Scheduler.c: 45:   }
+"44
+[; ;Scheduler/Scheduler.c: 44:   }
 }
 [e ++ _IntityIndex -> -> 1 `i `uc ]
 [e $ < -> _IntityIndex `ui -> 3 `ui 106  ]
 [e :U 107 ]
 }
-"46
-[; ;Scheduler/Scheduler.c: 46: }
+"45
+[; ;Scheduler/Scheduler.c: 45: }
 [e :UE 105 ]
 }

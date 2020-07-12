@@ -273,13 +273,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "55
 [; ;EEPROM/EEPROM.c: 55: static unsigned char ah;
-[v F910 `uc ~T0 @X0 1 s ah ]
+[v F907 `uc ~T0 @X0 1 s ah ]
 "56
 [; ;EEPROM/EEPROM.c: 56: static unsigned char al;
-[v F911 `uc ~T0 @X0 1 s al ]
+[v F908 `uc ~T0 @X0 1 s al ]
 "57
 [; ;EEPROM/EEPROM.c: 57: static unsigned char nt;
-[v F912 `uc ~T0 @X0 1 s nt ]
+[v F909 `uc ~T0 @X0 1 s nt ]
 "60
 [; ;EEPROM/EEPROM.c: 60: if(Temperature.Store_Set_Temp_Flag==1)
 [e $ ! == -> . _Temperature 4 `i -> 1 `i 103  ]
@@ -291,13 +291,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _EEPROM_Data -> | -> . _Temperature 2 `i << -> 1 `i -> 7 `i `uc ]
 "64
 [; ;EEPROM/EEPROM.c: 64:      ah=(0xa&0x0100)>>8;
-[e = F910 -> >> & -> 10 `i -> 256 `i -> 8 `i `uc ]
+[e = F907 -> >> & -> 10 `i -> 256 `i -> 8 `i `uc ]
 "65
 [; ;EEPROM/EEPROM.c: 65:      al=0xa&0x00FF;
-[e = F911 -> & -> 10 `i -> 255 `i `uc ]
+[e = F908 -> & -> 10 `i -> 255 `i `uc ]
 "66
 [; ;EEPROM/EEPROM.c: 66:      nt=0;
-[e = F912 -> -> 0 `i `uc ]
+[e = F909 -> -> 0 `i `uc ]
 "68
 [; ;EEPROM/EEPROM.c: 68:      do
 [e :U 106 ]
@@ -309,7 +309,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _i2c_start ..  ]
 "71
 [; ;EEPROM/EEPROM.c: 71:        if(ah)
-[e $ ! != -> F910 `i -> 0 `i 107  ]
+[e $ ! != -> F907 `i -> 0 `i 107  ]
 "72
 [; ;EEPROM/EEPROM.c: 72:        {
 {
@@ -335,7 +335,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 108 ]
 "79
 [; ;EEPROM/EEPROM.c: 79:        i2c_wb(al);
-[e ( _i2c_wb (1 F911 ]
+[e ( _i2c_wb (1 F908 ]
 "80
 [; ;EEPROM/EEPROM.c: 80:        i2c_wb(EEPROM_Data);
 [e ( _i2c_wb (1 _EEPROM_Data ]
@@ -344,11 +344,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _i2c_stop ..  ]
 "83
 [; ;EEPROM/EEPROM.c: 83:        nt++;
-[e ++ F912 -> -> 1 `i `uc ]
+[e ++ F909 -> -> 1 `i `uc ]
 "84
 [; ;EEPROM/EEPROM.c: 84:      }
 }
-[e $ && != -> _EEPROM_Data `i -> ( _e2pext_r (1 -> -> 10 `i `ui `i < -> F912 `i -> 10 `i 106  ]
+[e $ && != -> _EEPROM_Data `i -> ( _e2pext_r (1 -> -> 10 `i `ui `i < -> F909 `i -> 10 `i 106  ]
 [e :U 105 ]
 "86
 [; ;EEPROM/EEPROM.c: 86: }
@@ -460,98 +460,4 @@ Version 4.0 HI-TECH Software Intermediate Code
 "123
 [; ;EEPROM/EEPROM.c: 123: }
 [e :UE 109 ]
-}
-"126
-[; ;EEPROM/EEPROM.c: 126: void e2pext_w(unsigned int addr, unsigned char val)
-[v _e2pext_w `(v ~T0 @X0 1 ef2`ui`uc ]
-"127
-[; ;EEPROM/EEPROM.c: 127: {
-{
-[e :U _e2pext_w ]
-"126
-[; ;EEPROM/EEPROM.c: 126: void e2pext_w(unsigned int addr, unsigned char val)
-[v _addr `ui ~T0 @X0 1 r1 ]
-[v _val `uc ~T0 @X0 1 r2 ]
-"127
-[; ;EEPROM/EEPROM.c: 127: {
-[f ]
-"128
-[; ;EEPROM/EEPROM.c: 128:   unsigned int tmp;
-[v _tmp `ui ~T0 @X0 1 a ]
-"129
-[; ;EEPROM/EEPROM.c: 129:   unsigned char ah;
-[v _ah `uc ~T0 @X0 1 a ]
-"130
-[; ;EEPROM/EEPROM.c: 130:   unsigned char al;
-[v _al `uc ~T0 @X0 1 a ]
-"131
-[; ;EEPROM/EEPROM.c: 131:   unsigned char nt;
-[v _nt `uc ~T0 @X0 1 a ]
-"133
-[; ;EEPROM/EEPROM.c: 133:   tmp=val;
-[e = _tmp -> _val `ui ]
-"134
-[; ;EEPROM/EEPROM.c: 134:   ah=(addr&0x0100)>>8;
-[e = _ah -> >> & _addr -> -> 256 `i `ui -> 8 `i `uc ]
-"135
-[; ;EEPROM/EEPROM.c: 135:   al=addr&0x00FF;
-[e = _al -> & _addr -> -> 255 `i `ui `uc ]
-"136
-[; ;EEPROM/EEPROM.c: 136:   nt=0;
-[e = _nt -> -> 0 `i `uc ]
-"138
-[; ;EEPROM/EEPROM.c: 138:   do
-[e :U 117 ]
-"139
-[; ;EEPROM/EEPROM.c: 139:   {
-{
-"140
-[; ;EEPROM/EEPROM.c: 140:     i2c_start();
-[e ( _i2c_start ..  ]
-"141
-[; ;EEPROM/EEPROM.c: 141:     if(ah)
-[e $ ! != -> _ah `i -> 0 `i 118  ]
-"142
-[; ;EEPROM/EEPROM.c: 142:     {
-{
-"143
-[; ;EEPROM/EEPROM.c: 143:       i2c_wb(0xA2);
-[e ( _i2c_wb (1 -> -> 162 `i `uc ]
-"144
-[; ;EEPROM/EEPROM.c: 144:     }
-}
-[e $U 119  ]
-"145
-[; ;EEPROM/EEPROM.c: 145:     else
-[e :U 118 ]
-"146
-[; ;EEPROM/EEPROM.c: 146:     {
-{
-"147
-[; ;EEPROM/EEPROM.c: 147:       i2c_wb(0xA0);
-[e ( _i2c_wb (1 -> -> 160 `i `uc ]
-"148
-[; ;EEPROM/EEPROM.c: 148:     }
-}
-[e :U 119 ]
-"149
-[; ;EEPROM/EEPROM.c: 149:     i2c_wb(al);
-[e ( _i2c_wb (1 _al ]
-"150
-[; ;EEPROM/EEPROM.c: 150:     i2c_wb(tmp);
-[e ( _i2c_wb (1 -> _tmp `uc ]
-"151
-[; ;EEPROM/EEPROM.c: 151:     i2c_stop();
-[e ( _i2c_stop ..  ]
-"153
-[; ;EEPROM/EEPROM.c: 153:     nt++;
-[e ++ _nt -> -> 1 `i `uc ]
-"154
-[; ;EEPROM/EEPROM.c: 154:   }
-}
-[e $ && != _tmp -> ( _e2pext_r (1 _addr `ui < -> _nt `i -> 10 `i 117  ]
-[e :U 116 ]
-"156
-[; ;EEPROM/EEPROM.c: 156: }
-[e :UE 114 ]
 }

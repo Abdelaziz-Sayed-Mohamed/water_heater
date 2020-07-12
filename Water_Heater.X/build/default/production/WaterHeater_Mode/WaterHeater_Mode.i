@@ -2006,7 +2006,6 @@ void EXTI_On_Off_CallBack(void);
 void Get_EEPROM_Data(void);
 void Set_EEPROM_Data(void);
 unsigned char e2pext_r(unsigned int addr);
-void e2pext_w(unsigned int addr, unsigned char val);
 # 12 "WaterHeater_Mode/WaterHeater_Mode.c" 2
 
 

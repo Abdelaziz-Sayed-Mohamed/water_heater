@@ -1731,7 +1731,170 @@ void i2c_wb(unsigned char val);
 unsigned char i2c_rb(unsigned char ack);
 void i2c_acktst(unsigned char val);
 # 2 "I2C/I2C.c" 2
+# 1 "I2C/../gpio/gpio.h" 1
+# 11 "I2C/../gpio/gpio.h"
+# 1 "I2C/../gpio/gpio_Cfg.h" 1
+# 11 "I2C/../gpio/gpio_Cfg.h"
+# 1 "I2C/../gpio/../Config.h" 1
 
+
+
+
+
+
+#pragma config FOSC = HS
+#pragma config WDTE = OFF
+#pragma config PWRTE = OFF
+#pragma config BOREN = OFF
+#pragma config LVP = OFF
+#pragma config CPD = OFF
+#pragma config WRT = OFF
+#pragma config CP = OFF
+
+
+
+
+
+
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
+# 13 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 3
+typedef signed char int8_t;
+
+
+
+
+
+
+typedef signed int int16_t;
+
+
+
+
+
+
+
+typedef __int24 int24_t;
+
+
+
+
+
+
+
+typedef signed long int int32_t;
+# 52 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 3
+typedef unsigned char uint8_t;
+
+
+
+
+
+typedef unsigned int uint16_t;
+
+
+
+
+
+
+typedef __uint24 uint24_t;
+
+
+
+
+
+
+typedef unsigned long int uint32_t;
+# 88 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 3
+typedef signed char int_least8_t;
+
+
+
+
+
+
+
+typedef signed int int_least16_t;
+# 109 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 3
+typedef __int24 int_least24_t;
+# 118 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 3
+typedef signed long int int_least32_t;
+# 136 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 3
+typedef unsigned char uint_least8_t;
+
+
+
+
+
+
+typedef unsigned int uint_least16_t;
+# 154 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 3
+typedef __uint24 uint_least24_t;
+
+
+
+
+
+
+
+typedef unsigned long int uint_least32_t;
+# 181 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 3
+typedef signed char int_fast8_t;
+
+
+
+
+
+
+typedef signed int int_fast16_t;
+# 200 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 3
+typedef __int24 int_fast24_t;
+
+
+
+
+
+
+
+typedef signed long int int_fast32_t;
+# 224 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 3
+typedef unsigned char uint_fast8_t;
+
+
+
+
+
+typedef unsigned int uint_fast16_t;
+# 240 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 3
+typedef __uint24 uint_fast24_t;
+
+
+
+
+
+
+typedef unsigned long int uint_fast32_t;
+# 268 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 3
+typedef int32_t intmax_t;
+# 282 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 3
+typedef uint32_t uintmax_t;
+
+
+
+
+
+
+typedef int16_t intptr_t;
+
+
+
+
+typedef uint16_t uintptr_t;
+# 20 "I2C/../gpio/../Config.h" 2
+# 11 "I2C/../gpio/gpio_Cfg.h" 2
+# 11 "I2C/../gpio/gpio.h" 2
+# 24 "I2C/../gpio/gpio.h"
+void GPIO_Init(void);
+# 3 "I2C/I2C.c" 2
 
 void delay(void)
 {
@@ -1746,41 +1909,44 @@ void delay(void)
   __asm("NOP");
 
 }
-# 25 "I2C/I2C.c"
+
+
 void i2c_start(void)
 {
-  PORTCbits.RC3=1;
-  PORTCbits.RC4=1;
+
+
+  (PORTC|= (1<<3));
+  (PORTC|= (1<<4));
   delay();
-  PORTCbits.RC4=0;
+  (PORTC &= ~(1<<4));
   delay();
 }
 
 void i2c_stop(void)
 {
-  PORTCbits.RC3=1;
-  PORTCbits.RC4=0;
+  (PORTC|= (1<<3));
+  (PORTC &= ~(1<<4));
   delay();
-  PORTCbits.RC4=1;
+  (PORTC|= (1<<4));
   delay();
 }
 
 void i2c_wb(unsigned char val)
 {
   unsigned char i;
-  PORTCbits.RC3=0;
+  (PORTC &= ~(1<<3));
   for(i=0;i<8;i++)
   {
     PORTCbits.RC4=((val>>(7-i))& 0x01);
-    PORTCbits.RC3=1;
+    (PORTC|= (1<<3));
     delay();
-    PORTCbits.RC3=0;
+    (PORTC &= ~(1<<3));
   }
-  PORTCbits.RC4=1;
+  (PORTC|= (1<<4));
   delay();
-  PORTCbits.RC3=1;
+  (PORTC|= (1<<3));
   delay();
-  PORTCbits.RC3=0;
+  (PORTC &= ~(1<<3));
 }
 
 unsigned char i2c_rb(unsigned char ack)
@@ -1788,25 +1954,25 @@ unsigned char i2c_rb(unsigned char ack)
   char i;
   unsigned char ret=0;
 
-  PORTCbits.RC3=0;
-  TRISCbits.TRISC4=1;
-  PORTCbits.RC4=1;
+  (PORTC &= ~(1<<3));
+  (1==0)? ((TRISC &= ~(1<<4))):((TRISC|= (1<<4)));
+  (PORTC|= (1<<4));
   for(i=0;i<8;i++)
   {
-    PORTCbits.RC3=1;
+    (PORTC|= (1<<3));
     delay();
     ret|=(PORTCbits.RC4<<(7-i));
-    PORTCbits.RC3=0;
+    (PORTC &= ~(1<<3));
   }
-  TRISCbits.TRISC4=0;
+  (0==0)? ((TRISC &= ~(1<<4))):((TRISC|= (1<<4))) ;
   if(ack)
-    PORTCbits.RC4=0;
+    (PORTC &= ~(1<<4));
   else
- PORTCbits.RC4=1;
+ (PORTC|= (1<<4));
   delay();
-  PORTCbits.RC3=1;
+  (PORTC|= (1<<3));
   delay();
-  PORTCbits.RC3=0;
+  (PORTC &= ~(1<<3));
 
   return ret;
 }

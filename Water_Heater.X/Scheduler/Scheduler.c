@@ -34,11 +34,10 @@ void Scheduler_Init(void)
 
 void Scheduler_ActivateTask(uint32_t SystemTick)
 {
-  uint32_t SystemTick_Loc=SystemTick;
 
   for( uint8_t IntityIndex = 0 ; IntityIndex < NumberOfTasks ; IntityIndex++ )
   {
-  	 if( ActivateTask(SystemTick_Loc, Scheduler_Intitys[IntityIndex].Peroid )   )
+  	 if( ActivateTask(SystemTick, Scheduler_Intitys[IntityIndex].Peroid )   )
   	 {
   	 	Scheduler_ActivationFlags[IntityIndex] = 1 ;  /*Set Activation Flag*/
   	 }

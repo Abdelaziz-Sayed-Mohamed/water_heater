@@ -260,72 +260,72 @@ Version 4.0 HI-TECH Software Intermediate Code
 "17
 [; ;Buttons/Buttons.c: 17:     INTCONbits.INTF=0;
 [e = . . _INTCONbits 0 1 -> -> 0 `i `uc ]
-"20
-[; ;Buttons/Buttons.c: 20: }
+"19
+[; ;Buttons/Buttons.c: 19: }
 [e :UE 96 ]
 }
-"23
-[; ;Buttons/Buttons.c: 23: void EXTI_On_Off_CallBack(void)
+"22
+[; ;Buttons/Buttons.c: 22: void EXTI_On_Off_CallBack(void)
 [v _EXTI_On_Off_CallBack `(v ~T0 @X0 1 ef ]
-"24
-[; ;Buttons/Buttons.c: 24: {
+"23
+[; ;Buttons/Buttons.c: 23: {
 {
 [e :U _EXTI_On_Off_CallBack ]
 [f ]
-"25
-[; ;Buttons/Buttons.c: 25:  if((Mode.Select_Mode==Setting_Mode) || (Mode.Select_Mode==Normal_Mode))
+"24
+[; ;Buttons/Buttons.c: 24:  if((Mode.Select_Mode==Setting_Mode) || (Mode.Select_Mode==Normal_Mode))
 [e $ ! || == -> . _Mode 0 `ui -> . `E882 2 `ui == -> . _Mode 0 `ui -> . `E882 1 `ui 98  ]
-"26
-[; ;Buttons/Buttons.c: 26:   {
+"25
+[; ;Buttons/Buttons.c: 25:   {
 {
-"28
-[; ;Buttons/Buttons.c: 28:     Mode.Select_Mode=Off_Mode;
+"27
+[; ;Buttons/Buttons.c: 27:     Mode.Select_Mode=Off_Mode;
 [e = . _Mode 0 . `E882 0 ]
-"30
-[; ;Buttons/Buttons.c: 30:   }
+"29
+[; ;Buttons/Buttons.c: 29:   }
 }
 [e $U 99  ]
-"31
-[; ;Buttons/Buttons.c: 31:   else if (Mode.Select_Mode==Off_Mode)
+"30
+[; ;Buttons/Buttons.c: 30:   else if (Mode.Select_Mode==Off_Mode)
 [e :U 98 ]
 [e $ ! == -> . _Mode 0 `ui -> . `E882 0 `ui 100  ]
-"32
-[; ;Buttons/Buttons.c: 32:   {
+"31
+[; ;Buttons/Buttons.c: 31:   {
 {
-"34
-[; ;Buttons/Buttons.c: 34:    Mode.Select_Mode=Normal_Mode;
+"33
+[; ;Buttons/Buttons.c: 33:    Mode.Select_Mode=Normal_Mode;
 [e = . _Mode 0 . `E882 1 ]
-"36
-[; ;Buttons/Buttons.c: 36:   }
+"35
+[; ;Buttons/Buttons.c: 35:   }
 }
 [e :U 100 ]
 [e :U 99 ]
-"37
-[; ;Buttons/Buttons.c: 37: }
+"36
+[; ;Buttons/Buttons.c: 36: }
 [e :UE 97 ]
 }
-"39
-[; ;Buttons/Buttons.c: 39: void Read_UP_DOWN_BUTTONS(void)
+"38
+[; ;Buttons/Buttons.c: 38: void Read_UP_DOWN_BUTTONS(void)
 [v _Read_UP_DOWN_BUTTONS `(v ~T0 @X0 1 ef ]
-"40
-[; ;Buttons/Buttons.c: 40: {
+"39
+[; ;Buttons/Buttons.c: 39: {
 {
 [e :U _Read_UP_DOWN_BUTTONS ]
 [f ]
-"41
-[; ;Buttons/Buttons.c: 41:     if(((((PORTB>>2)&1)==0) ||(((PORTB>>1)&1)==0)) && Mode.Select_Mode==Normal_Mode)
+"40
+[; ;Buttons/Buttons.c: 40:     if(((((PORTB>>2)&1)==0) ||(((PORTB>>1)&1)==0)) && Mode.Select_Mode==Normal_Mode)
 [e $ ! && || == & >> -> _PORTB `i -> 2 `i -> 1 `i -> 0 `i == & >> -> _PORTB `i -> 1 `i -> 1 `i -> 0 `i == -> . _Mode 0 `ui -> . `E882 1 `ui 102  ]
-"42
-[; ;Buttons/Buttons.c: 42:     {
+"41
+[; ;Buttons/Buttons.c: 41:     {
 {
-"43
-[; ;Buttons/Buttons.c: 43:       Mode.Select_Mode=Setting_Mode;
+"42
+[; ;Buttons/Buttons.c: 42:       Mode.Select_Mode=Setting_Mode;
 [e = . _Mode 0 . `E882 2 ]
-"44
-[; ;Buttons/Buttons.c: 44:     }
+"43
+[; ;Buttons/Buttons.c: 43:     }
 }
 [e :U 102 ]
-"45
-[; ;Buttons/Buttons.c: 45: }
+"44
+[; ;Buttons/Buttons.c: 44: }
 [e :UE 101 ]
 }

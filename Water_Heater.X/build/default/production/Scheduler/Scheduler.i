@@ -2001,11 +2001,10 @@ void Scheduler_Init(void)
 
 void Scheduler_ActivateTask(uint32_t SystemTick)
 {
-  uint32_t SystemTick_Loc=SystemTick;
 
   for( uint8_t IntityIndex = 0 ; IntityIndex < ( 3U ) ; IntityIndex++ )
   {
-    if( ( ((SystemTick_Loc)%(Scheduler_Intitys[IntityIndex].Peroid/(20UL)))?0:1 ) )
+    if( ( ((SystemTick)%(Scheduler_Intitys[IntityIndex].Peroid/(20UL)))?0:1 ) )
     {
      Scheduler_ActivationFlags[IntityIndex] = 1 ;
     }

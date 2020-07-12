@@ -1977,7 +1977,6 @@ void On_Off_Init(void)
     INTEDG=1;
     INTCONbits.INTF=0;
 
-
 }
 
 

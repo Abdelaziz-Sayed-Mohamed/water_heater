@@ -58,8 +58,7 @@ void ADC_Conv_MainFunction(void)
 
 void ADC_Value_Ready_CallBack(void)
 {
-  uint16_t ADC_Value=(ADRESH<<8)|(ADRESL);
-  Temperature_Calc(ADC_Value);
+  Temperature_Calc((ADRESH<<8)|(ADRESL));
 
 }
 

@@ -1908,8 +1908,4 @@ void GPIO_Init(void)
    (1==0)? ((TRISC &= ~(1<<4))):((TRISC|= (1<<4)));
    (0==0)? (TRISD=0):(TRISD=1);
 
-
-
-
-
 }
