@@ -33,6 +33,7 @@
 #include"WaterHeater_Mode/WaterHeater_Mode.h"
 #include"Average/Average.h"
 #include"Interrupt/Interrupt.h"
+#include"EEPROM/EEPROM.h"
 
 
 
@@ -44,11 +45,14 @@ void main(void) {
   Display_Init();
   Elements_Init();
   Mode_Init();
+  Get_EEPROM_Data();
   ADC_Start_Conv();
   Scheduler_Init();
   Timer0_Init(); 
   Scheduler_Start();    
-    while(1)
-    {}
+  
+ 
+  while(1);
+    
     return;
 }

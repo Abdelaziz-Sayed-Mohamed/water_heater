@@ -1,91 +1,26 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"22 ./ADC/ADC.h
-[; ;./ADC/ADC.h: 22: {
-[s S95 :1 `uc 1 :1 `uc 1 ]
-[n S95 _ADC_t ADC_INIT_FLAG ADC_START_FLAG ]
-"39 ./Display/Display.h
-[; ;./Display/Display.h: 39: Enable_Display_t Enable_Display;
-[c E990 0 1 .. ]
-[n E990 _Enable_Display_t Enable_Display_Off Enable_Display_On  ]
-"35 ./Elements/Elements.h
-[; ;./Elements/Elements.h: 35: LED_STATUS_t LED_Status;
-[c E1000 0 1 2 .. ]
-[n E1000 _LED_STATUS_t LED_OFF LED_ON LED_BLINK  ]
-"17 ./Temperature/Temperature.h
-[; ;./Temperature/Temperature.h: 17: {
-[s S97 `uc 1 `uc 1 `uc 1 :1 `uc 1 :1 `uc 1 `uc 1 ]
-[n S97 _TEMP_t Temp_Value Average_Value Set_Temp Average_Value_Ready_Flag Store_Set_Temp_Flag Average_NValues ]
-"28 ./WaterHeater_Mode/WaterHeater_Mode.h
-[; ;./WaterHeater_Mode/WaterHeater_Mode.h: 28: MODE_t Mode;
-[c E1026 0 1 2 .. ]
-[n E1026 _Select_Mode_t Off_Mode Normal_Mode Setting_Mode  ]
-"23
-[; ;./WaterHeater_Mode/WaterHeater_Mode.h: 23: {
-[s S98 `E1026 1 `uc 1 ]
-[n S98 _MODE_t Select_Mode Setting_Mode_Timer ]
-[p mainexit ]
-"24 ./WaterHeater_Mode/../gpio/gpio.h
-[v _GPIO_Init `(v ~T0 @X0 0 ef ]
-"30 ./ADC/ADC.h
-[; ;./ADC/ADC.h: 30: void ADC_Init(void);
-[v _ADC_Init `(v ~T0 @X0 0 ef ]
-"18 ./Buttons/Buttons.h
-[; ;./Buttons/Buttons.h: 18: void On_Off_Init(void);
-[v _On_Off_Init `(v ~T0 @X0 0 ef ]
-"41 ./Display/Display.h
-[; ;./Display/Display.h: 41: void Display_Init(void);
-[v _Display_Init `(v ~T0 @X0 0 ef ]
-"39 ./Elements/Elements.h
-[; ;./Elements/Elements.h: 39: void Elements_Init(void);
-[v _Elements_Init `(v ~T0 @X0 0 ef ]
-"36 ./WaterHeater_Mode/WaterHeater_Mode.h
-[; ;./WaterHeater_Mode/WaterHeater_Mode.h: 36: void Mode_Init(void);
-[v _Mode_Init `(v ~T0 @X0 0 ef ]
-"8 ./EEPROM/EEPROM.h
-[; ;./EEPROM/EEPROM.h: 8: void Get_EEPROM_Data(void);
-[v _Get_EEPROM_Data `(v ~T0 @X0 0 ef ]
-"31 ./ADC/ADC.h
-[; ;./ADC/ADC.h: 31: void ADC_Start_Conv(void);
-[v _ADC_Start_Conv `(v ~T0 @X0 0 ef ]
-"12 ./Timer/../Scheduler/Scheduler.h
-[v _Scheduler_Init `(v ~T0 @X0 0 ef ]
-"17 ./Timer/Timer.h
-[; ;./Timer/Timer.h: 17: void Timer0_Init(void);
-[v _Timer0_Init `(v ~T0 @X0 0 ef ]
-"13 ./Timer/../Scheduler/Scheduler.h
-[v _Scheduler_Start `(v ~T0 @X0 0 ef ]
-"12 main.c
-[p x FOSC = HS ]
-"13
-[p x WDTE = OFF ]
-"14
-[p x PWRTE = OFF ]
-"15
-[p x BOREN = OFF ]
-"16
-[p x LVP = OFF ]
-"17
-[p x CPD = OFF ]
-"18
-[p x WRT = OFF ]
-"19
-[p x CP = OFF ]
-"7 ./Interrupt/../Config.h
-[p x FOSC = HS ]
-"8
-[p x WDTE = OFF ]
-"9
-[p x PWRTE = OFF ]
-"10
-[p x BOREN = OFF ]
-"11
-[p x LVP = OFF ]
-"12
-[p x CPD = OFF ]
-"13
-[p x WRT = OFF ]
-"14
-[p x CP = OFF ]
+"284 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 284:     struct {
+[s S10 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S10 . RC0 RC1 RC2 RC3 RC4 RC5 RC6 RC7 ]
+"283
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 283: typedef union {
+[u S9 `S10 1 ]
+[n S9 . . ]
+"295
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 295: extern volatile PORTCbits_t PORTCbits __attribute__((address(0x007)));
+[v _PORTCbits `VS9 ~T0 @X0 0 e@7 ]
+"1443
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 1443:     struct {
+[s S58 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S58 . TRISC0 TRISC1 TRISC2 TRISC3 TRISC4 TRISC5 TRISC6 TRISC7 ]
+"1442
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 1442: typedef union {
+[u S57 `S58 1 ]
+[n S57 . . ]
+"1454
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 1454: extern volatile TRISCbits_t TRISCbits __attribute__((address(0x087)));
+[v _TRISCbits `VS57 ~T0 @X0 0 e@135 ]
 "54 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 54: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
@@ -266,183 +201,258 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2363
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2363: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
-"7 ./Interrupt/../Config.h
-[p x FOSC = HS ]
-"8
-[p x WDTE = OFF ]
-"9
-[p x PWRTE = OFF ]
-"10
-[p x BOREN = OFF ]
-"11
-[p x LVP = OFF ]
-"12
-[p x CPD = OFF ]
-"13
-[p x WRT = OFF ]
-"14
-[p x CP = OFF ]
-"7
-[p x FOSC = HS ]
-"8
-[p x WDTE = OFF ]
-"9
-[p x PWRTE = OFF ]
-"10
-[p x BOREN = OFF ]
-"11
-[p x LVP = OFF ]
-"12
-[p x CPD = OFF ]
-"13
-[p x WRT = OFF ]
-"14
-[p x CP = OFF ]
-"28 ./ADC/ADC.h
-[; ;./ADC/ADC.h: 28: ADC_t ADC_Info;
-[v _ADC_Info `S95 ~T0 @X0 1 e ]
-"7 ./Interrupt/../Config.h
-[p x FOSC = HS ]
-"8
-[p x WDTE = OFF ]
-"9
-[p x PWRTE = OFF ]
-"10
-[p x BOREN = OFF ]
-"11
-[p x LVP = OFF ]
-"12
-[p x CPD = OFF ]
-"13
-[p x WRT = OFF ]
-"14
-[p x CP = OFF ]
-"7
-[p x FOSC = HS ]
-"8
-[p x WDTE = OFF ]
-"9
-[p x PWRTE = OFF ]
-"10
-[p x BOREN = OFF ]
-"11
-[p x LVP = OFF ]
-"12
-[p x CPD = OFF ]
-"13
-[p x WRT = OFF ]
-"14
-[p x CP = OFF ]
-"7
-[p x FOSC = HS ]
-"8
-[p x WDTE = OFF ]
-"9
-[p x PWRTE = OFF ]
-"10
-[p x BOREN = OFF ]
-"11
-[p x LVP = OFF ]
-"12
-[p x CPD = OFF ]
-"13
-[p x WRT = OFF ]
-"14
-[p x CP = OFF ]
-"39 ./Display/Display.h
-[; ;./Display/Display.h: 39: Enable_Display_t Enable_Display;
-[v _Enable_Display `E990 ~T0 @X0 1 e ]
-"35 ./Elements/Elements.h
-[; ;./Elements/Elements.h: 35: LED_STATUS_t LED_Status;
-[v _LED_Status `E1000 ~T0 @X0 1 e ]
-"7 ./Interrupt/../Config.h
-[p x FOSC = HS ]
-"8
-[p x WDTE = OFF ]
-"9
-[p x PWRTE = OFF ]
-"10
-[p x BOREN = OFF ]
-"11
-[p x LVP = OFF ]
-"12
-[p x CPD = OFF ]
-"13
-[p x WRT = OFF ]
-"14
-[p x CP = OFF ]
-"26 ./Temperature/Temperature.h
-[; ;./Temperature/Temperature.h: 26: TEMP_t Temperature;
-[v _Temperature `S97 ~T0 @X0 1 e ]
-"28 ./WaterHeater_Mode/WaterHeater_Mode.h
-[; ;./WaterHeater_Mode/WaterHeater_Mode.h: 28: MODE_t Mode;
-[v _Mode `S98 ~T0 @X0 1 e ]
-"7 ./Interrupt/../Config.h
-[p x FOSC = HS ]
-"8
-[p x WDTE = OFF ]
-"9
-[p x PWRTE = OFF ]
-"10
-[p x BOREN = OFF ]
-"11
-[p x LVP = OFF ]
-"12
-[p x CPD = OFF ]
-"13
-[p x WRT = OFF ]
-"14
-[p x CP = OFF ]
-[v $root$_main `(v ~T0 @X0 0 e ]
-"40 main.c
-[; ;main.c: 40: void main(void) {
-[v _main `(v ~T0 @X0 1 ef ]
+"4 I2C/I2C.c
+[; ;I2C/I2C.c: 4: void delay(void)
+[v _delay `(v ~T0 @X0 1 ef ]
+"5
+[; ;I2C/I2C.c: 5: {
 {
-[e :U _main ]
+[e :U _delay ]
 [f ]
-"42
-[; ;main.c: 42:   GPIO_Init();
-[e ( _GPIO_Init ..  ]
+"6
+[; ;I2C/I2C.c: 6:   __asm("NOP");
+[; <" NOP ;# ">
+"7
+[; ;I2C/I2C.c: 7:   __asm("NOP");
+[; <" NOP ;# ">
+"8
+[; ;I2C/I2C.c: 8:   __asm("NOP");
+[; <" NOP ;# ">
+"9
+[; ;I2C/I2C.c: 9:   __asm("NOP");
+[; <" NOP ;# ">
+"10
+[; ;I2C/I2C.c: 10:   __asm("NOP");
+[; <" NOP ;# ">
+"11
+[; ;I2C/I2C.c: 11:   __asm("NOP");
+[; <" NOP ;# ">
+"12
+[; ;I2C/I2C.c: 12:   __asm("NOP");
+[; <" NOP ;# ">
+"13
+[; ;I2C/I2C.c: 13:   __asm("NOP");
+[; <" NOP ;# ">
+"14
+[; ;I2C/I2C.c: 14:   __asm("NOP");
+[; <" NOP ;# ">
+"16
+[; ;I2C/I2C.c: 16: }
+[e :UE 95 ]
+}
+"25
+[; ;I2C/I2C.c: 25: void i2c_start(void)
+[v _i2c_start `(v ~T0 @X0 1 ef ]
+"26
+[; ;I2C/I2C.c: 26: {
+{
+[e :U _i2c_start ]
+[f ]
+"27
+[; ;I2C/I2C.c: 27:   PORTCbits.RC3=1;
+[e = . . _PORTCbits 0 3 -> -> 1 `i `uc ]
+"28
+[; ;I2C/I2C.c: 28:   PORTCbits.RC4=1;
+[e = . . _PORTCbits 0 4 -> -> 1 `i `uc ]
+"29
+[; ;I2C/I2C.c: 29:   delay();
+[e ( _delay ..  ]
+"30
+[; ;I2C/I2C.c: 30:   PORTCbits.RC4=0;
+[e = . . _PORTCbits 0 4 -> -> 0 `i `uc ]
+"31
+[; ;I2C/I2C.c: 31:   delay();
+[e ( _delay ..  ]
+"32
+[; ;I2C/I2C.c: 32: }
+[e :UE 96 ]
+}
+"34
+[; ;I2C/I2C.c: 34: void i2c_stop(void)
+[v _i2c_stop `(v ~T0 @X0 1 ef ]
+"35
+[; ;I2C/I2C.c: 35: {
+{
+[e :U _i2c_stop ]
+[f ]
+"36
+[; ;I2C/I2C.c: 36:   PORTCbits.RC3=1;
+[e = . . _PORTCbits 0 3 -> -> 1 `i `uc ]
+"37
+[; ;I2C/I2C.c: 37:   PORTCbits.RC4=0;
+[e = . . _PORTCbits 0 4 -> -> 0 `i `uc ]
+"38
+[; ;I2C/I2C.c: 38:   delay();
+[e ( _delay ..  ]
+"39
+[; ;I2C/I2C.c: 39:   PORTCbits.RC4=1;
+[e = . . _PORTCbits 0 4 -> -> 1 `i `uc ]
+"40
+[; ;I2C/I2C.c: 40:   delay();
+[e ( _delay ..  ]
+"41
+[; ;I2C/I2C.c: 41: }
+[e :UE 97 ]
+}
 "43
-[; ;main.c: 43:   ADC_Init();
-[e ( _ADC_Init ..  ]
+[; ;I2C/I2C.c: 43: void i2c_wb(unsigned char val)
+[v _i2c_wb `(v ~T0 @X0 1 ef1`uc ]
 "44
-[; ;main.c: 44:   On_Off_Init();
-[e ( _On_Off_Init ..  ]
+[; ;I2C/I2C.c: 44: {
+{
+[e :U _i2c_wb ]
+"43
+[; ;I2C/I2C.c: 43: void i2c_wb(unsigned char val)
+[v _val `uc ~T0 @X0 1 r1 ]
+"44
+[; ;I2C/I2C.c: 44: {
+[f ]
 "45
-[; ;main.c: 45:   Display_Init();
-[e ( _Display_Init ..  ]
+[; ;I2C/I2C.c: 45:   unsigned char i;
+[v _i `uc ~T0 @X0 1 a ]
 "46
-[; ;main.c: 46:   Elements_Init();
-[e ( _Elements_Init ..  ]
+[; ;I2C/I2C.c: 46:   PORTCbits.RC3=0;
+[e = . . _PORTCbits 0 3 -> -> 0 `i `uc ]
 "47
-[; ;main.c: 47:   Mode_Init();
-[e ( _Mode_Init ..  ]
+[; ;I2C/I2C.c: 47:   for(i=0;i<8;i++)
+{
+[e = _i -> -> 0 `i `uc ]
+[e $ < -> _i `i -> 8 `i 99  ]
+[e $U 100  ]
+[e :U 99 ]
 "48
-[; ;main.c: 48:   Get_EEPROM_Data();
-[e ( _Get_EEPROM_Data ..  ]
+[; ;I2C/I2C.c: 48:   {
+{
 "49
-[; ;main.c: 49:   ADC_Start_Conv();
-[e ( _ADC_Start_Conv ..  ]
+[; ;I2C/I2C.c: 49:     PORTCbits.RC4=((val>>(7-i))& 0x01);
+[e = . . _PORTCbits 0 4 -> & >> -> _val `i - -> 7 `i -> _i `i -> 1 `i `uc ]
 "50
-[; ;main.c: 50:   Scheduler_Init();
-[e ( _Scheduler_Init ..  ]
+[; ;I2C/I2C.c: 50:     PORTCbits.RC3=1;
+[e = . . _PORTCbits 0 3 -> -> 1 `i `uc ]
 "51
-[; ;main.c: 51:   Timer0_Init();
-[e ( _Timer0_Init ..  ]
+[; ;I2C/I2C.c: 51:     delay();
+[e ( _delay ..  ]
 "52
-[; ;main.c: 52:   Scheduler_Start();
-[e ( _Scheduler_Start ..  ]
-"55
-[; ;main.c: 55:   while(1);
-[e :U 101 ]
+[; ;I2C/I2C.c: 52:     PORTCbits.RC3=0;
+[e = . . _PORTCbits 0 3 -> -> 0 `i `uc ]
+"53
+[; ;I2C/I2C.c: 53:   }
+}
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 8 `i 99  ]
 [e :U 100 ]
-[e $U 101  ]
-[e :U 102 ]
+}
+"54
+[; ;I2C/I2C.c: 54:   PORTCbits.RC4=1;
+[e = . . _PORTCbits 0 4 -> -> 1 `i `uc ]
+"55
+[; ;I2C/I2C.c: 55:   delay();
+[e ( _delay ..  ]
+"56
+[; ;I2C/I2C.c: 56:   PORTCbits.RC3=1;
+[e = . . _PORTCbits 0 3 -> -> 1 `i `uc ]
 "57
-[; ;main.c: 57:     return;
-[e $UE 99  ]
+[; ;I2C/I2C.c: 57:   delay();
+[e ( _delay ..  ]
 "58
-[; ;main.c: 58: }
-[e :UE 99 ]
+[; ;I2C/I2C.c: 58:   PORTCbits.RC3=0;
+[e = . . _PORTCbits 0 3 -> -> 0 `i `uc ]
+"59
+[; ;I2C/I2C.c: 59: }
+[e :UE 98 ]
+}
+"61
+[; ;I2C/I2C.c: 61: unsigned char i2c_rb(unsigned char ack)
+[v _i2c_rb `(uc ~T0 @X0 1 ef1`uc ]
+"62
+[; ;I2C/I2C.c: 62: {
+{
+[e :U _i2c_rb ]
+"61
+[; ;I2C/I2C.c: 61: unsigned char i2c_rb(unsigned char ack)
+[v _ack `uc ~T0 @X0 1 r1 ]
+"62
+[; ;I2C/I2C.c: 62: {
+[f ]
+"63
+[; ;I2C/I2C.c: 63:   char i;
+[v _i `uc ~T0 @X0 1 a ]
+"64
+[; ;I2C/I2C.c: 64:   unsigned char ret=0;
+[v _ret `uc ~T0 @X0 1 a ]
+[e = _ret -> -> 0 `i `uc ]
+"66
+[; ;I2C/I2C.c: 66:   PORTCbits.RC3=0;
+[e = . . _PORTCbits 0 3 -> -> 0 `i `uc ]
+"67
+[; ;I2C/I2C.c: 67:   TRISCbits.TRISC4=1;
+[e = . . _TRISCbits 0 4 -> -> 1 `i `uc ]
+"68
+[; ;I2C/I2C.c: 68:   PORTCbits.RC4=1;
+[e = . . _PORTCbits 0 4 -> -> 1 `i `uc ]
+"69
+[; ;I2C/I2C.c: 69:   for(i=0;i<8;i++)
+{
+[e = _i -> -> 0 `i `uc ]
+[e $ < -> _i `i -> 8 `i 103  ]
+[e $U 104  ]
+[e :U 103 ]
+"70
+[; ;I2C/I2C.c: 70:   {
+{
+"71
+[; ;I2C/I2C.c: 71:     PORTCbits.RC3=1;
+[e = . . _PORTCbits 0 3 -> -> 1 `i `uc ]
+"72
+[; ;I2C/I2C.c: 72:     delay();
+[e ( _delay ..  ]
+"73
+[; ;I2C/I2C.c: 73:     ret|=(PORTCbits.RC4<<(7-i));
+[e =| _ret -> << -> . . _PORTCbits 0 4 `i - -> 7 `i -> _i `i `uc ]
+"74
+[; ;I2C/I2C.c: 74:     PORTCbits.RC3=0;
+[e = . . _PORTCbits 0 3 -> -> 0 `i `uc ]
+"75
+[; ;I2C/I2C.c: 75:   }
+}
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 8 `i 103  ]
+[e :U 104 ]
+}
+"76
+[; ;I2C/I2C.c: 76:   TRISCbits.TRISC4=0;
+[e = . . _TRISCbits 0 4 -> -> 0 `i `uc ]
+"77
+[; ;I2C/I2C.c: 77:   if(ack)
+[e $ ! != -> _ack `i -> 0 `i 106  ]
+"78
+[; ;I2C/I2C.c: 78:     PORTCbits.RC4=0;
+[e = . . _PORTCbits 0 4 -> -> 0 `i `uc ]
+[e $U 107  ]
+"79
+[; ;I2C/I2C.c: 79:   else
+[e :U 106 ]
+"80
+[; ;I2C/I2C.c: 80:  PORTCbits.RC4=1;
+[e = . . _PORTCbits 0 4 -> -> 1 `i `uc ]
+[e :U 107 ]
+"81
+[; ;I2C/I2C.c: 81:   delay();
+[e ( _delay ..  ]
+"82
+[; ;I2C/I2C.c: 82:   PORTCbits.RC3=1;
+[e = . . _PORTCbits 0 3 -> -> 1 `i `uc ]
+"83
+[; ;I2C/I2C.c: 83:   delay();
+[e ( _delay ..  ]
+"84
+[; ;I2C/I2C.c: 84:   PORTCbits.RC3=0;
+[e = . . _PORTCbits 0 3 -> -> 0 `i `uc ]
+"86
+[; ;I2C/I2C.c: 86:   return ret;
+[e ) _ret ]
+[e $UE 102  ]
+"87
+[; ;I2C/I2C.c: 87: }
+[e :UE 102 ]
 }

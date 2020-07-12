@@ -22,5 +22,4 @@ void Temperature_Calc(uint8_t ADC_VALUE)
        Set_Average_Value_Ready_Flag;
 	}
 
-
 }

@@ -22,6 +22,8 @@
       <itemPath>Temperature/Temperature.h</itemPath>
       <itemPath>Timer/Timer.h</itemPath>
       <itemPath>Config.h</itemPath>
+      <itemPath>EEPROM/EEPROM.h</itemPath>
+      <itemPath>I2C/I2C.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -44,6 +46,8 @@
       <itemPath>Temperature/Temperature.c</itemPath>
       <itemPath>Timer/Timer.c</itemPath>
       <itemPath>WaterHeater_Mode/WaterHeater_Mode.c</itemPath>
+      <itemPath>I2C/I2C.c</itemPath>
+      <itemPath>EEPROM/EEPROM.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

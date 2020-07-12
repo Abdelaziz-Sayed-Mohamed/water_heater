@@ -19,10 +19,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;Scheduler/../Display/Display.h: 39: Enable_Display_t Enable_Display;
 [c E920 0 1 .. ]
 [n E920 _Enable_Display_t Enable_Display_Off Enable_Display_On  ]
-"16 Scheduler/../Temperature/Temperature.h
-[; ;Scheduler/../Temperature/Temperature.h: 16: {
-[s S97 `uc 1 `uc 1 `uc 1 :1 `uc 1 `uc 1 ]
-[n S97 _TEMP_t Temp_Value Average_Value Set_Temp Average_Value_Ready_Flag Average_NValues ]
+"17 Scheduler/../Temperature/Temperature.h
+[; ;Scheduler/../Temperature/Temperature.h: 17: {
+[s S97 `uc 1 `uc 1 `uc 1 :1 `uc 1 :1 `uc 1 `uc 1 ]
+[n S97 _TEMP_t Temp_Value Average_Value Set_Temp Average_Value_Ready_Flag Store_Set_Temp_Flag Average_NValues ]
 "42 Scheduler/../Display/Display.h
 [; ;Scheduler/../Display/Display.h: 42: void Display_MainFunction(void);
 [v _Display_MainFunction `(v ~T0 @X0 0 ef ]
@@ -32,12 +32,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 "40 Scheduler/../Elements/Elements.h
 [; ;Scheduler/../Elements/Elements.h: 40: void LED_MainFunction(void);
 [v _LED_MainFunction `(v ~T0 @X0 0 ef ]
-"38 Scheduler/../WaterHeater_Mode/WaterHeater_Mode.h
-[; ;Scheduler/../WaterHeater_Mode/WaterHeater_Mode.h: 38: void Mode_MainFunction(void);
+"39 Scheduler/../WaterHeater_Mode/WaterHeater_Mode.h
+[; ;Scheduler/../WaterHeater_Mode/WaterHeater_Mode.h: 39: void Mode_MainFunction(void);
 [v _Mode_MainFunction `(v ~T0 @X0 0 ef ]
 "41 Scheduler/../Elements/Elements.h
 [; ;Scheduler/../Elements/Elements.h: 41: void Elements_MainFunction(void);
 [v _Elements_MainFunction `(v ~T0 @X0 0 ef ]
+"9 Scheduler/../EEPROM/EEPROM.h
+[; ;Scheduler/../EEPROM/EEPROM.h: 9: void Set_EEPROM_Data(void);
+[v _Set_EEPROM_Data `(v ~T0 @X0 0 ef ]
 "7 Scheduler/../Display/../Config.h
 [p x FOSC = HS ]
 "8
@@ -278,57 +281,60 @@ Version 4.0 HI-TECH Software Intermediate Code
 "39 Scheduler/../Display/Display.h
 [; ;Scheduler/../Display/Display.h: 39: Enable_Display_t Enable_Display;
 [v _Enable_Display `E920 ~T0 @X0 1 e ]
-"24 Scheduler/../Temperature/Temperature.h
-[; ;Scheduler/../Temperature/Temperature.h: 24: TEMP_t Temperature;
+"26 Scheduler/../Temperature/Temperature.h
+[; ;Scheduler/../Temperature/Temperature.h: 26: TEMP_t Temperature;
 [v _Temperature `S97 ~T0 @X0 1 e ]
-"10 Scheduler/Tasks.c
-[; ;Scheduler/Tasks.c: 10: void Scheduler_Task1(void)
+"11 Scheduler/Tasks.c
+[; ;Scheduler/Tasks.c: 11: void Scheduler_Task1(void)
 [v _Scheduler_Task1 `(v ~T0 @X0 1 ef ]
-"11
-[; ;Scheduler/Tasks.c: 11: {
+"12
+[; ;Scheduler/Tasks.c: 12: {
 {
 [e :U _Scheduler_Task1 ]
 [f ]
-"12
-[; ;Scheduler/Tasks.c: 12:  Display_MainFunction();
-[e ( _Display_MainFunction ..  ]
 "13
-[; ;Scheduler/Tasks.c: 13: }
+[; ;Scheduler/Tasks.c: 13:  Display_MainFunction();
+[e ( _Display_MainFunction ..  ]
+"14
+[; ;Scheduler/Tasks.c: 14: }
 [e :UE 98 ]
 }
-"16
-[; ;Scheduler/Tasks.c: 16: void Scheduler_Task2(void)
-[v _Scheduler_Task2 `(v ~T0 @X0 1 ef ]
 "17
-[; ;Scheduler/Tasks.c: 17: {
+[; ;Scheduler/Tasks.c: 17: void Scheduler_Task2(void)
+[v _Scheduler_Task2 `(v ~T0 @X0 1 ef ]
+"18
+[; ;Scheduler/Tasks.c: 18: {
 {
 [e :U _Scheduler_Task2 ]
 [f ]
-"18
-[; ;Scheduler/Tasks.c: 18:  ADC_Conv_MainFunction();
-[e ( _ADC_Conv_MainFunction ..  ]
 "19
-[; ;Scheduler/Tasks.c: 19:  LED_MainFunction();
+[; ;Scheduler/Tasks.c: 19:  ADC_Conv_MainFunction();
+[e ( _ADC_Conv_MainFunction ..  ]
+"20
+[; ;Scheduler/Tasks.c: 20:  LED_MainFunction();
 [e ( _LED_MainFunction ..  ]
-"21
-[; ;Scheduler/Tasks.c: 21: }
+"22
+[; ;Scheduler/Tasks.c: 22: }
 [e :UE 99 ]
 }
-"23
-[; ;Scheduler/Tasks.c: 23: void Scheduler_Task3(void)
-[v _Scheduler_Task3 `(v ~T0 @X0 1 ef ]
 "24
-[; ;Scheduler/Tasks.c: 24: {
+[; ;Scheduler/Tasks.c: 24: void Scheduler_Task3(void)
+[v _Scheduler_Task3 `(v ~T0 @X0 1 ef ]
+"25
+[; ;Scheduler/Tasks.c: 25: {
 {
 [e :U _Scheduler_Task3 ]
 [f ]
-"25
-[; ;Scheduler/Tasks.c: 25:     Mode_MainFunction();
-[e ( _Mode_MainFunction ..  ]
 "26
-[; ;Scheduler/Tasks.c: 26:  Elements_MainFunction();
+[; ;Scheduler/Tasks.c: 26:     Mode_MainFunction();
+[e ( _Mode_MainFunction ..  ]
+"27
+[; ;Scheduler/Tasks.c: 27:  Elements_MainFunction();
 [e ( _Elements_MainFunction ..  ]
 "28
-[; ;Scheduler/Tasks.c: 28: }
+[; ;Scheduler/Tasks.c: 28:     Set_EEPROM_Data();
+[e ( _Set_EEPROM_Data ..  ]
+"30
+[; ;Scheduler/Tasks.c: 30: }
 [e :UE 100 ]
 }

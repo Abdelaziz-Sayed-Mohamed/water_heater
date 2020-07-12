@@ -11,10 +11,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;Display/../WaterHeater_Mode/WaterHeater_Mode.h: 23: {
 [s S95 `E889 1 `uc 1 ]
 [n S95 _MODE_t Select_Mode Setting_Mode_Timer ]
-"16 Display/../Temperature/Temperature.h
-[; ;Display/../Temperature/Temperature.h: 16: {
-[s S96 `uc 1 `uc 1 `uc 1 :1 `uc 1 `uc 1 ]
-[n S96 _TEMP_t Temp_Value Average_Value Set_Temp Average_Value_Ready_Flag Average_NValues ]
+"17 Display/../Temperature/Temperature.h
+[; ;Display/../Temperature/Temperature.h: 17: {
+[s S96 `uc 1 `uc 1 `uc 1 :1 `uc 1 :1 `uc 1 `uc 1 ]
+[n S96 _TEMP_t Temp_Value Average_Value Set_Temp Average_Value_Ready_Flag Store_Set_Temp_Flag Average_NValues ]
 "166 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 166: extern volatile unsigned char PORTA __attribute__((address(0x005)));
 [v _PORTA `Vuc ~T0 @X0 0 e@5 ]
@@ -242,8 +242,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "28 Display/../WaterHeater_Mode/WaterHeater_Mode.h
 [; ;Display/../WaterHeater_Mode/WaterHeater_Mode.h: 28: MODE_t Mode;
 [v _Mode `S95 ~T0 @X0 1 e ]
-"24 Display/../Temperature/Temperature.h
-[; ;Display/../Temperature/Temperature.h: 24: TEMP_t Temperature;
+"26 Display/../Temperature/Temperature.h
+[; ;Display/../Temperature/Temperature.h: 26: TEMP_t Temperature;
 [v _Temperature `S96 ~T0 @X0 1 e ]
 "15 Display/Display.c
 [; ;Display/Display.c: 15: void Display_Init(void)
@@ -276,32 +276,32 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "26
 [; ;Display/Display.c: 26:  static uint8_t Digit_1=0;
-[v F917 `uc ~T0 @X0 1 s Digit_1 ]
-[i F917
+[v F918 `uc ~T0 @X0 1 s Digit_1 ]
+[i F918
 -> -> 0 `i `uc
 ]
 "27
 [; ;Display/Display.c: 27:  static uint8_t Digit_2=0;
-[v F918 `uc ~T0 @X0 1 s Digit_2 ]
-[i F918
+[v F919 `uc ~T0 @X0 1 s Digit_2 ]
+[i F919
 -> -> 0 `i `uc
 ]
 "28
 [; ;Display/Display.c: 28:  static uint8_t Tempreture=0;
-[v F919 `uc ~T0 @X0 1 s Tempreture ]
-[i F919
+[v F920 `uc ~T0 @X0 1 s Tempreture ]
+[i F920
 -> -> 0 `i `uc
 ]
 "29
 [; ;Display/Display.c: 29:  static uint8_t Display=0;
-[v F920 `uc ~T0 @X0 1 s Display ]
-[i F920
+[v F921 `uc ~T0 @X0 1 s Display ]
+[i F921
 -> -> 0 `i `uc
 ]
 "30
 [; ;Display/Display.c: 30:  static uint8_t Enable_Digit_Selector=1;
-[v F921 `uc ~T0 @X0 1 s Enable_Digit_Selector ]
-[i F921
+[v F922 `uc ~T0 @X0 1 s Enable_Digit_Selector ]
+[i F922
 -> -> 1 `i `uc
 ]
 "32
@@ -312,7 +312,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "34
 [; ;Display/Display.c: 34:    Tempreture=Temperature.Average_Value;
-[e = F919 . _Temperature 1 ]
+[e = F920 . _Temperature 1 ]
 "35
 [; ;Display/Display.c: 35:    Enable_Display=Enable_Display_On;
 [e = _Enable_Display . `E878 1 ]
@@ -329,7 +329,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "39
 [; ;Display/Display.c: 39:    Tempreture=Temperature.Set_Temp;
-[e = F919 . _Temperature 2 ]
+[e = F920 . _Temperature 2 ]
 "40
 [; ;Display/Display.c: 40:   }
 }
@@ -367,22 +367,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "52
 [; ;Display/Display.c: 52:          Digit_1=Tempreture%10;
-[e = F917 -> % -> F919 `i -> 10 `i `uc ]
+[e = F918 -> % -> F920 `i -> 10 `i `uc ]
 "53
 [; ;Display/Display.c: 53:          Digit_2=Tempreture/10;
-[e = F918 -> / -> F919 `i -> 10 `i `uc ]
+[e = F919 -> / -> F920 `i -> 10 `i `uc ]
 "54
 [; ;Display/Display.c: 54:          Enable_Digit_Selector^=1;
-[e =^ F921 -> -> 1 `i `uc ]
+[e =^ F922 -> -> 1 `i `uc ]
 "56
 [; ;Display/Display.c: 56:          if(Enable_Digit_Selector==0)
-[e $ ! == -> F921 `i -> 0 `i 106  ]
+[e $ ! == -> F922 `i -> 0 `i 106  ]
 "57
 [; ;Display/Display.c: 57:          {
 {
 "58
 [; ;Display/Display.c: 58:           Display=Digit_1;
-[e = F920 F917 ]
+[e = F921 F918 ]
 "59
 [; ;Display/Display.c: 59:            (PORTA &= ~(1<<4));
 [e =& _PORTA -> ~ << -> 1 `i -> 4 `i `Vuc ]
@@ -396,13 +396,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 "63
 [; ;Display/Display.c: 63:          else if(Enable_Digit_Selector==1)
 [e :U 106 ]
-[e $ ! == -> F921 `i -> 1 `i 108  ]
+[e $ ! == -> F922 `i -> 1 `i 108  ]
 "64
 [; ;Display/Display.c: 64:          {
 {
 "65
 [; ;Display/Display.c: 65:           Display=Digit_2;
-[e = F920 F918 ]
+[e = F921 F919 ]
 "66
 [; ;Display/Display.c: 66:           (PORTA &= ~(1<<5));
 [e =& _PORTA -> ~ << -> 1 `i -> 5 `i `Vuc ]
@@ -515,7 +515,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 109  ]
 [e :U 110 ]
-[e [\ -> F920 `i , $ -> 0 `i 111
+[e [\ -> F921 `i , $ -> 0 `i 111
  , $ -> 1 `i 112
  , $ -> 2 `i 113
  , $ -> 3 `i 114
@@ -568,13 +568,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "130
 [; ;Display/Display.c: 130:   uint8_t static Counter=1;
-[v F925 `uc ~T0 @X0 1 s Counter ]
-[i F925
+[v F926 `uc ~T0 @X0 1 s Counter ]
+[i F926
 -> -> 1 `i `uc
 ]
 "132
 [; ;Display/Display.c: 132:   if(Counter*Task_Peroid==Times_Ms)
-[e $ ! == * -> F925 `ui _Task_Peroid _Times_Ms 123  ]
+[e $ ! == * -> F926 `ui _Task_Peroid _Times_Ms 123  ]
 "133
 [; ;Display/Display.c: 133:   {
 {
@@ -614,14 +614,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 125 ]
 "144
 [; ;Display/Display.c: 144:         Counter =1;
-[e = F925 -> -> 1 `i `uc ]
+[e = F926 -> -> 1 `i `uc ]
 "145
 [; ;Display/Display.c: 145:   }
 }
 [e :U 123 ]
 "146
 [; ;Display/Display.c: 146:   Counter++;
-[e ++ F925 -> -> 1 `i `uc ]
+[e ++ F926 -> -> 1 `i `uc ]
 "147
 [; ;Display/Display.c: 147: }
 [e :UE 122 ]

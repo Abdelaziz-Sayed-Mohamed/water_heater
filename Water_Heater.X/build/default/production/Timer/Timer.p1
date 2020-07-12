@@ -285,31 +285,31 @@ Version 4.0 HI-TECH Software Intermediate Code
 "24
 [; ;Timer/Timer.c: 24:         INTCONbits.GIE=1;
 [e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
-"25
-[; ;Timer/Timer.c: 25:      TMR0=100;
-[e = _TMR0 -> -> 100 `i `uc ]
 "26
-[; ;Timer/Timer.c: 26:         INTCONbits.TMR0IF=0;
+[; ;Timer/Timer.c: 26:      TMR0=100;
+[e = _TMR0 -> -> 100 `i `uc ]
+"27
+[; ;Timer/Timer.c: 27:         INTCONbits.TMR0IF=0;
 [e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
-"28
-[; ;Timer/Timer.c: 28: }
+"29
+[; ;Timer/Timer.c: 29: }
 [e :UE 96 ]
 }
-"30
-[; ;Timer/Timer.c: 30: void Timer0_CallBack(void)
-[v _Timer0_CallBack `(v ~T0 @X0 1 ef ]
 "31
-[; ;Timer/Timer.c: 31: {
+[; ;Timer/Timer.c: 31: void Timer0_CallBack(void)
+[v _Timer0_CallBack `(v ~T0 @X0 1 ef ]
+"32
+[; ;Timer/Timer.c: 32: {
 {
 [e :U _Timer0_CallBack ]
 [f ]
-"32
-[; ;Timer/Timer.c: 32:  Tick_Num++;
-[e ++ _Tick_Num -> -> -> 1 `i `l `ul ]
 "33
-[; ;Timer/Timer.c: 33:  Scheduler_ActivateTask(Tick_Num );
+[; ;Timer/Timer.c: 33:  Tick_Num++;
+[e ++ _Tick_Num -> -> -> 1 `i `l `ul ]
+"34
+[; ;Timer/Timer.c: 34:  Scheduler_ActivateTask(Tick_Num );
 [e ( _Scheduler_ActivateTask (1 _Tick_Num ]
-"35
-[; ;Timer/Timer.c: 35: }
+"36
+[; ;Timer/Timer.c: 36: }
 [e :UE 97 ]
 }

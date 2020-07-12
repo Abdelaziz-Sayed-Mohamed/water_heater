@@ -1,8 +1,8 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"16 Temperature/Temperature.h
-[; ;Temperature/Temperature.h: 16: {
-[s S1 `uc 1 `uc 1 `uc 1 :1 `uc 1 `uc 1 ]
-[n S1 _TEMP_t Temp_Value Average_Value Set_Temp Average_Value_Ready_Flag Average_NValues ]
+"17 Temperature/Temperature.h
+[; ;Temperature/Temperature.h: 17: {
+[s S1 `uc 1 `uc 1 `uc 1 :1 `uc 1 :1 `uc 1 `uc 1 ]
+[n S1 _TEMP_t Temp_Value Average_Value Set_Temp Average_Value_Ready_Flag Store_Set_Temp_Flag Average_NValues ]
 "22 Temperature/../ADC/ADC.h
 [; ;Temperature/../ADC/ADC.h: 22: {
 [s S96 :1 `uc 1 :1 `uc 1 ]
@@ -10,8 +10,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "14 Temperature/../Average/Average.h
 [; ;Temperature/../Average/Average.h: 14: void Average_Value(uint8_t Value,uint8_t *Avrage_Values);
 [v _Average_Value `(v ~T0 @X0 0 ef2`uc`*uc ]
-"24 Temperature/Temperature.h
-[; ;Temperature/Temperature.h: 24: TEMP_t Temperature;
+"26 Temperature/Temperature.h
+[; ;Temperature/Temperature.h: 26: TEMP_t Temperature;
 [v _Temperature `S1 ~T0 @X0 1 e ]
 "7 Temperature/../ADC/../Config.h
 [p x FOSC = HS ]
@@ -233,10 +233,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _Average_Value (2 , . _Temperature 0 &U . _Temperature 1 ]
 "18
 [; ;Temperature/Temperature.c: 18:  Temperature.Average_NValues=(Temperature.Average_NValues+1)%10U;
-[e = . _Temperature 4 -> % -> + -> . _Temperature 4 `i -> 1 `i `ui -> 10 `ui `uc ]
+[e = . _Temperature 5 -> % -> + -> . _Temperature 5 `i -> 1 `i `ui -> 10 `ui `uc ]
 "20
 [; ;Temperature/Temperature.c: 20:  if(Temperature.Average_NValues==9)
-[e $ ! == -> . _Temperature 4 `i -> 9 `i 98  ]
+[e $ ! == -> . _Temperature 5 `i -> 9 `i 98  ]
 "21
 [; ;Temperature/Temperature.c: 21:  {
 {
@@ -247,7 +247,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;Temperature/Temperature.c: 23:  }
 }
 [e :U 98 ]
-"26
-[; ;Temperature/Temperature.c: 26: }
+"25
+[; ;Temperature/Temperature.c: 25: }
 [e :UE 97 ]
 }

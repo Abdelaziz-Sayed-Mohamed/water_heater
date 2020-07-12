@@ -7,15 +7,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;WaterHeater_Mode/WaterHeater_Mode.h: 23: {
 [s S95 `E879 1 `uc 1 ]
 [n S95 _MODE_t Select_Mode Setting_Mode_Timer ]
-"16 WaterHeater_Mode/../Temperature/Temperature.h
-[; ;WaterHeater_Mode/../Temperature/Temperature.h: 16: {
-[s S96 `uc 1 `uc 1 `uc 1 :1 `uc 1 `uc 1 ]
-[n S96 _TEMP_t Temp_Value Average_Value Set_Temp Average_Value_Ready_Flag Average_NValues ]
+"17 WaterHeater_Mode/../Temperature/Temperature.h
+[; ;WaterHeater_Mode/../Temperature/Temperature.h: 17: {
+[s S96 `uc 1 `uc 1 `uc 1 :1 `uc 1 :1 `uc 1 `uc 1 ]
+[n S96 _TEMP_t Temp_Value Average_Value Set_Temp Average_Value_Ready_Flag Store_Set_Temp_Flag Average_NValues ]
 "17 WaterHeater_Mode/../Buttons/Buttons.h
 [; ;WaterHeater_Mode/../Buttons/Buttons.h: 17: void Read_UP_DOWN_BUTTONS(void);
 [v _Read_UP_DOWN_BUTTONS `(v ~T0 @X0 0 ef ]
-"37 WaterHeater_Mode/WaterHeater_Mode.h
-[; ;WaterHeater_Mode/WaterHeater_Mode.h: 37: void Start_Setting_Timer(uint16_t Timer_Ms ,uint16_t Peroid_Task);
+"38 WaterHeater_Mode/WaterHeater_Mode.h
+[; ;WaterHeater_Mode/WaterHeater_Mode.h: 38: void Start_Setting_Timer(uint16_t Timer_Ms ,uint16_t Peroid_Task);
 [v _Start_Setting_Timer `(v ~T0 @X0 0 ef2`ui`ui ]
 "216 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 216: extern volatile unsigned char PORTB __attribute__((address(0x006)));
@@ -219,8 +219,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "28 WaterHeater_Mode/WaterHeater_Mode.h
 [; ;WaterHeater_Mode/WaterHeater_Mode.h: 28: MODE_t Mode;
 [v _Mode `S95 ~T0 @X0 1 e ]
-"24 WaterHeater_Mode/../Temperature/Temperature.h
-[; ;WaterHeater_Mode/../Temperature/Temperature.h: 24: TEMP_t Temperature;
+"26 WaterHeater_Mode/../Temperature/Temperature.h
+[; ;WaterHeater_Mode/../Temperature/Temperature.h: 26: TEMP_t Temperature;
 [v _Temperature `S96 ~T0 @X0 1 e ]
 "7 WaterHeater_Mode/../Buttons/../Config.h
 [p x FOSC = HS ]
@@ -238,23 +238,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 [p x WRT = OFF ]
 "14
 [p x CP = OFF ]
-"16 WaterHeater_Mode/WaterHeater_Mode.c
-[; ;WaterHeater_Mode/WaterHeater_Mode.c: 16: void Mode_Init(void)
+"17 WaterHeater_Mode/WaterHeater_Mode.c
+[; ;WaterHeater_Mode/WaterHeater_Mode.c: 17: void Mode_Init(void)
 [v _Mode_Init `(v ~T0 @X0 1 ef ]
-"17
-[; ;WaterHeater_Mode/WaterHeater_Mode.c: 17: {
+"18
+[; ;WaterHeater_Mode/WaterHeater_Mode.c: 18: {
 {
 [e :U _Mode_Init ]
 [f ]
-"19
-[; ;WaterHeater_Mode/WaterHeater_Mode.c: 19:  Mode.Select_Mode=Off_Mode;
-[e = . _Mode 0 . `E879 0 ]
 "20
-[; ;WaterHeater_Mode/WaterHeater_Mode.c: 20:  Mode.Setting_Mode_Timer=1;
-[e = . _Mode 1 -> -> 1 `i `uc ]
-"22
-[; ;WaterHeater_Mode/WaterHeater_Mode.c: 22:  Temperature.Set_Temp=(60U);
-[e = . _Temperature 2 -> -> 60 `ui `uc ]
+[; ;WaterHeater_Mode/WaterHeater_Mode.c: 20:  Mode.Select_Mode=Off_Mode;
+[e = . _Mode 0 . `E879 0 ]
 "24
 [; ;WaterHeater_Mode/WaterHeater_Mode.c: 24: }
 [e :UE 97 ]
@@ -341,6 +335,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "57
 [; ;WaterHeater_Mode/WaterHeater_Mode.c: 57:  {
 {
+"58
+[; ;WaterHeater_Mode/WaterHeater_Mode.c: 58:   Temperature.Store_Set_Temp_Flag=1;
+[e = . _Temperature 4 -> -> 1 `i `uc ]
 "59
 [; ;WaterHeater_Mode/WaterHeater_Mode.c: 59:   Mode.Select_Mode=Normal_Mode;
 [e = . _Mode 0 . `E879 1 ]

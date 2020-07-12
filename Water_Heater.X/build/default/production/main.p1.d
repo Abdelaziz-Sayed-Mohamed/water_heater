@@ -23,4 +23,5 @@ WaterHeater_Mode/WaterHeater_Mode_Cfg.h  \
 Average/Average.h  \
 Average/Average_Cfg.h  \
 Interrupt/Interrupt.h  \
-Interrupt/../Config.h 
+Interrupt/../Config.h  \
+EEPROM/EEPROM.h 

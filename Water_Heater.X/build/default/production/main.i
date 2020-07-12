@@ -2221,12 +2221,14 @@ void EXTI_On_Off_CallBack(void);
 
 
 
+
 typedef struct _TEMP_t
 {
  uint8_t Temp_Value;
  uint8_t Average_Value;
  uint8_t Set_Temp;
  uint8_t Average_Value_Ready_Flag :1;
+    uint8_t Store_Set_Temp_Flag :1;
  uint8_t Average_NValues;
 }TEMP_t;
 
@@ -2266,6 +2268,7 @@ typedef struct _MODE_t
 }MODE_t;
 
 MODE_t Mode;
+
 
 
 
@@ -2318,6 +2321,20 @@ void Average_Value(uint8_t Value,uint8_t *Avrage_Values);
 # 10 "./Interrupt/Interrupt.h" 2
 # 35 "main.c" 2
 
+# 1 "./EEPROM/EEPROM.h" 1
+
+
+
+
+
+
+
+void Get_EEPROM_Data(void);
+void Set_EEPROM_Data(void);
+unsigned char e2pext_r(unsigned int addr);
+void e2pext_w(unsigned int addr, unsigned char val);
+# 36 "main.c" 2
+
 
 
 
@@ -2329,11 +2346,14 @@ void main(void) {
   Display_Init();
   Elements_Init();
   Mode_Init();
+  Get_EEPROM_Data();
   ADC_Start_Conv();
   Scheduler_Init();
   Timer0_Init();
   Scheduler_Start();
-    while(1)
-    {}
+
+
+  while(1);
+
     return;
 }

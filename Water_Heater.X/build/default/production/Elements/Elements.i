@@ -1940,6 +1940,7 @@ MODE_t Mode;
 
 
 
+
 void Mode_Init(void);
 void Select_Mode(void);
 void Start_Setting_Timer(uint16_t Timer_Ms ,uint16_t Peroid_Task);
@@ -1955,12 +1956,14 @@ void Mode_MainFunction(void);
 
 
 
+
 typedef struct _TEMP_t
 {
  uint8_t Temp_Value;
  uint8_t Average_Value;
  uint8_t Set_Temp;
  uint8_t Average_Value_Ready_Flag :1;
+    uint8_t Store_Set_Temp_Flag :1;
  uint8_t Average_NValues;
 }TEMP_t;
 

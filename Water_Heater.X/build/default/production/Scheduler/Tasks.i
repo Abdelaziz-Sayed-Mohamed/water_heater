@@ -1987,6 +1987,7 @@ MODE_t Mode;
 
 
 
+
 void Mode_Init(void);
 void Select_Mode(void);
 void Start_Setting_Timer(uint16_t Timer_Ms ,uint16_t Peroid_Task);
@@ -2042,12 +2043,14 @@ void Display_Blink(uint16_t Times_Ms,uint16_t Task_Peroid);
 
 
 
+
 typedef struct _TEMP_t
 {
  uint8_t Temp_Value;
  uint8_t Average_Value;
  uint8_t Set_Temp;
  uint8_t Average_Value_Ready_Flag :1;
+    uint8_t Store_Set_Temp_Flag :1;
  uint8_t Average_NValues;
 }TEMP_t;
 
@@ -2058,6 +2061,20 @@ TEMP_t Temperature;
 
 void Temperature_Calc(uint8_t ADC_VALUE);
 # 7 "Scheduler/Tasks.c" 2
+
+# 1 "Scheduler/../EEPROM/EEPROM.h" 1
+
+
+
+
+
+
+
+void Get_EEPROM_Data(void);
+void Set_EEPROM_Data(void);
+unsigned char e2pext_r(unsigned int addr);
+void e2pext_w(unsigned int addr, unsigned char val);
+# 8 "Scheduler/Tasks.c" 2
 
 
 
@@ -2078,5 +2095,6 @@ void Scheduler_Task3(void)
 {
     Mode_MainFunction();
  Elements_MainFunction();
+    Set_EEPROM_Data();
 
 }

@@ -9,6 +9,7 @@
 #include"WaterHeater_Mode_Cfg.h"
 #include "../Temperature/Temperature.h"
 #include"../Buttons/Buttons.h"
+#include"../EEPROM/EEPROM.h"
 
 
 
@@ -17,7 +18,6 @@ void Mode_Init(void)
 {
   
 	Mode.Select_Mode=Off_Mode;
-	Mode.Setting_Mode_Timer=1;
     #ifndef EEPROM
 	Temperature.Set_Temp=DEFAULT_SET_TEMP;
     #endif
@@ -55,7 +55,7 @@ void Start_Setting_Timer(uint16_t Timer_Ms ,uint16_t Peroid_Task)
 {
 	if(Mode.Setting_Mode_Timer*Peroid_Task==Timer_Ms)
 	{
-		//TODO:Write Temperature.Set_Temp in the flash
+		Set_Store_Set_Temp_Flag;
 		Mode.Select_Mode=Normal_Mode;
 		Reset_Setting_Timer;
 

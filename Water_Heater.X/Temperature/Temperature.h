@@ -12,12 +12,14 @@
 
 #define NValues 9
 #define Set_Average_Value_Ready_Flag   Temperature.Average_Value_Ready_Flag=1
+
 typedef struct _TEMP_t
 {
 	uint8_t Temp_Value;
 	uint8_t Average_Value;
 	uint8_t Set_Temp;
 	uint8_t Average_Value_Ready_Flag  :1;
+    uint8_t Store_Set_Temp_Flag  :1;
 	uint8_t Average_NValues;
 }TEMP_t;
 

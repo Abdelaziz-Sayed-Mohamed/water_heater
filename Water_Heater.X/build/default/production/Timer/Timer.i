@@ -2024,6 +2024,7 @@ void Timer0_Init(void)
         INTCONbits.TMR0IE=1;
         INTCONbits.PEIE=1;
         INTCONbits.GIE=1;
+
      TMR0=100;
         INTCONbits.TMR0IF=0;
 

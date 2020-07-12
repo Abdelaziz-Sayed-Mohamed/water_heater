@@ -3,17 +3,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;ADC/ADC.h: 22: {
 [s S95 :1 `uc 1 :1 `uc 1 ]
 [n S95 _ADC_t ADC_INIT_FLAG ADC_START_FLAG ]
-"16 ADC/../Temperature/Temperature.h
-[; ;ADC/../Temperature/Temperature.h: 16: {
-[s S96 `uc 1 `uc 1 `uc 1 :1 `uc 1 `uc 1 ]
-[n S96 _TEMP_t Temp_Value Average_Value Set_Temp Average_Value_Ready_Flag Average_NValues ]
+"17 ADC/../Temperature/Temperature.h
+[; ;ADC/../Temperature/Temperature.h: 17: {
+[s S96 `uc 1 `uc 1 `uc 1 :1 `uc 1 :1 `uc 1 `uc 1 ]
+[n S96 _TEMP_t Temp_Value Average_Value Set_Temp Average_Value_Ready_Flag Store_Set_Temp_Flag Average_NValues ]
 "28 ADC/../WaterHeater_Mode/WaterHeater_Mode.h
 [; ;ADC/../WaterHeater_Mode/WaterHeater_Mode.h: 28: MODE_t Mode;
-[c E899 0 1 2 .. ]
-[n E899 _Select_Mode_t Off_Mode Normal_Mode Setting_Mode  ]
+[c E900 0 1 2 .. ]
+[n E900 _Select_Mode_t Off_Mode Normal_Mode Setting_Mode  ]
 "23
 [; ;ADC/../WaterHeater_Mode/WaterHeater_Mode.h: 23: {
-[s S97 `E899 1 `uc 1 ]
+[s S97 `E900 1 `uc 1 ]
 [n S97 _MODE_t Select_Mode Setting_Mode_Timer ]
 "2235 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2235:     struct {
@@ -62,8 +62,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2222
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2222: extern volatile unsigned char ADRESL __attribute__((address(0x09E)));
 [v _ADRESL `Vuc ~T0 @X0 0 e@158 ]
-"29 ADC/../Temperature/Temperature.h
-[; ;ADC/../Temperature/Temperature.h: 29: void Temperature_Calc(uint8_t ADC_VALUE);
+"31 ADC/../Temperature/Temperature.h
+[; ;ADC/../Temperature/Temperature.h: 31: void Temperature_Calc(uint8_t ADC_VALUE);
 [v _Temperature_Calc `(v ~T0 @X0 0 ef1`uc ]
 "7 ADC/../WaterHeater_Mode/../gpio/../Config.h
 [p x FOSC = HS ]
@@ -264,8 +264,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "28 ADC/ADC.h
 [; ;ADC/ADC.h: 28: ADC_t ADC_Info;
 [v _ADC_Info `S95 ~T0 @X0 1 e ]
-"24 ADC/../Temperature/Temperature.h
-[; ;ADC/../Temperature/Temperature.h: 24: TEMP_t Temperature;
+"26 ADC/../Temperature/Temperature.h
+[; ;ADC/../Temperature/Temperature.h: 26: TEMP_t Temperature;
 [v _Temperature `S96 ~T0 @X0 1 e ]
 "7 ADC/../WaterHeater_Mode/../gpio/../Config.h
 [p x FOSC = HS ]
@@ -378,7 +378,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "49
 [; ;ADC/ADC.c: 49:  if(ADC_Info.ADC_INIT_FLAG==1 && ADC_Info.ADC_START_FLAG==1 && Mode.Select_Mode==Normal_Mode)
-[e $ ! && && == -> . _ADC_Info 0 `i -> 1 `i == -> . _ADC_Info 1 `i -> 1 `i == -> . _Mode 0 `ui -> . `E899 1 `ui 102  ]
+[e $ ! && && == -> . _ADC_Info 0 `i -> 1 `i == -> . _ADC_Info 1 `i -> 1 `i == -> . _Mode 0 `ui -> . `E900 1 `ui 102  ]
 "50
 [; ;ADC/ADC.c: 50:  {
 {

@@ -1,4 +1,4 @@
-# 1 "WaterHeater_Mode/WaterHeater_Mode.c"
+# 1 "EEPROM/EEPROM.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,175 +6,10 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "WaterHeater_Mode/WaterHeater_Mode.c" 2
-
-
-
-
-
-
-
-# 1 "WaterHeater_Mode/WaterHeater_Mode.h" 1
-# 10 "WaterHeater_Mode/WaterHeater_Mode.h"
-# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
-# 13 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 3
-typedef signed char int8_t;
-
-
-
-
-
-
-typedef signed int int16_t;
-
-
-
-
-
-
-
-typedef __int24 int24_t;
-
-
-
-
-
-
-
-typedef signed long int int32_t;
-# 52 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 3
-typedef unsigned char uint8_t;
-
-
-
-
-
-typedef unsigned int uint16_t;
-
-
-
-
-
-
-typedef __uint24 uint24_t;
-
-
-
-
-
-
-typedef unsigned long int uint32_t;
-# 88 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 3
-typedef signed char int_least8_t;
-
-
-
-
-
-
-
-typedef signed int int_least16_t;
-# 109 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 3
-typedef __int24 int_least24_t;
-# 118 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 3
-typedef signed long int int_least32_t;
-# 136 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 3
-typedef unsigned char uint_least8_t;
-
-
-
-
-
-
-typedef unsigned int uint_least16_t;
-# 154 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 3
-typedef __uint24 uint_least24_t;
-
-
-
-
-
-
-
-typedef unsigned long int uint_least32_t;
-# 181 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 3
-typedef signed char int_fast8_t;
-
-
-
-
-
-
-typedef signed int int_fast16_t;
-# 200 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 3
-typedef __int24 int_fast24_t;
-
-
-
-
-
-
-
-typedef signed long int int_fast32_t;
-# 224 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 3
-typedef unsigned char uint_fast8_t;
-
-
-
-
-
-typedef unsigned int uint_fast16_t;
-# 240 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 3
-typedef __uint24 uint_fast24_t;
-
-
-
-
-
-
-typedef unsigned long int uint_fast32_t;
-# 268 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 3
-typedef int32_t intmax_t;
-# 282 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 3
-typedef uint32_t uintmax_t;
-
-
-
-
-
-
-typedef int16_t intptr_t;
-
-
-
-
-typedef uint16_t uintptr_t;
-# 10 "WaterHeater_Mode/WaterHeater_Mode.h" 2
-
-# 1 "WaterHeater_Mode/../gpio/gpio.h" 1
-# 11 "WaterHeater_Mode/../gpio/gpio.h"
-# 1 "WaterHeater_Mode/../gpio/gpio_Cfg.h" 1
-# 11 "WaterHeater_Mode/../gpio/gpio_Cfg.h"
-# 1 "WaterHeater_Mode/../gpio/../Config.h" 1
-
-
-
-
-
-
-#pragma config FOSC = HS
-#pragma config WDTE = OFF
-#pragma config PWRTE = OFF
-#pragma config BOREN = OFF
-#pragma config LVP = OFF
-#pragma config CPD = OFF
-#pragma config WRT = OFF
-#pragma config CP = OFF
-
-
-
-
-
+# 1 "EEPROM/EEPROM.c" 2
+# 26 "EEPROM/EEPROM.c"
+# 1 "EEPROM/../I2C/I2C.h" 1
+# 26 "EEPROM/../I2C/I2C.h"
 # 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -1884,56 +1719,173 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 2 3
-# 19 "WaterHeater_Mode/../gpio/../Config.h" 2
+# 27 "EEPROM/../I2C/I2C.h" 2
 
-# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
-# 20 "WaterHeater_Mode/../gpio/../Config.h" 2
-# 11 "WaterHeater_Mode/../gpio/gpio_Cfg.h" 2
-# 11 "WaterHeater_Mode/../gpio/gpio.h" 2
-# 24 "WaterHeater_Mode/../gpio/gpio.h"
-void GPIO_Init(void);
-# 11 "WaterHeater_Mode/WaterHeater_Mode.h" 2
 
-# 1 "WaterHeater_Mode/WaterHeater_Mode_Cfg.h" 1
-# 10 "WaterHeater_Mode/WaterHeater_Mode_Cfg.h"
+
+
+
+void i2c_init(void);
+void i2c_start(void);
+void i2c_stop(void);
+void i2c_wb(unsigned char val);
+unsigned char i2c_rb(unsigned char ack);
+void i2c_acktst(unsigned char val);
+# 27 "EEPROM/EEPROM.c" 2
+# 1 "EEPROM/EEPROM.h" 1
+
+
+
+
+
+
+
+void Get_EEPROM_Data(void);
+void Set_EEPROM_Data(void);
+unsigned char e2pext_r(unsigned int addr);
+void e2pext_w(unsigned int addr, unsigned char val);
+# 28 "EEPROM/EEPROM.c" 2
+# 1 "EEPROM/../WaterHeater_Mode/WaterHeater_Mode_Cfg.h" 1
+# 10 "EEPROM/../WaterHeater_Mode/WaterHeater_Mode_Cfg.h"
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdbool.h" 1 3
-# 10 "WaterHeater_Mode/WaterHeater_Mode_Cfg.h" 2
-# 12 "WaterHeater_Mode/WaterHeater_Mode.h" 2
-
-
-typedef enum _Select_Mode_t
-{
-   Off_Mode=0,
-   Normal_Mode=1,
-   Setting_Mode=2
-}Select_Mode_t;
-
-
-typedef struct _MODE_t
-{
- Select_Mode_t Select_Mode;
- uint8_t Setting_Mode_Timer ;
-}MODE_t;
-
-MODE_t Mode;
-
-
-
-
-
-
-
-void Mode_Init(void);
-void Select_Mode(void);
-void Start_Setting_Timer(uint16_t Timer_Ms ,uint16_t Peroid_Task);
-void Mode_MainFunction(void);
-# 8 "WaterHeater_Mode/WaterHeater_Mode.c" 2
-
-
-# 1 "WaterHeater_Mode/../Temperature/Temperature.h" 1
-# 10 "WaterHeater_Mode/../Temperature/Temperature.h"
+# 10 "EEPROM/../WaterHeater_Mode/WaterHeater_Mode_Cfg.h" 2
+# 29 "EEPROM/EEPROM.c" 2
+# 1 "EEPROM/../Temperature/Temperature.h" 1
+# 10 "EEPROM/../Temperature/Temperature.h"
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
-# 10 "WaterHeater_Mode/../Temperature/Temperature.h" 2
+# 13 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 3
+typedef signed char int8_t;
+
+
+
+
+
+
+typedef signed int int16_t;
+
+
+
+
+
+
+
+typedef __int24 int24_t;
+
+
+
+
+
+
+
+typedef signed long int int32_t;
+# 52 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 3
+typedef unsigned char uint8_t;
+
+
+
+
+
+typedef unsigned int uint16_t;
+
+
+
+
+
+
+typedef __uint24 uint24_t;
+
+
+
+
+
+
+typedef unsigned long int uint32_t;
+# 88 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 3
+typedef signed char int_least8_t;
+
+
+
+
+
+
+
+typedef signed int int_least16_t;
+# 109 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 3
+typedef __int24 int_least24_t;
+# 118 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 3
+typedef signed long int int_least32_t;
+# 136 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 3
+typedef unsigned char uint_least8_t;
+
+
+
+
+
+
+typedef unsigned int uint_least16_t;
+# 154 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 3
+typedef __uint24 uint_least24_t;
+
+
+
+
+
+
+
+typedef unsigned long int uint_least32_t;
+# 181 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 3
+typedef signed char int_fast8_t;
+
+
+
+
+
+
+typedef signed int int_fast16_t;
+# 200 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 3
+typedef __int24 int_fast24_t;
+
+
+
+
+
+
+
+typedef signed long int int_fast32_t;
+# 224 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 3
+typedef unsigned char uint_fast8_t;
+
+
+
+
+
+typedef unsigned int uint_fast16_t;
+# 240 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 3
+typedef __uint24 uint_fast24_t;
+
+
+
+
+
+
+typedef unsigned long int uint_fast32_t;
+# 268 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 3
+typedef int32_t intmax_t;
+# 282 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 3
+typedef uint32_t uintmax_t;
+
+
+
+
+
+
+typedef int16_t intptr_t;
+
+
+
+
+typedef uint16_t uintptr_t;
+# 10 "EEPROM/../Temperature/Temperature.h" 2
 
 
 
@@ -1956,112 +1908,131 @@ TEMP_t Temperature;
 
 
 void Temperature_Calc(uint8_t ADC_VALUE);
-# 10 "WaterHeater_Mode/WaterHeater_Mode.c" 2
+# 30 "EEPROM/EEPROM.c" 2
 
-# 1 "WaterHeater_Mode/../Buttons/Buttons.h" 1
-# 11 "WaterHeater_Mode/../Buttons/Buttons.h"
-# 1 "WaterHeater_Mode/../Buttons/../Config.h" 1
+uint8_t EEPROM_Data=0;
 
-
-
-
-
-
-#pragma config FOSC = HS
-#pragma config WDTE = OFF
-#pragma config PWRTE = OFF
-#pragma config BOREN = OFF
-#pragma config LVP = OFF
-#pragma config CPD = OFF
-#pragma config WRT = OFF
-#pragma config CP = OFF
-
-
-
-
-
-
-# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
-# 20 "WaterHeater_Mode/../Buttons/../Config.h" 2
-# 11 "WaterHeater_Mode/../Buttons/Buttons.h" 2
-
-
-
-
-
-
-void Read_UP_DOWN_BUTTONS(void);
-void On_Off_Init(void);
-void EXTI_On_Off_CallBack(void);
-# 11 "WaterHeater_Mode/WaterHeater_Mode.c" 2
-
-# 1 "WaterHeater_Mode/../EEPROM/EEPROM.h" 1
-
-
-
-
-
-
-
-void Get_EEPROM_Data(void);
-void Set_EEPROM_Data(void);
-unsigned char e2pext_r(unsigned int addr);
-void e2pext_w(unsigned int addr, unsigned char val);
-# 12 "WaterHeater_Mode/WaterHeater_Mode.c" 2
-
-
-
-
-
-void Mode_Init(void)
+void Get_EEPROM_Data(void)
 {
 
- Mode.Select_Mode=Off_Mode;
+ while( e2pext_r(0));
+ EEPROM_Data=e2pext_r(0xa);
+ uint8_t Flag=(EEPROM_Data>>7)&1;
+ uint8_t Temp=(EEPROM_Data)&~(1<<7);
 
-
-
-}
-
-
-
-void Mode_MainFunction(void)
-{
- Read_UP_DOWN_BUTTONS();
-
-   if(Mode.Select_Mode==Setting_Mode)
-   {
-
-    Start_Setting_Timer(5000,200);
-    if((((PORTB>>2)&1)==0) &&(((PORTB>>1)&1)==1) && Temperature.Set_Temp !=(75U))
-     {
-      Temperature.Set_Temp += (5U);
-      Mode.Setting_Mode_Timer=1;
-     }
-     else if((((PORTB>>2)&1)==1) &&(((PORTB>>1)&1)==0) && Temperature.Set_Temp !=(35U))
-     {
-      Temperature.Set_Temp -= (5U);
-      Mode.Setting_Mode_Timer=1;
-
-     }
-   }
-
-
-}
-
-
-
-void Start_Setting_Timer(uint16_t Timer_Ms ,uint16_t Peroid_Task)
-{
- if(Mode.Setting_Mode_Timer*Peroid_Task==Timer_Ms)
+ if(Flag==1 && ((Temp<=(75U))||(Temp>=(35U))))
  {
-  Temperature.Store_Set_Temp_Flag=1;
-  Mode.Select_Mode=Normal_Mode;
-  Mode.Setting_Mode_Timer=1;
-
+   Temperature.Set_Temp=Temp;
  }
  else
  {
-  Mode.Setting_Mode_Timer++;
+    Temperature.Set_Temp=(60U);
  }
 
+}
+
+
+void Set_EEPROM_Data(void)
+{
+static unsigned char ah;
+static unsigned char al;
+static unsigned char nt;
+
+
+if(Temperature.Store_Set_Temp_Flag==1)
+{
+     EEPROM_Data=Temperature.Set_Temp|(1<<7);
+
+     ah=(0xa&0x0100)>>8;
+     al=0xa&0x00FF;
+     nt=0;
+
+     do
+     {
+       i2c_start();
+       if(ah)
+       {
+         i2c_wb(0xA2);
+       }
+       else
+       {
+         i2c_wb(0xA0);
+       }
+       i2c_wb(al);
+       i2c_wb(EEPROM_Data);
+       i2c_stop();
+
+       nt++;
+     }
+     while((EEPROM_Data != e2pext_r(0xa))&&(nt < 10));
+}
+
+}
+
+unsigned char e2pext_r(unsigned int addr)
+{
+  unsigned char ret;
+  unsigned char ah;
+  unsigned char al;
+
+  ah=(addr&0x0100)>>8;
+  al=addr&0x00FF;
+
+  i2c_start();
+  if(ah)
+  {
+    i2c_wb(0xA2);
+  }
+  else
+  {
+    i2c_wb(0xA0);
+  }
+  i2c_wb(al);
+
+  i2c_start();
+  if(ah)
+  {
+    i2c_wb(0xA3);
+  }
+  else
+  {
+    i2c_wb(0xA1);
+  }
+  ret=i2c_rb(1);
+  i2c_stop();
+
+  return ret;
+}
+
+
+void e2pext_w(unsigned int addr, unsigned char val)
+{
+  unsigned int tmp;
+  unsigned char ah;
+  unsigned char al;
+  unsigned char nt;
+
+  tmp=val;
+  ah=(addr&0x0100)>>8;
+  al=addr&0x00FF;
+  nt=0;
+
+  do
+  {
+    i2c_start();
+    if(ah)
+    {
+      i2c_wb(0xA2);
+    }
+    else
+    {
+      i2c_wb(0xA0);
+    }
+    i2c_wb(al);
+    i2c_wb(tmp);
+    i2c_stop();
+
+    nt++;
+  }
+  while((tmp != e2pext_r(addr))&&(nt < 10));
 }

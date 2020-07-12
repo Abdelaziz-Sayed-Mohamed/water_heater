@@ -11,10 +11,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;Elements/../WaterHeater_Mode/WaterHeater_Mode.h: 23: {
 [s S95 `E891 1 `uc 1 ]
 [n S95 _MODE_t Select_Mode Setting_Mode_Timer ]
-"16 Elements/../Temperature/Temperature.h
-[; ;Elements/../Temperature/Temperature.h: 16: {
-[s S96 `uc 1 `uc 1 `uc 1 :1 `uc 1 `uc 1 ]
-[n S96 _TEMP_t Temp_Value Average_Value Set_Temp Average_Value_Ready_Flag Average_NValues ]
+"17 Elements/../Temperature/Temperature.h
+[; ;Elements/../Temperature/Temperature.h: 17: {
+[s S96 `uc 1 `uc 1 `uc 1 :1 `uc 1 :1 `uc 1 `uc 1 ]
+[n S96 _TEMP_t Temp_Value Average_Value Set_Temp Average_Value_Ready_Flag Store_Set_Temp_Flag Average_NValues ]
 "216 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 216: extern volatile unsigned char PORTB __attribute__((address(0x006)));
 [v _PORTB `Vuc ~T0 @X0 0 e@6 ]
@@ -223,8 +223,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "28 Elements/../WaterHeater_Mode/WaterHeater_Mode.h
 [; ;Elements/../WaterHeater_Mode/WaterHeater_Mode.h: 28: MODE_t Mode;
 [v _Mode `S95 ~T0 @X0 1 e ]
-"24 Elements/../Temperature/Temperature.h
-[; ;Elements/../Temperature/Temperature.h: 24: TEMP_t Temperature;
+"26 Elements/../Temperature/Temperature.h
+[; ;Elements/../Temperature/Temperature.h: 26: TEMP_t Temperature;
 [v _Temperature `S96 ~T0 @X0 1 e ]
 "11 Elements/Elements.c
 [; ;Elements/Elements.c: 11: void Elements_Init(void)
@@ -263,13 +263,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "22
 [; ;Elements/Elements.c: 22:  static uint8_t Counter=1;
-[v F921 `uc ~T0 @X0 1 s Counter ]
-[i F921
+[v F922 `uc ~T0 @X0 1 s Counter ]
+[i F922
 -> -> 1 `i `uc
 ]
 "24
 [; ;Elements/Elements.c: 24:    if(Counter*Task_Peroid==Time_Ms)
-[e $ ! == * -> F921 `ui _Task_Peroid _Time_Ms 99  ]
+[e $ ! == * -> F922 `ui _Task_Peroid _Time_Ms 99  ]
 "25
 [; ;Elements/Elements.c: 25:    {
 {
@@ -278,7 +278,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e =^ _PORTB -> << -> 1 `i -> 4 `i `Vuc ]
 "27
 [; ;Elements/Elements.c: 27:        Counter=1;
-[e = F921 -> -> 1 `i `uc ]
+[e = F922 -> -> 1 `i `uc ]
 "29
 [; ;Elements/Elements.c: 29:    }
 }
@@ -291,7 +291,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "32
 [; ;Elements/Elements.c: 32:     Counter++;
-[e ++ F921 -> -> 1 `i `uc ]
+[e ++ F922 -> -> 1 `i `uc ]
 "33
 [; ;Elements/Elements.c: 33:    }
 }

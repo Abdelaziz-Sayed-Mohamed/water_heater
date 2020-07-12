@@ -7,4 +7,5 @@ WaterHeater_Mode/../gpio/../Config.h  \
 WaterHeater_Mode/WaterHeater_Mode_Cfg.h  \
 WaterHeater_Mode/../Temperature/Temperature.h  \
 WaterHeater_Mode/../Buttons/Buttons.h  \
-WaterHeater_Mode/../Buttons/../Config.h 
+WaterHeater_Mode/../Buttons/../Config.h  \
+WaterHeater_Mode/../EEPROM/EEPROM.h 

@@ -4,7 +4,7 @@
 [d chip 16F877A ]
 [d frameptr 0 ]
 "28 E:\study\Repos\water_heater\Water_Heater.X/WaterHeater_Mode/WaterHeater_Mode.h
-[e E899 _Select_Mode_t `uc
+[e E900 _Select_Mode_t `uc
 Off_Mode 0
 Normal_Mode 1
 Setting_Mode 2
@@ -21,7 +21,7 @@ LED_ON 1
 LED_BLINK 2
 ]
 "28 E:\study\Repos\water_heater\Water_Heater.X/WaterHeater_Mode/WaterHeater_Mode.h
-[e E1025 _Select_Mode_t `uc
+[e E1026 _Select_Mode_t `uc
 Off_Mode 0
 Normal_Mode 1
 Setting_Mode 2
@@ -132,6 +132,12 @@ Setting_Mode 2
 [v _Display_MainFunction Display_MainFunction `(v  1 e 1 0 ]
 "128
 [v _Display_Blink Display_Blink `(v  1 e 1 0 ]
+"33 E:\study\Repos\water_heater\Water_Heater.X\EEPROM/EEPROM.c
+[v _Get_EEPROM_Data Get_EEPROM_Data `(v  1 e 1 0 ]
+"53
+[v _Set_EEPROM_Data Set_EEPROM_Data `(v  1 e 1 0 ]
+"90
+[v _e2pext_r e2pext_r `(uc  1 e 1 0 ]
 "11 E:\study\Repos\water_heater\Water_Heater.X\Elements/Elements.c
 [v _Elements_Init Elements_Init `(v  1 e 1 0 ]
 "20
@@ -142,9 +148,19 @@ Setting_Mode 2
 [v _Elements_MainFunction Elements_MainFunction `(v  1 e 1 0 ]
 "12 E:\study\Repos\water_heater\Water_Heater.X\gpio/gpio.c
 [v _GPIO_Init GPIO_Init `(v  1 e 1 0 ]
+"4 E:\study\Repos\water_heater\Water_Heater.X\I2C/I2C.c
+[v _delay delay `(v  1 e 1 0 ]
+"25
+[v _i2c_start i2c_start `(v  1 e 1 0 ]
+"34
+[v _i2c_stop i2c_stop `(v  1 e 1 0 ]
+"43
+[v _i2c_wb i2c_wb `(v  1 e 1 0 ]
+"61
+[v _i2c_rb i2c_rb `(uc  1 e 1 0 ]
 "11 E:\study\Repos\water_heater\Water_Heater.X\Interrupt/Interrupt.c
 [v _myISR myISR `II(v  1 e 1 0 ]
-"39 E:\study\Repos\water_heater\Water_Heater.X\main.c
+"40 E:\study\Repos\water_heater\Water_Heater.X\main.c
 [v _main main `(v  1 e 1 0 ]
 "13 E:\study\Repos\water_heater\Water_Heater.X\Scheduler/Scheduler.c
 [v _Scheduler_Start Scheduler_Start `(v  1 e 1 0 ]
@@ -152,19 +168,19 @@ Setting_Mode 2
 [v _Scheduler_Init Scheduler_Init `(v  1 e 1 0 ]
 "35
 [v _Scheduler_ActivateTask Scheduler_ActivateTask `(v  1 e 1 0 ]
-"10 E:\study\Repos\water_heater\Water_Heater.X\Scheduler/Tasks.c
+"11 E:\study\Repos\water_heater\Water_Heater.X\Scheduler/Tasks.c
 [v _Scheduler_Task1 Scheduler_Task1 `(v  1 e 1 0 ]
-"16
+"17
 [v _Scheduler_Task2 Scheduler_Task2 `(v  1 e 1 0 ]
-"23
+"24
 [v _Scheduler_Task3 Scheduler_Task3 `(v  1 e 1 0 ]
 "14 E:\study\Repos\water_heater\Water_Heater.X\Temperature/Temperature.c
 [v _Temperature_Calc Temperature_Calc `(v  1 e 1 0 ]
 "10 E:\study\Repos\water_heater\Water_Heater.X\Timer/Timer.c
 [v _Timer0_Init Timer0_Init `(v  1 e 1 0 ]
-"30
+"31
 [v _Timer0_CallBack Timer0_CallBack `(v  1 e 1 0 ]
-"16 E:\study\Repos\water_heater\Water_Heater.X\WaterHeater_Mode/WaterHeater_Mode.c
+"17 E:\study\Repos\water_heater\Water_Heater.X\WaterHeater_Mode/WaterHeater_Mode.c
 [v _Mode_Init Mode_Init `(v  1 e 1 0 ]
 "28
 [v _Mode_MainFunction Mode_MainFunction `(v  1 e 1 0 ]
@@ -184,9 +200,21 @@ Setting_Mode 2
 [v _PORTB PORTB `VEuc  1 e 1 @6 ]
 "278
 [v _PORTC PORTC `VEuc  1 e 1 @7 ]
+[s S593 . 1 `uc 1 RC0 1 0 :1:0 
+`uc 1 RC1 1 0 :1:1 
+`uc 1 RC2 1 0 :1:2 
+`uc 1 RC3 1 0 :1:3 
+`uc 1 RC4 1 0 :1:4 
+`uc 1 RC5 1 0 :1:5 
+`uc 1 RC6 1 0 :1:6 
+`uc 1 RC7 1 0 :1:7 
+]
+"295
+[u S602 . 1 `S593 1 . 1 0 ]
+[v _PORTCbits PORTCbits `VES602  1 e 1 @7 ]
 "340
 [v _PORTD PORTD `VEuc  1 e 1 @8 ]
-[s S241 . 1 `uc 1 RBIF 1 0 :1:0 
+[s S248 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INTF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -196,23 +224,23 @@ Setting_Mode 2
 `uc 1 GIE 1 0 :1:7 
 ]
 "477
-[s S250 . 1 `uc 1 . 1 0 :2:0 
+[s S257 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 T0IE 1 0 :1:5 
 ]
-[u S255 . 1 `S241 1 . 1 0 `S250 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES255  1 e 1 @11 ]
+[u S262 . 1 `S248 1 . 1 0 `S257 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES262  1 e 1 @11 ]
 "1152
 [v _ADRESH ADRESH `VEuc  1 e 1 @30 ]
-[s S62 . 1 `uc 1 ADON 1 0 :1:0 
+[s S63 . 1 `uc 1 ADON 1 0 :1:0 
 `uc 1 . 1 0 :1:1 
 `uc 1 GO_nDONE 1 0 :1:2 
 `uc 1 CHS 1 0 :3:3 
 `uc 1 ADCS 1 0 :2:6 
 ]
 "1190
-[s S68 . 1 `uc 1 . 1 0 :2:0 
+[s S69 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 GO 1 0 :1:2 
 `uc 1 CHS0 1 0 :1:3 
 `uc 1 CHS1 1 0 :1:4 
@@ -220,15 +248,15 @@ Setting_Mode 2
 `uc 1 ADCS0 1 0 :1:6 
 `uc 1 ADCS1 1 0 :1:7 
 ]
-[s S76 . 1 `uc 1 . 1 0 :2:0 
+[s S77 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 nDONE 1 0 :1:2 
 ]
-[s S79 . 1 `uc 1 . 1 0 :2:0 
+[s S80 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 GO_DONE 1 0 :1:2 
 ]
-[u S82 . 1 `S62 1 . 1 0 `S68 1 . 1 0 `S76 1 . 1 0 `S79 1 . 1 0 ]
-[v _ADCON0bits ADCON0bits `VES82  1 e 1 @31 ]
-[s S489 . 1 `uc 1 PS 1 0 :3:0 
+[u S83 . 1 `S63 1 . 1 0 `S69 1 . 1 0 `S77 1 . 1 0 `S80 1 . 1 0 ]
+[v _ADCON0bits ADCON0bits `VES83  1 e 1 @31 ]
+[s S504 . 1 `uc 1 PS 1 0 :3:0 
 `uc 1 PSA 1 0 :1:3 
 `uc 1 T0SE 1 0 :1:4 
 `uc 1 T0CS 1 0 :1:5 
@@ -236,46 +264,65 @@ Setting_Mode 2
 `uc 1 nRBPU 1 0 :1:7 
 ]
 "1275
-[s S496 . 1 `uc 1 PS0 1 0 :1:0 
+[s S511 . 1 `uc 1 PS0 1 0 :1:0 
 `uc 1 PS1 1 0 :1:1 
 `uc 1 PS2 1 0 :1:2 
 ]
-[u S500 . 1 `S489 1 . 1 0 `S496 1 . 1 0 ]
-[v _OPTION_REGbits OPTION_REGbits `VES500  1 e 1 @129 ]
+[u S515 . 1 `S504 1 . 1 0 `S511 1 . 1 0 ]
+[v _OPTION_REGbits OPTION_REGbits `VES515  1 e 1 @129 ]
 "1325
 [v _TRISA TRISA `VEuc  1 e 1 @133 ]
 "1375
 [v _TRISB TRISB `VEuc  1 e 1 @134 ]
 "1437
 [v _TRISC TRISC `VEuc  1 e 1 @135 ]
+[s S614 . 1 `uc 1 TRISC0 1 0 :1:0 
+`uc 1 TRISC1 1 0 :1:1 
+`uc 1 TRISC2 1 0 :1:2 
+`uc 1 TRISC3 1 0 :1:3 
+`uc 1 TRISC4 1 0 :1:4 
+`uc 1 TRISC5 1 0 :1:5 
+`uc 1 TRISC6 1 0 :1:6 
+`uc 1 TRISC7 1 0 :1:7 
+]
+"1454
+[u S623 . 1 `S614 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES623  1 e 1 @135 ]
 "1499
 [v _TRISD TRISD `VEuc  1 e 1 @136 ]
 "2222
 [v _ADRESL ADRESL `VEuc  1 e 1 @158 ]
-[s S38 . 1 `uc 1 PCFG 1 0 :4:0 
+[s S39 . 1 `uc 1 PCFG 1 0 :4:0 
 `uc 1 . 1 0 :2:4 
 `uc 1 ADCS2 1 0 :1:6 
 `uc 1 ADFM 1 0 :1:7 
 ]
 "2248
-[s S43 . 1 `uc 1 PCFG0 1 0 :1:0 
+[s S44 . 1 `uc 1 PCFG0 1 0 :1:0 
 `uc 1 PCFG1 1 0 :1:1 
 `uc 1 PCFG2 1 0 :1:2 
 `uc 1 PCFG3 1 0 :1:3 
 ]
-[u S48 . 1 `S38 1 . 1 0 `S43 1 . 1 0 ]
-[v _ADCON1bits ADCON1bits `VES48  1 e 1 @159 ]
+[u S49 . 1 `S39 1 . 1 0 `S44 1 . 1 0 ]
+[v _ADCON1bits ADCON1bits `VES49  1 e 1 @159 ]
 "2602
 [v _INTEDG INTEDG `VEb  1 e 0 @1038 ]
+[s S25 _TEMP_t 5 `uc 1 Temp_Value 1 0 `uc 1 Average_Value 1 1 `uc 1 Set_Temp 1 2 `uc 1 Average_Value_Ready_Flag 1 3 :1:0 
+`uc 1 Store_Set_Temp_Flag 1 3 :1:1 
+`uc 1 Average_NValues 1 4 ]
+"26 E:\study\Repos\water_heater\Water_Heater.X/Temperature/Temperature.h
+[v _Temperature Temperature `S25  1 e 5 0 ]
+"31 E:\study\Repos\water_heater\Water_Heater.X\EEPROM/EEPROM.c
+[v _EEPROM_Data EEPROM_Data `uc  1 e 1 0 ]
 "39 E:\study\Repos\water_heater\Water_Heater.X/Display/Display.h
 [v _Enable_Display Enable_Display `E990  1 e 1 0 ]
 "35 E:\study\Repos\water_heater\Water_Heater.X/Elements/Elements.h
 [v _LED_Status LED_Status `E1000  1 e 1 0 ]
 "10 E:\study\Repos\water_heater\Water_Heater.X\Scheduler/Scheduler_cfg.c
 [v _Scheduler_ActivationFlags Scheduler_ActivationFlags `[3]uc  1 e 3 0 ]
-[s S392 . 5 `*.27(v 1 fuction_ptr 1 0 `ul 1 Peroid 4 1 ]
+[s S401 . 5 `*.27(v 1 fuction_ptr 1 0 `ul 1 Peroid 4 1 ]
 "12
-[v _Scheduler_Intitys Scheduler_Intitys `DC[3]S392  1 e 15 0 ]
+[v _Scheduler_Intitys Scheduler_Intitys `DC[3]S401  1 e 15 0 ]
 [s S22 _ADC_t 1 `uc 1 ADC_INIT_FLAG 1 0 :1:0 
 `uc 1 ADC_START_FLAG 1 0 :1:1 
 ]
@@ -283,28 +330,24 @@ Setting_Mode 2
 [v _ADC_Info ADC_Info `S22  1 e 1 0 ]
 "8 E:\study\Repos\water_heater\Water_Heater.X\Timer/Timer.c
 [v _Tick_Num Tick_Num `ul  1 e 4 0 ]
-[s S25 _TEMP_t 5 `uc 1 Temp_Value 1 0 `uc 1 Average_Value 1 1 `uc 1 Set_Temp 1 2 `uc 1 Average_Value_Ready_Flag 1 3 :1:0 
-`uc 1 Average_NValues 1 4 ]
-"24 E:\study\Repos\water_heater\Water_Heater.X/Temperature/Temperature.h
-[v _Temperature Temperature `S25  1 e 5 0 ]
-[s S35 _MODE_t 2 `E899 1 Select_Mode 1 0 `uc 1 Setting_Mode_Timer 1 1 ]
+[s S36 _MODE_t 2 `E900 1 Select_Mode 1 0 `uc 1 Setting_Mode_Timer 1 1 ]
 "28 E:\study\Repos\water_heater\Water_Heater.X\WaterHeater_Mode/WaterHeater_Mode.h
-[v _Mode Mode `S35  1 e 2 0 ]
-"39 E:\study\Repos\water_heater\Water_Heater.X\main.c
+[v _Mode Mode `S36  1 e 2 0 ]
+"40 E:\study\Repos\water_heater\Water_Heater.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"54
+"58
 } 0
 "10 E:\study\Repos\water_heater\Water_Heater.X\Timer/Timer.c
 [v _Timer0_Init Timer0_Init `(v  1 e 1 0 ]
 {
-"28
+"29
 } 0
 "13 E:\study\Repos\water_heater\Water_Heater.X\Scheduler/Scheduler.c
 [v _Scheduler_Start Scheduler_Start `(v  1 e 1 0 ]
 {
 "17
-[v Scheduler_Start@IntityIndex IntityIndex `uc  1 a 1 53 ]
+[v Scheduler_Start@IntityIndex IntityIndex `uc  1 a 1 57 ]
 "26
 } 0
 "4 C:\Program Files (x86)\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c
@@ -312,28 +355,39 @@ Setting_Mode 2
 {
 [v ___bmul@multiplier multiplier `uc  1 a 1 wreg ]
 "6
-[v ___bmul@product product `uc  1 a 1 27 ]
+[v ___bmul@product product `uc  1 a 1 0 ]
 "4
 [v ___bmul@multiplier multiplier `uc  1 a 1 wreg ]
 [v ___bmul@multiplicand multiplicand `uc  1 p 1 26 ]
 "6
-[v ___bmul@multiplier multiplier `uc  1 a 1 28 ]
+[v ___bmul@multiplier multiplier `uc  1 a 1 1 ]
 "51
 } 0
-"16 E:\study\Repos\water_heater\Water_Heater.X\Scheduler/Tasks.c
+"17 E:\study\Repos\water_heater\Water_Heater.X\Scheduler/Tasks.c
 [v _Scheduler_Task2 Scheduler_Task2 `(v  1 e 1 0 ]
 {
-"21
+"22
 } 0
-"10
+"11
 [v _Scheduler_Task1 Scheduler_Task1 `(v  1 e 1 0 ]
 {
-"13
+"14
 } 0
-"23
+"24
 [v _Scheduler_Task3 Scheduler_Task3 `(v  1 e 1 0 ]
 {
-"28
+"30
+} 0
+"53 E:\study\Repos\water_heater\Water_Heater.X\EEPROM/EEPROM.c
+[v _Set_EEPROM_Data Set_EEPROM_Data `(v  1 e 1 0 ]
+{
+"55
+[v Set_EEPROM_Data@ah ah `uc  1 s 1 ah ]
+"56
+[v Set_EEPROM_Data@al al `uc  1 s 1 al ]
+"57
+[v Set_EEPROM_Data@nt nt `uc  1 s 1 nt ]
+"88
 } 0
 "28 E:\study\Repos\water_heater\Water_Heater.X\WaterHeater_Mode/WaterHeater_Mode.c
 [v _Mode_MainFunction Mode_MainFunction `(v  1 e 1 0 ]
@@ -343,8 +397,8 @@ Setting_Mode 2
 "54
 [v _Start_Setting_Timer Start_Setting_Timer `(v  1 e 1 0 ]
 {
-[v Start_Setting_Timer@Timer_Ms Timer_Ms `ui  1 p 2 2 ]
-[v Start_Setting_Timer@Peroid_Task Peroid_Task `ui  1 p 2 4 ]
+[v Start_Setting_Timer@Timer_Ms Timer_Ms `ui  1 p 2 6 ]
+[v Start_Setting_Timer@Peroid_Task Peroid_Task `ui  1 p 2 8 ]
 "68
 } 0
 "39 E:\study\Repos\water_heater\Water_Heater.X\Buttons/Buttons.c
@@ -365,8 +419,8 @@ Setting_Mode 2
 "20
 [v _LED_BLINKING LED_BLINKING `(v  1 e 1 0 ]
 {
-[v LED_BLINKING@Time_Ms Time_Ms `ui  1 p 2 2 ]
-[v LED_BLINKING@Task_Peroid Task_Peroid `ui  1 p 2 4 ]
+[v LED_BLINKING@Time_Ms Time_Ms `ui  1 p 2 6 ]
+[v LED_BLINKING@Task_Peroid Task_Peroid `ui  1 p 2 8 ]
 "22
 [v LED_BLINKING@Counter Counter `uc  1 s 1 Counter ]
 "35
@@ -380,7 +434,7 @@ Setting_Mode 2
 [v _ADC_Value_Ready_CallBack ADC_Value_Ready_CallBack `(v  1 e 1 0 ]
 {
 "61
-[v ADC_Value_Ready_CallBack@ADC_Value ADC_Value `ui  1 a 2 51 ]
+[v ADC_Value_Ready_CallBack@ADC_Value ADC_Value `ui  1 a 2 55 ]
 "64
 } 0
 "14 E:\study\Repos\water_heater\Water_Heater.X\Temperature/Temperature.c
@@ -389,57 +443,57 @@ Setting_Mode 2
 [v Temperature_Calc@ADC_VALUE ADC_VALUE `uc  1 a 1 wreg ]
 [v Temperature_Calc@ADC_VALUE ADC_VALUE `uc  1 a 1 wreg ]
 "16
-[v Temperature_Calc@ADC_VALUE ADC_VALUE `uc  1 a 1 50 ]
-"26
+[v Temperature_Calc@ADC_VALUE ADC_VALUE `uc  1 a 1 54 ]
+"25
 } 0
 "10 C:\Program Files (x86)\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
 [v ___xxtofl __xxtofl `(d  1 e 4 0 ]
 {
 [v ___xxtofl@sign sign `uc  1 a 1 wreg ]
 "13
-[v ___xxtofl@arg arg `ul  1 a 4 6 ]
+[v ___xxtofl@arg arg `ul  1 a 4 10 ]
 "12
-[v ___xxtofl@exp exp `uc  1 a 1 5 ]
+[v ___xxtofl@exp exp `uc  1 a 1 9 ]
 "10
 [v ___xxtofl@sign sign `uc  1 a 1 wreg ]
-[v ___xxtofl@val val `l  1 p 4 26 ]
+[v ___xxtofl@val val `l  1 p 4 0 ]
 "15
-[v ___xxtofl@sign sign `uc  1 a 1 4 ]
+[v ___xxtofl@sign sign `uc  1 a 1 8 ]
 "44
 } 0
 "43 C:\Program Files (x86)\Microchip\xc8\v2.20\pic\sources\c90\common\fltol.c
 [v ___fltol __fltol `(l  1 e 4 0 ]
 {
 "45
-[v ___fltol@exp1 exp1 `uc  1 a 1 45 ]
-[v ___fltol@sign1 sign1 `uc  1 a 1 44 ]
+[v ___fltol@exp1 exp1 `uc  1 a 1 49 ]
+[v ___fltol@sign1 sign1 `uc  1 a 1 48 ]
 "43
-[v ___fltol@f1 f1 `d  1 p 4 36 ]
+[v ___fltol@f1 f1 `d  1 p 4 40 ]
 "70
 } 0
 "8 C:\Program Files (x86)\Microchip\xc8\v2.20\pic\sources\c90\common\sprcmul.c
 [v ___flmul __flmul `(d  1 e 4 0 ]
 {
-[s S849 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
+[s S975 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
 "13
-[s S854 . 4 `i 1 wordA 2 0 `i 1 wordB 2 2 ]
-[u S857 . 4 `l 1 i 4 0 `d 1 f 4 0 `S849 1 fAsBytes 4 0 `S854 1 fAsWords 4 0 ]
-[v ___flmul@prod prod `S857  1 a 4 30 ]
+[s S980 . 4 `i 1 wordA 2 0 `i 1 wordB 2 2 ]
+[u S983 . 4 `l 1 i 4 0 `d 1 f 4 0 `S975 1 fAsBytes 4 0 `S980 1 fAsWords 4 0 ]
+[v ___flmul@prod prod `S983  1 a 4 34 ]
 "12
-[v ___flmul@grs grs `ul  1 a 4 25 ]
-[s S926 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
+[v ___flmul@grs grs `ul  1 a 4 29 ]
+[s S1052 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
 "14
-[u S929 . 2 `i 1 i 2 0 `ui 1 n 2 0 `S926 1 nAsBytes 2 0 ]
-[v ___flmul@temp temp `S929  1 a 2 34 ]
+[u S1055 . 2 `i 1 i 2 0 `ui 1 n 2 0 `S1052 1 nAsBytes 2 0 ]
+[v ___flmul@temp temp `S1055  1 a 2 38 ]
 "10
-[v ___flmul@bexp bexp `uc  1 a 1 29 ]
+[v ___flmul@bexp bexp `uc  1 a 1 33 ]
 "11
-[v ___flmul@aexp aexp `uc  1 a 1 24 ]
+[v ___flmul@aexp aexp `uc  1 a 1 28 ]
 "9
-[v ___flmul@sign sign `uc  1 a 1 23 ]
+[v ___flmul@sign sign `uc  1 a 1 27 ]
 "8
-[v ___flmul@b b `d  1 p 4 10 ]
-[v ___flmul@a a `d  1 p 4 14 ]
+[v ___flmul@b b `d  1 p 4 14 ]
+[v ___flmul@a a `d  1 p 4 18 ]
 "205
 } 0
 "4 C:\Program Files (x86)\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8_16.c
@@ -447,13 +501,13 @@ Setting_Mode 2
 {
 [v __Umul8_16@multiplier multiplier `uc  1 a 1 wreg ]
 "6
-[v __Umul8_16@word_mpld word_mpld `ui  1 a 2 2 ]
+[v __Umul8_16@word_mpld word_mpld `ui  1 a 2 6 ]
 "5
-[v __Umul8_16@product product `ui  1 a 2 0 ]
+[v __Umul8_16@product product `ui  1 a 2 4 ]
 "4
 [v __Umul8_16@multiplier multiplier `uc  1 a 1 wreg ]
-[v __Umul8_16@multiplicand multiplicand `uc  1 p 1 26 ]
-[v __Umul8_16@multiplier multiplier `uc  1 a 1 4 ]
+[v __Umul8_16@multiplicand multiplicand `uc  1 p 1 0 ]
+[v __Umul8_16@multiplier multiplier `uc  1 a 1 8 ]
 "60
 } 0
 "12 E:\study\Repos\water_heater\Water_Heater.X\Average/Average.c
@@ -473,10 +527,10 @@ Setting_Mode 2
 [v ___lwmod __lwmod `(ui  1 e 2 0 ]
 {
 "10
-[v ___lwmod@counter counter `uc  1 a 1 30 ]
+[v ___lwmod@counter counter `uc  1 a 1 26 ]
 "5
-[v ___lwmod@divisor divisor `ui  1 p 2 26 ]
-[v ___lwmod@dividend dividend `ui  1 p 2 28 ]
+[v ___lwmod@divisor divisor `ui  1 p 2 0 ]
+[v ___lwmod@dividend dividend `ui  1 p 2 2 ]
 "25
 } 0
 "5 C:\Program Files (x86)\Microchip\xc8\v2.20\pic\sources\c90\common\__lldiv.c
@@ -510,31 +564,31 @@ Setting_Mode 2
 [v ___awmod __awmod `(i  1 e 2 0 ]
 {
 "10
-[v ___awmod@sign sign `uc  1 a 1 1 ]
-[v ___awmod@counter counter `uc  1 a 1 0 ]
+[v ___awmod@sign sign `uc  1 a 1 5 ]
+[v ___awmod@counter counter `uc  1 a 1 4 ]
 "5
-[v ___awmod@divisor divisor `i  1 p 2 26 ]
-[v ___awmod@dividend dividend `i  1 p 2 28 ]
+[v ___awmod@divisor divisor `i  1 p 2 0 ]
+[v ___awmod@dividend dividend `i  1 p 2 2 ]
 "34
 } 0
 "5 C:\Program Files (x86)\Microchip\xc8\v2.20\pic\sources\c90\common\awdiv.c
 [v ___awdiv __awdiv `(i  1 e 2 0 ]
 {
 "10
-[v ___awdiv@quotient quotient `i  1 a 2 2 ]
+[v ___awdiv@quotient quotient `i  1 a 2 6 ]
 "11
-[v ___awdiv@sign sign `uc  1 a 1 1 ]
-[v ___awdiv@counter counter `uc  1 a 1 0 ]
+[v ___awdiv@sign sign `uc  1 a 1 5 ]
+[v ___awdiv@counter counter `uc  1 a 1 4 ]
 "5
-[v ___awdiv@divisor divisor `i  1 p 2 26 ]
-[v ___awdiv@dividend dividend `i  1 p 2 28 ]
+[v ___awdiv@divisor divisor `i  1 p 2 0 ]
+[v ___awdiv@dividend dividend `i  1 p 2 2 ]
 "41
 } 0
 "128 E:\study\Repos\water_heater\Water_Heater.X\Display/Display.c
 [v _Display_Blink Display_Blink `(v  1 e 1 0 ]
 {
-[v Display_Blink@Times_Ms Times_Ms `ui  1 p 2 2 ]
-[v Display_Blink@Task_Peroid Task_Peroid `ui  1 p 2 4 ]
+[v Display_Blink@Times_Ms Times_Ms `ui  1 p 2 6 ]
+[v Display_Blink@Task_Peroid Task_Peroid `ui  1 p 2 8 ]
 "130
 [v Display_Blink@Counter Counter `uc  1 s 1 Counter ]
 "147
@@ -543,10 +597,10 @@ Setting_Mode 2
 [v ___wmul __wmul `(ui  1 e 2 0 ]
 {
 "17
-[v ___wmul@product product `ui  1 a 2 0 ]
+[v ___wmul@product product `ui  1 a 2 4 ]
 "15
-[v ___wmul@multiplier multiplier `ui  1 p 2 26 ]
-[v ___wmul@multiplicand multiplicand `ui  1 p 2 28 ]
+[v ___wmul@multiplier multiplier `ui  1 p 2 0 ]
+[v ___wmul@multiplicand multiplicand `ui  1 p 2 2 ]
 "53
 } 0
 "29 E:\study\Repos\water_heater\Water_Heater.X\Scheduler/Scheduler.c
@@ -559,13 +613,13 @@ Setting_Mode 2
 {
 [v memset@p1 p1 `*.4v  1 a 1 wreg ]
 "15
-[v memset@p p `*.4uc  1 a 1 0 ]
+[v memset@p p `*.4uc  1 a 1 4 ]
 "8
 [v memset@p1 p1 `*.4v  1 a 1 wreg ]
-[v memset@c c `i  1 p 2 26 ]
-[v memset@n n `ui  1 p 2 28 ]
+[v memset@c c `i  1 p 2 0 ]
+[v memset@n n `ui  1 p 2 2 ]
 "18
-[v memset@p1 p1 `*.4v  1 a 1 1 ]
+[v memset@p1 p1 `*.4v  1 a 1 5 ]
 "22
 } 0
 "12 E:\study\Repos\water_heater\Water_Heater.X\Buttons/Buttons.c
@@ -573,10 +627,73 @@ Setting_Mode 2
 {
 "20
 } 0
-"16 E:\study\Repos\water_heater\Water_Heater.X\WaterHeater_Mode/WaterHeater_Mode.c
+"17 E:\study\Repos\water_heater\Water_Heater.X\WaterHeater_Mode/WaterHeater_Mode.c
 [v _Mode_Init Mode_Init `(v  1 e 1 0 ]
 {
 "24
+} 0
+"33 E:\study\Repos\water_heater\Water_Heater.X\EEPROM/EEPROM.c
+[v _Get_EEPROM_Data Get_EEPROM_Data `(v  1 e 1 0 ]
+{
+"39
+[v Get_EEPROM_Data@Temp Temp `uc  1 a 1 11 ]
+"38
+[v Get_EEPROM_Data@Flag Flag `uc  1 a 1 10 ]
+"50
+} 0
+"90
+[v _e2pext_r e2pext_r `(uc  1 e 1 0 ]
+{
+"93
+[v e2pext_r@ah ah `uc  1 a 1 8 ]
+"94
+[v e2pext_r@al al `uc  1 a 1 7 ]
+"92
+[v e2pext_r@ret ret `uc  1 a 1 6 ]
+"90
+[v e2pext_r@addr addr `ui  1 p 2 4 ]
+"123
+} 0
+"43 E:\study\Repos\water_heater\Water_Heater.X\I2C/I2C.c
+[v _i2c_wb i2c_wb `(v  1 e 1 0 ]
+{
+[v i2c_wb@val val `uc  1 a 1 wreg ]
+"45
+[v i2c_wb@i i `uc  1 a 1 3 ]
+"43
+[v i2c_wb@val val `uc  1 a 1 wreg ]
+"46
+[v i2c_wb@val val `uc  1 a 1 2 ]
+"59
+} 0
+"34
+[v _i2c_stop i2c_stop `(v  1 e 1 0 ]
+{
+"41
+} 0
+"25
+[v _i2c_start i2c_start `(v  1 e 1 0 ]
+{
+"32
+} 0
+"61
+[v _i2c_rb i2c_rb `(uc  1 e 1 0 ]
+{
+[v i2c_rb@ack ack `uc  1 a 1 wreg ]
+"63
+[v i2c_rb@i i `uc  1 a 1 2 ]
+"64
+[v i2c_rb@ret ret `uc  1 a 1 1 ]
+"61
+[v i2c_rb@ack ack `uc  1 a 1 wreg ]
+"64
+[v i2c_rb@ack ack `uc  1 a 1 0 ]
+"87
+} 0
+"4
+[v _delay delay `(v  1 e 1 0 ]
+{
+"16
 } 0
 "12 E:\study\Repos\water_heater\Water_Heater.X\gpio/gpio.c
 [v _GPIO_Init GPIO_Init `(v  1 e 1 0 ]
@@ -608,10 +725,10 @@ Setting_Mode 2
 {
 "26
 } 0
-"30 E:\study\Repos\water_heater\Water_Heater.X\Timer/Timer.c
+"31 E:\study\Repos\water_heater\Water_Heater.X\Timer/Timer.c
 [v _Timer0_CallBack Timer0_CallBack `(v  1 e 1 0 ]
 {
-"35
+"36
 } 0
 "35 E:\study\Repos\water_heater\Water_Heater.X\Scheduler/Scheduler.c
 [v _Scheduler_ActivateTask Scheduler_ActivateTask `(v  1 e 1 0 ]
