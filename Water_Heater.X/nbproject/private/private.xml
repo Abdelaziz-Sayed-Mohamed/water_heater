@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/D:/work/Rebo/water_heater/Water_Heater.X/gpio/gpio_Cfg.h</file>
+            <file>file:/D:/work/Rebo/water_heater/Water_Heater.X/Scheduler/Tasks.c</file>
+            <file>file:/D:/work/Rebo/water_heater/Water_Heater.X/main.c</file>
+            <file>file:/D:/work/Rebo/water_heater/Water_Heater.X/gpio/gpio.h</file>
+            <file>file:/D:/work/Rebo/water_heater/Water_Heater.X/gpio/gpio.c</file>
+            <file>file:/D:/work/Rebo/water_heater/Water_Heater.X/EEPROM/EEPROM.c</file>
+            <file>file:/D:/work/Rebo/water_heater/Water_Heater.X/EEPROM/EEPROM.h</file>
+            <file>file:/D:/work/Rebo/water_heater/Water_Heater.X/Interrupt/Interrupt.c</file>
+            <file>file:/D:/work/Rebo/water_heater/Water_Heater.X/Timer/Timer.c</file>
+            <file>file:/D:/work/Rebo/water_heater/Water_Heater.X/Scheduler/Scheduler_cfg.c</file>
+            <file>file:/D:/work/Rebo/water_heater/Water_Heater.X/Scheduler/Scheduler.c</file>
+        </group>
+    </open-files>
+</project-private>
