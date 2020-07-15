@@ -33,19 +33,19 @@ void Set_EEPROM_Data(void)
  if(IS_Store_Set_Temp_Ready)
  {       
     EEPROM_Data=Temperature.Set_Temp;
-    EEPROM_Write(EEPROM_Data);
+    EEPROM_Write(EEPROM_Data,EEPROM_DATA_ADDR);
     Reset_Store_Set_Temp_Flag;  
 #endif
  }
 }
 
 
-void EEPROM_Write(uint8_t Data)
+void EEPROM_Write(uint8_t Data,uint8_t ADDR)
 {
     I2c_Start();   
     I2c_Write(EEPROM_24c04_ADDR);
-    I2c_Write(EEPROM_DATA_ADDR);
-    I2c_Write(EEPROM_Data);
+    I2c_Write(ADDR);
+    I2c_Write(Data);
     I2c_Stop();
 
 }

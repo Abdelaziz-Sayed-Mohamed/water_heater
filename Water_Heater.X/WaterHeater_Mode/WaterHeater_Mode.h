@@ -29,7 +29,7 @@ MODE_t Mode;
 
 
 #define Setting_Time 5000
-#define Setting_Timer_TaskPeroid  200
+#define Setting_Timer_TaskPeroid  500
 #define Reset_Setting_Timer  Mode.Setting_Mode_Timer=1
 #define Set_Store_Set_Temp_Flag Temperature.Store_Set_Temp_Flag=1
 

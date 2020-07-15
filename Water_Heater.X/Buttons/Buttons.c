@@ -37,8 +37,25 @@ void EXTI_On_Off_CallBack(void)
 
 void Buttons_MainFunction(void)
 {
-    if(((READ_PIN(UP_BUTTON_PORT,UP_BUTTON_PIN)==Button_Pressed) ||(READ_PIN(DOWN_BUTTON_PORT,DOWN_BUTTON_PIN)==Button_Pressed)) && Mode.Select_Mode==Normal_Mode) //Check The Up Button Pressed OR Down Button Pressed And Mode Was Normal Mode)
+    if(((READ_PIN(UP_BUTTON_PORT,UP_BUTTON_PIN)==Button_Pressed) ||(READ_PIN(DOWN_BUTTON_PORT,DOWN_BUTTON_PIN)==Button_Pressed))) //Check The Up Button Pressed OR Down Button Pressed And Mode Was Normal Mode)
     {
-    	 Mode.Select_Mode=Setting_Mode;
+    	if(Mode.Select_Mode==Normal_Mode)
+        {
+         Mode.Select_Mode=Setting_Mode;
+        }
+        else if(Mode.Select_Mode==Setting_Mode)
+        {
+            if(READ_PIN(UP_BUTTON_PORT,UP_BUTTON_PIN)==Button_Pressed)
+            {
+                Buttons.UpFlag=Set_UpButton_Flag;
+                Reset_DownButton_Flag;
+            }
+            else if(READ_PIN(DOWN_BUTTON_PORT,DOWN_BUTTON_PIN)==Button_Pressed)
+            {
+               Buttons.DownFlag=Set_DownButton_Flag;
+               Reset_UpButton_Flag;
+            }    
+        }        
+          
     }
 }

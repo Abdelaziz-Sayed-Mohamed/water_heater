@@ -2001,6 +2001,20 @@ void Timer0_Init(void);
 
 
 
+
+typedef struct _BUTTONS_T
+{
+  uint8_t UpFlag :1;
+  uint8_t DownFlag :1;
+}_BUTTONS_t ;
+
+_BUTTONS_t Buttons;
+
+
+
+
+
+
 void Buttons_MainFunction(void);
 void On_Off_Init(void);
 void EXTI_On_Off_CallBack(void);

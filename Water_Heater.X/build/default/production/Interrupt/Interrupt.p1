@@ -1,4 +1,8 @@
 Version 4.0 HI-TECH Software Intermediate Code
+"19 Interrupt/../Buttons/Buttons.h
+[; ;Interrupt/../Buttons/Buttons.h: 19: {
+[s S96 :1 `uc 1 :1 `uc 1 ]
+[n S96 _BUTTONS_T UpFlag DownFlag ]
 [t ~ __interrupt . k ]
 [t T1 __interrupt ]
 "460 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
@@ -16,8 +20,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "477
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 477: extern volatile INTCONbits_t INTCONbits __attribute__((address(0x00B)));
 [v _INTCONbits `VS17 ~T0 @X0 0 e@11 ]
-"19 Interrupt/../Buttons/Buttons.h
-[; ;Interrupt/../Buttons/Buttons.h: 19: void EXTI_On_Off_CallBack(void);
+"33 Interrupt/../Buttons/Buttons.h
+[; ;Interrupt/../Buttons/Buttons.h: 33: void EXTI_On_Off_CallBack(void);
 [v _EXTI_On_Off_CallBack `(v ~T0 @X0 0 ef ]
 "59 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 59: extern volatile unsigned char TMR0 __attribute__((address(0x001)));
@@ -205,6 +209,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2363
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2363: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
+"24 Interrupt/../Buttons/Buttons.h
+[; ;Interrupt/../Buttons/Buttons.h: 24: _BUTTONS_t Buttons;
+[v _Buttons `S96 ~T0 @X0 1 e ]
 [v $root$_myISR `(v ~T0 @X0 0 e ]
 "11 Interrupt/Interrupt.c
 [; ;Interrupt/Interrupt.c: 11: void __attribute__((picinterrupt(("")))) myISR(void)
@@ -216,7 +223,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "13
 [; ;Interrupt/Interrupt.c: 13:  if(INTCONbits.INTF)
-[e $ ! != -> . . _INTCONbits 0 1 `i -> 0 `i 97  ]
+[e $ ! != -> . . _INTCONbits 0 1 `i -> 0 `i 98  ]
 "14
 [; ;Interrupt/Interrupt.c: 14:  {
 {
@@ -229,11 +236,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "18
 [; ;Interrupt/Interrupt.c: 18:  }
 }
-[e $U 98  ]
+[e $U 99  ]
 "19
 [; ;Interrupt/Interrupt.c: 19:  else if(INTCONbits.TMR0IF)
-[e :U 97 ]
-[e $ ! != -> . . _INTCONbits 0 2 `i -> 0 `i 99  ]
+[e :U 98 ]
+[e $ ! != -> . . _INTCONbits 0 2 `i -> 0 `i 100  ]
 "20
 [; ;Interrupt/Interrupt.c: 20:  {
 {
@@ -249,9 +256,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "25
 [; ;Interrupt/Interrupt.c: 25:  }
 }
+[e :U 100 ]
 [e :U 99 ]
-[e :U 98 ]
 "26
 [; ;Interrupt/Interrupt.c: 26: }
-[e :UE 96 ]
+[e :UE 97 ]
 }

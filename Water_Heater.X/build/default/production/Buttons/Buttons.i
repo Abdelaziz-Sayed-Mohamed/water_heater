@@ -1873,6 +1873,20 @@ typedef uint16_t uintptr_t;
 
 
 
+
+typedef struct _BUTTONS_T
+{
+  uint8_t UpFlag :1;
+  uint8_t DownFlag :1;
+}_BUTTONS_t ;
+
+_BUTTONS_t Buttons;
+
+
+
+
+
+
 void Buttons_MainFunction(void);
 void On_Off_Init(void);
 void EXTI_On_Off_CallBack(void);
@@ -1968,8 +1982,25 @@ void EXTI_On_Off_CallBack(void)
 
 void Buttons_MainFunction(void)
 {
-    if(((((PORTB>>2)&1)==0) ||(((PORTB>>1)&1)==0)) && Mode.Select_Mode==Normal_Mode)
+    if(((((PORTB>>2)&1)==0) ||(((PORTB>>1)&1)==0)))
     {
-      Mode.Select_Mode=Setting_Mode;
+     if(Mode.Select_Mode==Normal_Mode)
+        {
+         Mode.Select_Mode=Setting_Mode;
+        }
+        else if(Mode.Select_Mode==Setting_Mode)
+        {
+            if(((PORTB>>2)&1)==0)
+            {
+                Buttons.UpFlag=Buttons.UpFlag=1;
+                Buttons.DownFlag=0;
+            }
+            else if(((PORTB>>1)&1)==0)
+            {
+               Buttons.DownFlag=Buttons.DownFlag=1;
+               Buttons.UpFlag=0;
+            }
+        }
+
     }
 }

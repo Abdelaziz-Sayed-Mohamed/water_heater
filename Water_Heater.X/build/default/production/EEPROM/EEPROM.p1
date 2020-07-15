@@ -7,8 +7,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;EEPROM/EEPROM.h: 29: uint8_t EEPROM_Read(uint8_t addr);
 [v _EEPROM_Read `(uc ~T0 @X0 0 ef1`uc ]
 "28
-[; ;EEPROM/EEPROM.h: 28: void EEPROM_Write(uint8_t Data);
-[v _EEPROM_Write `(v ~T0 @X0 0 ef1`uc ]
+[; ;EEPROM/EEPROM.h: 28: void EEPROM_Write(uint8_t Data,uint8_t ADDR);
+[v _EEPROM_Write `(v ~T0 @X0 0 ef2`uc`uc ]
 "28 EEPROM/../I2C/I2C.h
 [; ;EEPROM/../I2C/I2C.h: 28: void I2c_Start(void);
 [v _I2c_Start `(v ~T0 @X0 0 ef ]
@@ -276,8 +276,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;EEPROM/EEPROM.c: 35:     EEPROM_Data=Temperature.Set_Temp;
 [e = _EEPROM_Data . _Temperature 2 ]
 "36
-[; ;EEPROM/EEPROM.c: 36:     EEPROM_Write(EEPROM_Data);
-[e ( _EEPROM_Write (1 _EEPROM_Data ]
+[; ;EEPROM/EEPROM.c: 36:     EEPROM_Write(EEPROM_Data,0xa);
+[e ( _EEPROM_Write (2 , _EEPROM_Data -> -> 10 `i `uc ]
 "37
 [; ;EEPROM/EEPROM.c: 37:     Temperature.Store_Set_Temp_Flag=0;
 [e = . _Temperature 4 -> -> 0 `i `uc ]
@@ -290,15 +290,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 102 ]
 }
 "43
-[; ;EEPROM/EEPROM.c: 43: void EEPROM_Write(uint8_t Data)
-[v _EEPROM_Write `(v ~T0 @X0 1 ef1`uc ]
+[; ;EEPROM/EEPROM.c: 43: void EEPROM_Write(uint8_t Data,uint8_t ADDR)
+[v _EEPROM_Write `(v ~T0 @X0 1 ef2`uc`uc ]
 "44
 [; ;EEPROM/EEPROM.c: 44: {
 {
 [e :U _EEPROM_Write ]
 "43
-[; ;EEPROM/EEPROM.c: 43: void EEPROM_Write(uint8_t Data)
+[; ;EEPROM/EEPROM.c: 43: void EEPROM_Write(uint8_t Data,uint8_t ADDR)
 [v _Data `uc ~T0 @X0 1 r1 ]
+[v _ADDR `uc ~T0 @X0 1 r2 ]
 "44
 [; ;EEPROM/EEPROM.c: 44: {
 [f ]
@@ -309,11 +310,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;EEPROM/EEPROM.c: 46:     I2c_Write(0xa0);
 [e ( _I2c_Write (1 -> -> 160 `i `uc ]
 "47
-[; ;EEPROM/EEPROM.c: 47:     I2c_Write(0xa);
-[e ( _I2c_Write (1 -> -> 10 `i `uc ]
+[; ;EEPROM/EEPROM.c: 47:     I2c_Write(ADDR);
+[e ( _I2c_Write (1 _ADDR ]
 "48
-[; ;EEPROM/EEPROM.c: 48:     I2c_Write(EEPROM_Data);
-[e ( _I2c_Write (1 _EEPROM_Data ]
+[; ;EEPROM/EEPROM.c: 48:     I2c_Write(Data);
+[e ( _I2c_Write (1 _Data ]
 "49
 [; ;EEPROM/EEPROM.c: 49:     I2c_Stop();
 [e ( _I2c_Stop ..  ]

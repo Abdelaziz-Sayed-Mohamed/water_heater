@@ -1884,7 +1884,7 @@ uint8_t I2c_Read(void);
 # 26 "EEPROM/EEPROM.h"
 void Get_EEPROM_Data(void);
 void Set_EEPROM_Data(void);
-void EEPROM_Write(uint8_t Data);
+void EEPROM_Write(uint8_t Data,uint8_t ADDR);
 uint8_t EEPROM_Read(uint8_t addr);
 # 3 "EEPROM/EEPROM.c" 2
 
@@ -1952,19 +1952,19 @@ void Set_EEPROM_Data(void)
  if(Temperature.Store_Set_Temp_Flag==1)
  {
     EEPROM_Data=Temperature.Set_Temp;
-    EEPROM_Write(EEPROM_Data);
+    EEPROM_Write(EEPROM_Data,0xa);
     Temperature.Store_Set_Temp_Flag=0;
 
  }
 }
 
 
-void EEPROM_Write(uint8_t Data)
+void EEPROM_Write(uint8_t Data,uint8_t ADDR)
 {
     I2c_Start();
     I2c_Write(0xa0);
-    I2c_Write(0xa);
-    I2c_Write(EEPROM_Data);
+    I2c_Write(ADDR);
+    I2c_Write(Data);
     I2c_Stop();
 
 }

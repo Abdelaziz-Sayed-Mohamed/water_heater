@@ -11,7 +11,7 @@
 
 #define Task1Periodms   			(20UL)    	/*Task 1 Peroid in ms*/
 #define Task2Periodms  				(100UL) 	/*Task 2 Peroid in ms*/
-#define Task3Periodms   			(200UL) 	/*Task 3 Peroid in ms*/
+#define Task3Periodms   			(500UL) 	/*Task 3 Peroid in ms*/
 
 uint8_t Scheduler_ActivationFlags[NumberOfTasks] ;
 

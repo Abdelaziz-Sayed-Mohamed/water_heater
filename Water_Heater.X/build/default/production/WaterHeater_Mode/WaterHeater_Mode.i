@@ -1960,6 +1960,20 @@ void Temperature_Calc(uint8_t ADC_VALUE);
 
 
 
+
+typedef struct _BUTTONS_T
+{
+  uint8_t UpFlag :1;
+  uint8_t DownFlag :1;
+}_BUTTONS_t ;
+
+_BUTTONS_t Buttons;
+
+
+
+
+
+
 void Buttons_MainFunction(void);
 void On_Off_Init(void);
 void EXTI_On_Off_CallBack(void);
@@ -1979,7 +1993,7 @@ void EXTI_On_Off_CallBack(void);
 # 26 "WaterHeater_Mode/../EEPROM/EEPROM.h"
 void Get_EEPROM_Data(void);
 void Set_EEPROM_Data(void);
-void EEPROM_Write(uint8_t Data);
+void EEPROM_Write(uint8_t Data,uint8_t ADDR);
 uint8_t EEPROM_Read(uint8_t addr);
 # 12 "WaterHeater_Mode/WaterHeater_Mode.c" 2
 
@@ -2005,17 +2019,18 @@ void Mode_MainFunction(void)
    if(Mode.Select_Mode==Setting_Mode)
    {
 
-    Start_Setting_Timer(5000,200);
-    if((((PORTB>>2)&1)==0) &&(((PORTB>>1)&1)==1) && Temperature.Set_Temp !=(75U))
+    Start_Setting_Timer(5000,500);
+    if(Buttons.UpFlag &&!Buttons.DownFlag && Temperature.Set_Temp !=(75U))
      {
       Temperature.Set_Temp += (5U);
       Mode.Setting_Mode_Timer=1;
+          Buttons.UpFlag=0;
      }
-     else if((((PORTB>>2)&1)==1) &&(((PORTB>>1)&1)==0) && Temperature.Set_Temp !=(35U))
+     else if(Buttons.DownFlag &&!Buttons.UpFlag&& Temperature.Set_Temp !=(35U))
      {
       Temperature.Set_Temp -= (5U);
       Mode.Setting_Mode_Timer=1;
-
+          Buttons.DownFlag=0;
      }
    }
 
@@ -2031,6 +2046,8 @@ void Start_Setting_Timer(uint16_t Timer_Ms ,uint16_t Peroid_Task)
   Temperature.Store_Set_Temp_Flag=1;
   Mode.Select_Mode=Normal_Mode;
   Mode.Setting_Mode_Timer=1;
+        Buttons.UpFlag=0;
+        Buttons.DownFlag=0;
 
  }
  else

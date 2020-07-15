@@ -11,26 +11,30 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./Elements/Elements.h: 35: LED_STATUS_t LED_Status;
 [c E1000 0 1 2 .. ]
 [n E1000 _LED_STATUS_t LED_OFF LED_ON LED_BLINK  ]
+"19 ./Buttons/Buttons.h
+[; ;./Buttons/Buttons.h: 19: {
+[s S97 :1 `uc 1 :1 `uc 1 ]
+[n S97 _BUTTONS_T UpFlag DownFlag ]
 "17 ./Temperature/Temperature.h
 [; ;./Temperature/Temperature.h: 17: {
-[s S97 `uc 1 `uc 1 `uc 1 :1 `uc 1 :1 `uc 1 `uc 1 ]
-[n S97 _TEMP_t Temp_Value Average_Value Set_Temp Average_Value_Ready_Flag Store_Set_Temp_Flag Average_NValues ]
+[s S98 `uc 1 `uc 1 `uc 1 :1 `uc 1 :1 `uc 1 `uc 1 ]
+[n S98 _TEMP_t Temp_Value Average_Value Set_Temp Average_Value_Ready_Flag Store_Set_Temp_Flag Average_NValues ]
 "28 ./WaterHeater_Mode/WaterHeater_Mode.h
 [; ;./WaterHeater_Mode/WaterHeater_Mode.h: 28: MODE_t Mode;
-[c E1026 0 1 2 .. ]
-[n E1026 _Select_Mode_t Off_Mode Normal_Mode Setting_Mode  ]
+[c E1031 0 1 2 .. ]
+[n E1031 _Select_Mode_t Off_Mode Normal_Mode Setting_Mode  ]
 "23
 [; ;./WaterHeater_Mode/WaterHeater_Mode.h: 23: {
-[s S98 `E1026 1 `uc 1 ]
-[n S98 _MODE_t Select_Mode Setting_Mode_Timer ]
+[s S99 `E1031 1 `uc 1 ]
+[n S99 _MODE_t Select_Mode Setting_Mode_Timer ]
 [p mainexit ]
 "24 ./WaterHeater_Mode/../gpio/gpio.h
 [v _GPIO_Init `(v ~T0 @X0 0 ef ]
 "30 ./ADC/ADC.h
 [; ;./ADC/ADC.h: 30: void ADC_Init(void);
 [v _ADC_Init `(v ~T0 @X0 0 ef ]
-"18 ./Buttons/Buttons.h
-[; ;./Buttons/Buttons.h: 18: void On_Off_Init(void);
+"32 ./Buttons/Buttons.h
+[; ;./Buttons/Buttons.h: 32: void On_Off_Init(void);
 [v _On_Off_Init `(v ~T0 @X0 0 ef ]
 "41 ./SSD/SSD.h
 [; ;./SSD/SSD.h: 41: void SSD_Init(void);
@@ -259,12 +263,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 "35 ./Elements/Elements.h
 [; ;./Elements/Elements.h: 35: LED_STATUS_t LED_Status;
 [v _LED_Status `E1000 ~T0 @X0 1 e ]
+"24 ./Buttons/Buttons.h
+[; ;./Buttons/Buttons.h: 24: _BUTTONS_t Buttons;
+[v _Buttons `S97 ~T0 @X0 1 e ]
 "26 ./Temperature/Temperature.h
 [; ;./Temperature/Temperature.h: 26: TEMP_t Temperature;
-[v _Temperature `S97 ~T0 @X0 1 e ]
+[v _Temperature `S98 ~T0 @X0 1 e ]
 "28 ./WaterHeater_Mode/WaterHeater_Mode.h
 [; ;./WaterHeater_Mode/WaterHeater_Mode.h: 28: MODE_t Mode;
-[v _Mode `S98 ~T0 @X0 1 e ]
+[v _Mode `S99 ~T0 @X0 1 e ]
 [v $root$_main `(v ~T0 @X0 0 e ]
 "40 main.c
 [; ;main.c: 40: void main(void) {
@@ -307,5 +314,5 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _Scheduler_Start ..  ]
 "54
 [; ;main.c: 54: }
-[e :UE 99 ]
+[e :UE 100 ]
 }

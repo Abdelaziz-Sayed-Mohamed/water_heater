@@ -25,7 +25,7 @@
 
 void Get_EEPROM_Data(void);
 void Set_EEPROM_Data(void);
-void EEPROM_Write(uint8_t Data);
+void EEPROM_Write(uint8_t Data,uint8_t ADDR);
 uint8_t EEPROM_Read(uint8_t addr);
 
 #endif /* EEPROM_H_ */

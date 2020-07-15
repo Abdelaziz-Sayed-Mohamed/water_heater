@@ -2035,7 +2035,7 @@ void Temperature_Calc(uint8_t ADC_VALUE);
 # 26 "Scheduler/../EEPROM/EEPROM.h"
 void Get_EEPROM_Data(void);
 void Set_EEPROM_Data(void);
-void EEPROM_Write(uint8_t Data);
+void EEPROM_Write(uint8_t Data,uint8_t ADDR);
 uint8_t EEPROM_Read(uint8_t addr);
 # 14 "Scheduler/Tasks.c" 2
 
@@ -2056,6 +2056,20 @@ uint8_t EEPROM_Read(uint8_t addr);
 
 
 
+
+typedef struct _BUTTONS_T
+{
+  uint8_t UpFlag :1;
+  uint8_t DownFlag :1;
+}_BUTTONS_t ;
+
+_BUTTONS_t Buttons;
+
+
+
+
+
+
 void Buttons_MainFunction(void);
 void On_Off_Init(void);
 void EXTI_On_Off_CallBack(void);
@@ -2067,12 +2081,13 @@ void EXTI_On_Off_CallBack(void);
 void Scheduler_Task1(void)
 {
  SSD_MainFunction();
-    Buttons_MainFunction();
+
 }
 
 
 void Scheduler_Task2(void)
 {
+    Buttons_MainFunction();
  ADC_Conv_MainFunction();
  LED_MainFunction();
 }

@@ -2096,6 +2096,20 @@ void Elements_MainFunction(void);
 
 
 
+
+typedef struct _BUTTONS_T
+{
+  uint8_t UpFlag :1;
+  uint8_t DownFlag :1;
+}_BUTTONS_t ;
+
+_BUTTONS_t Buttons;
+
+
+
+
+
+
 void Buttons_MainFunction(void);
 void On_Off_Init(void);
 void EXTI_On_Off_CallBack(void);
@@ -2209,7 +2223,7 @@ void Average_Value(uint8_t Value,uint8_t *Avrage_Values);
 # 26 "./EEPROM/EEPROM.h"
 void Get_EEPROM_Data(void);
 void Set_EEPROM_Data(void);
-void EEPROM_Write(uint8_t Data);
+void EEPROM_Write(uint8_t Data,uint8_t ADDR);
 uint8_t EEPROM_Read(uint8_t addr);
 # 36 "main.c" 2
 
