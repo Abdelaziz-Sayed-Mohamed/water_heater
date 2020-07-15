@@ -34,21 +34,6 @@ void Scheduler_Task3(void);
 
 
 
-
-
-#pragma config FOSC = HS
-#pragma config WDTE = OFF
-#pragma config PWRTE = OFF
-#pragma config BOREN = OFF
-#pragma config LVP = OFF
-#pragma config CPD = OFF
-#pragma config WRT = OFF
-#pragma config CP = OFF
-
-
-
-
-
 # 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -1758,7 +1743,7 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 2 3
-# 19 "Scheduler/../Elements/../gpio/../Config.h" 2
+# 5 "Scheduler/../Elements/../gpio/../Config.h" 2
 
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
 # 13 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 3
@@ -1893,7 +1878,7 @@ typedef int16_t intptr_t;
 
 
 typedef uint16_t uintptr_t;
-# 20 "Scheduler/../Elements/../gpio/../Config.h" 2
+# 6 "Scheduler/../Elements/../gpio/../Config.h" 2
 # 11 "Scheduler/../Elements/../gpio/gpio_Cfg.h" 2
 # 11 "Scheduler/../Elements/../gpio/gpio.h" 2
 # 24 "Scheduler/../Elements/../gpio/gpio.h"
@@ -1924,23 +1909,8 @@ void Elements_MainFunction(void);
 
 
 
-
-#pragma config FOSC = HS
-#pragma config WDTE = OFF
-#pragma config PWRTE = OFF
-#pragma config BOREN = OFF
-#pragma config LVP = OFF
-#pragma config CPD = OFF
-#pragma config WRT = OFF
-#pragma config CP = OFF
-
-
-
-
-
-
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
-# 20 "Scheduler/../ADC/../Config.h" 2
+# 6 "Scheduler/../ADC/../Config.h" 2
 # 10 "Scheduler/../ADC/ADC.h" 2
 # 21 "Scheduler/../ADC/ADC.h"
 typedef struct _ADC_t
@@ -2000,44 +1970,29 @@ void Start_Setting_Timer(uint16_t Timer_Ms ,uint16_t Peroid_Task);
 void Mode_MainFunction(void);
 # 11 "Scheduler/Tasks.c" 2
 
-# 1 "Scheduler/../Display/Display.h" 1
-# 10 "Scheduler/../Display/Display.h"
-# 1 "Scheduler/../Display/../Config.h" 1
-
-
-
-
-
-
-#pragma config FOSC = HS
-#pragma config WDTE = OFF
-#pragma config PWRTE = OFF
-#pragma config BOREN = OFF
-#pragma config LVP = OFF
-#pragma config CPD = OFF
-#pragma config WRT = OFF
-#pragma config CP = OFF
-
+# 1 "Scheduler/../SSD/SSD.h" 1
+# 10 "Scheduler/../SSD/SSD.h"
+# 1 "Scheduler/../SSD/../Config.h" 1
 
 
 
 
 
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
-# 20 "Scheduler/../Display/../Config.h" 2
-# 10 "Scheduler/../Display/Display.h" 2
-# 33 "Scheduler/../Display/Display.h"
-typedef enum _Enable_Display_t
+# 6 "Scheduler/../SSD/../Config.h" 2
+# 10 "Scheduler/../SSD/SSD.h" 2
+# 33 "Scheduler/../SSD/SSD.h"
+typedef enum _Enable_SSD_t
 {
- Enable_Display_Off=0,
- Enable_Display_On=1,
-}Enable_Display_t;
+ Enable_SSD_Off=0,
+ Enable_SSD_On=1,
+}Enable_SSD_t;
 
-Enable_Display_t Enable_Display;
+Enable_SSD_t Enable_SSD;
 
-void Display_Init(void);
-void Display_MainFunction(void);
-void Display_Blink(uint16_t Times_Ms,uint16_t Task_Peroid);
+void SSD_Init(void);
+void SSD_MainFunction(void);
+void SSD_Blink(uint16_t Times_Ms,uint16_t Task_Peroid);
 # 12 "Scheduler/Tasks.c" 2
 
 # 1 "Scheduler/../Temperature/Temperature.h" 1
@@ -2069,13 +2024,17 @@ void Temperature_Calc(uint8_t ADC_VALUE);
 # 13 "Scheduler/Tasks.c" 2
 
 # 1 "Scheduler/../EEPROM/EEPROM.h" 1
+# 12 "Scheduler/../EEPROM/EEPROM.h"
+# 1 "Scheduler/../EEPROM/../Config.h" 1
 
 
 
 
 
-
-
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
+# 6 "Scheduler/../EEPROM/../Config.h" 2
+# 12 "Scheduler/../EEPROM/EEPROM.h" 2
+# 22 "Scheduler/../EEPROM/EEPROM.h"
 void Get_EEPROM_Data(void);
 void Set_EEPROM_Data(void);
 unsigned char e2pext_r(unsigned int addr);
@@ -2085,7 +2044,7 @@ unsigned char e2pext_r(unsigned int addr);
 
 void Scheduler_Task1(void)
 {
- Display_MainFunction();
+ SSD_MainFunction();
 }
 
 

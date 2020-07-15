@@ -9,7 +9,8 @@ Scheduler/../ADC/ADC.h  \
 Scheduler/../ADC/../Config.h  \
 Scheduler/../WaterHeater_Mode/WaterHeater_Mode.h  \
 Scheduler/../WaterHeater_Mode/WaterHeater_Mode_Cfg.h  \
-Scheduler/../Display/Display.h  \
-Scheduler/../Display/../Config.h  \
+Scheduler/../SSD/SSD.h  \
+Scheduler/../SSD/../Config.h  \
 Scheduler/../Temperature/Temperature.h  \
-Scheduler/../EEPROM/EEPROM.h 
+Scheduler/../EEPROM/EEPROM.h  \
+Scheduler/../EEPROM/../Config.h 

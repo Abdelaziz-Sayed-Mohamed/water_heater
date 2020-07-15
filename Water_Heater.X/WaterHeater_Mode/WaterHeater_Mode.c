@@ -17,8 +17,9 @@
 void Mode_Init(void)
 {
 	Mode.Select_Mode=Off_Mode;     //The System will start in Off mode until On_Off_ Button pressed 
-    #ifndef EEPROM           
-	Temperature.Set_Temp=DEFAULT_SET_TEMP;
+    #if EEPROM           	
+    #else
+    Temperature.Set_Temp=DEFAULT_SET_TEMP;
     #endif
 }
 

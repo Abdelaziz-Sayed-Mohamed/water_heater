@@ -26,21 +26,6 @@
 
 
 
-
-
-#pragma config FOSC = HS
-#pragma config WDTE = OFF
-#pragma config PWRTE = OFF
-#pragma config BOREN = OFF
-#pragma config LVP = OFF
-#pragma config CPD = OFF
-#pragma config WRT = OFF
-#pragma config CP = OFF
-
-
-
-
-
 # 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -1750,7 +1735,7 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 2 3
-# 19 "./Config.h" 2
+# 5 "./Config.h" 2
 
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
 # 13 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 3
@@ -1885,7 +1870,7 @@ typedef int16_t intptr_t;
 
 
 typedef uint16_t uintptr_t;
-# 20 "./Config.h" 2
+# 6 "./Config.h" 2
 # 24 "main.c" 2
 
 # 1 "./gpio/gpio.h" 1
@@ -1898,23 +1883,8 @@ typedef uint16_t uintptr_t;
 
 
 
-
-#pragma config FOSC = HS
-#pragma config WDTE = OFF
-#pragma config PWRTE = OFF
-#pragma config BOREN = OFF
-#pragma config LVP = OFF
-#pragma config CPD = OFF
-#pragma config WRT = OFF
-#pragma config CP = OFF
-
-
-
-
-
-
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
-# 20 "./gpio/../Config.h" 2
+# 6 "./gpio/../Config.h" 2
 # 11 "./gpio/gpio_Cfg.h" 2
 # 11 "./gpio/gpio.h" 2
 # 24 "./gpio/gpio.h"
@@ -1929,23 +1899,8 @@ void GPIO_Init(void);
 
 
 
-
-#pragma config FOSC = HS
-#pragma config WDTE = OFF
-#pragma config PWRTE = OFF
-#pragma config BOREN = OFF
-#pragma config LVP = OFF
-#pragma config CPD = OFF
-#pragma config WRT = OFF
-#pragma config CP = OFF
-
-
-
-
-
-
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
-# 20 "./ADC/../Config.h" 2
+# 6 "./ADC/../Config.h" 2
 # 10 "./ADC/ADC.h" 2
 # 21 "./ADC/ADC.h"
 typedef struct _ADC_t
@@ -2043,23 +1998,8 @@ extern char * strrichr(const char *, int);
 
 
 
-
-#pragma config FOSC = HS
-#pragma config WDTE = OFF
-#pragma config PWRTE = OFF
-#pragma config BOREN = OFF
-#pragma config LVP = OFF
-#pragma config CPD = OFF
-#pragma config WRT = OFF
-#pragma config CP = OFF
-
-
-
-
-
-
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
-# 20 "./Scheduler/../Config.h" 2
+# 6 "./Scheduler/../Config.h" 2
 # 9 "./Scheduler/Scheduler_cfg.h" 2
 
 
@@ -2089,23 +2029,8 @@ void Scheduler_ActivateTask(uint32_t SystemTick);
 
 
 
-
-#pragma config FOSC = HS
-#pragma config WDTE = OFF
-#pragma config PWRTE = OFF
-#pragma config BOREN = OFF
-#pragma config LVP = OFF
-#pragma config CPD = OFF
-#pragma config WRT = OFF
-#pragma config CP = OFF
-
-
-
-
-
-
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
-# 20 "./Timer/../Config.h" 2
+# 6 "./Timer/../Config.h" 2
 # 10 "./Timer/Timer.h" 2
 
 
@@ -2117,44 +2042,29 @@ void Timer0_CallBack(void);
 void Timer0_Init(void);
 # 28 "main.c" 2
 
-# 1 "./Display/Display.h" 1
-# 10 "./Display/Display.h"
-# 1 "./Display/../Config.h" 1
-
-
-
-
-
-
-#pragma config FOSC = HS
-#pragma config WDTE = OFF
-#pragma config PWRTE = OFF
-#pragma config BOREN = OFF
-#pragma config LVP = OFF
-#pragma config CPD = OFF
-#pragma config WRT = OFF
-#pragma config CP = OFF
-
+# 1 "./SSD/SSD.h" 1
+# 10 "./SSD/SSD.h"
+# 1 "./SSD/../Config.h" 1
 
 
 
 
 
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
-# 20 "./Display/../Config.h" 2
-# 10 "./Display/Display.h" 2
-# 33 "./Display/Display.h"
-typedef enum _Enable_Display_t
+# 6 "./SSD/../Config.h" 2
+# 10 "./SSD/SSD.h" 2
+# 33 "./SSD/SSD.h"
+typedef enum _Enable_SSD_t
 {
- Enable_Display_Off=0,
- Enable_Display_On=1,
-}Enable_Display_t;
+ Enable_SSD_Off=0,
+ Enable_SSD_On=1,
+}Enable_SSD_t;
 
-Enable_Display_t Enable_Display;
+Enable_SSD_t Enable_SSD;
 
-void Display_Init(void);
-void Display_MainFunction(void);
-void Display_Blink(uint16_t Times_Ms,uint16_t Task_Peroid);
+void SSD_Init(void);
+void SSD_MainFunction(void);
+void SSD_Blink(uint16_t Times_Ms,uint16_t Task_Peroid);
 # 29 "main.c" 2
 
 # 1 "./Elements/Elements.h" 1
@@ -2183,23 +2093,8 @@ void Elements_MainFunction(void);
 
 
 
-
-#pragma config FOSC = HS
-#pragma config WDTE = OFF
-#pragma config PWRTE = OFF
-#pragma config BOREN = OFF
-#pragma config LVP = OFF
-#pragma config CPD = OFF
-#pragma config WRT = OFF
-#pragma config CP = OFF
-
-
-
-
-
-
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
-# 20 "./Buttons/../Config.h" 2
+# 6 "./Buttons/../Config.h" 2
 # 11 "./Buttons/Buttons.h" 2
 
 
@@ -2301,34 +2196,23 @@ void Average_Value(uint8_t Value,uint8_t *Avrage_Values);
 
 
 
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
+# 6 "./Interrupt/../Config.h" 2
+# 10 "./Interrupt/Interrupt.h" 2
+# 35 "main.c" 2
 
-#pragma config FOSC = HS
-#pragma config WDTE = OFF
-#pragma config PWRTE = OFF
-#pragma config BOREN = OFF
-#pragma config LVP = OFF
-#pragma config CPD = OFF
-#pragma config WRT = OFF
-#pragma config CP = OFF
-
+# 1 "./EEPROM/EEPROM.h" 1
+# 12 "./EEPROM/EEPROM.h"
+# 1 "./EEPROM/../Config.h" 1
 
 
 
 
 
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
-# 20 "./Interrupt/../Config.h" 2
-# 10 "./Interrupt/Interrupt.h" 2
-# 35 "main.c" 2
-
-# 1 "./EEPROM/EEPROM.h" 1
-
-
-
-
-
-
-
+# 6 "./EEPROM/../Config.h" 2
+# 12 "./EEPROM/EEPROM.h" 2
+# 22 "./EEPROM/EEPROM.h"
 void Get_EEPROM_Data(void);
 void Set_EEPROM_Data(void);
 unsigned char e2pext_r(unsigned int addr);
@@ -2342,7 +2226,7 @@ void main(void) {
   GPIO_Init();
   ADC_Init();
   On_Off_Init();
-  Display_Init();
+  SSD_Init();
   Elements_Init();
   Mode_Init();
   Get_EEPROM_Data();

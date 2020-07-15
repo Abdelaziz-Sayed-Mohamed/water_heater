@@ -25,22 +25,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "16 Interrupt/../Timer/Timer.h
 [; ;Interrupt/../Timer/Timer.h: 16: void Timer0_CallBack(void);
 [v _Timer0_CallBack `(v ~T0 @X0 0 ef ]
-"7 Interrupt/../Buttons/../Config.h
-[p x FOSC = HS ]
-"8
-[p x WDTE = OFF ]
-"9
-[p x PWRTE = OFF ]
-"10
-[p x BOREN = OFF ]
-"11
-[p x LVP = OFF ]
-"12
-[p x CPD = OFF ]
-"13
-[p x WRT = OFF ]
-"14
-[p x CP = OFF ]
 "54 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 54: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
@@ -221,54 +205,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2363
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2363: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
-"7 Interrupt/../Buttons/../Config.h
-[p x FOSC = HS ]
-"8
-[p x WDTE = OFF ]
-"9
-[p x PWRTE = OFF ]
-"10
-[p x BOREN = OFF ]
-"11
-[p x LVP = OFF ]
-"12
-[p x CPD = OFF ]
-"13
-[p x WRT = OFF ]
-"14
-[p x CP = OFF ]
-"7
-[p x FOSC = HS ]
-"8
-[p x WDTE = OFF ]
-"9
-[p x PWRTE = OFF ]
-"10
-[p x BOREN = OFF ]
-"11
-[p x LVP = OFF ]
-"12
-[p x CPD = OFF ]
-"13
-[p x WRT = OFF ]
-"14
-[p x CP = OFF ]
-"7
-[p x FOSC = HS ]
-"8
-[p x WDTE = OFF ]
-"9
-[p x PWRTE = OFF ]
-"10
-[p x BOREN = OFF ]
-"11
-[p x LVP = OFF ]
-"12
-[p x CPD = OFF ]
-"13
-[p x WRT = OFF ]
-"14
-[p x CP = OFF ]
 [v $root$_myISR `(v ~T0 @X0 0 e ]
 "11 Interrupt/Interrupt.c
 [; ;Interrupt/Interrupt.c: 11: void __attribute__((picinterrupt(("")))) myISR(void)

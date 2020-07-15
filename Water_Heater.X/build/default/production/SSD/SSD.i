@@ -1,4 +1,4 @@
-# 1 "Display/Display.c"
+# 1 "SSD/SSD.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "Display/Display.c" 2
+# 1 "SSD/SSD.c" 2
 
 
 
@@ -14,27 +14,12 @@
 
 
 
-# 1 "Display/Display_Cfg.h" 1
-# 8 "Display/Display.c" 2
+# 1 "SSD/SSD_Cfg.h" 1
+# 8 "SSD/SSD.c" 2
 
-# 1 "Display/Display.h" 1
-# 10 "Display/Display.h"
-# 1 "Display/../Config.h" 1
-
-
-
-
-
-
-#pragma config FOSC = HS
-#pragma config WDTE = OFF
-#pragma config PWRTE = OFF
-#pragma config BOREN = OFF
-#pragma config LVP = OFF
-#pragma config CPD = OFF
-#pragma config WRT = OFF
-#pragma config CP = OFF
-
+# 1 "SSD/SSD.h" 1
+# 10 "SSD/SSD.h"
+# 1 "SSD/../Config.h" 1
 
 
 
@@ -1748,7 +1733,7 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 2 3
-# 19 "Display/../Config.h" 2
+# 5 "SSD/../Config.h" 2
 
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
 # 13 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 3
@@ -1883,65 +1868,50 @@ typedef int16_t intptr_t;
 
 
 typedef uint16_t uintptr_t;
-# 20 "Display/../Config.h" 2
-# 10 "Display/Display.h" 2
-# 33 "Display/Display.h"
-typedef enum _Enable_Display_t
+# 6 "SSD/../Config.h" 2
+# 10 "SSD/SSD.h" 2
+# 33 "SSD/SSD.h"
+typedef enum _Enable_SSD_t
 {
- Enable_Display_Off=0,
- Enable_Display_On=1,
-}Enable_Display_t;
+ Enable_SSD_Off=0,
+ Enable_SSD_On=1,
+}Enable_SSD_t;
 
-Enable_Display_t Enable_Display;
+Enable_SSD_t Enable_SSD;
 
-void Display_Init(void);
-void Display_MainFunction(void);
-void Display_Blink(uint16_t Times_Ms,uint16_t Task_Peroid);
-# 9 "Display/Display.c" 2
+void SSD_Init(void);
+void SSD_MainFunction(void);
+void SSD_Blink(uint16_t Times_Ms,uint16_t Task_Peroid);
+# 9 "SSD/SSD.c" 2
 
-# 1 "Display/../WaterHeater_Mode/WaterHeater_Mode.h" 1
-# 10 "Display/../WaterHeater_Mode/WaterHeater_Mode.h"
+# 1 "SSD/../WaterHeater_Mode/WaterHeater_Mode.h" 1
+# 10 "SSD/../WaterHeater_Mode/WaterHeater_Mode.h"
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
-# 10 "Display/../WaterHeater_Mode/WaterHeater_Mode.h" 2
+# 10 "SSD/../WaterHeater_Mode/WaterHeater_Mode.h" 2
 
-# 1 "Display/../WaterHeater_Mode/../gpio/gpio.h" 1
-# 11 "Display/../WaterHeater_Mode/../gpio/gpio.h"
-# 1 "Display/../WaterHeater_Mode/../gpio/gpio_Cfg.h" 1
-# 11 "Display/../WaterHeater_Mode/../gpio/gpio_Cfg.h"
-# 1 "Display/../WaterHeater_Mode/../gpio/../Config.h" 1
-
-
-
-
-
-
-#pragma config FOSC = HS
-#pragma config WDTE = OFF
-#pragma config PWRTE = OFF
-#pragma config BOREN = OFF
-#pragma config LVP = OFF
-#pragma config CPD = OFF
-#pragma config WRT = OFF
-#pragma config CP = OFF
-
+# 1 "SSD/../WaterHeater_Mode/../gpio/gpio.h" 1
+# 11 "SSD/../WaterHeater_Mode/../gpio/gpio.h"
+# 1 "SSD/../WaterHeater_Mode/../gpio/gpio_Cfg.h" 1
+# 11 "SSD/../WaterHeater_Mode/../gpio/gpio_Cfg.h"
+# 1 "SSD/../WaterHeater_Mode/../gpio/../Config.h" 1
 
 
 
 
 
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
-# 20 "Display/../WaterHeater_Mode/../gpio/../Config.h" 2
-# 11 "Display/../WaterHeater_Mode/../gpio/gpio_Cfg.h" 2
-# 11 "Display/../WaterHeater_Mode/../gpio/gpio.h" 2
-# 24 "Display/../WaterHeater_Mode/../gpio/gpio.h"
+# 6 "SSD/../WaterHeater_Mode/../gpio/../Config.h" 2
+# 11 "SSD/../WaterHeater_Mode/../gpio/gpio_Cfg.h" 2
+# 11 "SSD/../WaterHeater_Mode/../gpio/gpio.h" 2
+# 24 "SSD/../WaterHeater_Mode/../gpio/gpio.h"
 void GPIO_Init(void);
-# 11 "Display/../WaterHeater_Mode/WaterHeater_Mode.h" 2
+# 11 "SSD/../WaterHeater_Mode/WaterHeater_Mode.h" 2
 
-# 1 "Display/../WaterHeater_Mode/WaterHeater_Mode_Cfg.h" 1
-# 10 "Display/../WaterHeater_Mode/WaterHeater_Mode_Cfg.h"
+# 1 "SSD/../WaterHeater_Mode/WaterHeater_Mode_Cfg.h" 1
+# 10 "SSD/../WaterHeater_Mode/WaterHeater_Mode_Cfg.h"
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdbool.h" 1 3
-# 10 "Display/../WaterHeater_Mode/WaterHeater_Mode_Cfg.h" 2
-# 12 "Display/../WaterHeater_Mode/WaterHeater_Mode.h" 2
+# 10 "SSD/../WaterHeater_Mode/WaterHeater_Mode_Cfg.h" 2
+# 12 "SSD/../WaterHeater_Mode/WaterHeater_Mode.h" 2
 
 
 typedef enum _Select_Mode_t
@@ -1970,13 +1940,13 @@ void Mode_Init(void);
 void Select_Mode(void);
 void Start_Setting_Timer(uint16_t Timer_Ms ,uint16_t Peroid_Task);
 void Mode_MainFunction(void);
-# 10 "Display/Display.c" 2
+# 10 "SSD/SSD.c" 2
 
 
-# 1 "Display/../Temperature/Temperature.h" 1
-# 10 "Display/../Temperature/Temperature.h"
+# 1 "SSD/../Temperature/Temperature.h" 1
+# 10 "SSD/../Temperature/Temperature.h"
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
-# 10 "Display/../Temperature/Temperature.h" 2
+# 10 "SSD/../Temperature/Temperature.h" 2
 
 
 
@@ -1999,11 +1969,11 @@ TEMP_t Temperature;
 
 
 void Temperature_Calc(uint8_t ADC_VALUE);
-# 12 "Display/Display.c" 2
+# 12 "SSD/SSD.c" 2
 
 
 
-void Display_Init(void)
+void SSD_Init(void)
 {
  (PORTA &= ~(1<<5)) ;
  (PORTA &= ~(1<<4)) ;
@@ -2012,19 +1982,19 @@ void Display_Init(void)
 
 
 
-void Display_MainFunction(void)
+void SSD_MainFunction(void)
 {
  static uint8_t Digit_1=0;
  static uint8_t Digit_2=0;
  static uint8_t Tempreture=0;
- static uint8_t Display=0;
+ static uint8_t SSD=0;
  static uint8_t Enable_Digit_Selector=1;
 
 
   if(Mode.Select_Mode==Normal_Mode)
   {
    Tempreture=Temperature.Average_Value;
-   Enable_Display=Enable_Display_On;
+   Enable_SSD=Enable_SSD_On;
   }
   else if(Mode.Select_Mode==Setting_Mode)
   {
@@ -2040,7 +2010,7 @@ void Display_MainFunction(void)
 
  if(Mode.Select_Mode!=Off_Mode)
  {
-  if(Enable_Display==Enable_Display_On)
+  if(Enable_SSD==Enable_SSD_On)
   {
          Digit_1=Tempreture%10;
          Digit_2=Tempreture/10;
@@ -2049,14 +2019,14 @@ void Display_MainFunction(void)
 
          if(Enable_Digit_Selector==0)
          {
-          Display=Digit_1;
+          SSD=Digit_1;
            (PORTA &= ~(1<<4));
            (PORTA|= (1<<5)) ;
 
          }
          else if(Enable_Digit_Selector==1)
          {
-          Display=Digit_2;
+          SSD=Digit_2;
           (PORTA &= ~(1<<5));
           (PORTA|= (1<<4));
 
@@ -2064,7 +2034,7 @@ void Display_MainFunction(void)
 
 
 
-         switch(Display)
+         switch(SSD)
          {
           case 0:
              PORTD=0b00111111;
@@ -2111,7 +2081,7 @@ void Display_MainFunction(void)
 
   if(Mode.Select_Mode==Setting_Mode)
   {
-   Display_Blink(1000,20);
+   SSD_Blink(1000,20);
 
   }
   }
@@ -2119,21 +2089,21 @@ void Display_MainFunction(void)
 }
 
 
-void Display_Blink(uint16_t Times_Ms,uint16_t Task_Peroid)
+void SSD_Blink(uint16_t Times_Ms,uint16_t Task_Peroid)
 {
-  uint8_t static Counter=1;
+  static uint8_t Counter=1;
 
   if(Counter*Task_Peroid==Times_Ms)
   {
-      if(Enable_Display==Enable_Display_On)
+      if(Enable_SSD==Enable_SSD_On)
       {
-       Enable_Display=Enable_Display_Off;
+       Enable_SSD=Enable_SSD_Off;
         (PORTA &= ~(1<<5)) ;
         (PORTA &= ~(1<<4)) ;
       }
-      else if(Enable_Display==Enable_Display_Off)
+      else if(Enable_SSD==Enable_SSD_Off)
       {
-       Enable_Display=Enable_Display_On;
+       Enable_SSD=Enable_SSD_On;
       }
         Counter =1;
   }

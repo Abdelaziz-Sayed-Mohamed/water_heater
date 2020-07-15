@@ -1,18 +1,18 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"39 Display/Display.h
-[; ;Display/Display.h: 39: Enable_Display_t Enable_Display;
+"39 SSD/SSD.h
+[; ;SSD/SSD.h: 39: Enable_SSD_t Enable_SSD;
 [c E878 0 1 .. ]
-[n E878 _Enable_Display_t Enable_Display_Off Enable_Display_On  ]
-"28 Display/../WaterHeater_Mode/WaterHeater_Mode.h
-[; ;Display/../WaterHeater_Mode/WaterHeater_Mode.h: 28: MODE_t Mode;
+[n E878 _Enable_SSD_t Enable_SSD_Off Enable_SSD_On  ]
+"28 SSD/../WaterHeater_Mode/WaterHeater_Mode.h
+[; ;SSD/../WaterHeater_Mode/WaterHeater_Mode.h: 28: MODE_t Mode;
 [c E889 0 1 2 .. ]
 [n E889 _Select_Mode_t Off_Mode Normal_Mode Setting_Mode  ]
 "23
-[; ;Display/../WaterHeater_Mode/WaterHeater_Mode.h: 23: {
+[; ;SSD/../WaterHeater_Mode/WaterHeater_Mode.h: 23: {
 [s S95 `E889 1 `uc 1 ]
 [n S95 _MODE_t Select_Mode Setting_Mode_Timer ]
-"17 Display/../Temperature/Temperature.h
-[; ;Display/../Temperature/Temperature.h: 17: {
+"17 SSD/../Temperature/Temperature.h
+[; ;SSD/../Temperature/Temperature.h: 17: {
 [s S96 `uc 1 `uc 1 `uc 1 :1 `uc 1 :1 `uc 1 `uc 1 ]
 [n S96 _TEMP_t Temp_Value Average_Value Set_Temp Average_Value_Ready_Flag Store_Set_Temp_Flag Average_NValues ]
 "166 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
@@ -21,25 +21,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "340
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 340: extern volatile unsigned char PORTD __attribute__((address(0x008)));
 [v _PORTD `Vuc ~T0 @X0 0 e@8 ]
-"43 Display/Display.h
-[; ;Display/Display.h: 43: void Display_Blink(uint16_t Times_Ms,uint16_t Task_Peroid);
-[v _Display_Blink `(v ~T0 @X0 0 ef2`ui`ui ]
-"7 Display/../WaterHeater_Mode/../gpio/../Config.h
-[p x FOSC = HS ]
-"8
-[p x WDTE = OFF ]
-"9
-[p x PWRTE = OFF ]
-"10
-[p x BOREN = OFF ]
-"11
-[p x LVP = OFF ]
-"12
-[p x CPD = OFF ]
-"13
-[p x WRT = OFF ]
-"14
-[p x CP = OFF ]
+"43 SSD/SSD.h
+[; ;SSD/SSD.h: 43: void SSD_Blink(uint16_t Times_Ms,uint16_t Task_Peroid);
+[v _SSD_Blink `(v ~T0 @X0 0 ef2`ui`ui ]
 "54 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 54: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
@@ -220,301 +204,285 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2363
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2363: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
-"39 Display/Display.h
-[; ;Display/Display.h: 39: Enable_Display_t Enable_Display;
-[v _Enable_Display `E878 ~T0 @X0 1 e ]
-"7 Display/../WaterHeater_Mode/../gpio/../Config.h
-[p x FOSC = HS ]
-"8
-[p x WDTE = OFF ]
-"9
-[p x PWRTE = OFF ]
-"10
-[p x BOREN = OFF ]
-"11
-[p x LVP = OFF ]
-"12
-[p x CPD = OFF ]
-"13
-[p x WRT = OFF ]
-"14
-[p x CP = OFF ]
-"28 Display/../WaterHeater_Mode/WaterHeater_Mode.h
-[; ;Display/../WaterHeater_Mode/WaterHeater_Mode.h: 28: MODE_t Mode;
+"39 SSD/SSD.h
+[; ;SSD/SSD.h: 39: Enable_SSD_t Enable_SSD;
+[v _Enable_SSD `E878 ~T0 @X0 1 e ]
+"28 SSD/../WaterHeater_Mode/WaterHeater_Mode.h
+[; ;SSD/../WaterHeater_Mode/WaterHeater_Mode.h: 28: MODE_t Mode;
 [v _Mode `S95 ~T0 @X0 1 e ]
-"26 Display/../Temperature/Temperature.h
-[; ;Display/../Temperature/Temperature.h: 26: TEMP_t Temperature;
+"26 SSD/../Temperature/Temperature.h
+[; ;SSD/../Temperature/Temperature.h: 26: TEMP_t Temperature;
 [v _Temperature `S96 ~T0 @X0 1 e ]
-"15 Display/Display.c
-[; ;Display/Display.c: 15: void Display_Init(void)
-[v _Display_Init `(v ~T0 @X0 1 ef ]
+"15 SSD/SSD.c
+[; ;SSD/SSD.c: 15: void SSD_Init(void)
+[v _SSD_Init `(v ~T0 @X0 1 ef ]
 "16
-[; ;Display/Display.c: 16: {
+[; ;SSD/SSD.c: 16: {
 {
-[e :U _Display_Init ]
+[e :U _SSD_Init ]
 [f ]
 "17
-[; ;Display/Display.c: 17:  (PORTA &= ~(1<<5)) ;
+[; ;SSD/SSD.c: 17:  (PORTA &= ~(1<<5)) ;
 [e =& _PORTA -> ~ << -> 1 `i -> 5 `i `Vuc ]
 "18
-[; ;Display/Display.c: 18:  (PORTA &= ~(1<<4)) ;
+[; ;SSD/SSD.c: 18:  (PORTA &= ~(1<<4)) ;
 [e =& _PORTA -> ~ << -> 1 `i -> 4 `i `Vuc ]
 "19
-[; ;Display/Display.c: 19:  PORTD=0b00111111;
+[; ;SSD/SSD.c: 19:  PORTD=0b00111111;
 [e = _PORTD -> -> 63 `i `uc ]
 "20
-[; ;Display/Display.c: 20: }
+[; ;SSD/SSD.c: 20: }
 [e :UE 97 ]
 }
 "24
-[; ;Display/Display.c: 24: void Display_MainFunction(void)
-[v _Display_MainFunction `(v ~T0 @X0 1 ef ]
+[; ;SSD/SSD.c: 24: void SSD_MainFunction(void)
+[v _SSD_MainFunction `(v ~T0 @X0 1 ef ]
 "25
-[; ;Display/Display.c: 25: {
+[; ;SSD/SSD.c: 25: {
 {
-[e :U _Display_MainFunction ]
+[e :U _SSD_MainFunction ]
 [f ]
 "26
-[; ;Display/Display.c: 26:  static uint8_t Digit_1=0;
+[; ;SSD/SSD.c: 26:  static uint8_t Digit_1=0;
 [v F918 `uc ~T0 @X0 1 s Digit_1 ]
 [i F918
 -> -> 0 `i `uc
 ]
 "27
-[; ;Display/Display.c: 27:  static uint8_t Digit_2=0;
+[; ;SSD/SSD.c: 27:  static uint8_t Digit_2=0;
 [v F919 `uc ~T0 @X0 1 s Digit_2 ]
 [i F919
 -> -> 0 `i `uc
 ]
 "28
-[; ;Display/Display.c: 28:  static uint8_t Tempreture=0;
+[; ;SSD/SSD.c: 28:  static uint8_t Tempreture=0;
 [v F920 `uc ~T0 @X0 1 s Tempreture ]
 [i F920
 -> -> 0 `i `uc
 ]
 "29
-[; ;Display/Display.c: 29:  static uint8_t Display=0;
-[v F921 `uc ~T0 @X0 1 s Display ]
+[; ;SSD/SSD.c: 29:  static uint8_t SSD=0;
+[v F921 `uc ~T0 @X0 1 s SSD ]
 [i F921
 -> -> 0 `i `uc
 ]
 "30
-[; ;Display/Display.c: 30:  static uint8_t Enable_Digit_Selector=1;
+[; ;SSD/SSD.c: 30:  static uint8_t Enable_Digit_Selector=1;
 [v F922 `uc ~T0 @X0 1 s Enable_Digit_Selector ]
 [i F922
 -> -> 1 `i `uc
 ]
 "33
-[; ;Display/Display.c: 33:   if(Mode.Select_Mode==Normal_Mode)
+[; ;SSD/SSD.c: 33:   if(Mode.Select_Mode==Normal_Mode)
 [e $ ! == -> . _Mode 0 `ui -> . `E889 1 `ui 99  ]
 "34
-[; ;Display/Display.c: 34:   {
+[; ;SSD/SSD.c: 34:   {
 {
 "35
-[; ;Display/Display.c: 35:    Tempreture=Temperature.Average_Value;
+[; ;SSD/SSD.c: 35:    Tempreture=Temperature.Average_Value;
 [e = F920 . _Temperature 1 ]
 "36
-[; ;Display/Display.c: 36:    Enable_Display=Enable_Display_On;
-[e = _Enable_Display . `E878 1 ]
+[; ;SSD/SSD.c: 36:    Enable_SSD=Enable_SSD_On;
+[e = _Enable_SSD . `E878 1 ]
 "37
-[; ;Display/Display.c: 37:   }
+[; ;SSD/SSD.c: 37:   }
 }
 [e $U 100  ]
 "38
-[; ;Display/Display.c: 38:   else if(Mode.Select_Mode==Setting_Mode)
+[; ;SSD/SSD.c: 38:   else if(Mode.Select_Mode==Setting_Mode)
 [e :U 99 ]
 [e $ ! == -> . _Mode 0 `ui -> . `E889 2 `ui 101  ]
 "39
-[; ;Display/Display.c: 39:   {
+[; ;SSD/SSD.c: 39:   {
 {
 "40
-[; ;Display/Display.c: 40:    Tempreture=Temperature.Set_Temp;
+[; ;SSD/SSD.c: 40:    Tempreture=Temperature.Set_Temp;
 [e = F920 . _Temperature 2 ]
 "41
-[; ;Display/Display.c: 41:   }
+[; ;SSD/SSD.c: 41:   }
 }
 [e $U 102  ]
 "42
-[; ;Display/Display.c: 42:   else if(Mode.Select_Mode==Off_Mode)
+[; ;SSD/SSD.c: 42:   else if(Mode.Select_Mode==Off_Mode)
 [e :U 101 ]
 [e $ ! == -> . _Mode 0 `ui -> . `E889 0 `ui 103  ]
 "43
-[; ;Display/Display.c: 43:   {
+[; ;SSD/SSD.c: 43:   {
 {
 "44
-[; ;Display/Display.c: 44:   (PORTA &= ~(1<<5)) ;
+[; ;SSD/SSD.c: 44:   (PORTA &= ~(1<<5)) ;
 [e =& _PORTA -> ~ << -> 1 `i -> 5 `i `Vuc ]
 "45
-[; ;Display/Display.c: 45:   (PORTA &= ~(1<<4)) ;
+[; ;SSD/SSD.c: 45:   (PORTA &= ~(1<<4)) ;
 [e =& _PORTA -> ~ << -> 1 `i -> 4 `i `Vuc ]
 "46
-[; ;Display/Display.c: 46:      PORTD=0;
+[; ;SSD/SSD.c: 46:      PORTD=0;
 [e = _PORTD -> -> 0 `i `uc ]
 "47
-[; ;Display/Display.c: 47:   }
+[; ;SSD/SSD.c: 47:   }
 }
 [e :U 103 ]
 [e :U 102 ]
 [e :U 100 ]
 "50
-[; ;Display/Display.c: 50:  if(Mode.Select_Mode!=Off_Mode)
+[; ;SSD/SSD.c: 50:  if(Mode.Select_Mode!=Off_Mode)
 [e $ ! != -> . _Mode 0 `ui -> . `E889 0 `ui 104  ]
 "51
-[; ;Display/Display.c: 51:  {
+[; ;SSD/SSD.c: 51:  {
 {
 "52
-[; ;Display/Display.c: 52:   if(Enable_Display==Enable_Display_On)
-[e $ ! == -> _Enable_Display `ui -> . `E878 1 `ui 105  ]
+[; ;SSD/SSD.c: 52:   if(Enable_SSD==Enable_SSD_On)
+[e $ ! == -> _Enable_SSD `ui -> . `E878 1 `ui 105  ]
 "53
-[; ;Display/Display.c: 53:   {
+[; ;SSD/SSD.c: 53:   {
 {
 "54
-[; ;Display/Display.c: 54:          Digit_1=Tempreture%10;
+[; ;SSD/SSD.c: 54:          Digit_1=Tempreture%10;
 [e = F918 -> % -> F920 `i -> 10 `i `uc ]
 "55
-[; ;Display/Display.c: 55:          Digit_2=Tempreture/10;
+[; ;SSD/SSD.c: 55:          Digit_2=Tempreture/10;
 [e = F919 -> / -> F920 `i -> 10 `i `uc ]
 "57
-[; ;Display/Display.c: 57:          Enable_Digit_Selector^=1;
+[; ;SSD/SSD.c: 57:          Enable_Digit_Selector^=1;
 [e =^ F922 -> -> 1 `i `uc ]
 "59
-[; ;Display/Display.c: 59:          if(Enable_Digit_Selector==0)
+[; ;SSD/SSD.c: 59:          if(Enable_Digit_Selector==0)
 [e $ ! == -> F922 `i -> 0 `i 106  ]
 "60
-[; ;Display/Display.c: 60:          {
+[; ;SSD/SSD.c: 60:          {
 {
 "61
-[; ;Display/Display.c: 61:           Display=Digit_1;
+[; ;SSD/SSD.c: 61:           SSD=Digit_1;
 [e = F921 F918 ]
 "62
-[; ;Display/Display.c: 62:            (PORTA &= ~(1<<4));
+[; ;SSD/SSD.c: 62:            (PORTA &= ~(1<<4));
 [e =& _PORTA -> ~ << -> 1 `i -> 4 `i `Vuc ]
 "63
-[; ;Display/Display.c: 63:            (PORTA|= (1<<5)) ;
+[; ;SSD/SSD.c: 63:            (PORTA|= (1<<5)) ;
 [e =| _PORTA -> << -> 1 `i -> 5 `i `Vuc ]
 "65
-[; ;Display/Display.c: 65:          }
+[; ;SSD/SSD.c: 65:          }
 }
 [e $U 107  ]
 "66
-[; ;Display/Display.c: 66:          else if(Enable_Digit_Selector==1)
+[; ;SSD/SSD.c: 66:          else if(Enable_Digit_Selector==1)
 [e :U 106 ]
 [e $ ! == -> F922 `i -> 1 `i 108  ]
 "67
-[; ;Display/Display.c: 67:          {
+[; ;SSD/SSD.c: 67:          {
 {
 "68
-[; ;Display/Display.c: 68:           Display=Digit_2;
+[; ;SSD/SSD.c: 68:           SSD=Digit_2;
 [e = F921 F919 ]
 "69
-[; ;Display/Display.c: 69:           (PORTA &= ~(1<<5));
+[; ;SSD/SSD.c: 69:           (PORTA &= ~(1<<5));
 [e =& _PORTA -> ~ << -> 1 `i -> 5 `i `Vuc ]
 "70
-[; ;Display/Display.c: 70:           (PORTA|= (1<<4));
+[; ;SSD/SSD.c: 70:           (PORTA|= (1<<4));
 [e =| _PORTA -> << -> 1 `i -> 4 `i `Vuc ]
 "72
-[; ;Display/Display.c: 72:          }
+[; ;SSD/SSD.c: 72:          }
 }
 [e :U 108 ]
 [e :U 107 ]
 "76
-[; ;Display/Display.c: 76:          switch(Display)
+[; ;SSD/SSD.c: 76:          switch(SSD)
 [e $U 110  ]
 "77
-[; ;Display/Display.c: 77:          {
+[; ;SSD/SSD.c: 77:          {
 {
 "78
-[; ;Display/Display.c: 78:           case 0:
+[; ;SSD/SSD.c: 78:           case 0:
 [e :U 111 ]
 "79
-[; ;Display/Display.c: 79:              PORTD=0b00111111;
+[; ;SSD/SSD.c: 79:              PORTD=0b00111111;
 [e = _PORTD -> -> 63 `i `uc ]
 "80
-[; ;Display/Display.c: 80:              break;
+[; ;SSD/SSD.c: 80:              break;
 [e $U 109  ]
 "82
-[; ;Display/Display.c: 82:           case 1:
+[; ;SSD/SSD.c: 82:           case 1:
 [e :U 112 ]
 "83
-[; ;Display/Display.c: 83:              PORTD=0b00000110;
+[; ;SSD/SSD.c: 83:              PORTD=0b00000110;
 [e = _PORTD -> -> 6 `i `uc ]
 "84
-[; ;Display/Display.c: 84:              break;
+[; ;SSD/SSD.c: 84:              break;
 [e $U 109  ]
 "86
-[; ;Display/Display.c: 86:           case 2:
+[; ;SSD/SSD.c: 86:           case 2:
 [e :U 113 ]
 "87
-[; ;Display/Display.c: 87:              PORTD=0b01011011;
+[; ;SSD/SSD.c: 87:              PORTD=0b01011011;
 [e = _PORTD -> -> 91 `i `uc ]
 "88
-[; ;Display/Display.c: 88:              break;
+[; ;SSD/SSD.c: 88:              break;
 [e $U 109  ]
 "90
-[; ;Display/Display.c: 90:           case 3:
+[; ;SSD/SSD.c: 90:           case 3:
 [e :U 114 ]
 "91
-[; ;Display/Display.c: 91:              PORTD=0b01001111;
+[; ;SSD/SSD.c: 91:              PORTD=0b01001111;
 [e = _PORTD -> -> 79 `i `uc ]
 "92
-[; ;Display/Display.c: 92:              break;
+[; ;SSD/SSD.c: 92:              break;
 [e $U 109  ]
 "94
-[; ;Display/Display.c: 94:           case 4:
+[; ;SSD/SSD.c: 94:           case 4:
 [e :U 115 ]
 "95
-[; ;Display/Display.c: 95:              PORTD=0b01100110;
+[; ;SSD/SSD.c: 95:              PORTD=0b01100110;
 [e = _PORTD -> -> 102 `i `uc ]
 "96
-[; ;Display/Display.c: 96:              break;
+[; ;SSD/SSD.c: 96:              break;
 [e $U 109  ]
 "98
-[; ;Display/Display.c: 98:           case 5:
+[; ;SSD/SSD.c: 98:           case 5:
 [e :U 116 ]
 "99
-[; ;Display/Display.c: 99:              PORTD=0b01101101;
+[; ;SSD/SSD.c: 99:              PORTD=0b01101101;
 [e = _PORTD -> -> 109 `i `uc ]
 "100
-[; ;Display/Display.c: 100:              break;
+[; ;SSD/SSD.c: 100:              break;
 [e $U 109  ]
 "102
-[; ;Display/Display.c: 102:           case 6:
+[; ;SSD/SSD.c: 102:           case 6:
 [e :U 117 ]
 "103
-[; ;Display/Display.c: 103:              PORTD=0b01111101;
+[; ;SSD/SSD.c: 103:              PORTD=0b01111101;
 [e = _PORTD -> -> 125 `i `uc ]
 "104
-[; ;Display/Display.c: 104:              break;
+[; ;SSD/SSD.c: 104:              break;
 [e $U 109  ]
 "106
-[; ;Display/Display.c: 106:           case 7:
+[; ;SSD/SSD.c: 106:           case 7:
 [e :U 118 ]
 "107
-[; ;Display/Display.c: 107:              PORTD=0b00000111;
+[; ;SSD/SSD.c: 107:              PORTD=0b00000111;
 [e = _PORTD -> -> 7 `i `uc ]
 "108
-[; ;Display/Display.c: 108:              break;
+[; ;SSD/SSD.c: 108:              break;
 [e $U 109  ]
 "110
-[; ;Display/Display.c: 110:           case 8:
+[; ;SSD/SSD.c: 110:           case 8:
 [e :U 119 ]
 "111
-[; ;Display/Display.c: 111:              PORTD=0b01111111;
+[; ;SSD/SSD.c: 111:              PORTD=0b01111111;
 [e = _PORTD -> -> 127 `i `uc ]
 "112
-[; ;Display/Display.c: 112:              break;
+[; ;SSD/SSD.c: 112:              break;
 [e $U 109  ]
 "114
-[; ;Display/Display.c: 114:           case 9:
+[; ;SSD/SSD.c: 114:           case 9:
 [e :U 120 ]
 "115
-[; ;Display/Display.c: 115:              PORTD=0b01101111;
+[; ;SSD/SSD.c: 115:              PORTD=0b01101111;
 [e = _PORTD -> -> 111 `i `uc ]
 "116
-[; ;Display/Display.c: 116:              break;
+[; ;SSD/SSD.c: 116:              break;
 [e $U 109  ]
 "118
-[; ;Display/Display.c: 118:          }
+[; ;SSD/SSD.c: 118:          }
 }
 [e $U 109  ]
 [e :U 110 ]
@@ -531,101 +499,101 @@ Version 4.0 HI-TECH Software Intermediate Code
  109 ]
 [e :U 109 ]
 "119
-[; ;Display/Display.c: 119:   }
+[; ;SSD/SSD.c: 119:   }
 }
 [e :U 105 ]
 "121
-[; ;Display/Display.c: 121:   if(Mode.Select_Mode==Setting_Mode)
+[; ;SSD/SSD.c: 121:   if(Mode.Select_Mode==Setting_Mode)
 [e $ ! == -> . _Mode 0 `ui -> . `E889 2 `ui 121  ]
 "122
-[; ;Display/Display.c: 122:   {
+[; ;SSD/SSD.c: 122:   {
 {
 "123
-[; ;Display/Display.c: 123:    Display_Blink(1000,20);
-[e ( _Display_Blink (2 , -> -> 1000 `i `ui -> -> 20 `i `ui ]
+[; ;SSD/SSD.c: 123:    SSD_Blink(1000,20);
+[e ( _SSD_Blink (2 , -> -> 1000 `i `ui -> -> 20 `i `ui ]
 "125
-[; ;Display/Display.c: 125:   }
+[; ;SSD/SSD.c: 125:   }
 }
 [e :U 121 ]
 "126
-[; ;Display/Display.c: 126:   }
+[; ;SSD/SSD.c: 126:   }
 }
 [e :U 104 ]
 "128
-[; ;Display/Display.c: 128: }
+[; ;SSD/SSD.c: 128: }
 [e :UE 98 ]
 }
 "131
-[; ;Display/Display.c: 131: void Display_Blink(uint16_t Times_Ms,uint16_t Task_Peroid)
-[v _Display_Blink `(v ~T0 @X0 1 ef2`ui`ui ]
+[; ;SSD/SSD.c: 131: void SSD_Blink(uint16_t Times_Ms,uint16_t Task_Peroid)
+[v _SSD_Blink `(v ~T0 @X0 1 ef2`ui`ui ]
 "132
-[; ;Display/Display.c: 132: {
+[; ;SSD/SSD.c: 132: {
 {
-[e :U _Display_Blink ]
+[e :U _SSD_Blink ]
 "131
-[; ;Display/Display.c: 131: void Display_Blink(uint16_t Times_Ms,uint16_t Task_Peroid)
+[; ;SSD/SSD.c: 131: void SSD_Blink(uint16_t Times_Ms,uint16_t Task_Peroid)
 [v _Times_Ms `ui ~T0 @X0 1 r1 ]
 [v _Task_Peroid `ui ~T0 @X0 1 r2 ]
 "132
-[; ;Display/Display.c: 132: {
+[; ;SSD/SSD.c: 132: {
 [f ]
 "133
-[; ;Display/Display.c: 133:   uint8_t static Counter=1;
+[; ;SSD/SSD.c: 133:   static uint8_t Counter=1;
 [v F926 `uc ~T0 @X0 1 s Counter ]
 [i F926
 -> -> 1 `i `uc
 ]
 "135
-[; ;Display/Display.c: 135:   if(Counter*Task_Peroid==Times_Ms)
+[; ;SSD/SSD.c: 135:   if(Counter*Task_Peroid==Times_Ms)
 [e $ ! == * -> F926 `ui _Task_Peroid _Times_Ms 123  ]
 "136
-[; ;Display/Display.c: 136:   {
+[; ;SSD/SSD.c: 136:   {
 {
 "137
-[; ;Display/Display.c: 137:       if(Enable_Display==Enable_Display_On)
-[e $ ! == -> _Enable_Display `ui -> . `E878 1 `ui 124  ]
+[; ;SSD/SSD.c: 137:       if(Enable_SSD==Enable_SSD_On)
+[e $ ! == -> _Enable_SSD `ui -> . `E878 1 `ui 124  ]
 "138
-[; ;Display/Display.c: 138:       {
+[; ;SSD/SSD.c: 138:       {
 {
 "139
-[; ;Display/Display.c: 139:        Enable_Display=Enable_Display_Off;
-[e = _Enable_Display . `E878 0 ]
+[; ;SSD/SSD.c: 139:        Enable_SSD=Enable_SSD_Off;
+[e = _Enable_SSD . `E878 0 ]
 "140
-[; ;Display/Display.c: 140:         (PORTA &= ~(1<<5)) ;
+[; ;SSD/SSD.c: 140:         (PORTA &= ~(1<<5)) ;
 [e =& _PORTA -> ~ << -> 1 `i -> 5 `i `Vuc ]
 "141
-[; ;Display/Display.c: 141:         (PORTA &= ~(1<<4)) ;
+[; ;SSD/SSD.c: 141:         (PORTA &= ~(1<<4)) ;
 [e =& _PORTA -> ~ << -> 1 `i -> 4 `i `Vuc ]
 "142
-[; ;Display/Display.c: 142:       }
+[; ;SSD/SSD.c: 142:       }
 }
 [e $U 125  ]
 "143
-[; ;Display/Display.c: 143:       else if(Enable_Display==Enable_Display_Off)
+[; ;SSD/SSD.c: 143:       else if(Enable_SSD==Enable_SSD_Off)
 [e :U 124 ]
-[e $ ! == -> _Enable_Display `ui -> . `E878 0 `ui 126  ]
+[e $ ! == -> _Enable_SSD `ui -> . `E878 0 `ui 126  ]
 "144
-[; ;Display/Display.c: 144:       {
+[; ;SSD/SSD.c: 144:       {
 {
 "145
-[; ;Display/Display.c: 145:        Enable_Display=Enable_Display_On;
-[e = _Enable_Display . `E878 1 ]
+[; ;SSD/SSD.c: 145:        Enable_SSD=Enable_SSD_On;
+[e = _Enable_SSD . `E878 1 ]
 "146
-[; ;Display/Display.c: 146:       }
+[; ;SSD/SSD.c: 146:       }
 }
 [e :U 126 ]
 [e :U 125 ]
 "147
-[; ;Display/Display.c: 147:         Counter =1;
+[; ;SSD/SSD.c: 147:         Counter =1;
 [e = F926 -> -> 1 `i `uc ]
 "148
-[; ;Display/Display.c: 148:   }
+[; ;SSD/SSD.c: 148:   }
 }
 [e :U 123 ]
 "149
-[; ;Display/Display.c: 149:   Counter++;
+[; ;SSD/SSD.c: 149:   Counter++;
 [e ++ F926 -> -> 1 `i `uc ]
 "150
-[; ;Display/Display.c: 150: }
+[; ;SSD/SSD.c: 150: }
 [e :UE 122 ]
 }

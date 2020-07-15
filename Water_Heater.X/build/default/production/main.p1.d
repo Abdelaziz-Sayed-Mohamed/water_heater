@@ -12,8 +12,8 @@ Scheduler/Tasks.h  \
 Scheduler/../Config.h  \
 Timer/Timer.h  \
 Timer/../Config.h  \
-Display/Display.h  \
-Display/../Config.h  \
+SSD/SSD.h  \
+SSD/../Config.h  \
 Elements/Elements.h  \
 Buttons/Buttons.h  \
 Buttons/../Config.h  \
@@ -24,4 +24,5 @@ Average/Average.h  \
 Average/Average_Cfg.h  \
 Interrupt/Interrupt.h  \
 Interrupt/../Config.h  \
-EEPROM/EEPROM.h 
+EEPROM/EEPROM.h  \
+EEPROM/../Config.h 

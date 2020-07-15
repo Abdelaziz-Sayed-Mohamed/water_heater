@@ -65,22 +65,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2222
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2222: extern volatile unsigned char ADRESL __attribute__((address(0x09E)));
 [v _ADRESL `Vuc ~T0 @X0 0 e@158 ]
-"7 ADC/../WaterHeater_Mode/../gpio/../Config.h
-[p x FOSC = HS ]
-"8
-[p x WDTE = OFF ]
-"9
-[p x PWRTE = OFF ]
-"10
-[p x BOREN = OFF ]
-"11
-[p x LVP = OFF ]
-"12
-[p x CPD = OFF ]
-"13
-[p x WRT = OFF ]
-"14
-[p x CP = OFF ]
 "54 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 54: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
@@ -267,22 +251,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "26 ADC/../Temperature/Temperature.h
 [; ;ADC/../Temperature/Temperature.h: 26: TEMP_t Temperature;
 [v _Temperature `S96 ~T0 @X0 1 e ]
-"7 ADC/../WaterHeater_Mode/../gpio/../Config.h
-[p x FOSC = HS ]
-"8
-[p x WDTE = OFF ]
-"9
-[p x PWRTE = OFF ]
-"10
-[p x BOREN = OFF ]
-"11
-[p x LVP = OFF ]
-"12
-[p x CPD = OFF ]
-"13
-[p x WRT = OFF ]
-"14
-[p x CP = OFF ]
 "28 ADC/../WaterHeater_Mode/WaterHeater_Mode.h
 [; ;ADC/../WaterHeater_Mode/WaterHeater_Mode.h: 28: MODE_t Mode;
 [v _Mode `S97 ~T0 @X0 1 e ]

@@ -15,17 +15,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;Scheduler/../WaterHeater_Mode/WaterHeater_Mode.h: 23: {
 [s S96 `E904 1 `uc 1 ]
 [n S96 _MODE_t Select_Mode Setting_Mode_Timer ]
-"39 Scheduler/../Display/Display.h
-[; ;Scheduler/../Display/Display.h: 39: Enable_Display_t Enable_Display;
+"39 Scheduler/../SSD/SSD.h
+[; ;Scheduler/../SSD/SSD.h: 39: Enable_SSD_t Enable_SSD;
 [c E920 0 1 .. ]
-[n E920 _Enable_Display_t Enable_Display_Off Enable_Display_On  ]
+[n E920 _Enable_SSD_t Enable_SSD_Off Enable_SSD_On  ]
 "17 Scheduler/../Temperature/Temperature.h
 [; ;Scheduler/../Temperature/Temperature.h: 17: {
 [s S97 `uc 1 `uc 1 `uc 1 :1 `uc 1 :1 `uc 1 `uc 1 ]
 [n S97 _TEMP_t Temp_Value Average_Value Set_Temp Average_Value_Ready_Flag Store_Set_Temp_Flag Average_NValues ]
-"42 Scheduler/../Display/Display.h
-[; ;Scheduler/../Display/Display.h: 42: void Display_MainFunction(void);
-[v _Display_MainFunction `(v ~T0 @X0 0 ef ]
+"42 Scheduler/../SSD/SSD.h
+[; ;Scheduler/../SSD/SSD.h: 42: void SSD_MainFunction(void);
+[v _SSD_MainFunction `(v ~T0 @X0 0 ef ]
 "34 Scheduler/../ADC/ADC.h
 [; ;Scheduler/../ADC/ADC.h: 34: void ADC_Conv_MainFunction(void);
 [v _ADC_Conv_MainFunction `(v ~T0 @X0 0 ef ]
@@ -38,25 +38,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "41 Scheduler/../Elements/Elements.h
 [; ;Scheduler/../Elements/Elements.h: 41: void Elements_MainFunction(void);
 [v _Elements_MainFunction `(v ~T0 @X0 0 ef ]
-"9 Scheduler/../EEPROM/EEPROM.h
-[; ;Scheduler/../EEPROM/EEPROM.h: 9: void Set_EEPROM_Data(void);
+"23 Scheduler/../EEPROM/EEPROM.h
+[; ;Scheduler/../EEPROM/EEPROM.h: 23: void Set_EEPROM_Data(void);
 [v _Set_EEPROM_Data `(v ~T0 @X0 0 ef ]
-"7 Scheduler/../Display/../Config.h
-[p x FOSC = HS ]
-"8
-[p x WDTE = OFF ]
-"9
-[p x PWRTE = OFF ]
-"10
-[p x BOREN = OFF ]
-"11
-[p x LVP = OFF ]
-"12
-[p x CPD = OFF ]
-"13
-[p x WRT = OFF ]
-"14
-[p x CP = OFF ]
 "54 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 54: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
@@ -240,47 +224,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 "35 Scheduler/../Elements/Elements.h
 [; ;Scheduler/../Elements/Elements.h: 35: LED_STATUS_t LED_Status;
 [v _LED_Status `E882 ~T0 @X0 1 e ]
-"7 Scheduler/../Display/../Config.h
-[p x FOSC = HS ]
-"8
-[p x WDTE = OFF ]
-"9
-[p x PWRTE = OFF ]
-"10
-[p x BOREN = OFF ]
-"11
-[p x LVP = OFF ]
-"12
-[p x CPD = OFF ]
-"13
-[p x WRT = OFF ]
-"14
-[p x CP = OFF ]
 "28 Scheduler/../ADC/ADC.h
 [; ;Scheduler/../ADC/ADC.h: 28: ADC_t ADC_Info;
 [v _ADC_Info `S95 ~T0 @X0 1 e ]
 "28 Scheduler/../WaterHeater_Mode/WaterHeater_Mode.h
 [; ;Scheduler/../WaterHeater_Mode/WaterHeater_Mode.h: 28: MODE_t Mode;
 [v _Mode `S96 ~T0 @X0 1 e ]
-"7 Scheduler/../Display/../Config.h
-[p x FOSC = HS ]
-"8
-[p x WDTE = OFF ]
-"9
-[p x PWRTE = OFF ]
-"10
-[p x BOREN = OFF ]
-"11
-[p x LVP = OFF ]
-"12
-[p x CPD = OFF ]
-"13
-[p x WRT = OFF ]
-"14
-[p x CP = OFF ]
-"39 Scheduler/../Display/Display.h
-[; ;Scheduler/../Display/Display.h: 39: Enable_Display_t Enable_Display;
-[v _Enable_Display `E920 ~T0 @X0 1 e ]
+"39 Scheduler/../SSD/SSD.h
+[; ;Scheduler/../SSD/SSD.h: 39: Enable_SSD_t Enable_SSD;
+[v _Enable_SSD `E920 ~T0 @X0 1 e ]
 "26 Scheduler/../Temperature/Temperature.h
 [; ;Scheduler/../Temperature/Temperature.h: 26: TEMP_t Temperature;
 [v _Temperature `S97 ~T0 @X0 1 e ]
@@ -293,8 +245,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _Scheduler_Task1 ]
 [f ]
 "19
-[; ;Scheduler/Tasks.c: 19:  Display_MainFunction();
-[e ( _Display_MainFunction ..  ]
+[; ;Scheduler/Tasks.c: 19:  SSD_MainFunction();
+[e ( _SSD_MainFunction ..  ]
 "20
 [; ;Scheduler/Tasks.c: 20: }
 [e :UE 98 ]

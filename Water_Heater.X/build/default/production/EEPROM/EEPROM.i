@@ -1735,26 +1735,13 @@ void i2c_acktst(unsigned char val);
 # 2 "EEPROM/EEPROM.c" 2
 
 # 1 "EEPROM/EEPROM.h" 1
+# 12 "EEPROM/EEPROM.h"
+# 1 "EEPROM/../Config.h" 1
 
 
 
 
 
-
-
-void Get_EEPROM_Data(void);
-void Set_EEPROM_Data(void);
-unsigned char e2pext_r(unsigned int addr);
-# 3 "EEPROM/EEPROM.c" 2
-
-# 1 "EEPROM/../WaterHeater_Mode/WaterHeater_Mode_Cfg.h" 1
-# 10 "EEPROM/../WaterHeater_Mode/WaterHeater_Mode_Cfg.h"
-# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdbool.h" 1 3
-# 10 "EEPROM/../WaterHeater_Mode/WaterHeater_Mode_Cfg.h" 2
-# 4 "EEPROM/EEPROM.c" 2
-
-# 1 "EEPROM/../Temperature/Temperature.h" 1
-# 10 "EEPROM/../Temperature/Temperature.h"
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
 # 13 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 3
 typedef signed char int8_t;
@@ -1888,6 +1875,23 @@ typedef int16_t intptr_t;
 
 
 typedef uint16_t uintptr_t;
+# 6 "EEPROM/../Config.h" 2
+# 12 "EEPROM/EEPROM.h" 2
+# 22 "EEPROM/EEPROM.h"
+void Get_EEPROM_Data(void);
+void Set_EEPROM_Data(void);
+unsigned char e2pext_r(unsigned int addr);
+# 3 "EEPROM/EEPROM.c" 2
+
+# 1 "EEPROM/../WaterHeater_Mode/WaterHeater_Mode_Cfg.h" 1
+# 10 "EEPROM/../WaterHeater_Mode/WaterHeater_Mode_Cfg.h"
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdbool.h" 1 3
+# 10 "EEPROM/../WaterHeater_Mode/WaterHeater_Mode_Cfg.h" 2
+# 4 "EEPROM/EEPROM.c" 2
+
+# 1 "EEPROM/../Temperature/Temperature.h" 1
+# 10 "EEPROM/../Temperature/Temperature.h"
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
 # 10 "EEPROM/../Temperature/Temperature.h" 2
 
 
@@ -1919,19 +1923,19 @@ uint8_t EEPROM_Data=0;
 void Get_EEPROM_Data(void)
 {
 
+
  while( e2pext_r(0));
  EEPROM_Data=e2pext_r(0xa);
- uint8_t Flag=(EEPROM_Data>>7)&1;
- uint8_t Temp=(EEPROM_Data)&~(1<<7);
 
- if(Flag==1 && ((Temp<=(75U))||(Temp>=(35U))))
+ if(EEPROM_Data==0xff)
  {
-   Temperature.Set_Temp=Temp;
+   Temperature.Set_Temp=(60U);
  }
- else
+ else if((EEPROM_Data<=(75U))&&(EEPROM_Data>=(35U) )&& ((EEPROM_Data%5)==0) )
  {
-    Temperature.Set_Temp=(60U);
+   Temperature.Set_Temp=EEPROM_Data;
  }
+
 
 }
 
@@ -1945,7 +1949,7 @@ static unsigned char nt;
 
 if(Temperature.Store_Set_Temp_Flag==1)
 {
-     EEPROM_Data=Temperature.Set_Temp|(1<<7);
+     EEPROM_Data=Temperature.Set_Temp;
 
      ah=(0xa&0x0100)>>8;
      al=0xa&0x00FF;

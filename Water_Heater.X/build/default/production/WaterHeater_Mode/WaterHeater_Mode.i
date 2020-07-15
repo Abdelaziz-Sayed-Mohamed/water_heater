@@ -160,21 +160,6 @@ typedef uint16_t uintptr_t;
 
 
 
-
-
-#pragma config FOSC = HS
-#pragma config WDTE = OFF
-#pragma config PWRTE = OFF
-#pragma config BOREN = OFF
-#pragma config LVP = OFF
-#pragma config CPD = OFF
-#pragma config WRT = OFF
-#pragma config CP = OFF
-
-
-
-
-
 # 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -1884,10 +1869,10 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 2 3
-# 19 "WaterHeater_Mode/../gpio/../Config.h" 2
+# 5 "WaterHeater_Mode/../gpio/../Config.h" 2
 
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
-# 20 "WaterHeater_Mode/../gpio/../Config.h" 2
+# 6 "WaterHeater_Mode/../gpio/../Config.h" 2
 # 11 "WaterHeater_Mode/../gpio/gpio_Cfg.h" 2
 # 11 "WaterHeater_Mode/../gpio/gpio.h" 2
 # 24 "WaterHeater_Mode/../gpio/gpio.h"
@@ -1966,23 +1951,8 @@ void Temperature_Calc(uint8_t ADC_VALUE);
 
 
 
-
-#pragma config FOSC = HS
-#pragma config WDTE = OFF
-#pragma config PWRTE = OFF
-#pragma config BOREN = OFF
-#pragma config LVP = OFF
-#pragma config CPD = OFF
-#pragma config WRT = OFF
-#pragma config CP = OFF
-
-
-
-
-
-
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
-# 20 "WaterHeater_Mode/../Buttons/../Config.h" 2
+# 6 "WaterHeater_Mode/../Buttons/../Config.h" 2
 # 11 "WaterHeater_Mode/../Buttons/Buttons.h" 2
 
 
@@ -1996,13 +1966,17 @@ void EXTI_On_Off_CallBack(void);
 # 11 "WaterHeater_Mode/WaterHeater_Mode.c" 2
 
 # 1 "WaterHeater_Mode/../EEPROM/EEPROM.h" 1
+# 12 "WaterHeater_Mode/../EEPROM/EEPROM.h"
+# 1 "WaterHeater_Mode/../EEPROM/../Config.h" 1
 
 
 
 
 
-
-
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
+# 6 "WaterHeater_Mode/../EEPROM/../Config.h" 2
+# 12 "WaterHeater_Mode/../EEPROM/EEPROM.h" 2
+# 22 "WaterHeater_Mode/../EEPROM/EEPROM.h"
 void Get_EEPROM_Data(void);
 void Set_EEPROM_Data(void);
 unsigned char e2pext_r(unsigned int addr);
@@ -2015,6 +1989,7 @@ unsigned char e2pext_r(unsigned int addr);
 void Mode_Init(void)
 {
  Mode.Select_Mode=Off_Mode;
+
 
 
 

@@ -8,6 +8,7 @@ uint8_t EEPROM_Data=0;
 
 void Get_EEPROM_Data(void)
 {
+ #if EEPROM  
     
  Start_EEPROM_Connection;   
  EEPROM_Data=e2pext_r(EEPROM_DATA_ADDR);
@@ -20,7 +21,8 @@ void Get_EEPROM_Data(void)
  {
    Temperature.Set_Temp=EEPROM_Data; 
  }
-
+ 
+#endif
 }
 
 
@@ -29,7 +31,7 @@ void Set_EEPROM_Data(void)
 static unsigned char ah;
 static unsigned char al;
 static unsigned char nt;
-#ifdef EEPROM
+#if EEPROM
 
 if(IS_Store_Set_Temp_Ready)
 {       

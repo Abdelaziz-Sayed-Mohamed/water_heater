@@ -1743,21 +1743,6 @@ void i2c_acktst(unsigned char val);
 
 
 
-
-#pragma config FOSC = HS
-#pragma config WDTE = OFF
-#pragma config PWRTE = OFF
-#pragma config BOREN = OFF
-#pragma config LVP = OFF
-#pragma config CPD = OFF
-#pragma config WRT = OFF
-#pragma config CP = OFF
-
-
-
-
-
-
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
 # 13 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 3
 typedef signed char int8_t;
@@ -1891,7 +1876,7 @@ typedef int16_t intptr_t;
 
 
 typedef uint16_t uintptr_t;
-# 20 "I2C/../gpio/../Config.h" 2
+# 6 "I2C/../gpio/../Config.h" 2
 # 11 "I2C/../gpio/gpio_Cfg.h" 2
 # 11 "I2C/../gpio/gpio.h" 2
 # 24 "I2C/../gpio/gpio.h"

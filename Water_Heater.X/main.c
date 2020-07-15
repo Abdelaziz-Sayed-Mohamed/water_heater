@@ -26,7 +26,7 @@
 #include "ADC/ADC.h"
 #include"Scheduler/Scheduler.h"
 #include "Timer/Timer.h"
-#include"Display/Display.h"
+#include"SSD/SSD.h"
 #include"Elements/Elements.h"
 #include"Buttons/Buttons.h"
 #include"Temperature/Temperature.h"
@@ -42,7 +42,7 @@ void main(void) {
   GPIO_Init();
   ADC_Init();
   On_Off_Init();
-  Display_Init();
+  SSD_Init();
   Elements_Init();
   Mode_Init();
   Get_EEPROM_Data();

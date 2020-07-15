@@ -9,14 +9,14 @@
 #include"../Elements/Elements.h"
 #include"../ADC/ADC.h"
 #include"../WaterHeater_Mode/WaterHeater_Mode.h"
-#include"../Display/Display.h"
+#include"../SSD/SSD.h"
 #include"../Temperature/Temperature.h"
 #include"../EEPROM/EEPROM.h"
 
 /* Start Task1 function */
 void Scheduler_Task1(void) /*20ms*/
 {
-	Display_MainFunction();
+	SSD_MainFunction();
 }
 
 /* Start Task2 function */
