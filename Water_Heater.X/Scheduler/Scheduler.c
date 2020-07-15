@@ -19,7 +19,7 @@ void Scheduler_Start(void)
 		if( Scheduler_ActivationFlags[IntityIndex] == 1 )
 		{
 			(*Scheduler_Intitys[IntityIndex].fuction_ptr)();		/*start Task */
-			Scheduler_ActivationFlags[IntityIndex] = 0 ;  /*Reset Activation Flag*/
+			Scheduler_ActivationFlags[IntityIndex] = 0 ;            /*Reset Activation Flag*/
 		}
 	}
   }

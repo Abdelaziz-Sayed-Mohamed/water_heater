@@ -43,6 +43,7 @@ void Display_MainFunction(void) //This Function should be Mapped On 20ms Task To
   {
 	 RESET_PIN(DIGIT1_PORT,DIGIT1_PIN) ;
 	 RESET_PIN(DIGIT2_PORT,DIGIT2_PIN) ;
+     _7SEGMENT_PORT=Turn_Off_7seg_Port;
   }
 
 
@@ -129,7 +130,7 @@ void Display_MainFunction(void) //This Function should be Mapped On 20ms Task To
 
 void Display_Blink(uint16_t Times_Ms,uint16_t Task_Peroid) 
 {
-  uint8_t static Counter=1;
+  static uint8_t Counter=1;
 
   if(Counter*Task_Peroid==Times_Ms)
   {

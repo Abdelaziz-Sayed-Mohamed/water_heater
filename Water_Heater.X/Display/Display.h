@@ -27,7 +27,7 @@
 #define ResetDisplayCounter             Counter =1
 #define Display_Blink_Time              1000  
 #define Display_Blink_TaskPeroid        20
-
+#define Turn_Off_7seg_Port              0
 
 
 typedef enum _Enable_Display_t

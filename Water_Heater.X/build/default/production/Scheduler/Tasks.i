@@ -8,6 +8,12 @@
 # 2 "<built-in>" 2
 # 1 "Scheduler/Tasks.c" 2
 
+
+
+
+
+
+
 # 1 "Scheduler/Tasks.h" 1
 
 
@@ -15,7 +21,7 @@
 void Scheduler_Task1(void);
 void Scheduler_Task2(void);
 void Scheduler_Task3(void);
-# 2 "Scheduler/Tasks.c" 2
+# 8 "Scheduler/Tasks.c" 2
 
 # 1 "Scheduler/../Elements/Elements.h" 1
 # 12 "Scheduler/../Elements/Elements.h"
@@ -1908,7 +1914,7 @@ void LED_BLINKING(uint16_t Time_Ms,uint16_t Task_Peroid);
 void Elements_Init(void);
 void LED_MainFunction(void);
 void Elements_MainFunction(void);
-# 3 "Scheduler/Tasks.c" 2
+# 9 "Scheduler/Tasks.c" 2
 
 # 1 "Scheduler/../ADC/ADC.h" 1
 # 10 "Scheduler/../ADC/ADC.h"
@@ -1951,7 +1957,7 @@ void ADC_Start_Conv(void);
 void ADC_Conv_Main(void);
 void ADC_Value_Ready_CallBack(void);
 void ADC_Conv_MainFunction(void);
-# 4 "Scheduler/Tasks.c" 2
+# 10 "Scheduler/Tasks.c" 2
 
 # 1 "Scheduler/../WaterHeater_Mode/WaterHeater_Mode.h" 1
 # 10 "Scheduler/../WaterHeater_Mode/WaterHeater_Mode.h"
@@ -1992,7 +1998,7 @@ void Mode_Init(void);
 void Select_Mode(void);
 void Start_Setting_Timer(uint16_t Timer_Ms ,uint16_t Peroid_Task);
 void Mode_MainFunction(void);
-# 5 "Scheduler/Tasks.c" 2
+# 11 "Scheduler/Tasks.c" 2
 
 # 1 "Scheduler/../Display/Display.h" 1
 # 10 "Scheduler/../Display/Display.h"
@@ -2032,7 +2038,7 @@ Enable_Display_t Enable_Display;
 void Display_Init(void);
 void Display_MainFunction(void);
 void Display_Blink(uint16_t Times_Ms,uint16_t Task_Peroid);
-# 6 "Scheduler/Tasks.c" 2
+# 12 "Scheduler/Tasks.c" 2
 
 # 1 "Scheduler/../Temperature/Temperature.h" 1
 # 10 "Scheduler/../Temperature/Temperature.h"
@@ -2060,7 +2066,7 @@ TEMP_t Temperature;
 
 
 void Temperature_Calc(uint8_t ADC_VALUE);
-# 7 "Scheduler/Tasks.c" 2
+# 13 "Scheduler/Tasks.c" 2
 
 # 1 "Scheduler/../EEPROM/EEPROM.h" 1
 
@@ -2073,7 +2079,7 @@ void Temperature_Calc(uint8_t ADC_VALUE);
 void Get_EEPROM_Data(void);
 void Set_EEPROM_Data(void);
 unsigned char e2pext_r(unsigned int addr);
-# 8 "Scheduler/Tasks.c" 2
+# 14 "Scheduler/Tasks.c" 2
 
 
 

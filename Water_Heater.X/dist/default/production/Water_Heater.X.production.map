@@ -5,7 +5,7 @@ Linker command line:
 -W-3 --edf=C:\Program Files (x86)\Microchip\xc8\v2.20\pic\dat\en_msgs.txt \
   -cn -h+dist/default/production\Water_Heater.X.production.sym \
   --cmf=dist/default/production\Water_Heater.X.production.cmf -z -Q16F877A \
-  -oC:\Users\ABDALA~1\AppData\Local\Temp\saac.2 --defsym=__MPLAB_BUILD=1 \
+  -oC:\Users\ABDALA~1\AppData\Local\Temp\sa6c.2 --defsym=__MPLAB_BUILD=1 \
   -Mdist/default/production/Water_Heater.X.production.map -E1 \
   -ver=XC8 Compiler --acfsm=1493 -ASTACK=0110h-016Fh -pstack=STACK \
   -ACODE=00h-07FFhx4 -ASTRCODE=00h-01FFFh -ASTRING=00h-0FFhx32 \
@@ -18,7 +18,7 @@ Linker command line:
   -preset_vec=00h,intentry=04h,init,end_init -ppowerup=CODE -pcinit=CODE \
   -pfunctab=ENTRY -AEEDATA=00h-0FFh/02100h -peeprom_data=EEDATA -DEEDATA=2 \
   -DCODE=2 -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 -k \
-  C:\Users\ABDALA~1\AppData\Local\Temp\saac.o \
+  C:\Users\ABDALA~1\AppData\Local\Temp\sa6c.o \
   dist/default/production\Water_Heater.X.production.o 
 
 Object code version is 3.11
@@ -28,7 +28,7 @@ Machine type is 16F877A
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\ABDALA~1\AppData\Local\Temp\saac.o
+C:\Users\ABDALA~1\AppData\Local\Temp\sa6c.o
                 end_init                             12       12        3        8       0
                 reset_vec                             0        0        3        0       0
                 config                             2007     2007        1        0       4
@@ -62,19 +62,19 @@ dist/default/production\Water_Heater.X.production.o
                 text29                              890      890       10     1120       0
                 text28                              9D3      9D3       27     13A6       0
                 text27                              B4C      B4C       3B     1698       0
-                text26                              778      778       69       A2       0
+                text26                              779      779       69       A2       0
                 text25                              D53      D53       5B     1AA6       0
-                text24                              40C      40C       D8       A2       0
+                text24                              40C      40C       D9       A2       0
                 text23                              F98      F98       68     1F30       0
                 text22                              B87      B87       3C     170E       0
-                text21                              5A0      5A0       A8       A2       0
+                text21                              5A1      5A1       A8       A2       0
                 text20                              9FA      9FA       29     13F4       0
                 text19                               51       51      3BB       A2       0
-                text18                              6E6      6E6       92       A2       0
-                text17                              4E4      4E4       BC       A2       0
-                text16                              648      648       9E       A2       0
+                text18                              6E7      6E7       92       A2       0
+                text17                              4E5      4E5       BC       A2       0
+                text16                              649      649       9E       A2       0
                 text15                              856      856        9     10AC       0
-                text14                              7E1      7E1       1C       A2       0
+                text14                              7E2      7E2       1C       A2       0
                 text13                              A4C      A4C       2A     1498       0
                 text12                              AA2      AA2       37     1544       0
                 text11                              C56      C56       4E     18AC       0
@@ -133,19 +133,19 @@ TOTAL           Name                               Link     Load   Length     Sp
                 text29                              890      890       10         0
                 text28                              9D3      9D3       27         0
                 text27                              B4C      B4C       3B         0
-                text26                              778      778       69         0
+                text26                              779      779       69         0
                 text25                              D53      D53       5B         0
-                text24                              40C      40C       D8         0
+                text24                              40C      40C       D9         0
                 text23                              F98      F98       68         0
                 text22                              B87      B87       3C         0
-                text21                              5A0      5A0       A8         0
+                text21                              5A1      5A1       A8         0
                 text20                              9FA      9FA       29         0
                 text19                               51       51      3BB         0
-                text18                              6E6      6E6       92         0
-                text17                              4E4      4E4       BC         0
-                text16                              648      648       9E         0
+                text18                              6E7      6E7       92         0
+                text17                              4E5      4E5       BC         0
+                text16                              649      649       9E         0
                 text15                              856      856        9         0
-                text14                              7E1      7E1       1C         0
+                text14                              7E2      7E2       1C         0
                 text13                              A4C      A4C       2A         0
                 text12                              AA2      AA2       37         0
                 text11                              C56      C56       4E         0
@@ -220,7 +220,7 @@ SEGMENTS        Name                           Load    Length   Top    Selector 
                 cstackCOMMON                   000070  00000E  00007E        70       1  COMMON      1
                 functab                        000042  00000F  000051        84       0  ENTRY       2
                 bssBANK1                       0000A0  000050  0000F0        A0       1  BANK1       1
-                text19                         000051  0007AC  0007FD        A2       0  CODE        2
+                text19                         000051  0007AD  0007FE        A2       0  CODE        2
                 cstackBANK3                    000190  00000D  00019D       190       1  BANK3       1
                 strings                        000800  000015  000815      1000       0  STRING      2
                 text32                         000831  000004  000835      1062       0  CODE        2
@@ -278,16 +278,16 @@ UNUSED ADDRESS RANGES
         BANK2            0110-016F             60           1
         BANK3            019D-01EF             53           1
         CODE             0003-0003              1           2
-                         07FD-07FF              3
+                         07FE-07FF              2
                          0815-0830             1C
                          1000-1FFF            800
         CONST            0003-0003              1           2
-                         07FD-07FF              3
+                         07FE-07FF              2
                          0815-0830             1C
                          1000-1FFF            100
         EEDATA           2100-21FF            100           2
         ENTRY            0003-0003              1           2
-                         07FD-07FF              3
+                         07FE-07FF              2
                          0815-0830             1C
                          1000-1FFF            100
         IDLOC            2000-2003              4           2
@@ -300,11 +300,11 @@ UNUSED ADDRESS RANGES
         SFR3             0180-018F             10           1
         STACK            0110-016F             60           1
         STRCODE          0003-0003              1           2
-                         07FD-07FF              3
+                         07FE-07FF              2
                          0815-0830             1C
                          1000-1FFF           1000
         STRING           0003-0003              1           2
-                         07FD-07FF              3
+                         07FE-07FF              2
                          0815-0830             1C
                          1000-1FFF            100
 
@@ -348,14 +348,14 @@ Start_Setting_Timer@Timer_Ms               cstackBANK0  003C
 Temperature_Calc@ADC_VALUE                 cstackBANK1  00EF
 _ADCON0bits                                (abs)        001F
 _ADCON1bits                                (abs)        009F
-_ADC_Conv_MainFunction                     text14       07E1
+_ADC_Conv_MainFunction                     text14       07E2
 _ADC_Info                                  bssBANK0     0050
 _ADC_Init                                  text44       092D
 _ADC_Start_Conv                            text43       084D
 _ADC_Value_Ready_CallBack                  text15       0856
 _ADRESL                                    (abs)        009E
 _Average_Nvalues                           dataBANK0    0059
-_Average_Value                             text21       05A0
+_Average_Value                             text21       05A1
 _Avrage_buffer                             bssBANK1     00CC
 _Display_Blink                             text27       0B4C
 _Display_Init                              text42       0874
@@ -399,7 +399,7 @@ _TRISB                                     (abs)        0086
 _TRISC                                     (abs)        0087
 _TRISD                                     (abs)        0088
 _Temperature                               bssBANK0     0051
-_Temperature_Calc                          text16       0648
+_Temperature_Calc                          text16       0649
 _Tick_Num                                  bssBANK1     00C8
 _Timer0_CallBack                           text46       0A76
 _Timer0_Init                               text1        08B0
@@ -490,7 +490,7 @@ __Umul8_16@multiplicand                    cstackBANK0  0036
 __Umul8_16@multiplier                      cstackBANK0  003E
 __Umul8_16@product                         cstackBANK0  003A
 __Umul8_16@word_mpld                       cstackBANK0  003C
-___awdiv                                   text26       0778
+___awdiv                                   text26       0779
 ___awdiv@counter                           cstackBANK0  003A
 ___awdiv@dividend                          cstackBANK0  0038
 ___awdiv@divisor                           cstackBANK0  0036
@@ -514,7 +514,7 @@ ___flmul@grs                               cstackBANK1  00E2
 ___flmul@prod                              cstackBANK1  00E7
 ___flmul@sign                              cstackBANK1  00E0
 ___flmul@temp                              cstackBANK1  00EB
-___fltol                                   text18       06E6
+___fltol                                   text18       06E7
 ___fltol@exp1                              cstackBANK1  00EE
 ___fltol@f1                                cstackBANK3  0190
 ___fltol@sign1                             cstackBANK1  00ED
@@ -540,19 +540,19 @@ ___wmul                                    text28       09D3
 ___wmul@multiplicand                       cstackBANK0  0038
 ___wmul@multiplier                         cstackBANK0  0036
 ___wmul@product                            cstackBANK0  003A
-___xxtofl                                  text17       04E4
+___xxtofl                                  text17       04E5
 ___xxtofl@arg                              cstackBANK0  0040
 ___xxtofl@exp                              cstackBANK0  003F
 ___xxtofl@sign                             cstackBANK0  003E
 ___xxtofl@val                              cstackBANK0  0036
-__end_of_ADC_Conv_MainFunction             text14       07FD
+__end_of_ADC_Conv_MainFunction             text14       07FE
 __end_of_ADC_Init                          text44       0948
 __end_of_ADC_Start_Conv                    text43       0856
 __end_of_ADC_Value_Ready_CallBack          text15       085F
-__end_of_Average_Value                     text21       0648
+__end_of_Average_Value                     text21       0649
 __end_of_Display_Blink                     text27       0B87
 __end_of_Display_Init                      text42       0881
-__end_of_Display_MainFunction              text24       04E4
+__end_of_Display_MainFunction              text24       04E5
 __end_of_EXTI_On_Off_CallBack              text51       0916
 __end_of_Elements_Init                     text41       0890
 __end_of_Elements_MainFunction             text11       0CA4
@@ -573,20 +573,20 @@ __end_of_Scheduler_Task2                   text4        0874
 __end_of_Scheduler_Task3                   text6        08B0
 __end_of_Set_EEPROM_Data                   text7        0E0A
 __end_of_Start_Setting_Timer               text9        0A4C
-__end_of_Temperature_Calc                  text16       06E6
+__end_of_Temperature_Calc                  text16       06E7
 __end_of_Timer0_CallBack                   text46       0AA2
 __end_of_Timer0_Init                       text1        08C0
 __end_of__Umul8_16                         text20       0A23
-__end_of___awdiv                           text26       07E1
+__end_of___awdiv                           text26       07E2
 __end_of___awmod                           text25       0DAE
 __end_of___bmul                            text3        092D
 __end_of___flmul                           text19       040C
-__end_of___fltol                           text18       0778
+__end_of___fltol                           text18       0779
 __end_of___lldiv                           text23       1000
 __end_of___llmod                           text50       0CFA
 __end_of___lwmod                           text22       0BC3
 __end_of___wmul                            text28       09FA
-__end_of___xxtofl                          text17       05A0
+__end_of___xxtofl                          text17       05A1
 __end_of__fptable                          functab      0051
 __end_of__initialization                   cinit        003E
 __end_of__stringtab                        strings      0806
@@ -620,20 +620,20 @@ __ptext10                                  text10       09AF
 __ptext11                                  text11       0C56
 __ptext12                                  text12       0AA2
 __ptext13                                  text13       0A4C
-__ptext14                                  text14       07E1
+__ptext14                                  text14       07E2
 __ptext15                                  text15       0856
-__ptext16                                  text16       0648
-__ptext17                                  text17       04E4
-__ptext18                                  text18       06E6
+__ptext16                                  text16       0649
+__ptext17                                  text17       04E5
+__ptext18                                  text18       06E7
 __ptext19                                  text19       0051
 __ptext2                                   text2        0AD9
 __ptext20                                  text20       09FA
-__ptext21                                  text21       05A0
+__ptext21                                  text21       05A1
 __ptext22                                  text22       0B87
 __ptext23                                  text23       0F98
 __ptext24                                  text24       040C
 __ptext25                                  text25       0D53
-__ptext26                                  text26       0778
+__ptext26                                  text26       0779
 __ptext27                                  text27       0B4C
 __ptext28                                  text28       09D3
 __ptext29                                  text29       0890
@@ -912,7 +912,7 @@ Total ram usage:        3 bytes
 
  *************** function _Scheduler_Task2 *****************
  Defined at:
-		line 17 in file "Scheduler/Tasks.c"
+		line 23 in file "Scheduler/Tasks.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -943,7 +943,7 @@ Total ram usage:        0 bytes
 
  *************** function _Scheduler_Task1 *****************
  Defined at:
-		line 11 in file "Scheduler/Tasks.c"
+		line 17 in file "Scheduler/Tasks.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -973,7 +973,7 @@ Total ram usage:        0 bytes
 
  *************** function _Scheduler_Task3 *****************
  Defined at:
-		line 24 in file "Scheduler/Tasks.c"
+		line 30 in file "Scheduler/Tasks.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1643,7 +1643,7 @@ Total ram usage:        8 bytes
 
  *************** function _Display_Blink *****************
  Defined at:
-		line 130 in file "Display/Display.c"
+		line 131 in file "Display/Display.c"
  Parameters:    Size  Location     Type
   Times_Ms        2   28[BANK0 ] unsigned int 
   Task_Peroid     2   30[BANK0 ] unsigned int 
@@ -2426,7 +2426,7 @@ MODULE INFORMATION
 
 Module		Function		Class		Link	Load	Size
 Average/Average.c
-		_Average_Value 		CODE           	05A0	0000	169
+		_Average_Value 		CODE           	05A1	0000	169
 
 Average/Average.c estimated size: 169
 
@@ -2455,7 +2455,7 @@ C:\Program Files (x86)\Microchip\xc8\v2.20\pic\sources\c90\common\lwmod.c
 C:\Program Files (x86)\Microchip\xc8\v2.20\pic\sources\c90\common\lwmod.c estimated size: 61
 
 ADC/ADC.c
-		_ADC_Conv_MainFunction		CODE           	07E1	0000	29
+		_ADC_Conv_MainFunction		CODE           	07E2	0000	29
 		_ADC_Value_Ready_CallBack		CODE           	0856	0000	10
 		_ADC_Start_Conv		CODE           	084D	0000	10
 		_ADC_Init      		CODE           	092D	0000	28
@@ -2477,11 +2477,11 @@ I2C/I2C.c
 I2C/I2C.c estimated size: 221
 
 Display/Display.c
-		_Display_MainFunction		CODE           	040C	0000	217
+		_Display_MainFunction		CODE           	040C	0000	218
 		_Display_Init  		CODE           	0874	0000	14
 		_Display_Blink 		CODE           	0B4C	0000	60
 
-Display/Display.c estimated size: 291
+Display/Display.c estimated size: 292
 
 C:\Program Files (x86)\Microchip\xc8\v2.20\pic\sources\c90\common\llmod.c
 		___llmod       		CODE           	0CA4	0000	87
@@ -2509,7 +2509,7 @@ gpio/gpio.c
 gpio/gpio.c estimated size: 34
 
 C:\Program Files (x86)\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
-		___xxtofl      		CODE           	04E4	0000	189
+		___xxtofl      		CODE           	04E5	0000	189
 
 C:\Program Files (x86)\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c estimated size: 189
 
@@ -2546,7 +2546,7 @@ Scheduler/Tasks.c
 Scheduler/Tasks.c estimated size: 36
 
 C:\Program Files (x86)\Microchip\xc8\v2.20\pic\sources\c90\common\awdiv.c
-		___awdiv       		CODE           	0778	0000	106
+		___awdiv       		CODE           	0779	0000	106
 
 C:\Program Files (x86)\Microchip\xc8\v2.20\pic\sources\c90\common\awdiv.c estimated size: 106
 
@@ -2556,7 +2556,7 @@ Interrupt/Interrupt.c
 Interrupt/Interrupt.c estimated size: 37
 
 C:\Program Files (x86)\Microchip\xc8\v2.20\pic\sources\c90\common\fltol.c
-		___fltol       		CODE           	06E6	0000	147
+		___fltol       		CODE           	06E7	0000	147
 
 C:\Program Files (x86)\Microchip\xc8\v2.20\pic\sources\c90\common\fltol.c estimated size: 147
 
@@ -2573,7 +2573,7 @@ Buttons/Buttons.c
 Buttons/Buttons.c estimated size: 68
 
 Temperature/Temperature.c
-		_Temperature_Calc		CODE           	0648	0000	159
+		_Temperature_Calc		CODE           	0649	0000	159
 
 Temperature/Temperature.c estimated size: 159
 

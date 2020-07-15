@@ -1718,7 +1718,8 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 2 3
-# 27 "I2C/I2C.h" 2
+# 26 "I2C/I2C.h" 2
+
 
 
 
@@ -1730,7 +1731,8 @@ void i2c_stop(void);
 void i2c_wb(unsigned char val);
 unsigned char i2c_rb(unsigned char ack);
 void i2c_acktst(unsigned char val);
-# 2 "I2C/I2C.c" 2
+# 1 "I2C/I2C.c" 2
+
 # 1 "I2C/../gpio/gpio.h" 1
 # 11 "I2C/../gpio/gpio.h"
 # 1 "I2C/../gpio/gpio_Cfg.h" 1
@@ -1894,7 +1896,8 @@ typedef uint16_t uintptr_t;
 # 11 "I2C/../gpio/gpio.h" 2
 # 24 "I2C/../gpio/gpio.h"
 void GPIO_Init(void);
-# 3 "I2C/I2C.c" 2
+# 2 "I2C/I2C.c" 2
+
 
 void delay(void)
 {

@@ -2034,6 +2034,7 @@ void Display_MainFunction(void)
   {
   (PORTA &= ~(1<<5)) ;
   (PORTA &= ~(1<<4)) ;
+     PORTD=0;
   }
 
 

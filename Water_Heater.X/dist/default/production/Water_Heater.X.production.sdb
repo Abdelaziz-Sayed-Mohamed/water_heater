@@ -130,7 +130,7 @@ Setting_Mode 2
 [v _Display_Init Display_Init `(v  1 e 1 0 ]
 "24
 [v _Display_MainFunction Display_MainFunction `(v  1 e 1 0 ]
-"130
+"131
 [v _Display_Blink Display_Blink `(v  1 e 1 0 ]
 "9 E:\study\Repos\water_heater\Water_Heater.X\EEPROM/EEPROM.c
 [v _Get_EEPROM_Data Get_EEPROM_Data `(v  1 e 1 0 ]
@@ -168,11 +168,11 @@ Setting_Mode 2
 [v _Scheduler_Init Scheduler_Init `(v  1 e 1 0 ]
 "35
 [v _Scheduler_ActivateTask Scheduler_ActivateTask `(v  1 e 1 0 ]
-"11 E:\study\Repos\water_heater\Water_Heater.X\Scheduler/Tasks.c
+"17 E:\study\Repos\water_heater\Water_Heater.X\Scheduler/Tasks.c
 [v _Scheduler_Task1 Scheduler_Task1 `(v  1 e 1 0 ]
-"17
+"23
 [v _Scheduler_Task2 Scheduler_Task2 `(v  1 e 1 0 ]
-"24
+"30
 [v _Scheduler_Task3 Scheduler_Task3 `(v  1 e 1 0 ]
 "14 E:\study\Repos\water_heater\Water_Heater.X\Temperature/Temperature.c
 [v _Temperature_Calc Temperature_Calc `(v  1 e 1 0 ]
@@ -304,10 +304,10 @@ Setting_Mode 2
 [v _Enable_Display Enable_Display `E990  1 e 1 0 ]
 "35 E:\study\Repos\water_heater\Water_Heater.X/Elements/Elements.h
 [v _LED_Status LED_Status `E1000  1 e 1 0 ]
-"10 E:\study\Repos\water_heater\Water_Heater.X\Scheduler/Scheduler_cfg.c
+"16 E:\study\Repos\water_heater\Water_Heater.X\Scheduler/Scheduler_cfg.c
 [v _Scheduler_ActivationFlags Scheduler_ActivationFlags `[3]uc  1 e 3 0 ]
 [s S400 . 5 `*.27(v 1 fuction_ptr 1 0 `ul 1 Peroid 4 1 ]
-"12
+"18
 [v _Scheduler_Intitys Scheduler_Intitys `DC[3]S400  1 e 15 0 ]
 [s S22 _ADC_t 1 `uc 1 ADC_INIT_FLAG 1 0 :1:0 
 `uc 1 ADC_START_FLAG 1 0 :1:1 
@@ -349,20 +349,20 @@ Setting_Mode 2
 [v ___bmul@multiplier multiplier `uc  1 a 1 24 ]
 "51
 } 0
-"17 E:\study\Repos\water_heater\Water_Heater.X\Scheduler/Tasks.c
+"23 E:\study\Repos\water_heater\Water_Heater.X\Scheduler/Tasks.c
 [v _Scheduler_Task2 Scheduler_Task2 `(v  1 e 1 0 ]
 {
-"22
+"28
 } 0
-"11
+"17
 [v _Scheduler_Task1 Scheduler_Task1 `(v  1 e 1 0 ]
 {
-"14
+"20
 } 0
-"24
+"30
 [v _Scheduler_Task3 Scheduler_Task3 `(v  1 e 1 0 ]
 {
-"30
+"36
 } 0
 "29 E:\study\Repos\water_heater\Water_Heater.X\EEPROM/EEPROM.c
 [v _Set_EEPROM_Data Set_EEPROM_Data `(v  1 e 1 0 ]
@@ -542,7 +542,7 @@ Setting_Mode 2
 [v Display_MainFunction@Display Display `uc  1 s 1 Display ]
 "30
 [v Display_MainFunction@Enable_Digit_Selector Enable_Digit_Selector `uc  1 s 1 Enable_Digit_Selector ]
-"127
+"128
 } 0
 "5 C:\Program Files (x86)\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
 [v ___awmod __awmod `(i  1 e 2 0 ]
@@ -568,14 +568,14 @@ Setting_Mode 2
 [v ___awdiv@dividend dividend `i  1 p 2 24 ]
 "41
 } 0
-"130 E:\study\Repos\water_heater\Water_Heater.X\Display/Display.c
+"131 E:\study\Repos\water_heater\Water_Heater.X\Display/Display.c
 [v _Display_Blink Display_Blink `(v  1 e 1 0 ]
 {
 [v Display_Blink@Times_Ms Times_Ms `ui  1 p 2 28 ]
 [v Display_Blink@Task_Peroid Task_Peroid `ui  1 p 2 30 ]
-"132
+"133
 [v Display_Blink@Counter Counter `uc  1 s 1 Counter ]
-"149
+"150
 } 0
 "15 C:\Program Files (x86)\Microchip\xc8\v2.20\pic\sources\c90\common\Umul16.c
 [v ___wmul __wmul `(ui  1 e 2 0 ]
