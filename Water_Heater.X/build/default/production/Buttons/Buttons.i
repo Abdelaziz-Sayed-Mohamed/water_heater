@@ -1873,7 +1873,7 @@ typedef uint16_t uintptr_t;
 
 
 
-void Read_UP_DOWN_BUTTONS(void);
+void Buttons_MainFunction(void);
 void On_Off_Init(void);
 void EXTI_On_Off_CallBack(void);
 # 8 "Buttons/Buttons.c" 2
@@ -1966,7 +1966,7 @@ void EXTI_On_Off_CallBack(void)
   }
 }
 
-void Read_UP_DOWN_BUTTONS(void)
+void Buttons_MainFunction(void)
 {
     if(((((PORTB>>2)&1)==0) ||(((PORTB>>1)&1)==0)) && Mode.Select_Mode==Normal_Mode)
     {

@@ -1920,21 +1920,15 @@ void ADC_Conv_MainFunction(void);
 # 26 "main.c" 2
 
 # 1 "./Scheduler/Scheduler.h" 1
-# 11 "./Scheduler/Scheduler.h"
+# 12 "./Scheduler/Scheduler.h"
 # 1 "./Scheduler/Scheduler_cfg.h" 1
-
-
-
-
-
+# 13 "./Scheduler/Scheduler_cfg.h"
 # 1 "./Scheduler/Tasks.h" 1
-
-
-
+# 11 "./Scheduler/Tasks.h"
 void Scheduler_Task1(void);
 void Scheduler_Task2(void);
 void Scheduler_Task3(void);
-# 6 "./Scheduler/Scheduler_cfg.h" 2
+# 13 "./Scheduler/Scheduler_cfg.h" 2
 
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\string.h" 1 3
 
@@ -1987,10 +1981,10 @@ extern char * strchr(const char *, int);
 extern char * strichr(const char *, int);
 extern char * strrchr(const char *, int);
 extern char * strrichr(const char *, int);
-# 7 "./Scheduler/Scheduler_cfg.h" 2
+# 14 "./Scheduler/Scheduler_cfg.h" 2
 
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
-# 8 "./Scheduler/Scheduler_cfg.h" 2
+# 15 "./Scheduler/Scheduler_cfg.h" 2
 
 # 1 "./Scheduler/../Config.h" 1
 
@@ -2000,7 +1994,7 @@ extern char * strrichr(const char *, int);
 
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
 # 6 "./Scheduler/../Config.h" 2
-# 9 "./Scheduler/Scheduler_cfg.h" 2
+# 16 "./Scheduler/Scheduler_cfg.h" 2
 
 
 
@@ -2014,7 +2008,7 @@ typedef struct{
 
 extern uint8_t Scheduler_ActivationFlags[( 3U )] ;
 extern const Scheduler_Intity_t Scheduler_Intitys[( 3U )];
-# 11 "./Scheduler/Scheduler.h" 2
+# 12 "./Scheduler/Scheduler.h" 2
 
 void Scheduler_Init(void);
 void Scheduler_Start(void);
@@ -2102,7 +2096,7 @@ void Elements_MainFunction(void);
 
 
 
-void Read_UP_DOWN_BUTTONS(void);
+void Buttons_MainFunction(void);
 void On_Off_Init(void);
 void EXTI_On_Off_CallBack(void);
 # 31 "main.c" 2

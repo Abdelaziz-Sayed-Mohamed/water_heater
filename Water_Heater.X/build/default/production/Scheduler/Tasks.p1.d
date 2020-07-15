@@ -13,4 +13,6 @@ Scheduler/../SSD/SSD.h  \
 Scheduler/../SSD/../Config.h  \
 Scheduler/../Temperature/Temperature.h  \
 Scheduler/../EEPROM/EEPROM.h  \
-Scheduler/../EEPROM/../Config.h 
+Scheduler/../EEPROM/../Config.h  \
+Scheduler/../Buttons/Buttons.h  \
+Scheduler/../Buttons/../Config.h 

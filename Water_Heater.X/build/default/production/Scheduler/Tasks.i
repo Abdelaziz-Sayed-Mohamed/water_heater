@@ -15,9 +15,7 @@
 
 
 # 1 "Scheduler/Tasks.h" 1
-
-
-
+# 11 "Scheduler/Tasks.h"
 void Scheduler_Task1(void);
 void Scheduler_Task2(void);
 void Scheduler_Task3(void);
@@ -2040,11 +2038,35 @@ void Set_EEPROM_Data(void);
 unsigned char e2pext_r(unsigned int addr);
 # 14 "Scheduler/Tasks.c" 2
 
+# 1 "Scheduler/../Buttons/Buttons.h" 1
+# 11 "Scheduler/../Buttons/Buttons.h"
+# 1 "Scheduler/../Buttons/../Config.h" 1
+
+
+
+
+
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
+# 6 "Scheduler/../Buttons/../Config.h" 2
+# 11 "Scheduler/../Buttons/Buttons.h" 2
+
+
+
+
+
+
+void Buttons_MainFunction(void);
+void On_Off_Init(void);
+void EXTI_On_Off_CallBack(void);
+# 15 "Scheduler/Tasks.c" 2
+
+
 
 
 void Scheduler_Task1(void)
 {
  SSD_MainFunction();
+    Buttons_MainFunction();
 }
 
 
@@ -2052,7 +2074,6 @@ void Scheduler_Task2(void)
 {
  ADC_Conv_MainFunction();
  LED_MainFunction();
-
 }
 
 void Scheduler_Task3(void)
@@ -2060,5 +2081,4 @@ void Scheduler_Task3(void)
     Mode_MainFunction();
  Elements_MainFunction();
     Set_EEPROM_Data();
-
 }

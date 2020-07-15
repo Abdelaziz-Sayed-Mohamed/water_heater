@@ -11,9 +11,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;WaterHeater_Mode/../Temperature/Temperature.h: 17: {
 [s S96 `uc 1 `uc 1 `uc 1 :1 `uc 1 :1 `uc 1 `uc 1 ]
 [n S96 _TEMP_t Temp_Value Average_Value Set_Temp Average_Value_Ready_Flag Store_Set_Temp_Flag Average_NValues ]
-"17 WaterHeater_Mode/../Buttons/Buttons.h
-[; ;WaterHeater_Mode/../Buttons/Buttons.h: 17: void Read_UP_DOWN_BUTTONS(void);
-[v _Read_UP_DOWN_BUTTONS `(v ~T0 @X0 0 ef ]
 "38 WaterHeater_Mode/WaterHeater_Mode.h
 [; ;WaterHeater_Mode/WaterHeater_Mode.h: 38: void Start_Setting_Timer(uint16_t Timer_Ms ,uint16_t Peroid_Task);
 [v _Start_Setting_Timer `(v ~T0 @X0 0 ef2`ui`ui ]
@@ -229,9 +226,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [e :U _Mode_MainFunction ]
 [f ]
-"30
-[; ;WaterHeater_Mode/WaterHeater_Mode.c: 30:  Read_UP_DOWN_BUTTONS();
-[e ( _Read_UP_DOWN_BUTTONS ..  ]
 "32
 [; ;WaterHeater_Mode/WaterHeater_Mode.c: 32:    if(Mode.Select_Mode==Setting_Mode)
 [e $ ! == -> . _Mode 0 `ui -> . `E879 2 `ui 99  ]

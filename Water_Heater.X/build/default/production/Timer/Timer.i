@@ -1868,21 +1868,15 @@ typedef uint16_t uintptr_t;
 # 10 "Timer/Timer.h" 2
 
 # 1 "Timer/../Scheduler/Scheduler.h" 1
-# 11 "Timer/../Scheduler/Scheduler.h"
+# 12 "Timer/../Scheduler/Scheduler.h"
 # 1 "Timer/../Scheduler/Scheduler_cfg.h" 1
-
-
-
-
-
+# 13 "Timer/../Scheduler/Scheduler_cfg.h"
 # 1 "Timer/../Scheduler/Tasks.h" 1
-
-
-
+# 11 "Timer/../Scheduler/Tasks.h"
 void Scheduler_Task1(void);
 void Scheduler_Task2(void);
 void Scheduler_Task3(void);
-# 6 "Timer/../Scheduler/Scheduler_cfg.h" 2
+# 13 "Timer/../Scheduler/Scheduler_cfg.h" 2
 
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\string.h" 1 3
 
@@ -1935,10 +1929,10 @@ extern char * strchr(const char *, int);
 extern char * strichr(const char *, int);
 extern char * strrchr(const char *, int);
 extern char * strrichr(const char *, int);
-# 7 "Timer/../Scheduler/Scheduler_cfg.h" 2
+# 14 "Timer/../Scheduler/Scheduler_cfg.h" 2
 
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
-# 8 "Timer/../Scheduler/Scheduler_cfg.h" 2
+# 15 "Timer/../Scheduler/Scheduler_cfg.h" 2
 
 # 1 "Timer/../Scheduler/../Config.h" 1
 
@@ -1948,7 +1942,7 @@ extern char * strrichr(const char *, int);
 
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
 # 6 "Timer/../Scheduler/../Config.h" 2
-# 9 "Timer/../Scheduler/Scheduler_cfg.h" 2
+# 16 "Timer/../Scheduler/Scheduler_cfg.h" 2
 
 
 
@@ -1962,7 +1956,7 @@ typedef struct{
 
 extern uint8_t Scheduler_ActivationFlags[( 3U )] ;
 extern const Scheduler_Intity_t Scheduler_Intitys[( 3U )];
-# 11 "Timer/../Scheduler/Scheduler.h" 2
+# 12 "Timer/../Scheduler/Scheduler.h" 2
 
 void Scheduler_Init(void);
 void Scheduler_Start(void);

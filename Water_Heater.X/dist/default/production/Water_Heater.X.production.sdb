@@ -93,7 +93,7 @@ Setting_Mode 2
 "22
 [v _EXTI_On_Off_CallBack EXTI_On_Off_CallBack `(v  1 e 1 0 ]
 "38
-[v _Read_UP_DOWN_BUTTONS Read_UP_DOWN_BUTTONS `(v  1 e 1 0 ]
+[v _Buttons_MainFunction Buttons_MainFunction `(v  1 e 1 0 ]
 "5 C:\Program Files (x86)\Microchip\xc8\v2.20\pic\sources\c90\common\__lldiv.c
 [v ___lldiv __lldiv `(ul  1 e 4 0 ]
 [v i1___lldiv __lldiv `(ul  1 e 4 0 ]
@@ -162,11 +162,11 @@ Setting_Mode 2
 [v _Scheduler_Init Scheduler_Init `(v  1 e 1 0 ]
 "35
 [v _Scheduler_ActivateTask Scheduler_ActivateTask `(v  1 e 1 0 ]
-"17 E:\study\Repos\water_heater\Water_Heater.X\Scheduler/Tasks.c
+"19 E:\study\Repos\water_heater\Water_Heater.X\Scheduler/Tasks.c
 [v _Scheduler_Task1 Scheduler_Task1 `(v  1 e 1 0 ]
-"23
+"26
 [v _Scheduler_Task2 Scheduler_Task2 `(v  1 e 1 0 ]
-"30
+"32
 [v _Scheduler_Task3 Scheduler_Task3 `(v  1 e 1 0 ]
 "15 E:\study\Repos\water_heater\Water_Heater.X\SSD/SSD.c
 [v _SSD_Init SSD_Init `(v  1 e 1 0 ]
@@ -254,7 +254,7 @@ Setting_Mode 2
 ]
 [u S83 . 1 `S63 1 . 1 0 `S69 1 . 1 0 `S77 1 . 1 0 `S80 1 . 1 0 ]
 [v _ADCON0bits ADCON0bits `VES83  1 e 1 @31 ]
-[s S465 . 1 `uc 1 PS 1 0 :3:0 
+[s S467 . 1 `uc 1 PS 1 0 :3:0 
 `uc 1 PSA 1 0 :1:3 
 `uc 1 T0SE 1 0 :1:4 
 `uc 1 T0CS 1 0 :1:5 
@@ -262,12 +262,12 @@ Setting_Mode 2
 `uc 1 nRBPU 1 0 :1:7 
 ]
 "1275
-[s S472 . 1 `uc 1 PS0 1 0 :1:0 
+[s S474 . 1 `uc 1 PS0 1 0 :1:0 
 `uc 1 PS1 1 0 :1:1 
 `uc 1 PS2 1 0 :1:2 
 ]
-[u S476 . 1 `S465 1 . 1 0 `S472 1 . 1 0 ]
-[v _OPTION_REGbits OPTION_REGbits `VES476  1 e 1 @129 ]
+[u S478 . 1 `S467 1 . 1 0 `S474 1 . 1 0 ]
+[v _OPTION_REGbits OPTION_REGbits `VES478  1 e 1 @129 ]
 "1325
 [v _TRISA TRISA `VEuc  1 e 1 @133 ]
 "1375
@@ -349,20 +349,20 @@ Setting_Mode 2
 [v ___bmul@multiplier multiplier `uc  1 a 1 24 ]
 "51
 } 0
-"23 E:\study\Repos\water_heater\Water_Heater.X\Scheduler/Tasks.c
+"26 E:\study\Repos\water_heater\Water_Heater.X\Scheduler/Tasks.c
 [v _Scheduler_Task2 Scheduler_Task2 `(v  1 e 1 0 ]
 {
-"28
+"30
 } 0
-"17
+"19
 [v _Scheduler_Task1 Scheduler_Task1 `(v  1 e 1 0 ]
 {
-"20
+"23
 } 0
-"30
+"32
 [v _Scheduler_Task3 Scheduler_Task3 `(v  1 e 1 0 ]
 {
-"36
+"37
 } 0
 "29 E:\study\Repos\water_heater\Water_Heater.X\EEPROM/EEPROM.c
 [v _Set_EEPROM_Data Set_EEPROM_Data `(v  1 e 1 0 ]
@@ -386,11 +386,6 @@ Setting_Mode 2
 [v Start_Setting_Timer@Timer_Ms Timer_Ms `ui  1 p 2 28 ]
 [v Start_Setting_Timer@Peroid_Task Peroid_Task `ui  1 p 2 30 ]
 "68
-} 0
-"38 E:\study\Repos\water_heater\Water_Heater.X\Buttons/Buttons.c
-[v _Read_UP_DOWN_BUTTONS Read_UP_DOWN_BUTTONS `(v  1 e 1 0 ]
-{
-"44
 } 0
 "57 E:\study\Repos\water_heater\Water_Heater.X\Elements/Elements.c
 [v _Elements_MainFunction Elements_MainFunction `(v  1 e 1 0 ]
@@ -575,6 +570,11 @@ Setting_Mode 2
 [v ___wmul@multiplier multiplier `ui  1 p 2 22 ]
 [v ___wmul@multiplicand multiplicand `ui  1 p 2 24 ]
 "53
+} 0
+"38 E:\study\Repos\water_heater\Water_Heater.X\Buttons/Buttons.c
+[v _Buttons_MainFunction Buttons_MainFunction `(v  1 e 1 0 ]
+{
+"44
 } 0
 "29 E:\study\Repos\water_heater\Water_Heater.X\Scheduler/Scheduler.c
 [v _Scheduler_Init Scheduler_Init `(v  1 e 1 0 ]

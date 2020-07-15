@@ -10,7 +10,6 @@
       <itemPath>Average/Average.h</itemPath>
       <itemPath>Average/Average_Cfg.h</itemPath>
       <itemPath>Buttons/Buttons.h</itemPath>
-      <itemPath>Buttons/Buttons_Cfg.h</itemPath>
       <itemPath>Elements/Elements.h</itemPath>
       <itemPath>gpio/gpio.h</itemPath>
       <itemPath>gpio/gpio_Cfg.h</itemPath>
@@ -24,7 +23,6 @@
       <itemPath>EEPROM/EEPROM.h</itemPath>
       <itemPath>I2C/I2C.h</itemPath>
       <itemPath>SSD/SSD.h</itemPath>
-      <itemPath>SSD/SSD_Cfg.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"

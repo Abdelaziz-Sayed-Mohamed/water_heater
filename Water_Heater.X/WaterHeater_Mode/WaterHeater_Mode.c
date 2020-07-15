@@ -27,7 +27,7 @@ void Mode_Init(void)
 
 void Mode_MainFunction(void)
 {
-	Read_UP_DOWN_BUTTONS();     //Check if up or down buttons pressed to switch mode from normal to setting mode
+	
 
    if(Mode.Select_Mode==Setting_Mode)
    {

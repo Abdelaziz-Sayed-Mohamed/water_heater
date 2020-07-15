@@ -1960,7 +1960,7 @@ void Temperature_Calc(uint8_t ADC_VALUE);
 
 
 
-void Read_UP_DOWN_BUTTONS(void);
+void Buttons_MainFunction(void);
 void On_Off_Init(void);
 void EXTI_On_Off_CallBack(void);
 # 11 "WaterHeater_Mode/WaterHeater_Mode.c" 2
@@ -1999,7 +1999,7 @@ void Mode_Init(void)
 
 void Mode_MainFunction(void)
 {
- Read_UP_DOWN_BUTTONS();
+
 
    if(Mode.Select_Mode==Setting_Mode)
    {

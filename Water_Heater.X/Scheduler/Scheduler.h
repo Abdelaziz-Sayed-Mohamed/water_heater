@@ -1,7 +1,8 @@
 /*
- *  File :  Scheduler.c
+ * Scheduler.h
  *
- *
+ *  Created on: Jul 8, 2020
+ *      Author: Abdelaziz Sayed
  */
 #ifndef _SCHEDULER_
 #define _SCHEDULER_

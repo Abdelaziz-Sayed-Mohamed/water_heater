@@ -26,6 +26,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "42 Scheduler/../SSD/SSD.h
 [; ;Scheduler/../SSD/SSD.h: 42: void SSD_MainFunction(void);
 [v _SSD_MainFunction `(v ~T0 @X0 0 ef ]
+"17 Scheduler/../Buttons/Buttons.h
+[; ;Scheduler/../Buttons/Buttons.h: 17: void Buttons_MainFunction(void);
+[v _Buttons_MainFunction `(v ~T0 @X0 0 ef ]
 "34 Scheduler/../ADC/ADC.h
 [; ;Scheduler/../ADC/ADC.h: 34: void ADC_Conv_MainFunction(void);
 [v _ADC_Conv_MainFunction `(v ~T0 @X0 0 ef ]
@@ -236,57 +239,60 @@ Version 4.0 HI-TECH Software Intermediate Code
 "26 Scheduler/../Temperature/Temperature.h
 [; ;Scheduler/../Temperature/Temperature.h: 26: TEMP_t Temperature;
 [v _Temperature `S97 ~T0 @X0 1 e ]
-"17 Scheduler/Tasks.c
-[; ;Scheduler/Tasks.c: 17: void Scheduler_Task1(void)
+"19 Scheduler/Tasks.c
+[; ;Scheduler/Tasks.c: 19: void Scheduler_Task1(void)
 [v _Scheduler_Task1 `(v ~T0 @X0 1 ef ]
-"18
-[; ;Scheduler/Tasks.c: 18: {
+"20
+[; ;Scheduler/Tasks.c: 20: {
 {
 [e :U _Scheduler_Task1 ]
 [f ]
-"19
-[; ;Scheduler/Tasks.c: 19:  SSD_MainFunction();
+"21
+[; ;Scheduler/Tasks.c: 21:  SSD_MainFunction();
 [e ( _SSD_MainFunction ..  ]
-"20
-[; ;Scheduler/Tasks.c: 20: }
+"22
+[; ;Scheduler/Tasks.c: 22:     Buttons_MainFunction();
+[e ( _Buttons_MainFunction ..  ]
+"23
+[; ;Scheduler/Tasks.c: 23: }
 [e :UE 98 ]
 }
-"23
-[; ;Scheduler/Tasks.c: 23: void Scheduler_Task2(void)
+"26
+[; ;Scheduler/Tasks.c: 26: void Scheduler_Task2(void)
 [v _Scheduler_Task2 `(v ~T0 @X0 1 ef ]
-"24
-[; ;Scheduler/Tasks.c: 24: {
+"27
+[; ;Scheduler/Tasks.c: 27: {
 {
 [e :U _Scheduler_Task2 ]
 [f ]
-"25
-[; ;Scheduler/Tasks.c: 25:  ADC_Conv_MainFunction();
-[e ( _ADC_Conv_MainFunction ..  ]
-"26
-[; ;Scheduler/Tasks.c: 26:  LED_MainFunction();
-[e ( _LED_MainFunction ..  ]
 "28
-[; ;Scheduler/Tasks.c: 28: }
+[; ;Scheduler/Tasks.c: 28:  ADC_Conv_MainFunction();
+[e ( _ADC_Conv_MainFunction ..  ]
+"29
+[; ;Scheduler/Tasks.c: 29:  LED_MainFunction();
+[e ( _LED_MainFunction ..  ]
+"30
+[; ;Scheduler/Tasks.c: 30: }
 [e :UE 99 ]
 }
-"30
-[; ;Scheduler/Tasks.c: 30: void Scheduler_Task3(void)
+"32
+[; ;Scheduler/Tasks.c: 32: void Scheduler_Task3(void)
 [v _Scheduler_Task3 `(v ~T0 @X0 1 ef ]
-"31
-[; ;Scheduler/Tasks.c: 31: {
+"33
+[; ;Scheduler/Tasks.c: 33: {
 {
 [e :U _Scheduler_Task3 ]
 [f ]
-"32
-[; ;Scheduler/Tasks.c: 32:     Mode_MainFunction();
-[e ( _Mode_MainFunction ..  ]
-"33
-[; ;Scheduler/Tasks.c: 33:  Elements_MainFunction();
-[e ( _Elements_MainFunction ..  ]
 "34
-[; ;Scheduler/Tasks.c: 34:     Set_EEPROM_Data();
-[e ( _Set_EEPROM_Data ..  ]
+[; ;Scheduler/Tasks.c: 34:     Mode_MainFunction();
+[e ( _Mode_MainFunction ..  ]
+"35
+[; ;Scheduler/Tasks.c: 35:  Elements_MainFunction();
+[e ( _Elements_MainFunction ..  ]
 "36
-[; ;Scheduler/Tasks.c: 36: }
+[; ;Scheduler/Tasks.c: 36:     Set_EEPROM_Data();
+[e ( _Set_EEPROM_Data ..  ]
+"37
+[; ;Scheduler/Tasks.c: 37: }
 [e :UE 100 ]
 }
