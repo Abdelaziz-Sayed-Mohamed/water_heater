@@ -22,11 +22,11 @@
 
    For e-mail suggestions :  lcgamboa@yahoo.com
    ######################################################################## */
-
+#include"../Config.h"
+#define SDA                          PORTCbits.RC4
 void i2c_init(void);
 void I2c_Start(void);
 void I2c_Stop(void);
-void I2c_Write(unsigned char val);
-unsigned char I2c_Read(unsigned char ack);
-unsigned char i2c_Read(unsigned char ack);
+void I2c_Write(uint8_t val);
+uint8_t I2c_Read(void);
 

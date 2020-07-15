@@ -60,7 +60,7 @@ uint8_t EEPROM_Read(uint8_t addr)
   I2c_Write(addr);
   I2c_Start();
   I2c_Write(EEPROM_24c04_ADDR+1);
-  ret=I2c_Read(1);
+  ret=I2c_Read();
   I2c_Stop();
   return ret;	
 }

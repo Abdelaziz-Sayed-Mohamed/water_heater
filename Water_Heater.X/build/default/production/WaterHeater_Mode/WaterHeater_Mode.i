@@ -1976,7 +1976,7 @@ void EXTI_On_Off_CallBack(void);
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
 # 6 "WaterHeater_Mode/../EEPROM/../Config.h" 2
 # 12 "WaterHeater_Mode/../EEPROM/EEPROM.h" 2
-# 25 "WaterHeater_Mode/../EEPROM/EEPROM.h"
+# 26 "WaterHeater_Mode/../EEPROM/EEPROM.h"
 void Get_EEPROM_Data(void);
 void Set_EEPROM_Data(void);
 void EEPROM_Write(uint8_t Data);

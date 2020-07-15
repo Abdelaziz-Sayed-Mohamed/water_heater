@@ -9,18 +9,8 @@
 # 1 "EEPROM/EEPROM.c" 2
 
 # 1 "EEPROM/../I2C/I2C.h" 1
-# 26 "EEPROM/../I2C/I2C.h"
-void i2c_init(void);
-void I2c_Start(void);
-void I2c_Stop(void);
-void I2c_Write(unsigned char val);
-unsigned char I2c_Read(unsigned char ack);
-unsigned char i2c_Read(unsigned char ack);
-# 2 "EEPROM/EEPROM.c" 2
-
-# 1 "EEPROM/EEPROM.h" 1
-# 12 "EEPROM/EEPROM.h"
-# 1 "EEPROM/../Config.h" 1
+# 25 "EEPROM/../I2C/I2C.h"
+# 1 "EEPROM/../I2C/../Config.h" 1
 
 
 
@@ -1734,7 +1724,7 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 2 3
-# 5 "EEPROM/../Config.h" 2
+# 5 "EEPROM/../I2C/../Config.h" 2
 
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
 # 13 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 3
@@ -1869,9 +1859,29 @@ typedef int16_t intptr_t;
 
 
 typedef uint16_t uintptr_t;
+# 6 "EEPROM/../I2C/../Config.h" 2
+# 25 "EEPROM/../I2C/I2C.h" 2
+
+
+void i2c_init(void);
+void I2c_Start(void);
+void I2c_Stop(void);
+void I2c_Write(uint8_t val);
+uint8_t I2c_Read(void);
+# 2 "EEPROM/EEPROM.c" 2
+
+# 1 "EEPROM/EEPROM.h" 1
+# 12 "EEPROM/EEPROM.h"
+# 1 "EEPROM/../Config.h" 1
+
+
+
+
+
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
 # 6 "EEPROM/../Config.h" 2
 # 12 "EEPROM/EEPROM.h" 2
-# 25 "EEPROM/EEPROM.h"
+# 26 "EEPROM/EEPROM.h"
 void Get_EEPROM_Data(void);
 void Set_EEPROM_Data(void);
 void EEPROM_Write(uint8_t Data);
@@ -1969,7 +1979,7 @@ uint8_t EEPROM_Read(uint8_t addr)
   I2c_Write(addr);
   I2c_Start();
   I2c_Write(0xa0 +1);
-  ret=I2c_Read(1);
+  ret=I2c_Read();
   I2c_Stop();
   return ret;
 }

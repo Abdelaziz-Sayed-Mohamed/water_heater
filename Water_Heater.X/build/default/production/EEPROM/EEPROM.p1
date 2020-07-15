@@ -3,24 +3,24 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;EEPROM/../Temperature/Temperature.h: 17: {
 [s S95 `uc 1 `uc 1 `uc 1 :1 `uc 1 :1 `uc 1 `uc 1 ]
 [n S95 _TEMP_t Temp_Value Average_Value Set_Temp Average_Value_Ready_Flag Store_Set_Temp_Flag Average_NValues ]
-"28 EEPROM/EEPROM.h
-[; ;EEPROM/EEPROM.h: 28: uint8_t EEPROM_Read(uint8_t addr);
+"29 EEPROM/EEPROM.h
+[; ;EEPROM/EEPROM.h: 29: uint8_t EEPROM_Read(uint8_t addr);
 [v _EEPROM_Read `(uc ~T0 @X0 0 ef1`uc ]
-"27
-[; ;EEPROM/EEPROM.h: 27: void EEPROM_Write(uint8_t Data);
-[v _EEPROM_Write `(v ~T0 @X0 0 ef1`uc ]
-"27 EEPROM/../I2C/I2C.h
-[; ;EEPROM/../I2C/I2C.h: 27: void I2c_Start(void);
-[v _I2c_Start `(v ~T0 @X0 0 ef ]
-"29
-[; ;EEPROM/../I2C/I2C.h: 29: void I2c_Write(unsigned char val);
-[v _I2c_Write `(v ~T0 @X0 0 ef1`uc ]
 "28
-[; ;EEPROM/../I2C/I2C.h: 28: void I2c_Stop(void);
-[v _I2c_Stop `(v ~T0 @X0 0 ef ]
+[; ;EEPROM/EEPROM.h: 28: void EEPROM_Write(uint8_t Data);
+[v _EEPROM_Write `(v ~T0 @X0 0 ef1`uc ]
+"28 EEPROM/../I2C/I2C.h
+[; ;EEPROM/../I2C/I2C.h: 28: void I2c_Start(void);
+[v _I2c_Start `(v ~T0 @X0 0 ef ]
 "30
-[; ;EEPROM/../I2C/I2C.h: 30: unsigned char I2c_Read(unsigned char ack);
-[v _I2c_Read `(uc ~T0 @X0 0 ef1`uc ]
+[; ;EEPROM/../I2C/I2C.h: 30: void I2c_Write(uint8_t val);
+[v _I2c_Write `(v ~T0 @X0 0 ef1`uc ]
+"29
+[; ;EEPROM/../I2C/I2C.h: 29: void I2c_Stop(void);
+[v _I2c_Stop `(v ~T0 @X0 0 ef ]
+"31
+[; ;EEPROM/../I2C/I2C.h: 31: uint8_t I2c_Read(void);
+[v _I2c_Read `(uc ~T0 @X0 0 ef ]
 "54 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 54: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
@@ -353,8 +353,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;EEPROM/EEPROM.c: 62:   I2c_Write(0xa0 +1);
 [e ( _I2c_Write (1 -> + -> 160 `i -> 1 `i `uc ]
 "63
-[; ;EEPROM/EEPROM.c: 63:   ret=I2c_Read(1);
-[e = _ret ( _I2c_Read (1 -> -> 1 `i `uc ]
+[; ;EEPROM/EEPROM.c: 63:   ret=I2c_Read();
+[e = _ret ( _I2c_Read ..  ]
 "64
 [; ;EEPROM/EEPROM.c: 64:   I2c_Stop();
 [e ( _I2c_Stop ..  ]
