@@ -1,10 +1,10 @@
 ___lldiv@counter D3 0 BANK1 1
 Temperature_Calc@ADC_VALUE EF 0 BANK1 1
-__end_of_Elements_Init 84F 0 CODE 0
+__end_of_Elements_Init 83F 0 CODE 0
 ___awdiv@counter 3A 0 BANK0 1
 __size_of_LED_BLINKING 0 0 ABS 0
 EEPROM_Read@ret 3B 0 BANK0 1
-_Scheduler_Task3 85F 0 CODE 0
+_Scheduler_Task3 84F 0 CODE 0
 __size_of__Umul8_16 0 0 ABS 0
 __S0 1800 0 ABS 0
 __S1 19D 0 ABS 0
@@ -45,7 +45,7 @@ _PORTC 7 0 ABS 0
 _PORTD 8 0 ABS 0
 __fptable 42 0 ENTRY 0
 wtemp0 7E 0 ABS 0
-__end_of_delay 1800 0 CODE 0
+__end_of_delay 823 0 CODE 0
 __end_of_Timer0_Init 87F 0 CODE 0
 SSD_MainFunction@Digit_1 4B 0 BANK0 1
 interrupt_function 4 0 CODE 0
@@ -66,10 +66,10 @@ fpbase 47 0 ENTRY 0
 __end_of_Buttons_MainFunction E3F 0 CODE 0
 _Average_Value 6B1 0 CODE 0
 __end_of_EXTI_On_Off_CallBack 8D5 0 CODE 0
-_delay 17F6 0 CODE 0
+_delay 819 0 CODE 0
 _ADC_Init 904 0 CODE 0
 ___xxtofl 40C 0 CODE 0
-_SSD_Init 833 0 CODE 0
+_SSD_Init 823 0 CODE 0
 __Hfunctab 51 0 ENTRY 0
 __Lfunctab 42 0 ENTRY 0
 __pfunctab 42 0 ENTRY 0
@@ -82,7 +82,7 @@ __Heeprom_data 0 0 EEDATA 3
 __Leeprom_data 0 0 EEDATA 3
 ?___flmul D5 0 BANK1 1
 __end_of_Mode_MainFunction C09 0 CODE 0
-__end_of_On_Off_Init 17E4 0 CODE 0
+__end_of_On_Off_Init 17E0 0 CODE 0
 _Avrage_buffer 42 0 BANK0 1
 ___int_sp 0 0 STACK 2
 __end_of_Average_Value 749 0 CODE 0
@@ -125,7 +125,7 @@ __Lcode 0 0 ABS 0
 i1___bmul@product 71 0 COMMON 1
 __end_of_I2c_Start 8A9 0 CODE 0
 fptable 42 0 ENTRY 0
-__end_of_Scheduler_Init 85F 0 CODE 0
+__end_of_Scheduler_Init 84F 0 CODE 0
 _Timer0_Init 86F 0 CODE 0
 __HcstackBANK0 0 0 ABS 0
 __LcstackBANK0 0 0 ABS 0
@@ -161,7 +161,7 @@ Scheduler_ActivateTask@IntityIndex 31 0 BANK0 1
 SSD_MainFunction@Tempreture 49 0 BANK0 1
 _Enable_SSD 4F 0 BANK0 1
 __size_of_ADC_Conv_MainFunction 0 0 ABS 0
-_Scheduler_Task2 828 0 CODE 0
+_Scheduler_Task2 85F 0 CODE 0
 __end_of_Get_EEPROM_Data C4D 0 CODE 0
 ___bmul@multiplicand 36 0 BANK0 1
 ___stacklo 0 0 ABS 0
@@ -169,12 +169,12 @@ i1___lldiv@counter 24 0 BANK0 1
 _Mode_Init 17D6 0 CODE 0
 ___wmul@multiplicand 38 0 BANK0 1
 __end_of_ADC_Conv_MainFunction 93B 0 CODE 0
-_On_Off_Init 17DE 0 CODE 0
+_On_Off_Init 17DA 0 CODE 0
 __stringtab 800 0 STRING 0
 Average_Value@Avrage_Values 3F 0 BANK0 1
 __size_of_ADC_Init 0 0 ABS 0
 __size_ofi1___lldiv 0 0 ABS 0
-_ADC_Start_Conv 17E4 0 CODE 0
+_ADC_Start_Conv 17EE 0 CODE 0
 _PORTCbits 7 0 ABS 0
 __Hstrings 0 0 ABS 0
 __Lstrings 0 0 ABS 0
@@ -183,17 +183,17 @@ __pstrings 800 0 STRING 0
 i1___lldiv EA5 0 CODE 0
 _I2c_Start 894 0 CODE 0
 __end_of_Mode_Init 17DA 0 CODE 0
-__end_of_ADC_Value_Ready_CallBack 17F6 0 CODE 0
-__end_of_Scheduler_Task1 828 0 CODE 0
+__end_of_ADC_Value_Ready_CallBack 1800 0 CODE 0
+__end_of_Scheduler_Task1 17E6 0 CODE 0
 __Hbank0 0 0 ABS 0
 SSD_Blink@Counter 56 0 BANK0 1
 __Lbank0 0 0 ABS 0
-__end_of_Scheduler_Task2 833 0 CODE 0
+__end_of_Scheduler_Task2 86F 0 CODE 0
 __size_of_I2c_Read 0 0 ABS 0
 __Hbank1 0 0 ABS 0
 __size_of_Elements_Init 0 0 ABS 0
 __Lbank1 0 0 ABS 0
-__end_of_Scheduler_Task3 86F 0 CODE 0
+__end_of_Scheduler_Task3 85F 0 CODE 0
 Average_Value@Value 40 0 BANK0 1
 _Mode_MainFunction BC8 0 CODE 0
 __size_of_Average_Value 0 0 ABS 0
@@ -213,9 +213,9 @@ __ptext1 86F 0 CODE 0
 __ptext2 ADE 0 CODE 0
 __ptext3 8D5 0 CODE 0
 __size_of_myISR 0 0 ABS 0
-__ptext4 828 0 CODE 0
-__ptext5 81D 0 CODE 0
-__ptext6 85F 0 CODE 0
+__ptext4 85F 0 CODE 0
+__ptext5 17E0 0 CODE 0
+__ptext6 84F 0 CODE 0
 __ptext7 8EC 0 CODE 0
 __HcstackBANK1 0 0 ABS 0
 __LcstackBANK1 0 0 ABS 0
@@ -227,13 +227,13 @@ __end_of_Set_EEPROM_Data 904 0 CODE 0
 __Hclrtext 0 0 ABS 0
 __Lclrtext 0 0 ABS 0
 __end_of_Start_Setting_Timer A47 0 CODE 0
-__end_of_SSD_Init 840 0 CODE 0
+__end_of_SSD_Init 830 0 CODE 0
 __end_of_Scheduler_Intitys 815 0 STRING 0
 __end_ofi1___lldiv F0D 0 CODE 0
 __size_of_Elements_MainFunction 0 0 ABS 0
 __size_of_SSD_Init 0 0 ABS 0
 __end_of_LED_MainFunction ADE 0 CODE 0
-__end_of_ADC_Start_Conv 17ED 0 CODE 0
+__end_of_ADC_Start_Conv 17F7 0 CODE 0
 Start_Setting_Timer@Timer_Ms 3C 0 BANK0 1
 __end_of__initialization 3E 0 CODE 0
 memset@c 36 0 BANK0 1
@@ -242,7 +242,7 @@ __size_of_LED_MainFunction 0 0 ABS 0
 Start_Setting_Timer@Peroid_Task 3E 0 BANK0 1
 __size_of_ADC_Start_Conv 0 0 ABS 0
 __size_of_Timer0_Init 0 0 ABS 0
-_Elements_Init 840 0 CODE 0
+_Elements_Init 830 0 CODE 0
 __size_of_Timer0_CallBack 0 0 ABS 0
 __size_of_memset 0 0 ABS 0
 memset@n 38 0 BANK0 1
@@ -292,11 +292,11 @@ ___fltol@exp1 40 0 BANK0 1
 i1___lldiv@divisor 73 0 COMMON 1
 __HidataBANK0 0 0 ABS 0
 __LidataBANK0 0 0 ABS 0
-__pidataBANK0 17DA 0 CODE 0
+__pidataBANK0 815 0 CODE 0
 ?__Umul8_16 36 0 BANK0 1
 _Scheduler_Start ADE 0 CODE 0
-_Scheduler_Task1 81D 0 CODE 0
-clear_ram0 815 0 CODE 0
+_Scheduler_Task1 17E0 0 CODE 0
+clear_ram0 17E6 0 CODE 0
 _LED_BLINKING 9F2 0 CODE 0
 __size_of_On_Off_Init 0 0 ABS 0
 __HbssBANK0 0 0 ABS 0
@@ -310,57 +310,57 @@ ___xxtofl@arg D1 0 BANK1 1
 __pbssBANK1 A0 0 BANK1 1
 _ADC_Conv_MainFunction 91F 0 CODE 0
 __ptext10 A1C 0 CODE 0
-__ptext20 9C9 0 CODE 0
+__ptext20 51 0 CODE 0
 __size_of_SSD_Blink 0 0 ABS 0
 __ptext11 C94 0 CODE 0
 __ptext30 95C 0 CODE 0
-__ptext21 6B1 0 CODE 0
+__ptext21 9C9 0 CODE 0
 __ptext40 CE2 0 CODE 0
 __ptext12 AA7 0 CODE 0
-__ptext31 833 0 CODE 0
+__ptext31 823 0 CODE 0
 __ptext50 87F 0 CODE 0
-__ptext22 B8C 0 CODE 0
-__ptext41 17F6 0 CODE 0
+__ptext22 6B1 0 CODE 0
+__ptext41 819 0 CODE 0
 __ptext13 9F2 0 CODE 0
-__ptext32 17DE 0 CODE 0
+__ptext32 17DA 0 CODE 0
 __ptext51 D31 0 CODE 0
 _ADCON0bits 1F 0 ABS 0
 _ADCON1bits 9F 0 ABS 0
-__ptext23 F76 0 CODE 0
+__ptext23 B8C 0 CODE 0
 __ptext42 93B 0 CODE 0
 __size_of___awdiv 0 0 ABS 0
-__ptext14 91F 0 CODE 0
+__ptext14 DE2 0 CODE 0
 __ptext33 17D6 0 CODE 0
 __ptext52 8BE 0 CODE 0
-__ptext24 517 0 CODE 0
-__ptext43 840 0 CODE 0
-__ptext15 17ED 0 CODE 0
+__ptext24 F76 0 CODE 0
+__ptext43 830 0 CODE 0
+__ptext15 91F 0 CODE 0
 __ptext34 C09 0 CODE 0
-__ptext25 F0D 0 CODE 0
-__ptext44 17E4 0 CODE 0
-__ptext16 617 0 CODE 0
+__ptext25 517 0 CODE 0
+__ptext44 17EE 0 CODE 0
+__ptext16 17F7 0 CODE 0
 __ptext35 D87 0 CODE 0
 _Elements_MainFunction C94 0 CODE 0
 __size_of_Start_Setting_Timer 0 0 ABS 0
-__ptext26 B51 0 CODE 0
+__ptext26 F0D 0 CODE 0
 __ptext45 904 0 CODE 0
 SSD_MainFunction@SSD 48 0 BANK0 1
 ___llmod@divisor 25 0 BANK0 1
-__ptext17 40C 0 CODE 0
+__ptext17 617 0 CODE 0
 __ptext36 A73 0 CODE 0
 ___awmod@divisor 36 0 BANK0 1
 __end_of___lwmod BC8 0 CODE 0
-__ptext27 9A2 0 CODE 0
+__ptext27 B51 0 CODE 0
 __ptext46 97E 0 CODE 0
 ___lwmod@divisor 36 0 BANK0 1
-__ptext18 749 0 CODE 0
+__ptext18 40C 0 CODE 0
 __ptext37 C4D 0 CODE 0
 ___fltol@sign1 3F 0 BANK0 1
-__ptext28 DE2 0 CODE 0
+__ptext28 9A2 0 CODE 0
 __ptext47 A47 0 CODE 0
-__ptext19 51 0 CODE 0
+__ptext19 749 0 CODE 0
 __ptext38 8A9 0 CODE 0
-__ptext29 84F 0 CODE 0
+__ptext29 83F 0 CODE 0
 __ptext48 E3F 0 CODE 0
 __ptext39 894 0 CODE 0
 __ptext49 EA5 0 CODE 0
@@ -421,7 +421,7 @@ ___lldiv@quotient CF 0 BANK1 1
 ___awdiv@quotient 3C 0 BANK0 1
 EEPROM_Write@ADDR 3A 0 BANK0 1
 __end_of_ADC_Init 91F 0 CODE 0
-_ADC_Value_Ready_CallBack 17ED 0 CODE 0
+_ADC_Value_Ready_CallBack 17F7 0 CODE 0
 __end_of___xxtofl 517 0 CODE 0
 __Hmaintext 0 0 ABS 0
 __Lmaintext 0 0 ABS 0
@@ -435,7 +435,7 @@ __size_of_EXTI_On_Off_CallBack 0 0 ABS 0
 __size_of__fptable 0 0 ABS 0
 __initialization 15 0 CODE 0
 ___flmul@bexp E8 0 BANK1 1
-_Scheduler_Init 84F 0 CODE 0
+_Scheduler_Init 83F 0 CODE 0
 __stringbase 805 0 STRING 0
 SSD_MainFunction@Enable_Digit_Selector 57 0 BANK0 1
 ___flmul@prod E9 0 BANK1 1
@@ -466,12 +466,12 @@ cstackCOMMON 70 7D COMMON 70 1
 bssBANK1 A0 EF BANK1 A0 1
 cstackBANK0 20 59 BANK0 20 1
 cstackBANK3 190 19C BANK3 190 1
-text19 A2 FFD CODE A2 0
-text23 1EEC 1FFF CODE 1EEC 0
-text25 1E1A 1EEB CODE 1E1A 0
+text20 A2 FFD CODE A2 0
+text24 1EEC 1FFF CODE 1EEC 0
+text26 1E1A 1EEB CODE 1E1A 0
 text49 1D4A 1E19 CODE 1D4A 0
 text48 1C7E 1D49 CODE 1C7E 0
-text28 1BC4 1C7D CODE 1BC4 0
+text14 1BC4 1C7D CODE 1BC4 0
 text35 1B0E 1BC3 CODE 1B0E 0
 text51 1A62 1B0D CODE 1A62 0
 text40 19C4 1A61 CODE 19C4 0
@@ -479,8 +479,8 @@ text11 1928 19C3 CODE 1928 0
 text37 189A 1927 CODE 189A 0
 text34 1812 1899 CODE 1812 0
 text9 1790 1811 CODE 1790 0
-text22 1718 178F CODE 1718 0
-text26 16A2 1717 CODE 16A2 0
+text23 1718 178F CODE 1718 0
+text27 16A2 1717 CODE 16A2 0
 maintext 162E 16A1 CODE 162E 0
 text2 15BC 162D CODE 15BC 0
 text12 154E 15BB CODE 154E 0
@@ -488,12 +488,12 @@ text36 14E6 154D CODE 14E6 0
 text47 148E 14E5 CODE 148E 0
 text10 1438 148D CODE 1438 0
 text13 13E4 1437 CODE 13E4 0
-text20 1392 13E3 CODE 1392 0
-text27 1344 1391 CODE 1344 0
+text21 1392 13E3 CODE 1392 0
+text28 1344 1391 CODE 1344 0
 text46 12FC 1343 CODE 12FC 0
 text30 12B8 12FB CODE 12B8 0
 text42 1276 12B7 CODE 1276 0
-text14 123E 1275 CODE 123E 0
+text15 123E 1275 CODE 123E 0
 text45 1208 123D CODE 1208 0
 text7 11D8 1207 CODE 11D8 0
 text3 11AA 11D7 CODE 11AA 0
@@ -503,22 +503,22 @@ text38 1152 117B CODE 1152 0
 text39 1128 1151 CODE 1128 0
 text50 10FE 1127 CODE 10FE 0
 text1 10DE 10FD CODE 10DE 0
-text6 10BE 10DD CODE 10BE 0
-text29 109E 10BD CODE 109E 0
-text43 1080 109D CODE 1080 0
-text31 1066 107F CODE 1066 0
-text4 1050 1065 CODE 1050 0
-text5 103A 104F CODE 103A 0
-text41 2FEC 2FFF CODE 2FEC 0
-text15 2FDA 2FEB CODE 2FDA 0
-text44 2FC8 2FD9 CODE 2FC8 0
-clrtext 102A 1039 CODE 102A 0
-text32 2FBC 2FC7 CODE 2FBC 0
-idataBANK0 2FB4 2FBB CODE 2FB4 0
+text4 10BE 10DD CODE 10BE 0
+text6 109E 10BD CODE 109E 0
+text29 107E 109D CODE 107E 0
+text43 1060 107D CODE 1060 0
+text31 1046 105F CODE 1046 0
+text41 1032 1045 CODE 1032 0
+text16 2FEE 2FFF CODE 2FEE 0
+text44 2FDC 2FED CODE 2FDC 0
+clrtext 2FCC 2FDB CODE 2FCC 0
+text5 2FC0 2FCB CODE 2FC0 0
+text32 2FB4 2FBF CODE 2FB4 0
+idataBANK0 102A 1031 CODE 102A 0
 text33 2FAC 2FB3 CODE 2FAC 0
 %locals
 dist/default/production\Water_Heater.X.production.o
-C:\Users\ABDALA~1\AppData\Local\Temp\sa04.s
+C:\Users\ABDALA~1\AppData\Local\Temp\s918.s
 2208 15 0 CODE 0
 2211 15 0 CODE 0
 2294 15 0 CODE 0
@@ -541,16 +541,16 @@ C:\Users\ABDALA~1\AppData\Local\Temp\sa04.s
 2336 3E 0 CODE 0
 2338 3E 0 CODE 0
 2339 3F 0 CODE 0
-2307 815 0 CODE 0
-2308 815 0 CODE 0
-2309 816 0 CODE 0
-2310 816 0 CODE 0
-2311 817 0 CODE 0
-2312 818 0 CODE 0
-2313 819 0 CODE 0
-2314 81A 0 CODE 0
-2315 81B 0 CODE 0
-2316 81C 0 CODE 0
+2307 17E6 0 CODE 0
+2308 17E6 0 CODE 0
+2309 17E7 0 CODE 0
+2310 17E7 0 CODE 0
+2311 17E8 0 CODE 0
+2312 17E9 0 CODE 0
+2313 17EA 0 CODE 0
+2314 17EB 0 CODE 0
+2315 17EC 0 CODE 0
+2316 17ED 0 CODE 0
 main.c
 40 B17 0 CODE 0
 42 B17 0 CODE 0
@@ -597,19 +597,19 @@ C:\Program Files (x86)\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c
 50 8EA 0 CODE 0
 51 8EB 0 CODE 0
 Scheduler/Tasks.c
-26 828 0 CODE 0
-29 828 0 CODE 0
-30 82D 0 CODE 0
-31 832 0 CODE 0
-19 81D 0 CODE 0
-21 81D 0 CODE 0
-22 822 0 CODE 0
-23 827 0 CODE 0
-33 85F 0 CODE 0
-35 85F 0 CODE 0
-36 864 0 CODE 0
-37 869 0 CODE 0
-38 86E 0 CODE 0
+25 85F 0 CODE 0
+27 85F 0 CODE 0
+28 864 0 CODE 0
+29 869 0 CODE 0
+30 86E 0 CODE 0
+19 17E0 0 CODE 0
+21 17E0 0 CODE 0
+22 17E5 0 CODE 0
+32 84F 0 CODE 0
+34 84F 0 CODE 0
+35 854 0 CODE 0
+36 859 0 CODE 0
+37 85E 0 CODE 0
 EEPROM/EEPROM.c
 29 8EC 0 CODE 0
 33 8EC 0 CODE 0
@@ -679,6 +679,22 @@ Elements/Elements.c
 29 A16 0 CODE 0
 32 A17 0 CODE 0
 35 A1B 0 CODE 0
+Buttons/Buttons.c
+38 DE2 0 CODE 0
+40 DE2 0 CODE 0
+42 DFC 0 CODE 0
+44 E01 0 CODE 0
+45 E05 0 CODE 0
+46 E06 0 CODE 0
+48 E0C 0 CODE 0
+50 E18 0 CODE 0
+51 E23 0 CODE 0
+52 E24 0 CODE 0
+53 E25 0 CODE 0
+55 E31 0 CODE 0
+56 E3C 0 CODE 0
+58 E3E 0 CODE 0
+61 E3E 0 CODE 0
 ADC/ADC.c
 47 91F 0 CODE 0
 49 91F 0 CODE 0
@@ -686,9 +702,9 @@ ADC/ADC.c
 53 932 0 CODE 0
 54 937 0 CODE 0
 57 93A 0 CODE 0
-59 17ED 0 CODE 0
-61 17ED 0 CODE 0
-63 17F5 0 CODE 0
+59 17F7 0 CODE 0
+61 17F7 0 CODE 0
+63 17FF 0 CODE 0
 Temperature/Temperature.c
 14 617 0 CODE 0
 16 61A 0 CODE 0
@@ -985,26 +1001,10 @@ C:\Program Files (x86)\Microchip\xc8\v2.20\pic\sources\c90\common\Umul16.c
 49 9BE 0 CODE 0
 52 9C4 0 CODE 0
 53 9C8 0 CODE 0
-Buttons/Buttons.c
-38 DE2 0 CODE 0
-40 DE2 0 CODE 0
-42 DFC 0 CODE 0
-44 E01 0 CODE 0
-45 E05 0 CODE 0
-46 E06 0 CODE 0
-48 E0C 0 CODE 0
-50 E18 0 CODE 0
-51 E23 0 CODE 0
-52 E24 0 CODE 0
-53 E25 0 CODE 0
-55 E31 0 CODE 0
-56 E3C 0 CODE 0
-58 E3E 0 CODE 0
-61 E3E 0 CODE 0
 Scheduler/Scheduler.c
-29 84F 0 CODE 0
-31 84F 0 CODE 0
-32 85E 0 CODE 0
+29 83F 0 CODE 0
+31 83F 0 CODE 0
+32 84E 0 CODE 0
 C:\Program Files (x86)\Microchip\xc8\v2.20\pic\sources\c90\common\memset.c
 8 95C 0 CODE 0
 18 95F 0 CODE 0
@@ -1013,17 +1013,17 @@ C:\Program Files (x86)\Microchip\xc8\v2.20\pic\sources\c90\common\memset.c
 19 96F 0 CODE 0
 22 97D 0 CODE 0
 SSD/SSD.c
-15 833 0 CODE 0
-17 833 0 CODE 0
-18 839 0 CODE 0
-19 83D 0 CODE 0
-20 83F 0 CODE 0
+15 823 0 CODE 0
+17 823 0 CODE 0
+18 829 0 CODE 0
+19 82D 0 CODE 0
+20 82F 0 CODE 0
 Buttons/Buttons.c
-12 17DE 0 CODE 0
-15 17DE 0 CODE 0
-16 17DF 0 CODE 0
-17 17E2 0 CODE 0
-19 17E3 0 CODE 0
+12 17DA 0 CODE 0
+15 17DA 0 CODE 0
+16 17DB 0 CODE 0
+17 17DE 0 CODE 0
+19 17DF 0 CODE 0
 WaterHeater_Mode/WaterHeater_Mode.c
 17 17D6 0 CODE 0
 19 17D6 0 CODE 0
@@ -1117,17 +1117,17 @@ I2C/I2C.c
 75 D29 0 CODE 0
 77 D2F 0 CODE 0
 78 D30 0 CODE 0
-4 17F6 0 CODE 0
-6 17F6 0 CODE 0
-7 17F7 0 CODE 0
-8 17F8 0 CODE 0
-9 17F9 0 CODE 0
-10 17FA 0 CODE 0
-11 17FB 0 CODE 0
-12 17FC 0 CODE 0
-13 17FD 0 CODE 0
-14 17FE 0 CODE 0
-16 17FF 0 CODE 0
+4 819 0 CODE 0
+6 819 0 CODE 0
+7 81A 0 CODE 0
+8 81B 0 CODE 0
+9 81C 0 CODE 0
+10 81D 0 CODE 0
+11 81E 0 CODE 0
+12 81F 0 CODE 0
+13 820 0 CODE 0
+14 821 0 CODE 0
+16 822 0 CODE 0
 gpio/gpio.c
 12 93B 0 CODE 0
 15 93B 0 CODE 0
@@ -1144,17 +1144,17 @@ gpio/gpio.c
 26 95A 0 CODE 0
 28 95B 0 CODE 0
 Elements/Elements.c
-11 840 0 CODE 0
-13 840 0 CODE 0
-14 846 0 CODE 0
-15 84A 0 CODE 0
-17 84E 0 CODE 0
+11 830 0 CODE 0
+13 830 0 CODE 0
+14 836 0 CODE 0
+15 83A 0 CODE 0
+17 83E 0 CODE 0
 ADC/ADC.c
-38 17E4 0 CODE 0
-40 17E4 0 CODE 0
-42 17EA 0 CODE 0
-43 17EB 0 CODE 0
-45 17EC 0 CODE 0
+38 17EE 0 CODE 0
+40 17EE 0 CODE 0
+42 17F4 0 CODE 0
+43 17F5 0 CODE 0
+45 17F6 0 CODE 0
 13 904 0 CODE 0
 16 904 0 CODE 0
 18 907 0 CODE 0
@@ -1244,7 +1244,7 @@ Buttons/Buttons.c
 30 8CD 0 CODE 0
 33 8D2 0 CODE 0
 36 8D4 0 CODE 0
-C:\Users\ABDALA~1\AppData\Local\Temp\sa04.s
+C:\Users\ABDALA~1\AppData\Local\Temp\s918.s
 11949 42 0 ENTRY 0
 11951 42 0 ENTRY 0
 11952 42 0 ENTRY 0

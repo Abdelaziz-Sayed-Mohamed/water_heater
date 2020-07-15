@@ -2081,13 +2081,12 @@ void EXTI_On_Off_CallBack(void);
 void Scheduler_Task1(void)
 {
  SSD_MainFunction();
-    Buttons_MainFunction();
 }
 
 
 void Scheduler_Task2(void)
 {
-
+    Buttons_MainFunction();
  ADC_Conv_MainFunction();
  LED_MainFunction();
 }

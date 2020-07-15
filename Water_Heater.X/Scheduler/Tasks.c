@@ -18,14 +18,13 @@
 /* Start Task1 function */
 void Scheduler_Task1(void) /*20ms*/
 {
-	SSD_MainFunction();
-    Buttons_MainFunction();     
+	SSD_MainFunction();     
 }
 
 /* Start Task2 function */
 void Scheduler_Task2(void)	/*100ms*/
 {   
-    
+    Buttons_MainFunction();  
 	ADC_Conv_MainFunction();
 	LED_MainFunction();     
 }

@@ -166,9 +166,9 @@ Setting_Mode 2
 [v _Scheduler_ActivateTask Scheduler_ActivateTask `(v  1 e 1 0 ]
 "19 E:\study\Repos\water_heater\Water_Heater.X\Scheduler/Tasks.c
 [v _Scheduler_Task1 Scheduler_Task1 `(v  1 e 1 0 ]
-"26
+"25
 [v _Scheduler_Task2 Scheduler_Task2 `(v  1 e 1 0 ]
-"33
+"32
 [v _Scheduler_Task3 Scheduler_Task3 `(v  1 e 1 0 ]
 "15 E:\study\Repos\water_heater\Water_Heater.X\SSD/SSD.c
 [v _SSD_Init SSD_Init `(v  1 e 1 0 ]
@@ -356,20 +356,20 @@ Setting_Mode 2
 [v ___bmul@multiplier multiplier `uc  1 a 1 24 ]
 "51
 } 0
-"26 E:\study\Repos\water_heater\Water_Heater.X\Scheduler/Tasks.c
+"25 E:\study\Repos\water_heater\Water_Heater.X\Scheduler/Tasks.c
 [v _Scheduler_Task2 Scheduler_Task2 `(v  1 e 1 0 ]
 {
-"31
+"30
 } 0
 "19
 [v _Scheduler_Task1 Scheduler_Task1 `(v  1 e 1 0 ]
 {
-"23
+"22
 } 0
-"33
+"32
 [v _Scheduler_Task3 Scheduler_Task3 `(v  1 e 1 0 ]
 {
-"38
+"37
 } 0
 "29 E:\study\Repos\water_heater\Water_Heater.X\EEPROM/EEPROM.c
 [v _Set_EEPROM_Data Set_EEPROM_Data `(v  1 e 1 0 ]
@@ -416,6 +416,11 @@ Setting_Mode 2
 "22
 [v LED_BLINKING@Counter Counter `uc  1 s 1 Counter ]
 "35
+} 0
+"38 E:\study\Repos\water_heater\Water_Heater.X\Buttons/Buttons.c
+[v _Buttons_MainFunction Buttons_MainFunction `(v  1 e 1 0 ]
+{
+"61
 } 0
 "47 E:\study\Repos\water_heater\Water_Heater.X\ADC/ADC.c
 [v _ADC_Conv_MainFunction ADC_Conv_MainFunction `(v  1 e 1 0 ]
@@ -581,11 +586,6 @@ Setting_Mode 2
 [v ___wmul@multiplier multiplier `ui  1 p 2 22 ]
 [v ___wmul@multiplicand multiplicand `ui  1 p 2 24 ]
 "53
-} 0
-"38 E:\study\Repos\water_heater\Water_Heater.X\Buttons/Buttons.c
-[v _Buttons_MainFunction Buttons_MainFunction `(v  1 e 1 0 ]
-{
-"61
 } 0
 "29 E:\study\Repos\water_heater\Water_Heater.X\Scheduler/Scheduler.c
 [v _Scheduler_Init Scheduler_Init `(v  1 e 1 0 ]
