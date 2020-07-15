@@ -2206,10 +2206,11 @@ void Average_Value(uint8_t Value,uint8_t *Avrage_Values);
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
 # 6 "./EEPROM/../Config.h" 2
 # 12 "./EEPROM/EEPROM.h" 2
-# 21 "./EEPROM/EEPROM.h"
+# 25 "./EEPROM/EEPROM.h"
 void Get_EEPROM_Data(void);
 void Set_EEPROM_Data(void);
-unsigned char e2pext_r(unsigned int addr);
+void EEPROM_Write(uint8_t Data);
+uint8_t EEPROM_Read(uint8_t addr);
 # 36 "main.c" 2
 
 

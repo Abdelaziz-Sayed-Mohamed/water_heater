@@ -16,10 +16,9 @@ void delay(void)
 }
 
 
-void i2c_start(void)
+void I2c_Start(void)
 {
-     
-    
+       
   SET_PIN(EEPROM_SCK_PORT,EEPROM_SCK_PIN);
   SET_PIN(EEPROM_SDA_PORT,EEPROM_SDA_PIN);
   delay();
@@ -27,7 +26,7 @@ void i2c_start(void)
   delay();
 }
 
-void i2c_stop(void)
+void I2c_Stop(void)
 {
   SET_PIN(EEPROM_SCK_PORT,EEPROM_SCK_PIN);
   RESET_PIN(EEPROM_SDA_PORT,EEPROM_SDA_PIN);
@@ -36,13 +35,13 @@ void i2c_stop(void)
   delay();
 }
 
-void i2c_wb(unsigned char val)
+void I2c_Write(unsigned char val)
 {
   unsigned char i;
   RESET_PIN(EEPROM_SCK_PORT,EEPROM_SCK_PIN);
   for(i=0;i<8;i++)
   {
-    IDAT=((val>>(7-i))& 0x01);
+    PORTCbits.RC4=((val>>(7-i))& 0x01);
     SET_PIN(EEPROM_SCK_PORT,EEPROM_SCK_PIN);
     delay();
     RESET_PIN(EEPROM_SCK_PORT,EEPROM_SCK_PIN);
@@ -54,7 +53,7 @@ void i2c_wb(unsigned char val)
   RESET_PIN(EEPROM_SCK_PORT,EEPROM_SCK_PIN);
 }
 
-unsigned char i2c_rb(unsigned char ack)
+unsigned char I2c_Read(unsigned char ack)
 {
   char i;
   unsigned char ret=0;
@@ -66,7 +65,7 @@ unsigned char i2c_rb(unsigned char ack)
   {
     SET_PIN(EEPROM_SCK_PORT,EEPROM_SCK_PIN);
     delay();
-    ret|=(IDAT<<(7-i));
+    ret|=(PORTCbits.RC4<<(7-i));
     RESET_PIN(EEPROM_SCK_PORT,EEPROM_SCK_PIN);
   }
   SET_PIN_DIRECTION(EEPROM_SDA_DIRECTION,EEPROM_SDA_PIN,OUTPUT) ; 

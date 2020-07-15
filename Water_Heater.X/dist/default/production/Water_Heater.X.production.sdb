@@ -130,8 +130,10 @@ Setting_Mode 2
 [v _Get_EEPROM_Data Get_EEPROM_Data `(v  1 e 1 0 ]
 "29
 [v _Set_EEPROM_Data Set_EEPROM_Data `(v  1 e 1 0 ]
-"66
-[v _e2pext_r e2pext_r `(uc  1 e 1 0 ]
+"43
+[v _EEPROM_Write EEPROM_Write `(v  1 e 1 0 ]
+"54
+[v _EEPROM_Read EEPROM_Read `(uc  1 e 1 0 ]
 "11 E:\study\Repos\water_heater\Water_Heater.X\Elements/Elements.c
 [v _Elements_Init Elements_Init `(v  1 e 1 0 ]
 "20
@@ -145,13 +147,13 @@ Setting_Mode 2
 "4 E:\study\Repos\water_heater\Water_Heater.X\I2C/I2C.c
 [v _delay delay `(v  1 e 1 0 ]
 "19
-[v _i2c_start i2c_start `(v  1 e 1 0 ]
-"30
-[v _i2c_stop i2c_stop `(v  1 e 1 0 ]
-"39
-[v _i2c_wb i2c_wb `(v  1 e 1 0 ]
-"57
-[v _i2c_rb i2c_rb `(uc  1 e 1 0 ]
+[v _I2c_Start I2c_Start `(v  1 e 1 0 ]
+"29
+[v _I2c_Stop I2c_Stop `(v  1 e 1 0 ]
+"38
+[v _I2c_Write I2c_Write `(v  1 e 1 0 ]
+"56
+[v _I2c_Read I2c_Read `(uc  1 e 1 0 ]
 "11 E:\study\Repos\water_heater\Water_Heater.X\Interrupt/Interrupt.c
 [v _myISR myISR `II(v  1 e 1 0 ]
 "40 E:\study\Repos\water_heater\Water_Heater.X\main.c
@@ -333,7 +335,7 @@ Setting_Mode 2
 [v _Scheduler_Start Scheduler_Start `(v  1 e 1 0 ]
 {
 "17
-[v Scheduler_Start@IntityIndex IntityIndex `uc  1 a 1 12 ]
+[v Scheduler_Start@IntityIndex IntityIndex `uc  1 a 1 10 ]
 "26
 } 0
 "4 C:\Program Files (x86)\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c
@@ -367,13 +369,12 @@ Setting_Mode 2
 "29 E:\study\Repos\water_heater\Water_Heater.X\EEPROM/EEPROM.c
 [v _Set_EEPROM_Data Set_EEPROM_Data `(v  1 e 1 0 ]
 {
-"31
-[v Set_EEPROM_Data@ah ah `uc  1 s 1 ah ]
-"32
-[v Set_EEPROM_Data@al al `uc  1 s 1 al ]
-"33
-[v Set_EEPROM_Data@nt nt `uc  1 s 1 nt ]
-"64
+"40
+} 0
+"43
+[v _EEPROM_Write EEPROM_Write `(v  1 e 1 0 ]
+{
+"51
 } 0
 "28 E:\study\Repos\water_heater\Water_Heater.X\WaterHeater_Mode/WaterHeater_Mode.c
 [v _Mode_MainFunction Mode_MainFunction `(v  1 e 1 0 ]
@@ -422,7 +423,7 @@ Setting_Mode 2
 [v Temperature_Calc@ADC_VALUE ADC_VALUE `uc  1 a 1 wreg ]
 [v Temperature_Calc@ADC_VALUE ADC_VALUE `uc  1 a 1 wreg ]
 "16
-[v Temperature_Calc@ADC_VALUE ADC_VALUE `uc  1 a 1 28 ]
+[v Temperature_Calc@ADC_VALUE ADC_VALUE `uc  1 a 1 32 ]
 "25
 } 0
 "10 C:\Program Files (x86)\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
@@ -430,49 +431,49 @@ Setting_Mode 2
 {
 [v ___xxtofl@sign sign `uc  1 a 1 wreg ]
 "13
-[v ___xxtofl@arg arg `ul  1 a 4 32 ]
+[v ___xxtofl@arg arg `ul  1 a 4 2 ]
 "12
-[v ___xxtofl@exp exp `uc  1 a 1 31 ]
+[v ___xxtofl@exp exp `uc  1 a 1 1 ]
 "10
 [v ___xxtofl@sign sign `uc  1 a 1 wreg ]
 [v ___xxtofl@val val `l  1 p 4 22 ]
 "15
-[v ___xxtofl@sign sign `uc  1 a 1 30 ]
+[v ___xxtofl@sign sign `uc  1 a 1 0 ]
 "44
 } 0
 "43 C:\Program Files (x86)\Microchip\xc8\v2.20\pic\sources\c90\common\fltol.c
 [v ___fltol __fltol `(l  1 e 4 0 ]
 {
 "45
-[v ___fltol@exp1 exp1 `uc  1 a 1 27 ]
-[v ___fltol@sign1 sign1 `uc  1 a 1 26 ]
+[v ___fltol@exp1 exp1 `uc  1 a 1 5 ]
+[v ___fltol@sign1 sign1 `uc  1 a 1 4 ]
 "43
-[v ___fltol@f1 f1 `d  1 p 4 0 ]
+[v ___fltol@f1 f1 `d  1 p 4 31 ]
 "70
 } 0
 "8 C:\Program Files (x86)\Microchip\xc8\v2.20\pic\sources\c90\common\sprcmul.c
 [v ___flmul __flmul `(d  1 e 4 0 ]
 {
-[s S939 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
+[s S941 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
 "13
-[s S944 . 4 `i 1 wordA 2 0 `i 1 wordB 2 2 ]
-[u S947 . 4 `l 1 i 4 0 `d 1 f 4 0 `S939 1 fAsBytes 4 0 `S944 1 fAsWords 4 0 ]
-[v ___flmul@prod prod `S947  1 a 4 20 ]
+[s S946 . 4 `i 1 wordA 2 0 `i 1 wordB 2 2 ]
+[u S949 . 4 `l 1 i 4 0 `d 1 f 4 0 `S941 1 fAsBytes 4 0 `S946 1 fAsWords 4 0 ]
+[v ___flmul@prod prod `S949  1 a 4 26 ]
 "12
-[v ___flmul@grs grs `ul  1 a 4 15 ]
-[s S1016 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
+[v ___flmul@grs grs `ul  1 a 4 21 ]
+[s S1018 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
 "14
-[u S1019 . 2 `i 1 i 2 0 `ui 1 n 2 0 `S1016 1 nAsBytes 2 0 ]
-[v ___flmul@temp temp `S1019  1 a 2 24 ]
+[u S1021 . 2 `i 1 i 2 0 `ui 1 n 2 0 `S1018 1 nAsBytes 2 0 ]
+[v ___flmul@temp temp `S1021  1 a 2 30 ]
 "10
-[v ___flmul@bexp bexp `uc  1 a 1 19 ]
+[v ___flmul@bexp bexp `uc  1 a 1 25 ]
 "11
-[v ___flmul@aexp aexp `uc  1 a 1 14 ]
+[v ___flmul@aexp aexp `uc  1 a 1 20 ]
 "9
-[v ___flmul@sign sign `uc  1 a 1 13 ]
+[v ___flmul@sign sign `uc  1 a 1 19 ]
 "8
-[v ___flmul@b b `d  1 p 4 0 ]
-[v ___flmul@a a `d  1 p 4 4 ]
+[v ___flmul@b b `d  1 p 4 6 ]
+[v ___flmul@a a `d  1 p 4 10 ]
 "205
 } 0
 "4 C:\Program Files (x86)\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8_16.c
@@ -494,12 +495,12 @@ Setting_Mode 2
 {
 [v Average_Value@Value Value `uc  1 a 1 wreg ]
 "20
-[v Average_Value@index index `uc  1 a 1 7 ]
+[v Average_Value@index index `uc  1 a 1 33 ]
 "12
 [v Average_Value@Value Value `uc  1 a 1 wreg ]
-[v Average_Value@Avrage_Values Avrage_Values `*.4uc  1 p 1 0 ]
+[v Average_Value@Avrage_Values Avrage_Values `*.4uc  1 p 1 31 ]
 "15
-[v Average_Value@Value Value `uc  1 a 1 6 ]
+[v Average_Value@Value Value `uc  1 a 1 32 ]
 "27
 } 0
 "5 C:\Program Files (x86)\Microchip\xc8\v2.20\pic\sources\c90\common\lwmod.c
@@ -516,9 +517,9 @@ Setting_Mode 2
 [v ___lldiv __lldiv `(ul  1 e 4 0 ]
 {
 "10
-[v ___lldiv@quotient quotient `ul  1 a 4 31 ]
+[v ___lldiv@quotient quotient `ul  1 a 4 0 ]
 "11
-[v ___lldiv@counter counter `uc  1 a 1 35 ]
+[v ___lldiv@counter counter `uc  1 a 1 4 ]
 "5
 [v ___lldiv@divisor divisor `ul  1 p 4 22 ]
 [v ___lldiv@dividend dividend `ul  1 p 4 26 ]
@@ -615,60 +616,6 @@ Setting_Mode 2
 {
 "26
 } 0
-"66
-[v _e2pext_r e2pext_r `(uc  1 e 1 0 ]
-{
-"69
-[v e2pext_r@ah ah `uc  1 a 1 30 ]
-"70
-[v e2pext_r@al al `uc  1 a 1 29 ]
-"68
-[v e2pext_r@ret ret `uc  1 a 1 28 ]
-"66
-[v e2pext_r@addr addr `ui  1 p 2 26 ]
-"99
-} 0
-"39 E:\study\Repos\water_heater\Water_Heater.X\I2C/I2C.c
-[v _i2c_wb i2c_wb `(v  1 e 1 0 ]
-{
-[v i2c_wb@val val `uc  1 a 1 wreg ]
-"41
-[v i2c_wb@i i `uc  1 a 1 25 ]
-"39
-[v i2c_wb@val val `uc  1 a 1 wreg ]
-"42
-[v i2c_wb@val val `uc  1 a 1 24 ]
-"55
-} 0
-"30
-[v _i2c_stop i2c_stop `(v  1 e 1 0 ]
-{
-"37
-} 0
-"19
-[v _i2c_start i2c_start `(v  1 e 1 0 ]
-{
-"28
-} 0
-"57
-[v _i2c_rb i2c_rb `(uc  1 e 1 0 ]
-{
-[v i2c_rb@ack ack `uc  1 a 1 wreg ]
-"59
-[v i2c_rb@i i `uc  1 a 1 25 ]
-"60
-[v i2c_rb@ret ret `uc  1 a 1 24 ]
-"57
-[v i2c_rb@ack ack `uc  1 a 1 wreg ]
-"60
-[v i2c_rb@ack ack `uc  1 a 1 23 ]
-"83
-} 0
-"4
-[v _delay delay `(v  1 e 1 0 ]
-{
-"16
-} 0
 "5 C:\Program Files (x86)\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
 [v ___awmod __awmod `(i  1 e 2 0 ]
 {
@@ -679,6 +626,59 @@ Setting_Mode 2
 [v ___awmod@divisor divisor `i  1 p 2 22 ]
 [v ___awmod@dividend dividend `i  1 p 2 24 ]
 "34
+} 0
+"54 E:\study\Repos\water_heater\Water_Heater.X\EEPROM/EEPROM.c
+[v _EEPROM_Read EEPROM_Read `(uc  1 e 1 0 ]
+{
+[v EEPROM_Read@addr addr `uc  1 a 1 wreg ]
+"56
+[v EEPROM_Read@ret ret `uc  1 a 1 27 ]
+"54
+[v EEPROM_Read@addr addr `uc  1 a 1 wreg ]
+"58
+[v EEPROM_Read@addr addr `uc  1 a 1 26 ]
+"66
+} 0
+"38 E:\study\Repos\water_heater\Water_Heater.X\I2C/I2C.c
+[v _I2c_Write I2c_Write `(v  1 e 1 0 ]
+{
+[v I2c_Write@val val `uc  1 a 1 wreg ]
+"40
+[v I2c_Write@i i `uc  1 a 1 25 ]
+"38
+[v I2c_Write@val val `uc  1 a 1 wreg ]
+"41
+[v I2c_Write@val val `uc  1 a 1 24 ]
+"54
+} 0
+"29
+[v _I2c_Stop I2c_Stop `(v  1 e 1 0 ]
+{
+"36
+} 0
+"19
+[v _I2c_Start I2c_Start `(v  1 e 1 0 ]
+{
+"27
+} 0
+"56
+[v _I2c_Read I2c_Read `(uc  1 e 1 0 ]
+{
+[v I2c_Read@ack ack `uc  1 a 1 wreg ]
+"58
+[v I2c_Read@i i `uc  1 a 1 25 ]
+"59
+[v I2c_Read@ret ret `uc  1 a 1 24 ]
+"56
+[v I2c_Read@ack ack `uc  1 a 1 wreg ]
+"59
+[v I2c_Read@ack ack `uc  1 a 1 23 ]
+"82
+} 0
+"4
+[v _delay delay `(v  1 e 1 0 ]
+{
+"16
 } 0
 "12 E:\study\Repos\water_heater\Water_Heater.X\gpio/gpio.c
 [v _GPIO_Init GPIO_Init `(v  1 e 1 0 ]

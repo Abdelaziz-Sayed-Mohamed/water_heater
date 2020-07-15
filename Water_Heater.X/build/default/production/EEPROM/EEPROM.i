@@ -10,6 +10,21 @@
 
 # 1 "EEPROM/../I2C/I2C.h" 1
 # 26 "EEPROM/../I2C/I2C.h"
+void i2c_init(void);
+void I2c_Start(void);
+void I2c_Stop(void);
+void I2c_Write(unsigned char val);
+unsigned char I2c_Read(unsigned char ack);
+unsigned char i2c_Read(unsigned char ack);
+# 2 "EEPROM/EEPROM.c" 2
+
+# 1 "EEPROM/EEPROM.h" 1
+# 12 "EEPROM/EEPROM.h"
+# 1 "EEPROM/../Config.h" 1
+
+
+
+
 # 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -1719,28 +1734,7 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 2 3
-# 26 "EEPROM/../I2C/I2C.h" 2
-
-
-
-
-
-
-void i2c_init(void);
-void i2c_start(void);
-void i2c_stop(void);
-void i2c_wb(unsigned char val);
-unsigned char i2c_rb(unsigned char ack);
-void i2c_acktst(unsigned char val);
-# 2 "EEPROM/EEPROM.c" 2
-
-# 1 "EEPROM/EEPROM.h" 1
-# 12 "EEPROM/EEPROM.h"
-# 1 "EEPROM/../Config.h" 1
-
-
-
-
+# 5 "EEPROM/../Config.h" 2
 
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
 # 13 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 3
@@ -1877,10 +1871,11 @@ typedef int16_t intptr_t;
 typedef uint16_t uintptr_t;
 # 6 "EEPROM/../Config.h" 2
 # 12 "EEPROM/EEPROM.h" 2
-# 21 "EEPROM/EEPROM.h"
+# 25 "EEPROM/EEPROM.h"
 void Get_EEPROM_Data(void);
 void Set_EEPROM_Data(void);
-unsigned char e2pext_r(unsigned int addr);
+void EEPROM_Write(uint8_t Data);
+uint8_t EEPROM_Read(uint8_t addr);
 # 3 "EEPROM/EEPROM.c" 2
 
 # 1 "EEPROM/../WaterHeater_Mode/WaterHeater_Mode_Cfg.h" 1
@@ -1924,8 +1919,8 @@ void Get_EEPROM_Data(void)
 {
 
 
- while( e2pext_r(0));
- EEPROM_Data=e2pext_r(0xa);
+ while( EEPROM_Read(0));
+ EEPROM_Data=EEPROM_Read(0xa);
 
  if((EEPROM_Data<=(75U))&&(EEPROM_Data>=(35U) )&& ((EEPROM_Data%5)==0) )
  {
@@ -1942,72 +1937,39 @@ void Get_EEPROM_Data(void)
 
 void Set_EEPROM_Data(void)
 {
-static unsigned char ah;
-static unsigned char al;
-static unsigned char nt;
 
 
-if(Temperature.Store_Set_Temp_Flag==1)
-{
-     EEPROM_Data=Temperature.Set_Temp;
+ if(Temperature.Store_Set_Temp_Flag==1)
+ {
+    EEPROM_Data=Temperature.Set_Temp;
+    EEPROM_Write(EEPROM_Data);
+    Temperature.Store_Set_Temp_Flag=0;
 
-     ah=(0xa&0x0100)>>8;
-     al=0xa&0x00FF;
-     nt=0;
-
-     do
-     {
-       i2c_start();
-       if(ah)
-       {
-         i2c_wb(0xA2);
-       }
-       else
-       {
-         i2c_wb(0xA0);
-       }
-       i2c_wb(al);
-       i2c_wb(EEPROM_Data);
-       i2c_stop();
-
-       nt++;
-     }
-     while((EEPROM_Data != e2pext_r(0xa))&&(nt < 10));
+ }
 }
+
+
+void EEPROM_Write(uint8_t Data)
+{
+    I2c_Start();
+    I2c_Write(0xa0);
+    I2c_Write(0xa);
+    I2c_Write(EEPROM_Data);
+    I2c_Stop();
 
 }
 
-unsigned char e2pext_r(unsigned int addr)
+
+uint8_t EEPROM_Read(uint8_t addr)
 {
-  unsigned char ret;
-  unsigned char ah;
-  unsigned char al;
+  uint8_t ret;
 
-  ah=(addr&0x0100)>>8;
-  al=addr&0x00FF;
-
-  i2c_start();
-  if(ah)
-  {
-    i2c_wb(0xA2);
-  }
-  else
-  {
-    i2c_wb(0xA0);
-  }
-  i2c_wb(al);
-
-  i2c_start();
-  if(ah)
-  {
-    i2c_wb(0xA3);
-  }
-  else
-  {
-    i2c_wb(0xA1);
-  }
-  ret=i2c_rb(1);
-  i2c_stop();
-
+  I2c_Start();
+  I2c_Write(0xa0);
+  I2c_Write(addr);
+  I2c_Start();
+  I2c_Write(0xa0 +1);
+  ret=I2c_Read(1);
+  I2c_Stop();
   return ret;
 }

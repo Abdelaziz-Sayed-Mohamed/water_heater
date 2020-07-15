@@ -9,6 +9,23 @@
 # 1 "I2C/I2C.c" 2
 # 1 "I2C/I2C.h" 1
 # 26 "I2C/I2C.h"
+void i2c_init(void);
+void I2c_Start(void);
+void I2c_Stop(void);
+void I2c_Write(unsigned char val);
+unsigned char I2c_Read(unsigned char ack);
+unsigned char i2c_Read(unsigned char ack);
+# 1 "I2C/I2C.c" 2
+
+# 1 "I2C/../gpio/gpio.h" 1
+# 11 "I2C/../gpio/gpio.h"
+# 1 "I2C/../gpio/gpio_Cfg.h" 1
+# 11 "I2C/../gpio/gpio_Cfg.h"
+# 1 "I2C/../gpio/../Config.h" 1
+
+
+
+
 # 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -1718,30 +1735,7 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 2 3
-# 26 "I2C/I2C.h" 2
-
-
-
-
-
-
-void i2c_init(void);
-void i2c_start(void);
-void i2c_stop(void);
-void i2c_wb(unsigned char val);
-unsigned char i2c_rb(unsigned char ack);
-void i2c_acktst(unsigned char val);
-# 1 "I2C/I2C.c" 2
-
-# 1 "I2C/../gpio/gpio.h" 1
-# 11 "I2C/../gpio/gpio.h"
-# 1 "I2C/../gpio/gpio_Cfg.h" 1
-# 11 "I2C/../gpio/gpio_Cfg.h"
-# 1 "I2C/../gpio/../Config.h" 1
-
-
-
-
+# 5 "I2C/../gpio/../Config.h" 2
 
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
 # 13 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 3
@@ -1899,9 +1893,8 @@ void delay(void)
 }
 
 
-void i2c_start(void)
+void I2c_Start(void)
 {
-
 
   (PORTC|= (1<<3));
   (PORTC|= (1<<4));
@@ -1910,7 +1903,7 @@ void i2c_start(void)
   delay();
 }
 
-void i2c_stop(void)
+void I2c_Stop(void)
 {
   (PORTC|= (1<<3));
   (PORTC &= ~(1<<4));
@@ -1919,7 +1912,7 @@ void i2c_stop(void)
   delay();
 }
 
-void i2c_wb(unsigned char val)
+void I2c_Write(unsigned char val)
 {
   unsigned char i;
   (PORTC &= ~(1<<3));
@@ -1937,7 +1930,7 @@ void i2c_wb(unsigned char val)
   (PORTC &= ~(1<<3));
 }
 
-unsigned char i2c_rb(unsigned char ack)
+unsigned char I2c_Read(unsigned char ack)
 {
   char i;
   unsigned char ret=0;

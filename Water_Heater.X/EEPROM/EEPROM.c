@@ -11,7 +11,7 @@ void Get_EEPROM_Data(void)
  #if EEPROM  
     
  Start_EEPROM_Connection;   
- EEPROM_Data=e2pext_r(EEPROM_DATA_ADDR);
+ EEPROM_Data=EEPROM_Read(EEPROM_DATA_ADDR);
 
  if((EEPROM_Data<=MAX_SET_TEMP)&&(EEPROM_Data>=MIN_SET_TEMP )&& IS_Value_Vaild )
  {
@@ -28,72 +28,39 @@ void Get_EEPROM_Data(void)
 
 void Set_EEPROM_Data(void)
 {
-static unsigned char ah;
-static unsigned char al;
-static unsigned char nt;
 #if EEPROM
 
-if(IS_Store_Set_Temp_Ready)
-{       
-     EEPROM_Data=Temperature.Set_Temp;
-   
-     ah=(EEPROM_DATA_ADDR&0x0100)>>8;
-     al=EEPROM_DATA_ADDR&0x00FF;
-     nt=0;
-   
-     do
-     {
-       i2c_start();
-       if(ah)
-       { 
-         i2c_wb(0xA2);
-       }
-       else
-       {
-         i2c_wb(0xA0);
-       }
-       i2c_wb(al);
-       i2c_wb(EEPROM_Data);
-       i2c_stop();
-   
-       nt++;
-     }
-     while((EEPROM_Data != e2pext_r(EEPROM_DATA_ADDR))&&(nt < 10));
-}     
+ if(IS_Store_Set_Temp_Ready)
+ {       
+    EEPROM_Data=Temperature.Set_Temp;
+    EEPROM_Write(EEPROM_Data);
+    Reset_Store_Set_Temp_Flag;  
 #endif
+ }
 }
 
-unsigned char e2pext_r(unsigned int addr)
+
+void EEPROM_Write(uint8_t Data)
 {
-  unsigned char ret;
-  unsigned char ah;
-  unsigned char al;
+    I2c_Start();   
+    I2c_Write(EEPROM_24c04_ADDR);
+    I2c_Write(EEPROM_DATA_ADDR);
+    I2c_Write(EEPROM_Data);
+    I2c_Stop();
 
-  ah=(addr&0x0100)>>8;
-  al=addr&0x00FF;
+}
 
-  i2c_start();	
-  if(ah)
-  {
-    i2c_wb(0xA2);
-  }
-  else
-  {
-    i2c_wb(0xA0);
-  }
-  i2c_wb(al);
 
-  i2c_start();
-  if(ah)
-  {
-    i2c_wb(0xA3);
-  }
-  else
-  {
-    i2c_wb(0xA1);
-  }
-  ret=i2c_rb(1);
-  i2c_stop();
+uint8_t EEPROM_Read(uint8_t addr)
+{
+  uint8_t ret;
 
+  I2c_Start();	
+  I2c_Write(EEPROM_24c04_ADDR); 
+  I2c_Write(addr);
+  I2c_Start();
+  I2c_Write(EEPROM_24c04_ADDR+1);
+  ret=I2c_Read(1);
+  I2c_Stop();
   return ret;	
 }

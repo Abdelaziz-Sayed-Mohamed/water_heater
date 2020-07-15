@@ -23,15 +23,10 @@
    For e-mail suggestions :  lcgamboa@yahoo.com
    ######################################################################## */
 
-#include<xc.h>
-
-#define ICLK PORTCbits.RC3
-#define IDAT PORTCbits.RC4
-#define TIDAT TRISCbits.TRISC4
-
 void i2c_init(void);
-void i2c_start(void);
-void i2c_stop(void);
-void i2c_wb(unsigned char val);
-unsigned char i2c_rb(unsigned char ack);
-void i2c_acktst(unsigned char val);
+void I2c_Start(void);
+void I2c_Stop(void);
+void I2c_Write(unsigned char val);
+unsigned char I2c_Read(unsigned char ack);
+unsigned char i2c_Read(unsigned char ack);
+
