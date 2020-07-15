@@ -11,17 +11,15 @@ void Get_EEPROM_Data(void)
     
  Start_EEPROM_Connection;   
  EEPROM_Data=e2pext_r(EEPROM_DATA_ADDR);
- uint8_t Flag=(EEPROM_Data>>7)&1;
- uint8_t Temp=(EEPROM_Data)&~(1<<7);
 
- if(IS_Flag_Was_Seted && ((Temp<=MAX_SET_TEMP)||(Temp>=MIN_SET_TEMP)))
+ if(IS_EEPROM_ERASED)
  {
-   Temperature.Set_Temp=Temp; 
+   Temperature.Set_Temp=DEFAULT_SET_TEMP;
  }
- else
+ else if((EEPROM_Data<=MAX_SET_TEMP)&&(EEPROM_Data>=MIN_SET_TEMP )&& IS_Value_Vaild )
  {
-    Temperature.Set_Temp=DEFAULT_SET_TEMP;
- }    
+   Temperature.Set_Temp=EEPROM_Data; 
+ }
 
 }
 
@@ -35,7 +33,7 @@ static unsigned char nt;
 
 if(IS_Store_Set_Temp_Ready)
 {       
-     EEPROM_Data=Temperature.Set_Temp|(1<<7);
+     EEPROM_Data=Temperature.Set_Temp;
    
      ah=(EEPROM_DATA_ADDR&0x0100)>>8;
      al=EEPROM_DATA_ADDR&0x00FF;
