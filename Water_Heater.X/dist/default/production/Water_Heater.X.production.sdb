@@ -417,11 +417,6 @@ Setting_Mode 2
 [v LED_BLINKING@Counter Counter `uc  1 s 1 Counter ]
 "35
 } 0
-"38 E:\study\Repos\water_heater\Water_Heater.X\Buttons/Buttons.c
-[v _Buttons_MainFunction Buttons_MainFunction `(v  1 e 1 0 ]
-{
-"61
-} 0
 "47 E:\study\Repos\water_heater\Water_Heater.X\ADC/ADC.c
 [v _ADC_Conv_MainFunction ADC_Conv_MainFunction `(v  1 e 1 0 ]
 {
@@ -586,6 +581,11 @@ Setting_Mode 2
 [v ___wmul@multiplier multiplier `ui  1 p 2 22 ]
 [v ___wmul@multiplicand multiplicand `ui  1 p 2 24 ]
 "53
+} 0
+"38 E:\study\Repos\water_heater\Water_Heater.X\Buttons/Buttons.c
+[v _Buttons_MainFunction Buttons_MainFunction `(v  1 e 1 0 ]
+{
+"61
 } 0
 "29 E:\study\Repos\water_heater\Water_Heater.X\Scheduler/Scheduler.c
 [v _Scheduler_Init Scheduler_Init `(v  1 e 1 0 ]
