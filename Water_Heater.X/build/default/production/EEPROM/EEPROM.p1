@@ -3,8 +3,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;EEPROM/../Temperature/Temperature.h: 17: {
 [s S95 `uc 1 `uc 1 `uc 1 :1 `uc 1 :1 `uc 1 `uc 1 ]
 [n S95 _TEMP_t Temp_Value Average_Value Set_Temp Average_Value_Ready_Flag Store_Set_Temp_Flag Average_NValues ]
-"24 EEPROM/EEPROM.h
-[; ;EEPROM/EEPROM.h: 24: unsigned char e2pext_r(unsigned int addr);
+"23 EEPROM/EEPROM.h
+[; ;EEPROM/EEPROM.h: 23: unsigned char e2pext_r(unsigned int addr);
 [v _e2pext_r `(uc ~T0 @X0 0 ef1`ui ]
 "33 EEPROM/../I2C/I2C.h
 [; ;EEPROM/../I2C/I2C.h: 33: void i2c_start(void);
@@ -226,32 +226,30 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;EEPROM/EEPROM.c: 14:  EEPROM_Data=e2pext_r(0xa);
 [e = _EEPROM_Data ( _e2pext_r (1 -> -> 10 `i `ui ]
 "16
-[; ;EEPROM/EEPROM.c: 16:  if(EEPROM_Data==0xff)
-[e $ ! == -> _EEPROM_Data `i -> 255 `i 100  ]
+[; ;EEPROM/EEPROM.c: 16:  if((EEPROM_Data<=(75U))&&(EEPROM_Data>=(35U) )&& ((EEPROM_Data%5)==0) )
+[e $ ! && && <= -> _EEPROM_Data `ui -> 75 `ui >= -> _EEPROM_Data `ui -> 35 `ui == % -> _EEPROM_Data `i -> 5 `i -> 0 `i 100  ]
 "17
 [; ;EEPROM/EEPROM.c: 17:  {
 {
 "18
-[; ;EEPROM/EEPROM.c: 18:    Temperature.Set_Temp=(60U);
-[e = . _Temperature 2 -> -> 60 `ui `uc ]
+[; ;EEPROM/EEPROM.c: 18:    Temperature.Set_Temp=EEPROM_Data;
+[e = . _Temperature 2 _EEPROM_Data ]
 "19
 [; ;EEPROM/EEPROM.c: 19:  }
 }
 [e $U 101  ]
 "20
-[; ;EEPROM/EEPROM.c: 20:  else if((EEPROM_Data<=(75U))&&(EEPROM_Data>=(35U) )&& ((EEPROM_Data%5)==0) )
+[; ;EEPROM/EEPROM.c: 20:  else
 [e :U 100 ]
-[e $ ! && && <= -> _EEPROM_Data `ui -> 75 `ui >= -> _EEPROM_Data `ui -> 35 `ui == % -> _EEPROM_Data `i -> 5 `i -> 0 `i 102  ]
 "21
 [; ;EEPROM/EEPROM.c: 21:  {
 {
 "22
-[; ;EEPROM/EEPROM.c: 22:    Temperature.Set_Temp=EEPROM_Data;
-[e = . _Temperature 2 _EEPROM_Data ]
+[; ;EEPROM/EEPROM.c: 22:    Temperature.Set_Temp=(60U);
+[e = . _Temperature 2 -> -> 60 `ui `uc ]
 "23
 [; ;EEPROM/EEPROM.c: 23:  }
 }
-[e :U 102 ]
 [e :U 101 ]
 "26
 [; ;EEPROM/EEPROM.c: 26: }
@@ -276,7 +274,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v F907 `uc ~T0 @X0 1 s nt ]
 "36
 [; ;EEPROM/EEPROM.c: 36: if(Temperature.Store_Set_Temp_Flag==1)
-[e $ ! == -> . _Temperature 4 `i -> 1 `i 104  ]
+[e $ ! == -> . _Temperature 4 `i -> 1 `i 103  ]
 "37
 [; ;EEPROM/EEPROM.c: 37: {
 {
@@ -294,7 +292,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = F907 -> -> 0 `i `uc ]
 "44
 [; ;EEPROM/EEPROM.c: 44:      do
-[e :U 107 ]
+[e :U 106 ]
 "45
 [; ;EEPROM/EEPROM.c: 45:      {
 {
@@ -303,7 +301,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _i2c_start ..  ]
 "47
 [; ;EEPROM/EEPROM.c: 47:        if(ah)
-[e $ ! != -> F905 `i -> 0 `i 108  ]
+[e $ ! != -> F905 `i -> 0 `i 107  ]
 "48
 [; ;EEPROM/EEPROM.c: 48:        {
 {
@@ -313,10 +311,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "50
 [; ;EEPROM/EEPROM.c: 50:        }
 }
-[e $U 109  ]
+[e $U 108  ]
 "51
 [; ;EEPROM/EEPROM.c: 51:        else
-[e :U 108 ]
+[e :U 107 ]
 "52
 [; ;EEPROM/EEPROM.c: 52:        {
 {
@@ -326,7 +324,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "54
 [; ;EEPROM/EEPROM.c: 54:        }
 }
-[e :U 109 ]
+[e :U 108 ]
 "55
 [; ;EEPROM/EEPROM.c: 55:        i2c_wb(al);
 [e ( _i2c_wb (1 F906 ]
@@ -342,15 +340,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 "60
 [; ;EEPROM/EEPROM.c: 60:      }
 }
-[e $ && != -> _EEPROM_Data `i -> ( _e2pext_r (1 -> -> 10 `i `ui `i < -> F907 `i -> 10 `i 107  ]
-[e :U 106 ]
+[e $ && != -> _EEPROM_Data `i -> ( _e2pext_r (1 -> -> 10 `i `ui `i < -> F907 `i -> 10 `i 106  ]
+[e :U 105 ]
 "62
 [; ;EEPROM/EEPROM.c: 62: }
 }
-[e :U 104 ]
+[e :U 103 ]
 "64
 [; ;EEPROM/EEPROM.c: 64: }
-[e :UE 103 ]
+[e :UE 102 ]
 }
 "66
 [; ;EEPROM/EEPROM.c: 66: unsigned char e2pext_r(unsigned int addr)
@@ -385,7 +383,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _i2c_start ..  ]
 "76
 [; ;EEPROM/EEPROM.c: 76:   if(ah)
-[e $ ! != -> _ah `i -> 0 `i 111  ]
+[e $ ! != -> _ah `i -> 0 `i 110  ]
 "77
 [; ;EEPROM/EEPROM.c: 77:   {
 {
@@ -395,10 +393,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "79
 [; ;EEPROM/EEPROM.c: 79:   }
 }
-[e $U 112  ]
+[e $U 111  ]
 "80
 [; ;EEPROM/EEPROM.c: 80:   else
-[e :U 111 ]
+[e :U 110 ]
 "81
 [; ;EEPROM/EEPROM.c: 81:   {
 {
@@ -408,7 +406,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "83
 [; ;EEPROM/EEPROM.c: 83:   }
 }
-[e :U 112 ]
+[e :U 111 ]
 "84
 [; ;EEPROM/EEPROM.c: 84:   i2c_wb(al);
 [e ( _i2c_wb (1 _al ]
@@ -417,7 +415,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _i2c_start ..  ]
 "87
 [; ;EEPROM/EEPROM.c: 87:   if(ah)
-[e $ ! != -> _ah `i -> 0 `i 113  ]
+[e $ ! != -> _ah `i -> 0 `i 112  ]
 "88
 [; ;EEPROM/EEPROM.c: 88:   {
 {
@@ -427,10 +425,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "90
 [; ;EEPROM/EEPROM.c: 90:   }
 }
-[e $U 114  ]
+[e $U 113  ]
 "91
 [; ;EEPROM/EEPROM.c: 91:   else
-[e :U 113 ]
+[e :U 112 ]
 "92
 [; ;EEPROM/EEPROM.c: 92:   {
 {
@@ -440,7 +438,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "94
 [; ;EEPROM/EEPROM.c: 94:   }
 }
-[e :U 114 ]
+[e :U 113 ]
 "95
 [; ;EEPROM/EEPROM.c: 95:   ret=i2c_rb(1);
 [e = _ret ( _i2c_rb (1 -> -> 1 `i `uc ]
@@ -450,8 +448,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "98
 [; ;EEPROM/EEPROM.c: 98:   return ret;
 [e ) _ret ]
-[e $UE 110  ]
+[e $UE 109  ]
 "99
 [; ;EEPROM/EEPROM.c: 99: }
-[e :UE 110 ]
+[e :UE 109 ]
 }

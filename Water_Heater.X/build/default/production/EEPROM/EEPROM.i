@@ -1877,7 +1877,7 @@ typedef int16_t intptr_t;
 typedef uint16_t uintptr_t;
 # 6 "EEPROM/../Config.h" 2
 # 12 "EEPROM/EEPROM.h" 2
-# 22 "EEPROM/EEPROM.h"
+# 21 "EEPROM/EEPROM.h"
 void Get_EEPROM_Data(void);
 void Set_EEPROM_Data(void);
 unsigned char e2pext_r(unsigned int addr);
@@ -1927,13 +1927,13 @@ void Get_EEPROM_Data(void)
  while( e2pext_r(0));
  EEPROM_Data=e2pext_r(0xa);
 
- if(EEPROM_Data==0xff)
- {
-   Temperature.Set_Temp=(60U);
- }
- else if((EEPROM_Data<=(75U))&&(EEPROM_Data>=(35U) )&& ((EEPROM_Data%5)==0) )
+ if((EEPROM_Data<=(75U))&&(EEPROM_Data>=(35U) )&& ((EEPROM_Data%5)==0) )
  {
    Temperature.Set_Temp=EEPROM_Data;
+ }
+ else
+ {
+   Temperature.Set_Temp=(60U);
  }
 
 

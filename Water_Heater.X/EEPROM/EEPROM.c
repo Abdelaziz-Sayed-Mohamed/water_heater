@@ -13,14 +13,14 @@ void Get_EEPROM_Data(void)
  Start_EEPROM_Connection;   
  EEPROM_Data=e2pext_r(EEPROM_DATA_ADDR);
 
- if(IS_EEPROM_ERASED)
- {
-   Temperature.Set_Temp=DEFAULT_SET_TEMP;
- }
- else if((EEPROM_Data<=MAX_SET_TEMP)&&(EEPROM_Data>=MIN_SET_TEMP )&& IS_Value_Vaild )
+ if((EEPROM_Data<=MAX_SET_TEMP)&&(EEPROM_Data>=MIN_SET_TEMP )&& IS_Value_Vaild )
  {
    Temperature.Set_Temp=EEPROM_Data; 
  }
+ else
+ {
+   Temperature.Set_Temp=DEFAULT_SET_TEMP;
+ }    
  
 #endif
 }

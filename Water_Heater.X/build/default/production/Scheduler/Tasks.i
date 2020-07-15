@@ -2034,7 +2034,7 @@ void Temperature_Calc(uint8_t ADC_VALUE);
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
 # 6 "Scheduler/../EEPROM/../Config.h" 2
 # 12 "Scheduler/../EEPROM/EEPROM.h" 2
-# 22 "Scheduler/../EEPROM/EEPROM.h"
+# 21 "Scheduler/../EEPROM/EEPROM.h"
 void Get_EEPROM_Data(void);
 void Set_EEPROM_Data(void);
 unsigned char e2pext_r(unsigned int addr);
