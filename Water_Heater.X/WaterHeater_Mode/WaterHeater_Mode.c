@@ -4,15 +4,11 @@
  *  Created on: Jul 5, 2020
  *      Author: Abdelaziz Sayed
  */
-
 #include "WaterHeater_Mode.h"
 #include"WaterHeater_Mode_Cfg.h"
 #include "../Temperature/Temperature.h"
 #include"../Buttons/Buttons.h"
 #include"../EEPROM/EEPROM.h"
-
-
-
 
 void Mode_Init(void)
 {
@@ -28,7 +24,6 @@ void Mode_Init(void)
 void Mode_MainFunction(void)
 {
 	
-
    if(Mode.Select_Mode==Setting_Mode)
    {
 
@@ -46,7 +41,6 @@ void Mode_MainFunction(void)
           Reset_DownButton_Flag;
 	    }
    }
-
 
 }
 

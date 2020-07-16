@@ -28,7 +28,7 @@
 #define SSD_Blink_Time                  1000  
 #define SSD_Blink_TaskPeroid            20
 #define Turn_Off_7seg_Port              0
-
+#define Display_Nothing                 10
 
 typedef enum _Enable_SSD_t
 {
@@ -40,5 +40,7 @@ Enable_SSD_t  Enable_SSD;
 
 void SSD_Init(void);
 void SSD_MainFunction(void);
+void SSD_SelectDisplay(void);
+void SSD_SelectDigit(void);
 void SSD_Blink(uint16_t Times_Ms,uint16_t Task_Peroid);
 #endif /* SSD_H_ */

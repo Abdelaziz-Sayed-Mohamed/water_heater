@@ -11,6 +11,8 @@
 #include"../gpio/gpio.h"
 #include"../Temperature/Temperature.h"
 
+static uint8_t SSD=0;
+static uint8_t Tempreture=0;
 
 void SSD_Init(void)
 {
@@ -20,111 +22,58 @@ void SSD_Init(void)
 }
 
 
-
-void SSD_MainFunction(void) //This Function should be Mapped On 20ms Task To can Blink 2 Digit 7Segment Every 1 Sec If Setting Mode Enabled
+void SSD_MainFunction(void)
 {
- static uint8_t Digit_1=0;
- static uint8_t Digit_2=0;
- static uint8_t Tempreture=0;
- static uint8_t SSD=0;
- static uint8_t Enable_Digit_Selector=1;
  
-  /*Select What Will SSDing*/
-  if(Mode.Select_Mode==Normal_Mode)
-  {
-	  Tempreture=Temperature.Average_Value;
-	  Enable_SSD=Enable_SSD_On;
-  }
-  else if(Mode.Select_Mode==Setting_Mode)
-  {
-	  Tempreture=Temperature.Set_Temp;
-  }
-  else if(Mode.Select_Mode==Off_Mode)
-  {
-	 RESET_PIN(DIGIT1_PORT,DIGIT1_PIN) ;
-	 RESET_PIN(DIGIT2_PORT,DIGIT2_PIN) ;
-     _7SEGMENT_PORT=Turn_Off_7seg_Port;
-  }
+    SSD_SelectDisplay();
+    SSD_SelectDigit();
 
-
- if(Mode.Select_Mode!=Off_Mode)
- {
-	 if(Enable_SSD==Enable_SSD_On)
-	 {
-         Digit_1=Tempreture%10;         //Digit 1 value
-         Digit_2=Tempreture/10;         //Digit 2 value 
-         
-         Toggle_Enable_Digit_Selector;  //Switch between tow digits
-          
-         if(IS_Digit_1_Enabled)         //Enable Digit 1 and disable digit 2
-         {
-  	       SSD=Digit_1;
-           RESET_PIN(DIGIT2_PORT,DIGIT2_PIN);
-           SET_PIN(DIGIT1_PORT,DIGIT1_PIN)  ;
-
-         }
-         else if(IS_Digit_2_Enabled)    //Enable Digit 2 and disable digit 1
-         {
-  	       SSD=Digit_2;
-  	       RESET_PIN(DIGIT1_PORT,DIGIT1_PIN);
-  	       SET_PIN(DIGIT2_PORT,DIGIT2_PIN);
-
-         }
-
-
-
-         switch(SSD)
-         {
-          case 0:
-             _7SEGMENT_PORT=SSD_Zero;
-             break;
-
-          case 1:
-             _7SEGMENT_PORT=SSD_One;
-             break;
-
-          case 2:
-             _7SEGMENT_PORT=SSD_Two;
-             break;
-
-          case 3:
-             _7SEGMENT_PORT=SSD_Three;
-             break;
-
-          case 4:
-             _7SEGMENT_PORT=SSD_Four;
-             break;
-
-          case 5:
-             _7SEGMENT_PORT=SSD_Five;
-             break;
-
-          case 6:
-             _7SEGMENT_PORT=SSD_Six;
-             break;
-
-          case 7:
-             _7SEGMENT_PORT=SSD_Seven;
-             break;
-
-          case 8:
-             _7SEGMENT_PORT=SSD_Eight;
-             break;
-
-          case 9:
-             _7SEGMENT_PORT=SSD_Nine;
-             break;
-
-         }
-	 }
-
-	 if(Mode.Select_Mode==Setting_Mode)   //If system in setting mode Tow digits will Blinking every 1 Sec
-	 {
-		 SSD_Blink(SSD_Blink_Time,SSD_Blink_TaskPeroid);
-
-	 }
-  }
-
+    switch(SSD)
+    {
+     case 0:
+        _7SEGMENT_PORT=SSD_Zero;
+        break;
+  
+     case 1:
+        _7SEGMENT_PORT=SSD_One;
+        break;
+  
+     case 2:
+        _7SEGMENT_PORT=SSD_Two;
+        break;
+  
+     case 3:
+        _7SEGMENT_PORT=SSD_Three;
+        break;
+  
+     case 4:
+        _7SEGMENT_PORT=SSD_Four;
+        break;
+  
+     case 5:
+        _7SEGMENT_PORT=SSD_Five;
+        break;
+  
+     case 6:
+        _7SEGMENT_PORT=SSD_Six;
+        break;
+  
+     case 7:
+        _7SEGMENT_PORT=SSD_Seven;
+        break;
+  
+     case 8:
+        _7SEGMENT_PORT=SSD_Eight;
+        break;
+  
+     case 9:
+        _7SEGMENT_PORT=SSD_Nine;
+        break;
+        
+     case Display_Nothing:
+        _7SEGMENT_PORT=Turn_Off_7seg_Port;
+        break;         
+    }	
 }
 
 
@@ -149,3 +98,61 @@ void SSD_Blink(uint16_t Times_Ms,uint16_t Task_Peroid)
   Counter++;
 }
 
+void SSD_SelectDisplay(void)
+{
+  
+   /*Select What Will Display*/
+  if(Mode.Select_Mode==Normal_Mode)
+  {
+	  Tempreture=Temperature.Average_Value;
+	  Enable_SSD=Enable_SSD_On;
+  }
+  else if(Mode.Select_Mode==Setting_Mode)
+  {
+	  Tempreture=Temperature.Set_Temp;
+      SSD_Blink(SSD_Blink_Time,SSD_Blink_TaskPeroid);
+  }
+  else if(Mode.Select_Mode==Off_Mode)
+  {
+	 RESET_PIN(DIGIT1_PORT,DIGIT1_PIN) ;
+	 RESET_PIN(DIGIT2_PORT,DIGIT2_PIN) ;
+    
+  }
+}
+
+void SSD_SelectDigit(void)
+{
+    static uint8_t Enable_Digit_Selector=1;
+    static uint8_t Digit_1=0;
+    static uint8_t Digit_2=0;
+    
+    if(Mode.Select_Mode!=Off_Mode)  
+    {    
+        if(Enable_SSD==Enable_SSD_On)
+	    {
+            Digit_1=Tempreture%10;         //Digit 1 value
+            Digit_2=Tempreture/10;         //Digit 2 value     
+            
+            Toggle_Enable_Digit_Selector;  //Switch between tow digits  
+            
+            if(IS_Digit_1_Enabled)         //Enable Digit 1 and disable digit 2
+            {
+  	           SSD=Digit_1;
+               RESET_PIN(DIGIT2_PORT,DIGIT2_PIN);
+               SET_PIN(DIGIT1_PORT,DIGIT1_PIN)  ;
+    
+            }
+            else if(IS_Digit_2_Enabled)    //Enable Digit 2 and disable digit 1
+            {
+  	           SSD=Digit_2;
+  	           RESET_PIN(DIGIT1_PORT,DIGIT1_PIN);
+  	           SET_PIN(DIGIT2_PORT,DIGIT2_PIN);
+    
+            }
+        }
+    }
+    else
+    {
+     SSD=Display_Nothing;
+    }    
+}

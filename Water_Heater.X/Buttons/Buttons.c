@@ -22,17 +22,17 @@ void On_Off_Init(void)
 void EXTI_On_Off_CallBack(void)
 {
 	if((Mode.Select_Mode==Setting_Mode) || (Mode.Select_Mode==Normal_Mode))
-		{
+	{
 
-		  Mode.Select_Mode=Off_Mode;
+		Mode.Select_Mode=Off_Mode;
 
-		}
-		else if (Mode.Select_Mode==Off_Mode)
-		{
+	}
+	else if (Mode.Select_Mode==Off_Mode)
+	{
 
-			Mode.Select_Mode=Normal_Mode;
+		Mode.Select_Mode=Normal_Mode;
 
-		}
+	}
 }
 
 void Buttons_MainFunction(void)
@@ -55,7 +55,6 @@ void Buttons_MainFunction(void)
                Buttons.DownFlag=Set_DownButton_Flag;
                Reset_UpButton_Flag;
             }    
-        }        
-          
+        }                
     }
 }

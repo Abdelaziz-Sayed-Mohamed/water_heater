@@ -30,7 +30,7 @@ void ADC_Init(void)
     ADCON1bits.PCFG2=0;
     ADCON1bits.PCFG3=0;
 
-    ADCON0bits.ADON=1;//Enable ADC Module
+    ADCON0bits.ADON=1;    //Enable ADC Module
     ADCON0bits.GO_DONE=0; //Stop Conversion
     SET_ADC_INIT_FLAG;
 }
@@ -46,7 +46,7 @@ void ADC_Start_Conv(void)
 
 void ADC_Conv_MainFunction(void)
 {
-	if(IS_ADC_INIT && IS_ADC_STARTED  && Mode.Select_Mode==Normal_Mode)
+	if( IS_ADC_STARTED  && Mode.Select_Mode==Normal_Mode)
 	{
 	    if(IS_CONV_DONE)
 	    {
