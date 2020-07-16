@@ -34,7 +34,6 @@ MODE_t Mode;
 #define Set_Store_Set_Temp_Flag Temperature.Store_Set_Temp_Flag=1
 
 void Mode_Init(void);
-void Select_Mode(void);
 void Start_Setting_Timer(uint16_t Timer_Ms ,uint16_t Peroid_Task);
 void Mode_MainFunction(void);
 #endif /* WATERHEATER_MODE_H_ */

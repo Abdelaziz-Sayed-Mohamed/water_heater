@@ -29,7 +29,6 @@ ADC_t ADC_Info;
 
 void ADC_Init(void);
 void ADC_Start_Conv(void);
-void ADC_Conv_Main(void);
 void ADC_Value_Ready_CallBack(void);
 void ADC_Conv_MainFunction(void);
 

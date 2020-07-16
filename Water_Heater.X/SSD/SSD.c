@@ -5,7 +5,7 @@
  *      Author: Abdelaziz Sayed
  */
 
-#include "SSD_Cfg.h"
+
 #include "SSD.h"
 #include"../WaterHeater_Mode/WaterHeater_Mode.h"
 #include"../gpio/gpio.h"
