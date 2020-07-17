@@ -7,10 +7,36 @@
 # 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "I2C/I2C.c" 2
+
+
+
+
+
+
+
 # 1 "I2C/I2C.h" 1
-# 25 "I2C/I2C.h"
+
+
+
+
+
+
+
+
 # 1 "I2C/../Config.h" 1
 
+
+
+
+
+#pragma config FOSC = HS
+#pragma config WDTE = OFF
+#pragma config PWRTE = OFF
+#pragma config BOREN = OFF
+#pragma config LVP = OFF
+#pragma config CPD = OFF
+#pragma config WRT = OFF
+#pragma config CP = OFF
 
 
 
@@ -1723,7 +1749,7 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 2 3
-# 5 "I2C/../Config.h" 2
+# 16 "I2C/../Config.h" 2
 
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
 # 13 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 3
@@ -1858,108 +1884,75 @@ typedef int16_t intptr_t;
 
 
 typedef uint16_t uintptr_t;
-# 6 "I2C/../Config.h" 2
-# 25 "I2C/I2C.h" 2
+# 17 "I2C/../Config.h" 2
+# 9 "I2C/I2C.h" 2
 
 
-void i2c_init(void);
+
+
+void I2c_Init(void);
 void I2c_Start(void);
 void I2c_Stop(void);
-void I2c_Write(uint8_t val);
+void I2c_WaitAck(void);
+void I2c_Write(uint8_t data);
 uint8_t I2c_Read(void);
-# 1 "I2C/I2C.c" 2
-
-# 1 "I2C/../gpio/gpio.h" 1
-# 11 "I2C/../gpio/gpio.h"
-# 1 "I2C/../gpio/gpio_Cfg.h" 1
-# 11 "I2C/../gpio/gpio_Cfg.h"
-# 1 "I2C/../gpio/../Config.h" 1
+void I2c_Send_NAck(void);
+# 8 "I2C/I2C.c" 2
 
 
-
-
-
-# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
-# 6 "I2C/../gpio/../Config.h" 2
-# 11 "I2C/../gpio/gpio_Cfg.h" 2
-# 11 "I2C/../gpio/gpio.h" 2
-# 24 "I2C/../gpio/gpio.h"
-void GPIO_Init(void);
-# 2 "I2C/I2C.c" 2
-
-
-void delay(void)
+void I2c_Init(void)
 {
-  __asm("NOP");
-  __asm("NOP");
-  __asm("NOP");
-  __asm("NOP");
-  __asm("NOP");
-  __asm("NOP");
-  __asm("NOP");
-  __asm("NOP");
-  __asm("NOP");
+    SSPADD = (8000000/(4*100000))-1;
+
+    SSPM0=0;
+    SSPM1=0;
+    SSPM2=0;
+    SSPM3=1;
+
+    SSPEN=1;
 
 }
 
-
 void I2c_Start(void)
 {
+    SEN=1;
+    while(SEN);
+    SSPIF=0;
+}
 
-  (PORTC|= (1<<3));
-  (PORTC|= (1<<4));
-  delay();
-  (PORTC &= ~(1<<4));
-  delay();
+
+uint8_t I2c_Read(void)
+{
+    uint8_t data;
+    RCEN=1;
+    while(!BF);
+    data= SSPBUF;
+    return data;
+}
+
+void I2c_Send_NAck(void)
+{
+    ACKDT=1;
+    ACKEN=1;
+    while(ACKEN);
+
 }
 
 void I2c_Stop(void)
 {
-  (PORTC|= (1<<3));
-  (PORTC &= ~(1<<4));
-  delay();
-  (PORTC|= (1<<4));
-  delay();
+    PEN=1;
+    while(PEN);
+    SSPIF=0;
 }
 
-void I2c_Write(uint8_t val)
+void I2c_Write(uint8_t data)
 {
-  unsigned char i;
-  (PORTC &= ~(1<<3));
-  for(i=0;i<8;i++)
-  {
-    PORTCbits.RC4=((val>>(7-i))& 0x01);
-    (PORTC|= (1<<3));
-    delay();
-    (PORTC &= ~(1<<3));
-  }
-  (PORTC|= (1<<4));
-  delay();
-  (PORTC|= (1<<3));
-  delay();
-  (PORTC &= ~(1<<3));
+    SSPBUF=data;
+
 }
 
-uint8_t I2c_Read(void)
+void I2c_WaitAck(void)
 {
-  char i;
-  unsigned char ret=0;
-
-  (PORTC &= ~(1<<3));
-  (1==0)? ((TRISC &= ~(1<<4))):((TRISC|= (1<<4)));
-  (PORTC|= (1<<4));
-  for(i=0;i<8;i++)
-  {
-    (PORTC|= (1<<3));
-    delay();
-    ret|=(PORTCbits.RC4<<(7-i));
-    (PORTC &= ~(1<<3));
-  }
-  (0==0)? ((TRISC &= ~(1<<4))):((TRISC|= (1<<4))) ;
-  delay();
-  (PORTC|= (1<<3));
-  delay();
-  (PORTC &= ~(1<<3));
-
-  return ret;
+    while(!SSPIF);
+    SSPIF=0;
 }

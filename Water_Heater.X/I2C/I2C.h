@@ -1,32 +1,22 @@
-/* ########################################################################
-
-   PICsim - PIC simulator http://sourceforge.net/projects/picsim/
-
-   ########################################################################
-
-   Copyright (c) : 2015  Luis Claudio Gambôa Lopes
-
-   This program is free software; you can redistribute it and/or modify
-   it under the terms of the GNU General Public License as published by
-   the Free Software Foundation; either version 2, or (at your option)
-   any later version.
-
-   This program is distributed in the hope that it will be useful,
-   but WITHOUT ANY WARRANTY; without even the implied warranty of
-   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-   GNU General Public License for more details.
-
-   You should have received a copy of the GNU General Public License
-   along with this program; if not, write to the Free Software
-   Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
-
-   For e-mail suggestions :  lcgamboa@yahoo.com
-   ######################################################################## */
+/* 
+ * File:   I2C.h
+ * Author: Abdalaziz Sayed
+ *
+ * Created on July 17, 2020, 3:20 AM
+ */
+#ifndef I2C_H
+#define	I2C_H
 #include"../Config.h"
-#define SDA                          PORTCbits.RC4
-void i2c_init(void);
+
+#define I2c_Clock   100000 //100khz
+
+void I2c_Init(void);
 void I2c_Start(void);
 void I2c_Stop(void);
-void I2c_Write(uint8_t val);
+void I2c_WaitAck(void);
+void I2c_Write(uint8_t data);
 uint8_t I2c_Read(void);
+void I2c_Send_NAck(void);
+
+#endif	/* I2C_H */
 

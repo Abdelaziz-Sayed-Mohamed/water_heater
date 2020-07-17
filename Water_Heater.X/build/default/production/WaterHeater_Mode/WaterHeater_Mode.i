@@ -13,7 +13,6 @@
 
 
 
-
 # 1 "WaterHeater_Mode/WaterHeater_Mode.h" 1
 # 10 "WaterHeater_Mode/WaterHeater_Mode.h"
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
@@ -157,6 +156,18 @@ typedef uint16_t uintptr_t;
 # 11 "WaterHeater_Mode/../gpio/gpio_Cfg.h"
 # 1 "WaterHeater_Mode/../gpio/../Config.h" 1
 
+
+
+
+
+#pragma config FOSC = HS
+#pragma config WDTE = OFF
+#pragma config PWRTE = OFF
+#pragma config BOREN = OFF
+#pragma config LVP = OFF
+#pragma config CPD = OFF
+#pragma config WRT = OFF
+#pragma config CP = OFF
 
 
 
@@ -1869,10 +1880,10 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 2 3
-# 5 "WaterHeater_Mode/../gpio/../Config.h" 2
+# 16 "WaterHeater_Mode/../gpio/../Config.h" 2
 
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
-# 6 "WaterHeater_Mode/../gpio/../Config.h" 2
+# 17 "WaterHeater_Mode/../gpio/../Config.h" 2
 # 11 "WaterHeater_Mode/../gpio/gpio_Cfg.h" 2
 # 11 "WaterHeater_Mode/../gpio/gpio.h" 2
 # 24 "WaterHeater_Mode/../gpio/gpio.h"
@@ -1909,10 +1920,9 @@ MODE_t Mode;
 
 
 void Mode_Init(void);
-void Select_Mode(void);
 void Start_Setting_Timer(uint16_t Timer_Ms ,uint16_t Peroid_Task);
 void Mode_MainFunction(void);
-# 8 "WaterHeater_Mode/WaterHeater_Mode.c" 2
+# 7 "WaterHeater_Mode/WaterHeater_Mode.c" 2
 
 
 # 1 "WaterHeater_Mode/../Temperature/Temperature.h" 1
@@ -1941,7 +1951,7 @@ TEMP_t Temperature;
 
 
 void Temperature_Calc(uint8_t ADC_VALUE);
-# 10 "WaterHeater_Mode/WaterHeater_Mode.c" 2
+# 9 "WaterHeater_Mode/WaterHeater_Mode.c" 2
 
 # 1 "WaterHeater_Mode/../Buttons/Buttons.h" 1
 # 11 "WaterHeater_Mode/../Buttons/Buttons.h"
@@ -1951,8 +1961,20 @@ void Temperature_Calc(uint8_t ADC_VALUE);
 
 
 
+#pragma config FOSC = HS
+#pragma config WDTE = OFF
+#pragma config PWRTE = OFF
+#pragma config BOREN = OFF
+#pragma config LVP = OFF
+#pragma config CPD = OFF
+#pragma config WRT = OFF
+#pragma config CP = OFF
+
+
+
+
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
-# 6 "WaterHeater_Mode/../Buttons/../Config.h" 2
+# 17 "WaterHeater_Mode/../Buttons/../Config.h" 2
 # 11 "WaterHeater_Mode/../Buttons/Buttons.h" 2
 
 
@@ -1977,7 +1999,7 @@ _BUTTONS_t Buttons;
 void Buttons_MainFunction(void);
 void On_Off_Init(void);
 void EXTI_On_Off_CallBack(void);
-# 11 "WaterHeater_Mode/WaterHeater_Mode.c" 2
+# 10 "WaterHeater_Mode/WaterHeater_Mode.c" 2
 
 # 1 "WaterHeater_Mode/../EEPROM/EEPROM.h" 1
 # 12 "WaterHeater_Mode/../EEPROM/EEPROM.h"
@@ -1987,18 +2009,70 @@ void EXTI_On_Off_CallBack(void);
 
 
 
+#pragma config FOSC = HS
+#pragma config WDTE = OFF
+#pragma config PWRTE = OFF
+#pragma config BOREN = OFF
+#pragma config LVP = OFF
+#pragma config CPD = OFF
+#pragma config WRT = OFF
+#pragma config CP = OFF
+
+
+
+
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
-# 6 "WaterHeater_Mode/../EEPROM/../Config.h" 2
+# 17 "WaterHeater_Mode/../EEPROM/../Config.h" 2
 # 12 "WaterHeater_Mode/../EEPROM/EEPROM.h" 2
-# 26 "WaterHeater_Mode/../EEPROM/EEPROM.h"
+
+# 1 "WaterHeater_Mode/../EEPROM/../I2C/I2C.h" 1
+
+
+
+
+
+
+
+
+# 1 "WaterHeater_Mode/../EEPROM/../I2C/../Config.h" 1
+
+
+
+
+
+#pragma config FOSC = HS
+#pragma config WDTE = OFF
+#pragma config PWRTE = OFF
+#pragma config BOREN = OFF
+#pragma config LVP = OFF
+#pragma config CPD = OFF
+#pragma config WRT = OFF
+#pragma config CP = OFF
+
+
+
+
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
+# 17 "WaterHeater_Mode/../EEPROM/../I2C/../Config.h" 2
+# 9 "WaterHeater_Mode/../EEPROM/../I2C/I2C.h" 2
+
+
+
+
+void I2c_Init(void);
+void I2c_Start(void);
+void I2c_Stop(void);
+void I2c_WaitAck(void);
+void I2c_Write(uint8_t data);
+uint8_t I2c_Read(void);
+void I2c_Send_NAck(void);
+# 13 "WaterHeater_Mode/../EEPROM/EEPROM.h" 2
+# 25 "WaterHeater_Mode/../EEPROM/EEPROM.h"
 void Get_EEPROM_Data(void);
 void Set_EEPROM_Data(void);
-void EEPROM_Write(uint8_t Data,uint8_t ADDR);
-uint8_t EEPROM_Read(uint8_t addr);
-# 12 "WaterHeater_Mode/WaterHeater_Mode.c" 2
-
-
-
+void EEPROM_Write(uint8_t Data,uint8_t Addr);
+uint8_t EEPROM_Read(uint8_t Addr);
+# 11 "WaterHeater_Mode/WaterHeater_Mode.c" 2
 
 
 void Mode_Init(void)
@@ -2014,7 +2088,6 @@ void Mode_Init(void)
 
 void Mode_MainFunction(void)
 {
-
 
    if(Mode.Select_Mode==Setting_Mode)
    {
@@ -2033,7 +2106,6 @@ void Mode_MainFunction(void)
           Buttons.DownFlag=0;
      }
    }
-
 
 }
 

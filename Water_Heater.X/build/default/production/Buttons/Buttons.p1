@@ -32,6 +32,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 "216
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 216: extern volatile unsigned char PORTB __attribute__((address(0x006)));
 [v _PORTB `Vuc ~T0 @X0 0 e@6 ]
+"6 Buttons/../WaterHeater_Mode/../gpio/../Config.h
+[p x FOSC = HS ]
+"7
+[p x WDTE = OFF ]
+"8
+[p x PWRTE = OFF ]
+"9
+[p x BOREN = OFF ]
+"10
+[p x LVP = OFF ]
+"11
+[p x CPD = OFF ]
+"12
+[p x WRT = OFF ]
+"13
+[p x CP = OFF ]
 "54 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 54: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
@@ -215,6 +231,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 "24 Buttons/Buttons.h
 [; ;Buttons/Buttons.h: 24: _BUTTONS_t Buttons;
 [v _Buttons `S95 ~T0 @X0 1 e ]
+"6 Buttons/../WaterHeater_Mode/../gpio/../Config.h
+[p x FOSC = HS ]
+"7
+[p x WDTE = OFF ]
+"8
+[p x PWRTE = OFF ]
+"9
+[p x BOREN = OFF ]
+"10
+[p x LVP = OFF ]
+"11
+[p x CPD = OFF ]
+"12
+[p x WRT = OFF ]
+"13
+[p x CP = OFF ]
 "28 Buttons/../WaterHeater_Mode/WaterHeater_Mode.h
 [; ;Buttons/../WaterHeater_Mode/WaterHeater_Mode.h: 28: MODE_t Mode;
 [v _Mode `S96 ~T0 @X0 1 e ]
@@ -251,27 +283,27 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;Buttons/Buttons.c: 24:  if((Mode.Select_Mode==Setting_Mode) || (Mode.Select_Mode==Normal_Mode))
 [e $ ! || == -> . _Mode 0 `ui -> . `E887 2 `ui == -> . _Mode 0 `ui -> . `E887 1 `ui 99  ]
 "25
-[; ;Buttons/Buttons.c: 25:   {
+[; ;Buttons/Buttons.c: 25:  {
 {
 "27
-[; ;Buttons/Buttons.c: 27:     Mode.Select_Mode=Off_Mode;
+[; ;Buttons/Buttons.c: 27:   Mode.Select_Mode=Off_Mode;
 [e = . _Mode 0 . `E887 0 ]
 "29
-[; ;Buttons/Buttons.c: 29:   }
+[; ;Buttons/Buttons.c: 29:  }
 }
 [e $U 100  ]
 "30
-[; ;Buttons/Buttons.c: 30:   else if (Mode.Select_Mode==Off_Mode)
+[; ;Buttons/Buttons.c: 30:  else if (Mode.Select_Mode==Off_Mode)
 [e :U 99 ]
 [e $ ! == -> . _Mode 0 `ui -> . `E887 0 `ui 101  ]
 "31
-[; ;Buttons/Buttons.c: 31:   {
+[; ;Buttons/Buttons.c: 31:  {
 {
 "33
-[; ;Buttons/Buttons.c: 33:    Mode.Select_Mode=Normal_Mode;
+[; ;Buttons/Buttons.c: 33:   Mode.Select_Mode=Normal_Mode;
 [e = . _Mode 0 . `E887 1 ]
 "35
-[; ;Buttons/Buttons.c: 35:   }
+[; ;Buttons/Buttons.c: 35:  }
 }
 [e :U 101 ]
 [e :U 100 ]
@@ -352,11 +384,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e :U 106 ]
 [e :U 105 ]
-"60
-[; ;Buttons/Buttons.c: 60:     }
+"59
+[; ;Buttons/Buttons.c: 59:     }
 }
 [e :U 103 ]
-"61
-[; ;Buttons/Buttons.c: 61: }
+"60
+[; ;Buttons/Buttons.c: 60: }
 [e :UE 102 ]
 }

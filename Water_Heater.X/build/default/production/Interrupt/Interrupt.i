@@ -20,6 +20,18 @@
 
 
 
+
+#pragma config FOSC = HS
+#pragma config WDTE = OFF
+#pragma config PWRTE = OFF
+#pragma config BOREN = OFF
+#pragma config LVP = OFF
+#pragma config CPD = OFF
+#pragma config WRT = OFF
+#pragma config CP = OFF
+
+
+
 # 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -1729,7 +1741,7 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 2 3
-# 5 "Interrupt/../Config.h" 2
+# 16 "Interrupt/../Config.h" 2
 
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
 # 13 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 3
@@ -1864,9 +1876,39 @@ typedef int16_t intptr_t;
 
 
 typedef uint16_t uintptr_t;
-# 6 "Interrupt/../Config.h" 2
+# 17 "Interrupt/../Config.h" 2
 # 10 "Interrupt/Interrupt.h" 2
 # 7 "Interrupt/Interrupt.c" 2
+
+# 1 "Interrupt/../gpio/gpio.h" 1
+# 11 "Interrupt/../gpio/gpio.h"
+# 1 "Interrupt/../gpio/gpio_Cfg.h" 1
+# 11 "Interrupt/../gpio/gpio_Cfg.h"
+# 1 "Interrupt/../gpio/../Config.h" 1
+
+
+
+
+
+#pragma config FOSC = HS
+#pragma config WDTE = OFF
+#pragma config PWRTE = OFF
+#pragma config BOREN = OFF
+#pragma config LVP = OFF
+#pragma config CPD = OFF
+#pragma config WRT = OFF
+#pragma config CP = OFF
+
+
+
+
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
+# 17 "Interrupt/../gpio/../Config.h" 2
+# 11 "Interrupt/../gpio/gpio_Cfg.h" 2
+# 11 "Interrupt/../gpio/gpio.h" 2
+# 24 "Interrupt/../gpio/gpio.h"
+void GPIO_Init(void);
+# 8 "Interrupt/Interrupt.c" 2
 
 # 1 "Interrupt/../Timer/Timer.h" 1
 # 10 "Interrupt/../Timer/Timer.h"
@@ -1876,8 +1918,20 @@ typedef uint16_t uintptr_t;
 
 
 
+#pragma config FOSC = HS
+#pragma config WDTE = OFF
+#pragma config PWRTE = OFF
+#pragma config BOREN = OFF
+#pragma config LVP = OFF
+#pragma config CPD = OFF
+#pragma config WRT = OFF
+#pragma config CP = OFF
+
+
+
+
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
-# 6 "Interrupt/../Timer/../Config.h" 2
+# 17 "Interrupt/../Timer/../Config.h" 2
 # 10 "Interrupt/../Timer/Timer.h" 2
 
 # 1 "Interrupt/../Timer/../Scheduler/Scheduler.h" 1
@@ -1953,8 +2007,20 @@ extern char * strrichr(const char *, int);
 
 
 
+#pragma config FOSC = HS
+#pragma config WDTE = OFF
+#pragma config PWRTE = OFF
+#pragma config BOREN = OFF
+#pragma config LVP = OFF
+#pragma config CPD = OFF
+#pragma config WRT = OFF
+#pragma config CP = OFF
+
+
+
+
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
-# 6 "Interrupt/../Timer/../Scheduler/../Config.h" 2
+# 17 "Interrupt/../Timer/../Scheduler/../Config.h" 2
 # 16 "Interrupt/../Timer/../Scheduler/Scheduler_cfg.h" 2
 
 
@@ -1982,7 +2048,7 @@ void Scheduler_ActivateTask(uint32_t SystemTick);
 
 void Timer0_CallBack(void);
 void Timer0_Init(void);
-# 8 "Interrupt/Interrupt.c" 2
+# 9 "Interrupt/Interrupt.c" 2
 
 # 1 "Interrupt/../Buttons/Buttons.h" 1
 # 11 "Interrupt/../Buttons/Buttons.h"
@@ -1992,8 +2058,20 @@ void Timer0_Init(void);
 
 
 
+#pragma config FOSC = HS
+#pragma config WDTE = OFF
+#pragma config PWRTE = OFF
+#pragma config BOREN = OFF
+#pragma config LVP = OFF
+#pragma config CPD = OFF
+#pragma config WRT = OFF
+#pragma config CP = OFF
+
+
+
+
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
-# 6 "Interrupt/../Buttons/../Config.h" 2
+# 17 "Interrupt/../Buttons/../Config.h" 2
 # 11 "Interrupt/../Buttons/Buttons.h" 2
 
 
@@ -2018,11 +2096,12 @@ _BUTTONS_t Buttons;
 void Buttons_MainFunction(void);
 void On_Off_Init(void);
 void EXTI_On_Off_CallBack(void);
-# 9 "Interrupt/Interrupt.c" 2
+# 10 "Interrupt/Interrupt.c" 2
 
 
 void __attribute__((picinterrupt(("")))) myISR(void)
 {
+
  if(INTCONbits.INTF)
  {
         INTCONbits.INTF=0;

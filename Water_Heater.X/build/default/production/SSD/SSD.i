@@ -14,13 +14,23 @@
 
 
 
-# 1 "SSD/SSD_Cfg.h" 1
-# 8 "SSD/SSD.c" 2
 
 # 1 "SSD/SSD.h" 1
 # 10 "SSD/SSD.h"
 # 1 "SSD/../Config.h" 1
 
+
+
+
+
+#pragma config FOSC = HS
+#pragma config WDTE = OFF
+#pragma config PWRTE = OFF
+#pragma config BOREN = OFF
+#pragma config LVP = OFF
+#pragma config CPD = OFF
+#pragma config WRT = OFF
+#pragma config CP = OFF
 
 
 
@@ -1733,7 +1743,7 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 2 3
-# 5 "SSD/../Config.h" 2
+# 16 "SSD/../Config.h" 2
 
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
 # 13 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 3
@@ -1868,7 +1878,7 @@ typedef int16_t intptr_t;
 
 
 typedef uint16_t uintptr_t;
-# 6 "SSD/../Config.h" 2
+# 17 "SSD/../Config.h" 2
 # 10 "SSD/SSD.h" 2
 # 33 "SSD/SSD.h"
 typedef enum _Enable_SSD_t
@@ -1881,6 +1891,8 @@ Enable_SSD_t Enable_SSD;
 
 void SSD_Init(void);
 void SSD_MainFunction(void);
+void SSD_SelectDisplay(void);
+void SSD_SelectDigit(void);
 void SSD_Blink(uint16_t Times_Ms,uint16_t Task_Peroid);
 # 9 "SSD/SSD.c" 2
 
@@ -1899,8 +1911,20 @@ void SSD_Blink(uint16_t Times_Ms,uint16_t Task_Peroid);
 
 
 
+#pragma config FOSC = HS
+#pragma config WDTE = OFF
+#pragma config PWRTE = OFF
+#pragma config BOREN = OFF
+#pragma config LVP = OFF
+#pragma config CPD = OFF
+#pragma config WRT = OFF
+#pragma config CP = OFF
+
+
+
+
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
-# 6 "SSD/../WaterHeater_Mode/../gpio/../Config.h" 2
+# 17 "SSD/../WaterHeater_Mode/../gpio/../Config.h" 2
 # 11 "SSD/../WaterHeater_Mode/../gpio/gpio_Cfg.h" 2
 # 11 "SSD/../WaterHeater_Mode/../gpio/gpio.h" 2
 # 24 "SSD/../WaterHeater_Mode/../gpio/gpio.h"
@@ -1937,7 +1961,6 @@ MODE_t Mode;
 
 
 void Mode_Init(void);
-void Select_Mode(void);
 void Start_Setting_Timer(uint16_t Timer_Ms ,uint16_t Peroid_Task);
 void Mode_MainFunction(void);
 # 10 "SSD/SSD.c" 2
@@ -1972,6 +1995,8 @@ void Temperature_Calc(uint8_t ADC_VALUE);
 # 12 "SSD/SSD.c" 2
 
 
+static uint8_t SSD=0;
+static uint8_t Tempreture=0;
 
 void SSD_Init(void)
 {
@@ -1981,111 +2006,58 @@ void SSD_Init(void)
 }
 
 
-
 void SSD_MainFunction(void)
 {
- static uint8_t Digit_1=0;
- static uint8_t Digit_2=0;
- static uint8_t Tempreture=0;
- static uint8_t SSD=0;
- static uint8_t Enable_Digit_Selector=1;
 
+    SSD_SelectDisplay();
+    SSD_SelectDigit();
 
-  if(Mode.Select_Mode==Normal_Mode)
-  {
-   Tempreture=Temperature.Average_Value;
-   Enable_SSD=Enable_SSD_On;
-  }
-  else if(Mode.Select_Mode==Setting_Mode)
-  {
-   Tempreture=Temperature.Set_Temp;
-  }
-  else if(Mode.Select_Mode==Off_Mode)
-  {
-  (PORTA &= ~(1<<5)) ;
-  (PORTA &= ~(1<<4)) ;
-     PORTD=0;
-  }
+    switch(SSD)
+    {
+     case 0:
+        PORTD=0b00111111;
+        break;
 
+     case 1:
+        PORTD=0b00000110;
+        break;
 
- if(Mode.Select_Mode!=Off_Mode)
- {
-  if(Enable_SSD==Enable_SSD_On)
-  {
-         Digit_1=Tempreture%10;
-         Digit_2=Tempreture/10;
+     case 2:
+        PORTD=0b01011011;
+        break;
 
-         Enable_Digit_Selector^=1;
+     case 3:
+        PORTD=0b01001111;
+        break;
 
-         if(Enable_Digit_Selector==0)
-         {
-          SSD=Digit_1;
-           (PORTA &= ~(1<<4));
-           (PORTA|= (1<<5)) ;
+     case 4:
+        PORTD=0b01100110;
+        break;
 
-         }
-         else if(Enable_Digit_Selector==1)
-         {
-          SSD=Digit_2;
-          (PORTA &= ~(1<<5));
-          (PORTA|= (1<<4));
+     case 5:
+        PORTD=0b01101101;
+        break;
 
-         }
+     case 6:
+        PORTD=0b01111101;
+        break;
 
+     case 7:
+        PORTD=0b00000111;
+        break;
 
+     case 8:
+        PORTD=0b01111111;
+        break;
 
-         switch(SSD)
-         {
-          case 0:
-             PORTD=0b00111111;
-             break;
+     case 9:
+        PORTD=0b01101111;
+        break;
 
-          case 1:
-             PORTD=0b00000110;
-             break;
-
-          case 2:
-             PORTD=0b01011011;
-             break;
-
-          case 3:
-             PORTD=0b01001111;
-             break;
-
-          case 4:
-             PORTD=0b01100110;
-             break;
-
-          case 5:
-             PORTD=0b01101101;
-             break;
-
-          case 6:
-             PORTD=0b01111101;
-             break;
-
-          case 7:
-             PORTD=0b00000111;
-             break;
-
-          case 8:
-             PORTD=0b01111111;
-             break;
-
-          case 9:
-             PORTD=0b01101111;
-             break;
-
-         }
-  }
-
-  if(Mode.Select_Mode==Setting_Mode)
-  {
-   SSD_Blink(1000,20);
-
-  }
-  }
-
+     case 10:
+        PORTD=0;
+        break;
+    }
 }
 
 
@@ -2108,4 +2080,63 @@ void SSD_Blink(uint16_t Times_Ms,uint16_t Task_Peroid)
         Counter =1;
   }
   Counter++;
+}
+
+void SSD_SelectDisplay(void)
+{
+
+
+  if(Mode.Select_Mode==Normal_Mode)
+  {
+   Tempreture=Temperature.Average_Value;
+   Enable_SSD=Enable_SSD_On;
+  }
+  else if(Mode.Select_Mode==Setting_Mode)
+  {
+   Tempreture=Temperature.Set_Temp;
+      SSD_Blink(1000,20);
+  }
+  else if(Mode.Select_Mode==Off_Mode)
+  {
+  (PORTA &= ~(1<<5)) ;
+  (PORTA &= ~(1<<4)) ;
+
+  }
+}
+
+void SSD_SelectDigit(void)
+{
+    static uint8_t Enable_Digit_Selector=1;
+    static uint8_t Digit_1=0;
+    static uint8_t Digit_2=0;
+
+    if(Mode.Select_Mode!=Off_Mode)
+    {
+        if(Enable_SSD==Enable_SSD_On)
+     {
+            Digit_1=Tempreture%10;
+            Digit_2=Tempreture/10;
+
+            Enable_Digit_Selector^=1;
+
+            if(Enable_Digit_Selector==0)
+            {
+              SSD=Digit_1;
+               (PORTA &= ~(1<<4));
+               (PORTA|= (1<<5)) ;
+
+            }
+            else if(Enable_Digit_Selector==1)
+            {
+              SSD=Digit_2;
+              (PORTA &= ~(1<<5));
+              (PORTA|= (1<<4));
+
+            }
+        }
+    }
+    else
+    {
+     SSD=10;
+    }
 }

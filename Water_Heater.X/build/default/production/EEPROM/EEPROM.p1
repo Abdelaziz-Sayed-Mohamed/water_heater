@@ -3,24 +3,46 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;EEPROM/../Temperature/Temperature.h: 17: {
 [s S95 `uc 1 `uc 1 `uc 1 :1 `uc 1 :1 `uc 1 `uc 1 ]
 [n S95 _TEMP_t Temp_Value Average_Value Set_Temp Average_Value_Ready_Flag Store_Set_Temp_Flag Average_NValues ]
-"29 EEPROM/EEPROM.h
-[; ;EEPROM/EEPROM.h: 29: uint8_t EEPROM_Read(uint8_t addr);
+"28 EEPROM/EEPROM.h
+[; ;EEPROM/EEPROM.h: 28: uint8_t EEPROM_Read(uint8_t Addr);
 [v _EEPROM_Read `(uc ~T0 @X0 0 ef1`uc ]
-"28
-[; ;EEPROM/EEPROM.h: 28: void EEPROM_Write(uint8_t Data,uint8_t ADDR);
+"27
+[; ;EEPROM/EEPROM.h: 27: void EEPROM_Write(uint8_t Data,uint8_t Addr);
 [v _EEPROM_Write `(v ~T0 @X0 0 ef2`uc`uc ]
-"28 EEPROM/../I2C/I2C.h
-[; ;EEPROM/../I2C/I2C.h: 28: void I2c_Start(void);
+"14 EEPROM/../I2C/I2C.h
+[; ;EEPROM/../I2C/I2C.h: 14: void I2c_Start(void);
 [v _I2c_Start `(v ~T0 @X0 0 ef ]
-"30
-[; ;EEPROM/../I2C/I2C.h: 30: void I2c_Write(uint8_t val);
+"17
+[; ;EEPROM/../I2C/I2C.h: 17: void I2c_Write(uint8_t data);
 [v _I2c_Write `(v ~T0 @X0 0 ef1`uc ]
-"29
-[; ;EEPROM/../I2C/I2C.h: 29: void I2c_Stop(void);
+"16
+[; ;EEPROM/../I2C/I2C.h: 16: void I2c_WaitAck(void);
+[v _I2c_WaitAck `(v ~T0 @X0 0 ef ]
+"15
+[; ;EEPROM/../I2C/I2C.h: 15: void I2c_Stop(void);
 [v _I2c_Stop `(v ~T0 @X0 0 ef ]
-"31
-[; ;EEPROM/../I2C/I2C.h: 31: uint8_t I2c_Read(void);
+"18
+[; ;EEPROM/../I2C/I2C.h: 18: uint8_t I2c_Read(void);
 [v _I2c_Read `(uc ~T0 @X0 0 ef ]
+"19
+[; ;EEPROM/../I2C/I2C.h: 19: void I2c_Send_NAck(void);
+[v _I2c_Send_NAck `(v ~T0 @X0 0 ef ]
+"6 EEPROM/../I2C/../Config.h
+[p x FOSC = HS ]
+"7
+[p x WDTE = OFF ]
+"8
+[p x PWRTE = OFF ]
+"9
+[p x BOREN = OFF ]
+"10
+[p x LVP = OFF ]
+"11
+[p x CPD = OFF ]
+"12
+[p x WRT = OFF ]
+"13
+[p x CP = OFF ]
 "54 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 54: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
@@ -201,169 +223,199 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2363
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2363: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
+"6 EEPROM/../I2C/../Config.h
+[p x FOSC = HS ]
+"7
+[p x WDTE = OFF ]
+"8
+[p x PWRTE = OFF ]
+"9
+[p x BOREN = OFF ]
+"10
+[p x LVP = OFF ]
+"11
+[p x CPD = OFF ]
+"12
+[p x WRT = OFF ]
+"13
+[p x CP = OFF ]
 "26 EEPROM/../Temperature/Temperature.h
 [; ;EEPROM/../Temperature/Temperature.h: 26: TEMP_t Temperature;
 [v _Temperature `S95 ~T0 @X0 1 e ]
-"7 EEPROM/EEPROM.c
-[; ;EEPROM/EEPROM.c: 7: uint8_t EEPROM_Data=0;
+"12 EEPROM/EEPROM.c
+[; ;EEPROM/EEPROM.c: 12: uint8_t EEPROM_Data=0;
 [v _EEPROM_Data `uc ~T0 @X0 1 e ]
 [i _EEPROM_Data
 -> -> 0 `i `uc
 ]
-"9
-[; ;EEPROM/EEPROM.c: 9: void Get_EEPROM_Data(void)
+"14
+[; ;EEPROM/EEPROM.c: 14: void Get_EEPROM_Data(void)
 [v _Get_EEPROM_Data `(v ~T0 @X0 1 ef ]
-"10
-[; ;EEPROM/EEPROM.c: 10: {
+"15
+[; ;EEPROM/EEPROM.c: 15: {
 {
 [e :U _Get_EEPROM_Data ]
 [f ]
-"13
-[; ;EEPROM/EEPROM.c: 13:  while( EEPROM_Read(0));
-[e $U 97  ]
-[e :U 98 ]
-[e :U 97 ]
-[e $ != -> ( _EEPROM_Read (1 -> -> 0 `i `uc `i -> 0 `i 98  ]
-[e :U 99 ]
-"14
-[; ;EEPROM/EEPROM.c: 14:  EEPROM_Data=EEPROM_Read(0xa);
-[e = _EEPROM_Data ( _EEPROM_Read (1 -> -> 10 `i `uc ]
-"16
-[; ;EEPROM/EEPROM.c: 16:  if((EEPROM_Data<=(75U))&&(EEPROM_Data>=(35U) )&& ((EEPROM_Data%5)==0) )
-[e $ ! && && <= -> _EEPROM_Data `ui -> 75 `ui >= -> _EEPROM_Data `ui -> 35 `ui == % -> _EEPROM_Data `i -> 5 `i -> 0 `i 100  ]
-"17
-[; ;EEPROM/EEPROM.c: 17:  {
-{
 "18
-[; ;EEPROM/EEPROM.c: 18:    Temperature.Set_Temp=EEPROM_Data;
-[e = . _Temperature 2 _EEPROM_Data ]
-"19
-[; ;EEPROM/EEPROM.c: 19:  }
-}
-[e $U 101  ]
+[; ;EEPROM/EEPROM.c: 18:  EEPROM_Data=EEPROM_Read(0x0A);
+[e = _EEPROM_Data ( _EEPROM_Read (1 -> -> 10 `i `uc ]
 "20
-[; ;EEPROM/EEPROM.c: 20:  else
-[e :U 100 ]
+[; ;EEPROM/EEPROM.c: 20:  if((EEPROM_Data<=(75U))&&(EEPROM_Data>=(35U) )&& ((EEPROM_Data%5)==0) )
+[e $ ! && && <= -> _EEPROM_Data `ui -> 75 `ui >= -> _EEPROM_Data `ui -> 35 `ui == % -> _EEPROM_Data `i -> 5 `i -> 0 `i 97  ]
 "21
 [; ;EEPROM/EEPROM.c: 21:  {
 {
 "22
-[; ;EEPROM/EEPROM.c: 22:    Temperature.Set_Temp=(60U);
-[e = . _Temperature 2 -> -> 60 `ui `uc ]
+[; ;EEPROM/EEPROM.c: 22:    Temperature.Set_Temp=EEPROM_Data;
+[e = . _Temperature 2 _EEPROM_Data ]
 "23
 [; ;EEPROM/EEPROM.c: 23:  }
 }
-[e :U 101 ]
+[e $U 98  ]
+"24
+[; ;EEPROM/EEPROM.c: 24:  else
+[e :U 97 ]
+"25
+[; ;EEPROM/EEPROM.c: 25:  {
+{
 "26
-[; ;EEPROM/EEPROM.c: 26: }
+[; ;EEPROM/EEPROM.c: 26:    Temperature.Set_Temp=(60U);
+[e = . _Temperature 2 -> -> 60 `ui `uc ]
+"27
+[; ;EEPROM/EEPROM.c: 27:  }
+}
+[e :U 98 ]
+"30
+[; ;EEPROM/EEPROM.c: 30: }
 [e :UE 96 ]
 }
-"29
-[; ;EEPROM/EEPROM.c: 29: void Set_EEPROM_Data(void)
+"33
+[; ;EEPROM/EEPROM.c: 33: void Set_EEPROM_Data(void)
 [v _Set_EEPROM_Data `(v ~T0 @X0 1 ef ]
-"30
-[; ;EEPROM/EEPROM.c: 30: {
+"34
+[; ;EEPROM/EEPROM.c: 34: {
 {
 [e :U _Set_EEPROM_Data ]
 [f ]
-"33
-[; ;EEPROM/EEPROM.c: 33:  if(Temperature.Store_Set_Temp_Flag==1)
-[e $ ! == -> . _Temperature 4 `i -> 1 `i 103  ]
-"34
-[; ;EEPROM/EEPROM.c: 34:  {
-{
-"35
-[; ;EEPROM/EEPROM.c: 35:     EEPROM_Data=Temperature.Set_Temp;
-[e = _EEPROM_Data . _Temperature 2 ]
-"36
-[; ;EEPROM/EEPROM.c: 36:     EEPROM_Write(EEPROM_Data,0xa);
-[e ( _EEPROM_Write (2 , _EEPROM_Data -> -> 10 `i `uc ]
 "37
-[; ;EEPROM/EEPROM.c: 37:     Temperature.Store_Set_Temp_Flag=0;
-[e = . _Temperature 4 -> -> 0 `i `uc ]
+[; ;EEPROM/EEPROM.c: 37:  if(Temperature.Store_Set_Temp_Flag==1)
+[e $ ! == -> . _Temperature 4 `i -> 1 `i 100  ]
+"38
+[; ;EEPROM/EEPROM.c: 38:  {
+{
 "39
-[; ;EEPROM/EEPROM.c: 39:  }
-}
-[e :U 103 ]
+[; ;EEPROM/EEPROM.c: 39:     EEPROM_Data=Temperature.Set_Temp;
+[e = _EEPROM_Data . _Temperature 2 ]
 "40
-[; ;EEPROM/EEPROM.c: 40: }
-[e :UE 102 ]
+[; ;EEPROM/EEPROM.c: 40:     EEPROM_Write(EEPROM_Data,0x0A);
+[e ( _EEPROM_Write (2 , _EEPROM_Data -> -> 10 `i `uc ]
+"41
+[; ;EEPROM/EEPROM.c: 41:     Temperature.Store_Set_Temp_Flag=0;
+[e = . _Temperature 4 -> -> 0 `i `uc ]
+"42
+[; ;EEPROM/EEPROM.c: 42:  }
 }
-"43
-[; ;EEPROM/EEPROM.c: 43: void EEPROM_Write(uint8_t Data,uint8_t ADDR)
+[e :U 100 ]
+"45
+[; ;EEPROM/EEPROM.c: 45: }
+[e :UE 99 ]
+}
+"47
+[; ;EEPROM/EEPROM.c: 47: void EEPROM_Write(uint8_t Data,uint8_t Addr)
 [v _EEPROM_Write `(v ~T0 @X0 1 ef2`uc`uc ]
-"44
-[; ;EEPROM/EEPROM.c: 44: {
+"48
+[; ;EEPROM/EEPROM.c: 48: {
 {
 [e :U _EEPROM_Write ]
-"43
-[; ;EEPROM/EEPROM.c: 43: void EEPROM_Write(uint8_t Data,uint8_t ADDR)
-[v _Data `uc ~T0 @X0 1 r1 ]
-[v _ADDR `uc ~T0 @X0 1 r2 ]
-"44
-[; ;EEPROM/EEPROM.c: 44: {
-[f ]
-"45
-[; ;EEPROM/EEPROM.c: 45:     I2c_Start();
-[e ( _I2c_Start ..  ]
-"46
-[; ;EEPROM/EEPROM.c: 46:     I2c_Write(0xa0);
-[e ( _I2c_Write (1 -> -> 160 `i `uc ]
 "47
-[; ;EEPROM/EEPROM.c: 47:     I2c_Write(ADDR);
-[e ( _I2c_Write (1 _ADDR ]
+[; ;EEPROM/EEPROM.c: 47: void EEPROM_Write(uint8_t Data,uint8_t Addr)
+[v _Data `uc ~T0 @X0 1 r1 ]
+[v _Addr `uc ~T0 @X0 1 r2 ]
 "48
-[; ;EEPROM/EEPROM.c: 48:     I2c_Write(Data);
-[e ( _I2c_Write (1 _Data ]
+[; ;EEPROM/EEPROM.c: 48: {
+[f ]
 "49
-[; ;EEPROM/EEPROM.c: 49:     I2c_Stop();
-[e ( _I2c_Stop ..  ]
+[; ;EEPROM/EEPROM.c: 49:  I2c_Start();
+[e ( _I2c_Start ..  ]
+"50
+[; ;EEPROM/EEPROM.c: 50:  I2c_Write(0xA0);
+[e ( _I2c_Write (1 -> -> 160 `i `uc ]
 "51
-[; ;EEPROM/EEPROM.c: 51: }
-[e :UE 104 ]
-}
+[; ;EEPROM/EEPROM.c: 51:  I2c_WaitAck();
+[e ( _I2c_WaitAck ..  ]
+"52
+[; ;EEPROM/EEPROM.c: 52:  I2c_Write(Addr);
+[e ( _I2c_Write (1 _Addr ]
+"53
+[; ;EEPROM/EEPROM.c: 53:  I2c_WaitAck();
+[e ( _I2c_WaitAck ..  ]
 "54
-[; ;EEPROM/EEPROM.c: 54: uint8_t EEPROM_Read(uint8_t addr)
-[v _EEPROM_Read `(uc ~T0 @X0 1 ef1`uc ]
+[; ;EEPROM/EEPROM.c: 54:  I2c_Write(Data);
+[e ( _I2c_Write (1 _Data ]
 "55
-[; ;EEPROM/EEPROM.c: 55: {
+[; ;EEPROM/EEPROM.c: 55:  I2c_WaitAck();
+[e ( _I2c_WaitAck ..  ]
+"56
+[; ;EEPROM/EEPROM.c: 56:  I2c_Stop();
+[e ( _I2c_Stop ..  ]
+"58
+[; ;EEPROM/EEPROM.c: 58: }
+[e :UE 101 ]
+}
+"60
+[; ;EEPROM/EEPROM.c: 60: uint8_t EEPROM_Read(uint8_t Addr)
+[v _EEPROM_Read `(uc ~T0 @X0 1 ef1`uc ]
+"61
+[; ;EEPROM/EEPROM.c: 61: {
 {
 [e :U _EEPROM_Read ]
-"54
-[; ;EEPROM/EEPROM.c: 54: uint8_t EEPROM_Read(uint8_t addr)
-[v _addr `uc ~T0 @X0 1 r1 ]
-"55
-[; ;EEPROM/EEPROM.c: 55: {
-[f ]
-"56
-[; ;EEPROM/EEPROM.c: 56:   uint8_t ret;
-[v _ret `uc ~T0 @X0 1 a ]
-"58
-[; ;EEPROM/EEPROM.c: 58:   I2c_Start();
-[e ( _I2c_Start ..  ]
-"59
-[; ;EEPROM/EEPROM.c: 59:   I2c_Write(0xa0);
-[e ( _I2c_Write (1 -> -> 160 `i `uc ]
 "60
-[; ;EEPROM/EEPROM.c: 60:   I2c_Write(addr);
-[e ( _I2c_Write (1 _addr ]
+[; ;EEPROM/EEPROM.c: 60: uint8_t EEPROM_Read(uint8_t Addr)
+[v _Addr `uc ~T0 @X0 1 r1 ]
 "61
-[; ;EEPROM/EEPROM.c: 61:   I2c_Start();
-[e ( _I2c_Start ..  ]
+[; ;EEPROM/EEPROM.c: 61: {
+[f ]
 "62
-[; ;EEPROM/EEPROM.c: 62:   I2c_Write(0xa0 +1);
-[e ( _I2c_Write (1 -> + -> 160 `i -> 1 `i `uc ]
+[; ;EEPROM/EEPROM.c: 62:   static uint8_t Data;
+[v F912 `uc ~T0 @X0 1 s Data ]
 "63
-[; ;EEPROM/EEPROM.c: 63:   ret=I2c_Read();
-[e = _ret ( _I2c_Read ..  ]
+[; ;EEPROM/EEPROM.c: 63:   I2c_Start();
+[e ( _I2c_Start ..  ]
 "64
-[; ;EEPROM/EEPROM.c: 64:   I2c_Stop();
-[e ( _I2c_Stop ..  ]
+[; ;EEPROM/EEPROM.c: 64:   I2c_Write(0xA0);
+[e ( _I2c_Write (1 -> -> 160 `i `uc ]
 "65
-[; ;EEPROM/EEPROM.c: 65:   return ret;
-[e ) _ret ]
-[e $UE 105  ]
+[; ;EEPROM/EEPROM.c: 65:   I2c_WaitAck();
+[e ( _I2c_WaitAck ..  ]
 "66
-[; ;EEPROM/EEPROM.c: 66: }
-[e :UE 105 ]
+[; ;EEPROM/EEPROM.c: 66:   I2c_Write(Addr);
+[e ( _I2c_Write (1 _Addr ]
+"67
+[; ;EEPROM/EEPROM.c: 67:   I2c_WaitAck();
+[e ( _I2c_WaitAck ..  ]
+"68
+[; ;EEPROM/EEPROM.c: 68:   I2c_Start();
+[e ( _I2c_Start ..  ]
+"69
+[; ;EEPROM/EEPROM.c: 69:   I2c_Write(0xA0 +1);
+[e ( _I2c_Write (1 -> + -> 160 `i -> 1 `i `uc ]
+"70
+[; ;EEPROM/EEPROM.c: 70:   I2c_WaitAck();
+[e ( _I2c_WaitAck ..  ]
+"71
+[; ;EEPROM/EEPROM.c: 71:   Data=I2c_Read();
+[e = F912 ( _I2c_Read ..  ]
+"72
+[; ;EEPROM/EEPROM.c: 72:   I2c_Send_NAck();
+[e ( _I2c_Send_NAck ..  ]
+"73
+[; ;EEPROM/EEPROM.c: 73:   I2c_Stop();
+[e ( _I2c_Stop ..  ]
+"74
+[; ;EEPROM/EEPROM.c: 74:   return Data;
+[e ) F912 ]
+[e $UE 102  ]
+"75
+[; ;EEPROM/EEPROM.c: 75: }
+[e :UE 102 ]
 }

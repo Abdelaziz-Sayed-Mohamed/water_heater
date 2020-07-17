@@ -1,6 +1,5 @@
 build/default/production/SSD/SSD.p1:  \
 SSD/SSD.c  \
-SSD/SSD_Cfg.h  \
 SSD/SSD.h  \
 SSD/../Config.h  \
 SSD/../WaterHeater_Mode/WaterHeater_Mode.h  \

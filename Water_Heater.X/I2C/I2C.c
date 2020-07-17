@@ -1,82 +1,67 @@
+/*
+ * File:   I2C.c
+ * Author: Abdalaziz Sayed
+ *
+ * Created on July 17, 2020, 2:08 AM
+ */
+
 #include "I2C.h"
-#include"../gpio/gpio.h"
 
-void delay(void)
+void I2c_Init(void)
 {
-  asm("NOP");
-  asm("NOP");
-  asm("NOP");
-  asm("NOP");
-  asm("NOP");
-  asm("NOP");
-  asm("NOP");
-  asm("NOP");
-  asm("NOP");
-   
+    SSPADD = (_XTAL_FREQ/(4*I2c_Clock))-1; //Configure I2c Clock Speed
+    /*Configure MCU is a Muster*/
+    SSPM0=0;
+    SSPM1=0;
+    SSPM2=0;
+    SSPM3=1;
+ 
+    SSPEN=1; //Enable I2c Module
+       
 }
-
 
 void I2c_Start(void)
 {
-       
-  SET_PIN(EEPROM_SCK_PORT,EEPROM_SCK_PIN);
-  SET_PIN(EEPROM_SDA_PORT,EEPROM_SDA_PIN);
-  delay();
-  RESET_PIN(EEPROM_SDA_PORT,EEPROM_SDA_PIN);
-  delay();
+    SEN=1;          //Init Start condition
+    while(SEN);     //Wait for Start Condition to Complete(Auto Cleared by H.W)
+    SSPIF=0;        //Clear Interrupt Flag    
+}
+
+
+uint8_t I2c_Read(void)
+{
+    uint8_t data;
+    RCEN=1;            //Receive data Byte From Slave
+    while(!BF);        //Wait for Receive Complete
+    data= SSPBUF;      //Get Data From Buffer
+    return data;
+}
+
+void I2c_Send_NAck(void)
+{
+    ACKDT=1;          //Prepare TO send NAck
+    ACKEN=1;          //Enable NAck Send
+    while(ACKEN);     //Wait To NAck Complete
+    
 }
 
 void I2c_Stop(void)
 {
-  SET_PIN(EEPROM_SCK_PORT,EEPROM_SCK_PIN);
-  RESET_PIN(EEPROM_SDA_PORT,EEPROM_SDA_PIN);
-  delay();
-  SET_PIN(EEPROM_SDA_PORT,EEPROM_SDA_PIN);
-  delay();
+    PEN=1;          //Init Stop condition
+    while(PEN);        //Wait for Stop Condition to Complete(Auto Cleared by H.W)
+    SSPIF=0;        //Clear Interrupt Flag
 }
 
-void I2c_Write(uint8_t val)
+void I2c_Write(uint8_t data)
 {
-  unsigned char i;
-  RESET_PIN(EEPROM_SCK_PORT,EEPROM_SCK_PIN);
-  for(i=0;i<8;i++)
-  {
-    SDA=((val>>(7-i))& 0x01);
-    SET_PIN(EEPROM_SCK_PORT,EEPROM_SCK_PIN);
-    delay();
-    RESET_PIN(EEPROM_SCK_PORT,EEPROM_SCK_PIN);
-  }	
-  SET_PIN(EEPROM_SDA_PORT,EEPROM_SDA_PIN);
-  delay();
-  SET_PIN(EEPROM_SCK_PORT,EEPROM_SCK_PIN);
-  delay();
-  RESET_PIN(EEPROM_SCK_PORT,EEPROM_SCK_PIN);
+    SSPBUF=data;             //Send 8 bits data
+            
 }
 
-uint8_t I2c_Read(void)
+void I2c_WaitAck(void)
 {
-  char i;
-  unsigned char ret=0;
-
-  RESET_PIN(EEPROM_SCK_PORT,EEPROM_SCK_PIN);
-  SET_PIN_DIRECTION(EEPROM_SDA_DIRECTION,EEPROM_SDA_PIN,INPUT);
-  SET_PIN(EEPROM_SDA_PORT,EEPROM_SDA_PIN);
-  for(i=0;i<8;i++)
-  {
-    SET_PIN(EEPROM_SCK_PORT,EEPROM_SCK_PIN);
-    delay();
-    ret|=(SDA<<(7-i));
-    RESET_PIN(EEPROM_SCK_PORT,EEPROM_SCK_PIN);
-  }
-  SET_PIN_DIRECTION(EEPROM_SDA_DIRECTION,EEPROM_SDA_PIN,OUTPUT) ; 
-  delay();
-  SET_PIN(EEPROM_SCK_PORT,EEPROM_SCK_PIN);
-  delay();
-  RESET_PIN(EEPROM_SCK_PORT,EEPROM_SCK_PIN);
-
-  return ret;
+    while(!SSPIF);           //Wait For ACK
+    SSPIF=0;                 //Clear Interrupt Flag 
 }
-
-
 
 

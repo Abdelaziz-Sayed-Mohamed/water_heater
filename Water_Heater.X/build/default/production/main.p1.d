@@ -25,4 +25,6 @@ Average/Average_Cfg.h  \
 Interrupt/Interrupt.h  \
 Interrupt/../Config.h  \
 EEPROM/EEPROM.h  \
-EEPROM/../Config.h 
+EEPROM/../Config.h  \
+EEPROM/../I2C/I2C.h  \
+EEPROM/../I2C/../Config.h 

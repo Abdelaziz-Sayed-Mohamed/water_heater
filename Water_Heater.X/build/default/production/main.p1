@@ -5,12 +5,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 [n S95 _ADC_t ADC_INIT_FLAG ADC_START_FLAG ]
 "39 ./SSD/SSD.h
 [; ;./SSD/SSD.h: 39: Enable_SSD_t Enable_SSD;
-[c E990 0 1 .. ]
-[n E990 _Enable_SSD_t Enable_SSD_Off Enable_SSD_On  ]
+[c E989 0 1 .. ]
+[n E989 _Enable_SSD_t Enable_SSD_Off Enable_SSD_On  ]
 "35 ./Elements/Elements.h
 [; ;./Elements/Elements.h: 35: LED_STATUS_t LED_Status;
-[c E1000 0 1 2 .. ]
-[n E1000 _LED_STATUS_t LED_OFF LED_ON LED_BLINK  ]
+[c E1001 0 1 2 .. ]
+[n E1001 _LED_STATUS_t _LED_OFF _LED_ON _LED_BLINK  ]
 "19 ./Buttons/Buttons.h
 [; ;./Buttons/Buttons.h: 19: {
 [s S97 :1 `uc 1 :1 `uc 1 ]
@@ -21,15 +21,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 [n S98 _TEMP_t Temp_Value Average_Value Set_Temp Average_Value_Ready_Flag Store_Set_Temp_Flag Average_NValues ]
 "28 ./WaterHeater_Mode/WaterHeater_Mode.h
 [; ;./WaterHeater_Mode/WaterHeater_Mode.h: 28: MODE_t Mode;
-[c E1031 0 1 2 .. ]
-[n E1031 _Select_Mode_t Off_Mode Normal_Mode Setting_Mode  ]
+[c E1032 0 1 2 .. ]
+[n E1032 _Select_Mode_t Off_Mode Normal_Mode Setting_Mode  ]
 "23
 [; ;./WaterHeater_Mode/WaterHeater_Mode.h: 23: {
-[s S99 `E1031 1 `uc 1 ]
+[s S99 `E1032 1 `uc 1 ]
 [n S99 _MODE_t Select_Mode Setting_Mode_Timer ]
 [p mainexit ]
 "24 ./WaterHeater_Mode/../gpio/gpio.h
 [v _GPIO_Init `(v ~T0 @X0 0 ef ]
+"13 ./EEPROM/../I2C/I2C.h
+[; ;./EEPROM/../I2C/I2C.h: 13: void I2c_Init(void);
+[v _I2c_Init `(v ~T0 @X0 0 ef ]
 "30 ./ADC/ADC.h
 [; ;./ADC/ADC.h: 30: void ADC_Init(void);
 [v _ADC_Init `(v ~T0 @X0 0 ef ]
@@ -45,8 +48,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "36 ./WaterHeater_Mode/WaterHeater_Mode.h
 [; ;./WaterHeater_Mode/WaterHeater_Mode.h: 36: void Mode_Init(void);
 [v _Mode_Init `(v ~T0 @X0 0 ef ]
-"26 ./EEPROM/EEPROM.h
-[; ;./EEPROM/EEPROM.h: 26: void Get_EEPROM_Data(void);
+"25 ./EEPROM/EEPROM.h
+[; ;./EEPROM/EEPROM.h: 25: void Get_EEPROM_Data(void);
 [v _Get_EEPROM_Data `(v ~T0 @X0 0 ef ]
 "31 ./ADC/ADC.h
 [; ;./ADC/ADC.h: 31: void ADC_Start_Conv(void);
@@ -58,21 +61,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _Timer0_Init `(v ~T0 @X0 0 ef ]
 "14 ./Timer/../Scheduler/Scheduler.h
 [v _Scheduler_Start `(v ~T0 @X0 0 ef ]
-"12 main.c
+"6 ./EEPROM/../I2C/../Config.h
 [p x FOSC = HS ]
-"13
+"7
 [p x WDTE = OFF ]
-"14
+"8
 [p x PWRTE = OFF ]
-"15
+"9
 [p x BOREN = OFF ]
-"16
+"10
 [p x LVP = OFF ]
-"17
+"11
 [p x CPD = OFF ]
-"18
+"12
 [p x WRT = OFF ]
-"19
+"13
 [p x CP = OFF ]
 "54 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 54: __asm("INDF equ 00h");
@@ -254,15 +257,111 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2363
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2363: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
+"6 ./EEPROM/../I2C/../Config.h
+[p x FOSC = HS ]
+"7
+[p x WDTE = OFF ]
+"8
+[p x PWRTE = OFF ]
+"9
+[p x BOREN = OFF ]
+"10
+[p x LVP = OFF ]
+"11
+[p x CPD = OFF ]
+"12
+[p x WRT = OFF ]
+"13
+[p x CP = OFF ]
+"6
+[p x FOSC = HS ]
+"7
+[p x WDTE = OFF ]
+"8
+[p x PWRTE = OFF ]
+"9
+[p x BOREN = OFF ]
+"10
+[p x LVP = OFF ]
+"11
+[p x CPD = OFF ]
+"12
+[p x WRT = OFF ]
+"13
+[p x CP = OFF ]
 "28 ./ADC/ADC.h
 [; ;./ADC/ADC.h: 28: ADC_t ADC_Info;
 [v _ADC_Info `S95 ~T0 @X0 1 e ]
+"6 ./EEPROM/../I2C/../Config.h
+[p x FOSC = HS ]
+"7
+[p x WDTE = OFF ]
+"8
+[p x PWRTE = OFF ]
+"9
+[p x BOREN = OFF ]
+"10
+[p x LVP = OFF ]
+"11
+[p x CPD = OFF ]
+"12
+[p x WRT = OFF ]
+"13
+[p x CP = OFF ]
+"6
+[p x FOSC = HS ]
+"7
+[p x WDTE = OFF ]
+"8
+[p x PWRTE = OFF ]
+"9
+[p x BOREN = OFF ]
+"10
+[p x LVP = OFF ]
+"11
+[p x CPD = OFF ]
+"12
+[p x WRT = OFF ]
+"13
+[p x CP = OFF ]
+"6
+[p x FOSC = HS ]
+"7
+[p x WDTE = OFF ]
+"8
+[p x PWRTE = OFF ]
+"9
+[p x BOREN = OFF ]
+"10
+[p x LVP = OFF ]
+"11
+[p x CPD = OFF ]
+"12
+[p x WRT = OFF ]
+"13
+[p x CP = OFF ]
 "39 ./SSD/SSD.h
 [; ;./SSD/SSD.h: 39: Enable_SSD_t Enable_SSD;
-[v _Enable_SSD `E990 ~T0 @X0 1 e ]
+[v _Enable_SSD `E989 ~T0 @X0 1 e ]
 "35 ./Elements/Elements.h
 [; ;./Elements/Elements.h: 35: LED_STATUS_t LED_Status;
-[v _LED_Status `E1000 ~T0 @X0 1 e ]
+[v _LED_Status `E1001 ~T0 @X0 1 e ]
+"6 ./EEPROM/../I2C/../Config.h
+[p x FOSC = HS ]
+"7
+[p x WDTE = OFF ]
+"8
+[p x PWRTE = OFF ]
+"9
+[p x BOREN = OFF ]
+"10
+[p x LVP = OFF ]
+"11
+[p x CPD = OFF ]
+"12
+[p x WRT = OFF ]
+"13
+[p x CP = OFF ]
 "24 ./Buttons/Buttons.h
 [; ;./Buttons/Buttons.h: 24: _BUTTONS_t Buttons;
 [v _Buttons `S97 ~T0 @X0 1 e ]
@@ -272,47 +371,98 @@ Version 4.0 HI-TECH Software Intermediate Code
 "28 ./WaterHeater_Mode/WaterHeater_Mode.h
 [; ;./WaterHeater_Mode/WaterHeater_Mode.h: 28: MODE_t Mode;
 [v _Mode `S99 ~T0 @X0 1 e ]
+"6 ./EEPROM/../I2C/../Config.h
+[p x FOSC = HS ]
+"7
+[p x WDTE = OFF ]
+"8
+[p x PWRTE = OFF ]
+"9
+[p x BOREN = OFF ]
+"10
+[p x LVP = OFF ]
+"11
+[p x CPD = OFF ]
+"12
+[p x WRT = OFF ]
+"13
+[p x CP = OFF ]
+"6
+[p x FOSC = HS ]
+"7
+[p x WDTE = OFF ]
+"8
+[p x PWRTE = OFF ]
+"9
+[p x BOREN = OFF ]
+"10
+[p x LVP = OFF ]
+"11
+[p x CPD = OFF ]
+"12
+[p x WRT = OFF ]
+"13
+[p x CP = OFF ]
+"6
+[p x FOSC = HS ]
+"7
+[p x WDTE = OFF ]
+"8
+[p x PWRTE = OFF ]
+"9
+[p x BOREN = OFF ]
+"10
+[p x LVP = OFF ]
+"11
+[p x CPD = OFF ]
+"12
+[p x WRT = OFF ]
+"13
+[p x CP = OFF ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"40 main.c
-[; ;main.c: 40: void main(void) {
+"30 main.c
+[; ;main.c: 30: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"42
-[; ;main.c: 42:   GPIO_Init();
+"32
+[; ;main.c: 32:   GPIO_Init();
 [e ( _GPIO_Init ..  ]
-"43
-[; ;main.c: 43:   ADC_Init();
+"33
+[; ;main.c: 33:   I2c_Init();
+[e ( _I2c_Init ..  ]
+"34
+[; ;main.c: 34:   ADC_Init();
 [e ( _ADC_Init ..  ]
-"44
-[; ;main.c: 44:   On_Off_Init();
+"35
+[; ;main.c: 35:   On_Off_Init();
 [e ( _On_Off_Init ..  ]
-"45
-[; ;main.c: 45:   SSD_Init();
+"36
+[; ;main.c: 36:   SSD_Init();
 [e ( _SSD_Init ..  ]
-"46
-[; ;main.c: 46:   Elements_Init();
+"37
+[; ;main.c: 37:   Elements_Init();
 [e ( _Elements_Init ..  ]
-"47
-[; ;main.c: 47:   Mode_Init();
+"38
+[; ;main.c: 38:   Mode_Init();
 [e ( _Mode_Init ..  ]
-"48
-[; ;main.c: 48:   Get_EEPROM_Data();
+"39
+[; ;main.c: 39:   Get_EEPROM_Data();
 [e ( _Get_EEPROM_Data ..  ]
-"49
-[; ;main.c: 49:   ADC_Start_Conv();
+"40
+[; ;main.c: 40:   ADC_Start_Conv();
 [e ( _ADC_Start_Conv ..  ]
-"50
-[; ;main.c: 50:   Scheduler_Init();
+"41
+[; ;main.c: 41:   Scheduler_Init();
 [e ( _Scheduler_Init ..  ]
-"51
-[; ;main.c: 51:   Timer0_Init();
+"42
+[; ;main.c: 42:   Timer0_Init();
 [e ( _Timer0_Init ..  ]
-"52
-[; ;main.c: 52:   Scheduler_Start();
+"43
+[; ;main.c: 43:   Scheduler_Start();
 [e ( _Scheduler_Start ..  ]
-"54
-[; ;main.c: 54: }
+"45
+[; ;main.c: 45: }
 [e :UE 100 ]
 }

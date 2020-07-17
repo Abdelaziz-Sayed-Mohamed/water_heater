@@ -14,5 +14,7 @@ Scheduler/../SSD/../Config.h  \
 Scheduler/../Temperature/Temperature.h  \
 Scheduler/../EEPROM/EEPROM.h  \
 Scheduler/../EEPROM/../Config.h  \
+Scheduler/../EEPROM/../I2C/I2C.h  \
+Scheduler/../EEPROM/../I2C/../Config.h  \
 Scheduler/../Buttons/Buttons.h  \
 Scheduler/../Buttons/../Config.h 

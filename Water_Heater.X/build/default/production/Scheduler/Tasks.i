@@ -32,6 +32,18 @@ void Scheduler_Task3(void);
 
 
 
+
+#pragma config FOSC = HS
+#pragma config WDTE = OFF
+#pragma config PWRTE = OFF
+#pragma config BOREN = OFF
+#pragma config LVP = OFF
+#pragma config CPD = OFF
+#pragma config WRT = OFF
+#pragma config CP = OFF
+
+
+
 # 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -1741,7 +1753,7 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 2 3
-# 5 "Scheduler/../Elements/../gpio/../Config.h" 2
+# 16 "Scheduler/../Elements/../gpio/../Config.h" 2
 
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
 # 13 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 3
@@ -1876,7 +1888,7 @@ typedef int16_t intptr_t;
 
 
 typedef uint16_t uintptr_t;
-# 6 "Scheduler/../Elements/../gpio/../Config.h" 2
+# 17 "Scheduler/../Elements/../gpio/../Config.h" 2
 # 11 "Scheduler/../Elements/../gpio/gpio_Cfg.h" 2
 # 11 "Scheduler/../Elements/../gpio/gpio.h" 2
 # 24 "Scheduler/../Elements/../gpio/gpio.h"
@@ -1885,17 +1897,16 @@ void GPIO_Init(void);
 # 28 "Scheduler/../Elements/Elements.h"
 typedef enum _LED_STATUS_t
 {
-  LED_OFF=0,
-  LED_ON=1,
-  LED_BLINK=2
+  _LED_OFF=0,
+  _LED_ON=1,
+  _LED_BLINK=2
 }LED_STATUS_t ;
 
 LED_STATUS_t LED_Status;
 
-
+void LED_Control(void);
 void LED_BLINKING(uint16_t Time_Ms,uint16_t Task_Peroid);
 void Elements_Init(void);
-void LED_MainFunction(void);
 void Elements_MainFunction(void);
 # 9 "Scheduler/Tasks.c" 2
 
@@ -1907,8 +1918,20 @@ void Elements_MainFunction(void);
 
 
 
+#pragma config FOSC = HS
+#pragma config WDTE = OFF
+#pragma config PWRTE = OFF
+#pragma config BOREN = OFF
+#pragma config LVP = OFF
+#pragma config CPD = OFF
+#pragma config WRT = OFF
+#pragma config CP = OFF
+
+
+
+
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
-# 6 "Scheduler/../ADC/../Config.h" 2
+# 17 "Scheduler/../ADC/../Config.h" 2
 # 10 "Scheduler/../ADC/ADC.h" 2
 # 21 "Scheduler/../ADC/ADC.h"
 typedef struct _ADC_t
@@ -1922,7 +1945,6 @@ ADC_t ADC_Info;
 
 void ADC_Init(void);
 void ADC_Start_Conv(void);
-void ADC_Conv_Main(void);
 void ADC_Value_Ready_CallBack(void);
 void ADC_Conv_MainFunction(void);
 # 10 "Scheduler/Tasks.c" 2
@@ -1963,7 +1985,6 @@ MODE_t Mode;
 
 
 void Mode_Init(void);
-void Select_Mode(void);
 void Start_Setting_Timer(uint16_t Timer_Ms ,uint16_t Peroid_Task);
 void Mode_MainFunction(void);
 # 11 "Scheduler/Tasks.c" 2
@@ -1976,8 +1997,20 @@ void Mode_MainFunction(void);
 
 
 
+#pragma config FOSC = HS
+#pragma config WDTE = OFF
+#pragma config PWRTE = OFF
+#pragma config BOREN = OFF
+#pragma config LVP = OFF
+#pragma config CPD = OFF
+#pragma config WRT = OFF
+#pragma config CP = OFF
+
+
+
+
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
-# 6 "Scheduler/../SSD/../Config.h" 2
+# 17 "Scheduler/../SSD/../Config.h" 2
 # 10 "Scheduler/../SSD/SSD.h" 2
 # 33 "Scheduler/../SSD/SSD.h"
 typedef enum _Enable_SSD_t
@@ -1990,6 +2023,8 @@ Enable_SSD_t Enable_SSD;
 
 void SSD_Init(void);
 void SSD_MainFunction(void);
+void SSD_SelectDisplay(void);
+void SSD_SelectDigit(void);
 void SSD_Blink(uint16_t Times_Ms,uint16_t Task_Peroid);
 # 12 "Scheduler/Tasks.c" 2
 
@@ -2029,14 +2064,69 @@ void Temperature_Calc(uint8_t ADC_VALUE);
 
 
 
+#pragma config FOSC = HS
+#pragma config WDTE = OFF
+#pragma config PWRTE = OFF
+#pragma config BOREN = OFF
+#pragma config LVP = OFF
+#pragma config CPD = OFF
+#pragma config WRT = OFF
+#pragma config CP = OFF
+
+
+
+
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
-# 6 "Scheduler/../EEPROM/../Config.h" 2
+# 17 "Scheduler/../EEPROM/../Config.h" 2
 # 12 "Scheduler/../EEPROM/EEPROM.h" 2
-# 26 "Scheduler/../EEPROM/EEPROM.h"
+
+# 1 "Scheduler/../EEPROM/../I2C/I2C.h" 1
+
+
+
+
+
+
+
+
+# 1 "Scheduler/../EEPROM/../I2C/../Config.h" 1
+
+
+
+
+
+#pragma config FOSC = HS
+#pragma config WDTE = OFF
+#pragma config PWRTE = OFF
+#pragma config BOREN = OFF
+#pragma config LVP = OFF
+#pragma config CPD = OFF
+#pragma config WRT = OFF
+#pragma config CP = OFF
+
+
+
+
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
+# 17 "Scheduler/../EEPROM/../I2C/../Config.h" 2
+# 9 "Scheduler/../EEPROM/../I2C/I2C.h" 2
+
+
+
+
+void I2c_Init(void);
+void I2c_Start(void);
+void I2c_Stop(void);
+void I2c_WaitAck(void);
+void I2c_Write(uint8_t data);
+uint8_t I2c_Read(void);
+void I2c_Send_NAck(void);
+# 13 "Scheduler/../EEPROM/EEPROM.h" 2
+# 25 "Scheduler/../EEPROM/EEPROM.h"
 void Get_EEPROM_Data(void);
 void Set_EEPROM_Data(void);
-void EEPROM_Write(uint8_t Data,uint8_t ADDR);
-uint8_t EEPROM_Read(uint8_t addr);
+void EEPROM_Write(uint8_t Data,uint8_t Addr);
+uint8_t EEPROM_Read(uint8_t Addr);
 # 14 "Scheduler/Tasks.c" 2
 
 # 1 "Scheduler/../Buttons/Buttons.h" 1
@@ -2047,8 +2137,20 @@ uint8_t EEPROM_Read(uint8_t addr);
 
 
 
+#pragma config FOSC = HS
+#pragma config WDTE = OFF
+#pragma config PWRTE = OFF
+#pragma config BOREN = OFF
+#pragma config LVP = OFF
+#pragma config CPD = OFF
+#pragma config WRT = OFF
+#pragma config CP = OFF
+
+
+
+
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
-# 6 "Scheduler/../Buttons/../Config.h" 2
+# 17 "Scheduler/../Buttons/../Config.h" 2
 # 11 "Scheduler/../Buttons/Buttons.h" 2
 
 
@@ -2088,12 +2190,11 @@ void Scheduler_Task2(void)
 {
     Buttons_MainFunction();
  ADC_Conv_MainFunction();
- LED_MainFunction();
+ Elements_MainFunction();
 }
 
 void Scheduler_Task3(void)
 {
     Mode_MainFunction();
- Elements_MainFunction();
     Set_EEPROM_Data();
 }

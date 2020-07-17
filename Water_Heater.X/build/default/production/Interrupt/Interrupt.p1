@@ -29,6 +29,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 "16 Interrupt/../Timer/Timer.h
 [; ;Interrupt/../Timer/Timer.h: 16: void Timer0_CallBack(void);
 [v _Timer0_CallBack `(v ~T0 @X0 0 ef ]
+"6 Interrupt/../Buttons/../Config.h
+[p x FOSC = HS ]
+"7
+[p x WDTE = OFF ]
+"8
+[p x PWRTE = OFF ]
+"9
+[p x BOREN = OFF ]
+"10
+[p x LVP = OFF ]
+"11
+[p x CPD = OFF ]
+"12
+[p x WRT = OFF ]
+"13
+[p x CP = OFF ]
 "54 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 54: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
@@ -209,56 +225,120 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2363
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2363: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
+"6 Interrupt/../Buttons/../Config.h
+[p x FOSC = HS ]
+"7
+[p x WDTE = OFF ]
+"8
+[p x PWRTE = OFF ]
+"9
+[p x BOREN = OFF ]
+"10
+[p x LVP = OFF ]
+"11
+[p x CPD = OFF ]
+"12
+[p x WRT = OFF ]
+"13
+[p x CP = OFF ]
+"6
+[p x FOSC = HS ]
+"7
+[p x WDTE = OFF ]
+"8
+[p x PWRTE = OFF ]
+"9
+[p x BOREN = OFF ]
+"10
+[p x LVP = OFF ]
+"11
+[p x CPD = OFF ]
+"12
+[p x WRT = OFF ]
+"13
+[p x CP = OFF ]
+"6
+[p x FOSC = HS ]
+"7
+[p x WDTE = OFF ]
+"8
+[p x PWRTE = OFF ]
+"9
+[p x BOREN = OFF ]
+"10
+[p x LVP = OFF ]
+"11
+[p x CPD = OFF ]
+"12
+[p x WRT = OFF ]
+"13
+[p x CP = OFF ]
+"6
+[p x FOSC = HS ]
+"7
+[p x WDTE = OFF ]
+"8
+[p x PWRTE = OFF ]
+"9
+[p x BOREN = OFF ]
+"10
+[p x LVP = OFF ]
+"11
+[p x CPD = OFF ]
+"12
+[p x WRT = OFF ]
+"13
+[p x CP = OFF ]
 "24 Interrupt/../Buttons/Buttons.h
 [; ;Interrupt/../Buttons/Buttons.h: 24: _BUTTONS_t Buttons;
 [v _Buttons `S96 ~T0 @X0 1 e ]
 [v $root$_myISR `(v ~T0 @X0 0 e ]
-"11 Interrupt/Interrupt.c
-[; ;Interrupt/Interrupt.c: 11: void __attribute__((picinterrupt(("")))) myISR(void)
+"12 Interrupt/Interrupt.c
+[; ;Interrupt/Interrupt.c: 12: void __attribute__((picinterrupt(("")))) myISR(void)
 [v _myISR `(v ~T1 @X0 1 ef ]
-"12
-[; ;Interrupt/Interrupt.c: 12: {
+"13
+[; ;Interrupt/Interrupt.c: 13: {
 {
 [e :U _myISR ]
 [f ]
-"13
-[; ;Interrupt/Interrupt.c: 13:  if(INTCONbits.INTF)
-[e $ ! != -> . . _INTCONbits 0 1 `i -> 0 `i 98  ]
-"14
-[; ;Interrupt/Interrupt.c: 14:  {
-{
 "15
-[; ;Interrupt/Interrupt.c: 15:         INTCONbits.INTF=0;
-[e = . . _INTCONbits 0 1 -> -> 0 `i `uc ]
+[; ;Interrupt/Interrupt.c: 15:  if(INTCONbits.INTF)
+[e $ ! != -> . . _INTCONbits 0 1 `i -> 0 `i 98  ]
 "16
-[; ;Interrupt/Interrupt.c: 16:   EXTI_On_Off_CallBack();
-[e ( _EXTI_On_Off_CallBack ..  ]
+[; ;Interrupt/Interrupt.c: 16:  {
+{
+"17
+[; ;Interrupt/Interrupt.c: 17:         INTCONbits.INTF=0;
+[e = . . _INTCONbits 0 1 -> -> 0 `i `uc ]
 "18
-[; ;Interrupt/Interrupt.c: 18:  }
+[; ;Interrupt/Interrupt.c: 18:   EXTI_On_Off_CallBack();
+[e ( _EXTI_On_Off_CallBack ..  ]
+"20
+[; ;Interrupt/Interrupt.c: 20:  }
 }
 [e $U 99  ]
-"19
-[; ;Interrupt/Interrupt.c: 19:  else if(INTCONbits.TMR0IF)
+"21
+[; ;Interrupt/Interrupt.c: 21:  else if(INTCONbits.TMR0IF)
 [e :U 98 ]
 [e $ ! != -> . . _INTCONbits 0 2 `i -> 0 `i 100  ]
-"20
-[; ;Interrupt/Interrupt.c: 20:  {
-{
-"21
-[; ;Interrupt/Interrupt.c: 21:         INTCONbits.TMR0IF=0;
-[e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
 "22
-[; ;Interrupt/Interrupt.c: 22:         TMR0=100;
-[e = _TMR0 -> -> 100 `i `uc ]
+[; ;Interrupt/Interrupt.c: 22:  {
+{
 "23
-[; ;Interrupt/Interrupt.c: 23:   Timer0_CallBack();
-[e ( _Timer0_CallBack ..  ]
+[; ;Interrupt/Interrupt.c: 23:         INTCONbits.TMR0IF=0;
+[e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
+"24
+[; ;Interrupt/Interrupt.c: 24:         TMR0=100;
+[e = _TMR0 -> -> 100 `i `uc ]
 "25
-[; ;Interrupt/Interrupt.c: 25:  }
+[; ;Interrupt/Interrupt.c: 25:   Timer0_CallBack();
+[e ( _Timer0_CallBack ..  ]
+"27
+[; ;Interrupt/Interrupt.c: 27:  }
 }
 [e :U 100 ]
 [e :U 99 ]
-"26
-[; ;Interrupt/Interrupt.c: 26: }
+"28
+[; ;Interrupt/Interrupt.c: 28: }
 [e :UE 97 ]
 }

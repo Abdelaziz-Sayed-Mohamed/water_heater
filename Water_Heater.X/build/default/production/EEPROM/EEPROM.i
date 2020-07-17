@@ -8,10 +8,28 @@
 # 2 "<built-in>" 2
 # 1 "EEPROM/EEPROM.c" 2
 
-# 1 "EEPROM/../I2C/I2C.h" 1
-# 25 "EEPROM/../I2C/I2C.h"
-# 1 "EEPROM/../I2C/../Config.h" 1
 
+
+
+
+
+
+# 1 "EEPROM/EEPROM.h" 1
+# 12 "EEPROM/EEPROM.h"
+# 1 "EEPROM/../Config.h" 1
+
+
+
+
+
+#pragma config FOSC = HS
+#pragma config WDTE = OFF
+#pragma config PWRTE = OFF
+#pragma config BOREN = OFF
+#pragma config LVP = OFF
+#pragma config CPD = OFF
+#pragma config WRT = OFF
+#pragma config CP = OFF
 
 
 
@@ -1724,7 +1742,7 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 2 3
-# 5 "EEPROM/../I2C/../Config.h" 2
+# 16 "EEPROM/../Config.h" 2
 
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
 # 13 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 3
@@ -1859,40 +1877,63 @@ typedef int16_t intptr_t;
 
 
 typedef uint16_t uintptr_t;
-# 6 "EEPROM/../I2C/../Config.h" 2
-# 25 "EEPROM/../I2C/I2C.h" 2
+# 17 "EEPROM/../Config.h" 2
+# 12 "EEPROM/EEPROM.h" 2
+
+# 1 "EEPROM/../I2C/I2C.h" 1
 
 
-void i2c_init(void);
-void I2c_Start(void);
-void I2c_Stop(void);
-void I2c_Write(uint8_t val);
-uint8_t I2c_Read(void);
-# 2 "EEPROM/EEPROM.c" 2
 
-# 1 "EEPROM/EEPROM.h" 1
-# 12 "EEPROM/EEPROM.h"
-# 1 "EEPROM/../Config.h" 1
 
+
+
+
+
+# 1 "EEPROM/../I2C/../Config.h" 1
+
+
+
+
+
+#pragma config FOSC = HS
+#pragma config WDTE = OFF
+#pragma config PWRTE = OFF
+#pragma config BOREN = OFF
+#pragma config LVP = OFF
+#pragma config CPD = OFF
+#pragma config WRT = OFF
+#pragma config CP = OFF
 
 
 
 
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
-# 6 "EEPROM/../Config.h" 2
-# 12 "EEPROM/EEPROM.h" 2
-# 26 "EEPROM/EEPROM.h"
+# 17 "EEPROM/../I2C/../Config.h" 2
+# 9 "EEPROM/../I2C/I2C.h" 2
+
+
+
+
+void I2c_Init(void);
+void I2c_Start(void);
+void I2c_Stop(void);
+void I2c_WaitAck(void);
+void I2c_Write(uint8_t data);
+uint8_t I2c_Read(void);
+void I2c_Send_NAck(void);
+# 13 "EEPROM/EEPROM.h" 2
+# 25 "EEPROM/EEPROM.h"
 void Get_EEPROM_Data(void);
 void Set_EEPROM_Data(void);
-void EEPROM_Write(uint8_t Data,uint8_t ADDR);
-uint8_t EEPROM_Read(uint8_t addr);
-# 3 "EEPROM/EEPROM.c" 2
+void EEPROM_Write(uint8_t Data,uint8_t Addr);
+uint8_t EEPROM_Read(uint8_t Addr);
+# 8 "EEPROM/EEPROM.c" 2
 
 # 1 "EEPROM/../WaterHeater_Mode/WaterHeater_Mode_Cfg.h" 1
 # 10 "EEPROM/../WaterHeater_Mode/WaterHeater_Mode_Cfg.h"
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdbool.h" 1 3
 # 10 "EEPROM/../WaterHeater_Mode/WaterHeater_Mode_Cfg.h" 2
-# 4 "EEPROM/EEPROM.c" 2
+# 9 "EEPROM/EEPROM.c" 2
 
 # 1 "EEPROM/../Temperature/Temperature.h" 1
 # 10 "EEPROM/../Temperature/Temperature.h"
@@ -1920,7 +1961,7 @@ TEMP_t Temperature;
 
 
 void Temperature_Calc(uint8_t ADC_VALUE);
-# 5 "EEPROM/EEPROM.c" 2
+# 10 "EEPROM/EEPROM.c" 2
 
 
 uint8_t EEPROM_Data=0;
@@ -1929,8 +1970,7 @@ void Get_EEPROM_Data(void)
 {
 
 
- while( EEPROM_Read(0));
- EEPROM_Data=EEPROM_Read(0xa);
+ EEPROM_Data=EEPROM_Read(0x0A);
 
  if((EEPROM_Data<=(75U))&&(EEPROM_Data>=(35U) )&& ((EEPROM_Data%5)==0) )
  {
@@ -1952,34 +1992,39 @@ void Set_EEPROM_Data(void)
  if(Temperature.Store_Set_Temp_Flag==1)
  {
     EEPROM_Data=Temperature.Set_Temp;
-    EEPROM_Write(EEPROM_Data,0xa);
+    EEPROM_Write(EEPROM_Data,0x0A);
     Temperature.Store_Set_Temp_Flag=0;
-
  }
-}
 
-
-void EEPROM_Write(uint8_t Data,uint8_t ADDR)
-{
-    I2c_Start();
-    I2c_Write(0xa0);
-    I2c_Write(ADDR);
-    I2c_Write(Data);
-    I2c_Stop();
 
 }
 
-
-uint8_t EEPROM_Read(uint8_t addr)
+void EEPROM_Write(uint8_t Data,uint8_t Addr)
 {
-  uint8_t ret;
+ I2c_Start();
+ I2c_Write(0xA0);
+ I2c_WaitAck();
+ I2c_Write(Addr);
+ I2c_WaitAck();
+ I2c_Write(Data);
+ I2c_WaitAck();
+ I2c_Stop();
 
+}
+
+uint8_t EEPROM_Read(uint8_t Addr)
+{
+  static uint8_t Data;
   I2c_Start();
-  I2c_Write(0xa0);
-  I2c_Write(addr);
+  I2c_Write(0xA0);
+  I2c_WaitAck();
+  I2c_Write(Addr);
+  I2c_WaitAck();
   I2c_Start();
-  I2c_Write(0xa0 +1);
-  ret=I2c_Read();
+  I2c_Write(0xA0 +1);
+  I2c_WaitAck();
+  Data=I2c_Read();
+  I2c_Send_NAck();
   I2c_Stop();
-  return ret;
+  return Data;
 }
