@@ -25,12 +25,12 @@ void Scheduler_Task1(void) /*20ms*/
 void Scheduler_Task2(void)	/*100ms*/
 {   
     Buttons_MainFunction();  
-	ADC_Conv_MainFunction();
+	Temperature_MainFunction();
 	Elements_MainFunction();     
 }
 /* Start Task3 function */
 void Scheduler_Task3(void) /*500ms*/
 {
-    Mode_MainFunction();	
+    ModeManager_MainFunction();	
     Set_EEPROM_Data();
 }

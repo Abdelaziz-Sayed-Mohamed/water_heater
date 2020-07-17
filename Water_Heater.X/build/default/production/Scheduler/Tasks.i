@@ -1949,7 +1949,7 @@ ADC_t ADC_Info;
 void ADC_Init(void);
 void ADC_Start_Conv(void);
 void ADC_Value_Ready_CallBack(void);
-void ADC_Conv_MainFunction(void);
+void ADC_Get_Value(uint8_t *Buffer);
 # 10 "Scheduler/Tasks.c" 2
 
 # 1 "Scheduler/../WaterHeater_Mode/WaterHeater_Mode.h" 1
@@ -1987,9 +1987,9 @@ MODE_t Mode;
 
 
 
-void Mode_Init(void);
-void Start_Setting_Timer(uint16_t Timer_Ms ,uint16_t Peroid_Task);
-void Mode_MainFunction(void);
+void ModeManager_Init(void);
+void Mode_Setting_Timer(uint16_t Timer_Ms);
+void ModeManager_MainFunction(void);
 # 11 "Scheduler/Tasks.c" 2
 
 # 1 "Scheduler/../SSD/SSD.h" 1
@@ -2044,10 +2044,12 @@ void SSD_Blink(uint16_t Times_Ms);
 
 
 
+
 typedef struct _TEMP_t
 {
  uint8_t Temp_Value;
  uint8_t Average_Value;
+    uint8_t ADC_Value;
  uint8_t Set_Temp;
  uint8_t Average_Value_Ready_Flag :1;
     uint8_t Store_Set_Temp_Flag :1;
@@ -2058,8 +2060,8 @@ TEMP_t Temperature;
 
 
 
-
-void Temperature_Calc(uint8_t ADC_VALUE);
+void Temperature_MainFunction(void);
+void Temperature_Calc(void);
 # 13 "Scheduler/Tasks.c" 2
 
 # 1 "Scheduler/../EEPROM/EEPROM.h" 1
@@ -2229,12 +2231,12 @@ void Scheduler_Task1(void)
 void Scheduler_Task2(void)
 {
     Buttons_MainFunction();
- ADC_Conv_MainFunction();
+ Temperature_MainFunction();
  Elements_MainFunction();
 }
 
 void Scheduler_Task3(void)
 {
-    Mode_MainFunction();
+    ModeManager_MainFunction();
     Set_EEPROM_Data();
 }

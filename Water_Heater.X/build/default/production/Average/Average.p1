@@ -14,54 +14,54 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _Avrage_buffer
 -> -> -> 0 `i `l `ul
 ]
-"12
-[; ;Average/Average.c: 12: void Average_Value(uint8_t Value,uint8_t *Avrage_Values)
+"24
+[; ;Average/Average.c: 24: void Average_Value(uint8_t Value,uint8_t *Avrage_Values)
 [v _Average_Value `(v ~T0 @X0 1 ef2`uc`*uc ]
-"13
-[; ;Average/Average.c: 13: {
+"25
+[; ;Average/Average.c: 25: {
 {
 [e :U _Average_Value ]
-"12
-[; ;Average/Average.c: 12: void Average_Value(uint8_t Value,uint8_t *Avrage_Values)
+"24
+[; ;Average/Average.c: 24: void Average_Value(uint8_t Value,uint8_t *Avrage_Values)
 [v _Value `uc ~T0 @X0 1 r1 ]
 [v _Avrage_Values `*uc ~T0 @X0 1 r2 ]
-"13
-[; ;Average/Average.c: 13: {
+"25
+[; ;Average/Average.c: 25: {
 [f ]
-"15
-[; ;Average/Average.c: 15:     Avrage_buffer=0;
+"27
+[; ;Average/Average.c: 27:     Avrage_buffer=0;
 [e = _Avrage_buffer -> -> -> 0 `i `l `ul ]
-"16
-[; ;Average/Average.c: 16:  temb_val[Average_Nvalues]=Value;
+"28
+[; ;Average/Average.c: 28:  temb_val[Average_Nvalues]=Value;
 [e = *U + &U _temb_val * -> _Average_Nvalues `ux -> -> # *U &U _temb_val `ui `ux -> _Value `ul ]
-"18
-[; ;Average/Average.c: 18:  Average_Nvalues= (Average_Nvalues+1)%10U;
+"30
+[; ;Average/Average.c: 30:  Average_Nvalues= (Average_Nvalues+1)%10U;
 [e = _Average_Nvalues -> % -> + -> _Average_Nvalues `i -> 1 `i `ui -> 10 `ui `uc ]
-"20
-[; ;Average/Average.c: 20:  for(uint8_t index=0;index<10U;index++)
+"32
+[; ;Average/Average.c: 32:  for(uint8_t index=0;index<10U;index++)
 {
 [v _index `uc ~T0 @X0 1 a ]
 [e = _index -> -> 0 `i `uc ]
 [e $ < -> _index `ui -> 10 `ui 2  ]
 [e $U 3  ]
 [e :U 2 ]
-"21
-[; ;Average/Average.c: 21:  {
+"33
+[; ;Average/Average.c: 33:  {
 {
-"22
-[; ;Average/Average.c: 22:   Avrage_buffer+=temb_val[index];
+"34
+[; ;Average/Average.c: 34:   Avrage_buffer+=temb_val[index];
 [e =+ _Avrage_buffer *U + &U _temb_val * -> _index `ux -> -> # *U &U _temb_val `ui `ux ]
-"23
-[; ;Average/Average.c: 23:  }
+"35
+[; ;Average/Average.c: 35:  }
 }
 [e ++ _index -> -> 1 `i `uc ]
 [e $ < -> _index `ui -> 10 `ui 2  ]
 [e :U 3 ]
 }
-"26
-[; ;Average/Average.c: 26:    *Avrage_Values=Avrage_buffer/10U;
+"38
+[; ;Average/Average.c: 38:    *Avrage_Values=Avrage_buffer/10U;
 [e = *U _Avrage_Values -> / _Avrage_buffer -> -> 10 `ui `ul `uc ]
-"27
-[; ;Average/Average.c: 27: }
+"39
+[; ;Average/Average.c: 39: }
 [e :UE 1 ]
 }

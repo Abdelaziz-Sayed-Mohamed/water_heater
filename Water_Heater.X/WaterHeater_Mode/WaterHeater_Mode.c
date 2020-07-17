@@ -10,7 +10,20 @@
 #include"../Buttons/Buttons.h"
 #include"../EEPROM/EEPROM.h"
 
-void Mode_Init(void)
+
+/****************************************************************************************/
+/*    Function Name           : Mode_Init          			                            */
+/*    Function Description    : Init System Mode with Off_Mode and if EEPROM not defined 
+ *                              init Set_Temp with DEFAULT_SET_TEMP value               */                                          
+/*    Parameter In            : None                                                    */
+/*    Parameter InOut         : None                                                    */
+/*    Parameter Out           : None                                                    */
+/*    Return Value            : None                                                    */
+/*	  Requirement             :                   				                        */
+/*    Notes                   :								                            */
+/****************************************************************************************/
+
+void ModeManager_Init(void)
 {
 	Mode.Select_Mode=Off_Mode;     //The System will start in Off mode until On_Off_ Button pressed 
     #if EEPROM           	
@@ -20,14 +33,23 @@ void Mode_Init(void)
 }
 
 
-
-void Mode_MainFunction(void)
+/****************************************************************************************/
+/*    Function Name           : ModeManager_MainFunction          			            */
+/*    Function Description    : Check Mode and adjust set_temp                          */                                          
+/*    Parameter In            : None                                                    */
+/*    Parameter InOut         : None                                                    */
+/*    Parameter Out           : None                                                    */
+/*    Return Value            : None                                                    */
+/*	  Requirement             :                   				                        */
+/*    Notes                   :								                            */
+/****************************************************************************************/
+void ModeManager_MainFunction(void)
 {
 	
    if(Mode.Select_Mode==Setting_Mode)
    {
 
-	   Start_Setting_Timer(Setting_Time,Setting_Timer_TaskPeroid); //Start Setting Timer to switch mode from setting to normal mode if up or down buttons not pressed
+	   Mode_Setting_Timer(Setting_Time); //Start Setting Timer to switch mode from setting to normal mode if up or down buttons not pressed
 	   if(Buttons.UpFlag &&!Buttons.DownFlag && Temperature.Set_Temp !=MAX_SET_TEMP) //Check the up button pressed and down button not pressed and setting limit time not expired
 	    {
 	  	  Temperature.Set_Temp += TEMP_STEP;  //increase the set temperature by 5 degrees
@@ -45,10 +67,19 @@ void Mode_MainFunction(void)
 }
 
 
-
-void Start_Setting_Timer(uint16_t Timer_Ms ,uint16_t Peroid_Task)
+/****************************************************************************************/
+/*    Function Name           : Mode_Setting_Timer          			                */
+/*    Function Description    : Timer to count Timer_Ms  to to return Normal mode again */                                          
+/*    Parameter In            : Timer_Ms                                                */
+/*    Parameter InOut         : None                                                    */
+/*    Parameter Out           : None                                                    */
+/*    Return Value            : None                                                    */
+/*	  Requirement             :                   				                        */
+/*    Notes                   :								                            */
+/****************************************************************************************/
+void Mode_Setting_Timer(uint16_t Timer_Ms)
 {
-	if(Mode.Setting_Mode_Timer*Peroid_Task==Timer_Ms)
+	if(Mode.Setting_Mode_Timer*Setting_Timer_TaskPeroid==Timer_Ms)
 	{
 		Set_Store_Set_Temp_Flag;
 		Mode.Select_Mode=Normal_Mode;

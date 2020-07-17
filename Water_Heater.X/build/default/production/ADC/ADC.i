@@ -1892,108 +1892,9 @@ ADC_t ADC_Info;
 void ADC_Init(void);
 void ADC_Start_Conv(void);
 void ADC_Value_Ready_CallBack(void);
-void ADC_Conv_MainFunction(void);
+void ADC_Get_Value(uint8_t *Buffer);
 # 8 "ADC/ADC.c" 2
-
-# 1 "ADC/../Temperature/Temperature.h" 1
-# 10 "ADC/../Temperature/Temperature.h"
-# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
-# 10 "ADC/../Temperature/Temperature.h" 2
-
-
-
-
-
-
-typedef struct _TEMP_t
-{
- uint8_t Temp_Value;
- uint8_t Average_Value;
- uint8_t Set_Temp;
- uint8_t Average_Value_Ready_Flag :1;
-    uint8_t Store_Set_Temp_Flag :1;
- uint8_t Average_NValues;
-}TEMP_t;
-
-TEMP_t Temperature;
-
-
-
-
-void Temperature_Calc(uint8_t ADC_VALUE);
-# 9 "ADC/ADC.c" 2
-
-# 1 "ADC/../WaterHeater_Mode/WaterHeater_Mode.h" 1
-# 10 "ADC/../WaterHeater_Mode/WaterHeater_Mode.h"
-# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
-# 10 "ADC/../WaterHeater_Mode/WaterHeater_Mode.h" 2
-
-# 1 "ADC/../WaterHeater_Mode/../gpio/gpio.h" 1
-# 11 "ADC/../WaterHeater_Mode/../gpio/gpio.h"
-# 1 "ADC/../WaterHeater_Mode/../gpio/gpio_Cfg.h" 1
-# 11 "ADC/../WaterHeater_Mode/../gpio/gpio_Cfg.h"
-# 1 "ADC/../WaterHeater_Mode/../gpio/../Config.h" 1
-
-
-
-
-
-#pragma config FOSC = HS
-#pragma config WDTE = OFF
-#pragma config PWRTE = OFF
-#pragma config BOREN = OFF
-#pragma config LVP = OFF
-#pragma config CPD = OFF
-#pragma config WRT = OFF
-#pragma config CP = OFF
-
-
-
-
-# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
-# 17 "ADC/../WaterHeater_Mode/../gpio/../Config.h" 2
-# 11 "ADC/../WaterHeater_Mode/../gpio/gpio_Cfg.h" 2
-# 11 "ADC/../WaterHeater_Mode/../gpio/gpio.h" 2
-# 24 "ADC/../WaterHeater_Mode/../gpio/gpio.h"
-void GPIO_Init(void);
-# 11 "ADC/../WaterHeater_Mode/WaterHeater_Mode.h" 2
-
-# 1 "ADC/../WaterHeater_Mode/WaterHeater_Mode_Cfg.h" 1
-# 10 "ADC/../WaterHeater_Mode/WaterHeater_Mode_Cfg.h"
-# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdbool.h" 1 3
-# 10 "ADC/../WaterHeater_Mode/WaterHeater_Mode_Cfg.h" 2
-# 12 "ADC/../WaterHeater_Mode/WaterHeater_Mode.h" 2
-
-
-typedef enum _Select_Mode_t
-{
-   Off_Mode=0,
-   Normal_Mode=1,
-   Setting_Mode=2
-}Select_Mode_t;
-
-
-typedef struct _MODE_t
-{
- Select_Mode_t Select_Mode;
- uint8_t Setting_Mode_Timer ;
-}MODE_t;
-
-MODE_t Mode;
-
-
-
-
-
-
-
-void Mode_Init(void);
-void Start_Setting_Timer(uint16_t Timer_Ms ,uint16_t Peroid_Task);
-void Mode_MainFunction(void);
-# 10 "ADC/ADC.c" 2
-
-
-
+# 22 "ADC/ADC.c"
 void ADC_Init(void)
 {
 
@@ -2018,7 +1919,7 @@ void ADC_Init(void)
     ADCON0bits.GO_DONE=0;
     ADC_Info.ADC_INIT_FLAG=1;
 }
-
+# 58 "ADC/ADC.c"
 void ADC_Start_Conv(void)
 {
  if (ADC_Info.ADC_INIT_FLAG==1)
@@ -2027,21 +1928,12 @@ void ADC_Start_Conv(void)
      ADC_Info.ADC_START_FLAG=1;
  }
 }
-
-void ADC_Conv_MainFunction(void)
+# 78 "ADC/ADC.c"
+void ADC_Get_Value(uint8_t *Buffer)
 {
- if( ADC_Info.ADC_START_FLAG==1 && Mode.Select_Mode==Normal_Mode)
+ if(ADC_Info.ADC_START_FLAG==1&&ADCON0bits.GO_DONE==0)
  {
-     if(ADCON0bits.GO_DONE==0)
-     {
-      ADC_Value_Ready_CallBack();
-      ADCON0bits.GO_DONE=1;
-     }
+        *Buffer=(ADRESH<<8)|(ADRESL);
+     ADCON0bits.GO_DONE=1;
  }
-}
-
-void ADC_Value_Ready_CallBack(void)
-{
-  Temperature_Calc((ADRESH<<8)|(ADRESL));
-
 }

@@ -1996,7 +1996,7 @@ void Timer0_Init(void);
 # 7 "Timer/Timer.c" 2
 
 uint32_t Tick_Num=0;
-
+# 22 "Timer/Timer.c"
 void Timer0_Init(void)
 {
 
@@ -2017,7 +2017,7 @@ void Timer0_Init(void)
         INTCONbits.TMR0IF=0;
 
 }
-
+# 54 "Timer/Timer.c"
 void Timer0_CallBack(void)
 {
  Tick_Num++;

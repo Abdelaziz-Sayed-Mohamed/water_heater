@@ -1,19 +1,30 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"17 Temperature/Temperature.h
-[; ;Temperature/Temperature.h: 17: {
-[s S1 `uc 1 `uc 1 `uc 1 :1 `uc 1 :1 `uc 1 `uc 1 ]
-[n S1 _TEMP_t Temp_Value Average_Value Set_Temp Average_Value_Ready_Flag Store_Set_Temp_Flag Average_NValues ]
 "22 Temperature/../ADC/ADC.h
 [; ;Temperature/../ADC/ADC.h: 22: {
-[s S96 :1 `uc 1 :1 `uc 1 ]
-[n S96 _ADC_t ADC_INIT_FLAG ADC_START_FLAG ]
+[s S95 :1 `uc 1 :1 `uc 1 ]
+[n S95 _ADC_t ADC_INIT_FLAG ADC_START_FLAG ]
+"28 Temperature/../WaterHeater_Mode/WaterHeater_Mode.h
+[; ;Temperature/../WaterHeater_Mode/WaterHeater_Mode.h: 28: MODE_t Mode;
+[c E889 0 1 2 .. ]
+[n E889 _Select_Mode_t Off_Mode Normal_Mode Setting_Mode  ]
+"23
+[; ;Temperature/../WaterHeater_Mode/WaterHeater_Mode.h: 23: {
+[s S96 `E889 1 `uc 1 ]
+[n S96 _MODE_t Select_Mode Setting_Mode_Timer ]
+"18 Temperature/Temperature.h
+[; ;Temperature/Temperature.h: 18: {
+[s S97 `uc 1 `uc 1 `uc 1 `uc 1 :1 `uc 1 :1 `uc 1 `uc 1 ]
+[n S97 _TEMP_t Temp_Value Average_Value ADC_Value Set_Temp Average_Value_Ready_Flag Store_Set_Temp_Flag Average_NValues ]
+"33 Temperature/../ADC/ADC.h
+[; ;Temperature/../ADC/ADC.h: 33: void ADC_Get_Value(uint8_t *Buffer);
+[v _ADC_Get_Value `(v ~T0 @X0 0 ef1`*uc ]
+"33 Temperature/Temperature.h
+[; ;Temperature/Temperature.h: 33: void Temperature_Calc(void);
+[v _Temperature_Calc `(v ~T0 @X0 0 ef ]
 "14 Temperature/../Average/Average.h
 [; ;Temperature/../Average/Average.h: 14: void Average_Value(uint8_t Value,uint8_t *Avrage_Values);
 [v _Average_Value `(v ~T0 @X0 0 ef2`uc`*uc ]
-"26 Temperature/Temperature.h
-[; ;Temperature/Temperature.h: 26: TEMP_t Temperature;
-[v _Temperature `S1 ~T0 @X0 1 e ]
-"6 Temperature/../ADC/../Config.h
+"6 Temperature/../WaterHeater_Mode/../gpio/../Config.h
 [p x FOSC = HS ]
 "7
 [p x WDTE = OFF ]
@@ -211,43 +222,88 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; <" EECON2 equ 018Dh ;# ">
 "28 Temperature/../ADC/ADC.h
 [; ;Temperature/../ADC/ADC.h: 28: ADC_t ADC_Info;
-[v _ADC_Info `S96 ~T0 @X0 1 e ]
-"14 Temperature/Temperature.c
-[; ;Temperature/Temperature.c: 14: void Temperature_Calc(uint8_t ADC_VALUE)
-[v _Temperature_Calc `(v ~T0 @X0 1 ef1`uc ]
-"15
-[; ;Temperature/Temperature.c: 15: {
+[v _ADC_Info `S95 ~T0 @X0 1 e ]
+"6 Temperature/../WaterHeater_Mode/../gpio/../Config.h
+[p x FOSC = HS ]
+"7
+[p x WDTE = OFF ]
+"8
+[p x PWRTE = OFF ]
+"9
+[p x BOREN = OFF ]
+"10
+[p x LVP = OFF ]
+"11
+[p x CPD = OFF ]
+"12
+[p x WRT = OFF ]
+"13
+[p x CP = OFF ]
+"28 Temperature/../WaterHeater_Mode/WaterHeater_Mode.h
+[; ;Temperature/../WaterHeater_Mode/WaterHeater_Mode.h: 28: MODE_t Mode;
+[v _Mode `S96 ~T0 @X0 1 e ]
+"28 Temperature/Temperature.h
+[; ;Temperature/Temperature.h: 28: TEMP_t Temperature;
+[v _Temperature `S97 ~T0 @X0 1 e ]
+"24 Temperature/Temperature.c
+[; ;Temperature/Temperature.c: 24: void Temperature_MainFunction(void)
+[v _Temperature_MainFunction `(v ~T0 @X0 1 ef ]
+"25
+[; ;Temperature/Temperature.c: 25: {
+{
+[e :U _Temperature_MainFunction ]
+[f ]
+"26
+[; ;Temperature/Temperature.c: 26:   if(Mode.Select_Mode==Normal_Mode)
+[e $ ! == -> . _Mode 0 `ui -> . `E889 1 `ui 99  ]
+"27
+[; ;Temperature/Temperature.c: 27:   {
+{
+"28
+[; ;Temperature/Temperature.c: 28:    ADC_Get_Value(&Temperature.ADC_Value);
+[e ( _ADC_Get_Value (1 &U . _Temperature 2 ]
+"29
+[; ;Temperature/Temperature.c: 29:   }
+}
+[e :U 99 ]
+"30
+[; ;Temperature/Temperature.c: 30:   Temperature_Calc();
+[e ( _Temperature_Calc ..  ]
+"31
+[; ;Temperature/Temperature.c: 31: }
+[e :UE 98 ]
+}
+"45
+[; ;Temperature/Temperature.c: 45: void Temperature_Calc(void)
+[v _Temperature_Calc `(v ~T0 @X0 1 ef ]
+"46
+[; ;Temperature/Temperature.c: 46: {
 {
 [e :U _Temperature_Calc ]
-"14
-[; ;Temperature/Temperature.c: 14: void Temperature_Calc(uint8_t ADC_VALUE)
-[v _ADC_VALUE `uc ~T0 @X0 1 r1 ]
-"15
-[; ;Temperature/Temperature.c: 15: {
 [f ]
-"16
-[; ;Temperature/Temperature.c: 16:  Temperature.Temp_Value=ADC_VALUE * 0.4882;
-[e = . _Temperature 0 -> * -> -> _ADC_VALUE `i `d .0.4882 `uc ]
-"17
-[; ;Temperature/Temperature.c: 17:  Average_Value(Temperature.Temp_Value, &Temperature.Average_Value);
+"47
+[; ;Temperature/Temperature.c: 47:  Temperature.Temp_Value=Temperature.ADC_Value * 0.4882;
+[e = . _Temperature 0 -> * -> -> . _Temperature 2 `i `d .0.4882 `uc ]
+"48
+[; ;Temperature/Temperature.c: 48:  Average_Value(Temperature.Temp_Value, &Temperature.Average_Value);
 [e ( _Average_Value (2 , . _Temperature 0 &U . _Temperature 1 ]
-"18
-[; ;Temperature/Temperature.c: 18:  Temperature.Average_NValues=(Temperature.Average_NValues+1)%10U;
-[e = . _Temperature 5 -> % -> + -> . _Temperature 5 `i -> 1 `i `ui -> 10 `ui `uc ]
-"20
-[; ;Temperature/Temperature.c: 20:  if(Temperature.Average_NValues==9)
-[e $ ! == -> . _Temperature 5 `i -> 9 `i 98  ]
-"21
-[; ;Temperature/Temperature.c: 21:  {
+"49
+[; ;Temperature/Temperature.c: 49:  Temperature.Average_NValues=(Temperature.Average_NValues+1)%10U;
+[e = . _Temperature 6 -> % -> + -> . _Temperature 6 `i -> 1 `i `ui -> 10 `ui `uc ]
+"51
+[; ;Temperature/Temperature.c: 51:  if(Temperature.Average_NValues==9)
+[e $ ! == -> . _Temperature 6 `i -> 9 `i 101  ]
+"52
+[; ;Temperature/Temperature.c: 52:  {
 {
-"22
-[; ;Temperature/Temperature.c: 22:        Temperature.Average_Value_Ready_Flag=1;
-[e = . _Temperature 3 -> -> 1 `i `uc ]
-"23
-[; ;Temperature/Temperature.c: 23:  }
+"53
+[; ;Temperature/Temperature.c: 53:        Temperature.Average_Value_Ready_Flag=1;
+[e = . _Temperature 4 -> -> 1 `i `uc ]
+"54
+[; ;Temperature/Temperature.c: 54:  }
 }
-[e :U 98 ]
-"25
-[; ;Temperature/Temperature.c: 25: }
-[e :UE 97 ]
+[e :U 101 ]
+"56
+[; ;Temperature/Temperature.c: 56: }
+[e :UE 100 ]
 }

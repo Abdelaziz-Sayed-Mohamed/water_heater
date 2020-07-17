@@ -1972,14 +1972,14 @@ MODE_t Mode;
 
 
 
-void Mode_Init(void);
-void Start_Setting_Timer(uint16_t Timer_Ms ,uint16_t Peroid_Task);
-void Mode_MainFunction(void);
+void ModeManager_Init(void);
+void Mode_Setting_Timer(uint16_t Timer_Ms);
+void ModeManager_MainFunction(void);
 # 9 "Buttons/Buttons.c" 2
 
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdbool.h" 1 3
 # 10 "Buttons/Buttons.c" 2
-
+# 23 "Buttons/Buttons.c"
 void On_Off_Init(void)
 {
 
@@ -1988,8 +1988,7 @@ void On_Off_Init(void)
     INTCONbits.INTF=0;
 
 }
-
-
+# 43 "Buttons/Buttons.c"
 void EXTI_On_Off_CallBack(void)
 {
  if((Mode.Select_Mode==Setting_Mode) || (Mode.Select_Mode==Normal_Mode))
@@ -2005,7 +2004,7 @@ void EXTI_On_Off_CallBack(void)
 
  }
 }
-
+# 74 "Buttons/Buttons.c"
 void Buttons_MainFunction(void)
 {
     if(((((PORTB>>2)&1)==0) ||(((PORTB>>1)&1)==0)))

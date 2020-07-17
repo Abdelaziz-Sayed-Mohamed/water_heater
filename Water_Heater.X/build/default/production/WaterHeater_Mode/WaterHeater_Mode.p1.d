@@ -6,6 +6,8 @@ WaterHeater_Mode/../gpio/gpio_Cfg.h  \
 WaterHeater_Mode/../gpio/../Config.h  \
 WaterHeater_Mode/WaterHeater_Mode_Cfg.h  \
 WaterHeater_Mode/../Temperature/Temperature.h  \
+WaterHeater_Mode/../Temperature/../ADC/ADC.h  \
+WaterHeater_Mode/../Temperature/../ADC/../Config.h  \
 WaterHeater_Mode/../Buttons/Buttons.h  \
 WaterHeater_Mode/../Buttons/../Config.h  \
 WaterHeater_Mode/../Buttons/Buttons_Cfg.h  \

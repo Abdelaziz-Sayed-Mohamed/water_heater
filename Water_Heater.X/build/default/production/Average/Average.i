@@ -160,7 +160,7 @@ void Average_Value(uint8_t Value,uint8_t *Avrage_Values);
 static uint8_t Average_Nvalues = 10U ;
 static uint32_t temb_val[10U];
 uint32_t Avrage_buffer=0;
-
+# 24 "Average/Average.c"
 void Average_Value(uint8_t Value,uint8_t *Avrage_Values)
 {
 

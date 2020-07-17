@@ -3,18 +3,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;SSD/SSD.h: 38: Enable_SSD_t Enable_SSD;
 [c E879 0 1 .. ]
 [n E879 _Enable_SSD_t Enable_SSD_Off Enable_SSD_On  ]
-"28 SSD/../WaterHeater_Mode/WaterHeater_Mode.h
-[; ;SSD/../WaterHeater_Mode/WaterHeater_Mode.h: 28: MODE_t Mode;
+"28 SSD/../Temperature/../WaterHeater_Mode/WaterHeater_Mode.h
 [c E890 0 1 2 .. ]
 [n E890 _Select_Mode_t Off_Mode Normal_Mode Setting_Mode  ]
 "23
-[; ;SSD/../WaterHeater_Mode/WaterHeater_Mode.h: 23: {
 [s S95 `E890 1 `uc 1 ]
 [n S95 _MODE_t Select_Mode Setting_Mode_Timer ]
-"17 SSD/../Temperature/Temperature.h
-[; ;SSD/../Temperature/Temperature.h: 17: {
-[s S96 `uc 1 `uc 1 `uc 1 :1 `uc 1 :1 `uc 1 `uc 1 ]
-[n S96 _TEMP_t Temp_Value Average_Value Set_Temp Average_Value_Ready_Flag Store_Set_Temp_Flag Average_NValues ]
+"22 SSD/../Temperature/../ADC/ADC.h
+[; ;SSD/../Temperature/../ADC/ADC.h: 22: {
+[s S96 :1 `uc 1 :1 `uc 1 ]
+[n S96 _ADC_t ADC_INIT_FLAG ADC_START_FLAG ]
+"18 SSD/../Temperature/Temperature.h
+[; ;SSD/../Temperature/Temperature.h: 18: {
+[s S97 `uc 1 `uc 1 `uc 1 `uc 1 :1 `uc 1 :1 `uc 1 `uc 1 ]
+[n S97 _TEMP_t Temp_Value Average_Value ADC_Value Set_Temp Average_Value_Ready_Flag Store_Set_Temp_Flag Average_NValues ]
 "166 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 166: extern volatile unsigned char PORTA __attribute__((address(0x005)));
 [v _PORTA `Vuc ~T0 @X0 0 e@5 ]
@@ -27,7 +29,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "43
 [; ;SSD/SSD.h: 43: void SSD_SelectDigit(void);
 [v _SSD_SelectDigit `(v ~T0 @X0 0 ef ]
-"6 SSD/../gpio/../Config.h
+"6 SSD/../Temperature/../ADC/../Config.h
 [p x FOSC = HS ]
 "7
 [p x WDTE = OFF ]
@@ -223,7 +225,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2363
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2363: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
-"6 SSD/../gpio/../Config.h
+"6 SSD/../Temperature/../ADC/../Config.h
 [p x FOSC = HS ]
 "7
 [p x WDTE = OFF ]
@@ -242,12 +244,30 @@ Version 4.0 HI-TECH Software Intermediate Code
 "38 SSD/SSD.h
 [; ;SSD/SSD.h: 38: Enable_SSD_t Enable_SSD;
 [v _Enable_SSD `E879 ~T0 @X0 1 e ]
-"28 SSD/../WaterHeater_Mode/WaterHeater_Mode.h
-[; ;SSD/../WaterHeater_Mode/WaterHeater_Mode.h: 28: MODE_t Mode;
+"28 SSD/../Temperature/../WaterHeater_Mode/WaterHeater_Mode.h
 [v _Mode `S95 ~T0 @X0 1 e ]
-"26 SSD/../Temperature/Temperature.h
-[; ;SSD/../Temperature/Temperature.h: 26: TEMP_t Temperature;
-[v _Temperature `S96 ~T0 @X0 1 e ]
+"6 SSD/../Temperature/../ADC/../Config.h
+[p x FOSC = HS ]
+"7
+[p x WDTE = OFF ]
+"8
+[p x PWRTE = OFF ]
+"9
+[p x BOREN = OFF ]
+"10
+[p x LVP = OFF ]
+"11
+[p x CPD = OFF ]
+"12
+[p x WRT = OFF ]
+"13
+[p x CP = OFF ]
+"28 SSD/../Temperature/../ADC/ADC.h
+[; ;SSD/../Temperature/../ADC/ADC.h: 28: ADC_t ADC_Info;
+[v _ADC_Info `S96 ~T0 @X0 1 e ]
+"28 SSD/../Temperature/Temperature.h
+[; ;SSD/../Temperature/Temperature.h: 28: TEMP_t Temperature;
+[v _Temperature `S97 ~T0 @X0 1 e ]
 "13 SSD/SSD.c
 [; ;SSD/SSD.c: 13: static uint8_t SSD=0;
 [v _SSD `uc ~T0 @X0 1 s ]
@@ -279,7 +299,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _PORTD -> -> 0 `i `uc ]
 "32
 [; ;SSD/SSD.c: 32: }
-[e :UE 97 ]
+[e :UE 98 ]
 }
 "44
 [; ;SSD/SSD.c: 44: void SSD_MainFunction(void)
@@ -297,130 +317,130 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _SSD_SelectDigit ..  ]
 "50
 [; ;SSD/SSD.c: 50:     switch(SSD)
-[e $U 100  ]
+[e $U 101  ]
 "51
 [; ;SSD/SSD.c: 51:     {
 {
 "52
 [; ;SSD/SSD.c: 52:      case 0:
-[e :U 101 ]
+[e :U 102 ]
 "53
 [; ;SSD/SSD.c: 53:         PORTD=0b00111111;
 [e = _PORTD -> -> 63 `i `uc ]
 "54
 [; ;SSD/SSD.c: 54:         break;
-[e $U 99  ]
+[e $U 100  ]
 "56
 [; ;SSD/SSD.c: 56:      case 1:
-[e :U 102 ]
+[e :U 103 ]
 "57
 [; ;SSD/SSD.c: 57:         PORTD=0b00000110;
 [e = _PORTD -> -> 6 `i `uc ]
 "58
 [; ;SSD/SSD.c: 58:         break;
-[e $U 99  ]
+[e $U 100  ]
 "60
 [; ;SSD/SSD.c: 60:      case 2:
-[e :U 103 ]
+[e :U 104 ]
 "61
 [; ;SSD/SSD.c: 61:         PORTD=0b01011011;
 [e = _PORTD -> -> 91 `i `uc ]
 "62
 [; ;SSD/SSD.c: 62:         break;
-[e $U 99  ]
+[e $U 100  ]
 "64
 [; ;SSD/SSD.c: 64:      case 3:
-[e :U 104 ]
+[e :U 105 ]
 "65
 [; ;SSD/SSD.c: 65:         PORTD=0b01001111;
 [e = _PORTD -> -> 79 `i `uc ]
 "66
 [; ;SSD/SSD.c: 66:         break;
-[e $U 99  ]
+[e $U 100  ]
 "68
 [; ;SSD/SSD.c: 68:      case 4:
-[e :U 105 ]
+[e :U 106 ]
 "69
 [; ;SSD/SSD.c: 69:         PORTD=0b01100110;
 [e = _PORTD -> -> 102 `i `uc ]
 "70
 [; ;SSD/SSD.c: 70:         break;
-[e $U 99  ]
+[e $U 100  ]
 "72
 [; ;SSD/SSD.c: 72:      case 5:
-[e :U 106 ]
+[e :U 107 ]
 "73
 [; ;SSD/SSD.c: 73:         PORTD=0b01101101;
 [e = _PORTD -> -> 109 `i `uc ]
 "74
 [; ;SSD/SSD.c: 74:         break;
-[e $U 99  ]
+[e $U 100  ]
 "76
 [; ;SSD/SSD.c: 76:      case 6:
-[e :U 107 ]
+[e :U 108 ]
 "77
 [; ;SSD/SSD.c: 77:         PORTD=0b01111101;
 [e = _PORTD -> -> 125 `i `uc ]
 "78
 [; ;SSD/SSD.c: 78:         break;
-[e $U 99  ]
+[e $U 100  ]
 "80
 [; ;SSD/SSD.c: 80:      case 7:
-[e :U 108 ]
+[e :U 109 ]
 "81
 [; ;SSD/SSD.c: 81:         PORTD=0b00000111;
 [e = _PORTD -> -> 7 `i `uc ]
 "82
 [; ;SSD/SSD.c: 82:         break;
-[e $U 99  ]
+[e $U 100  ]
 "84
 [; ;SSD/SSD.c: 84:      case 8:
-[e :U 109 ]
+[e :U 110 ]
 "85
 [; ;SSD/SSD.c: 85:         PORTD=0b01111111;
 [e = _PORTD -> -> 127 `i `uc ]
 "86
 [; ;SSD/SSD.c: 86:         break;
-[e $U 99  ]
+[e $U 100  ]
 "88
 [; ;SSD/SSD.c: 88:      case 9:
-[e :U 110 ]
+[e :U 111 ]
 "89
 [; ;SSD/SSD.c: 89:         PORTD=0b01101111;
 [e = _PORTD -> -> 111 `i `uc ]
 "90
 [; ;SSD/SSD.c: 90:         break;
-[e $U 99  ]
+[e $U 100  ]
 "92
 [; ;SSD/SSD.c: 92:      case 10:
-[e :U 111 ]
+[e :U 112 ]
 "93
 [; ;SSD/SSD.c: 93:         PORTD=0;
 [e = _PORTD -> -> 0 `i `uc ]
 "94
 [; ;SSD/SSD.c: 94:         break;
-[e $U 99  ]
+[e $U 100  ]
 "95
 [; ;SSD/SSD.c: 95:     }
 }
-[e $U 99  ]
+[e $U 100  ]
+[e :U 101 ]
+[e [\ -> _SSD `i , $ -> 0 `i 102
+ , $ -> 1 `i 103
+ , $ -> 2 `i 104
+ , $ -> 3 `i 105
+ , $ -> 4 `i 106
+ , $ -> 5 `i 107
+ , $ -> 6 `i 108
+ , $ -> 7 `i 109
+ , $ -> 8 `i 110
+ , $ -> 9 `i 111
+ , $ -> 10 `i 112
+ 100 ]
 [e :U 100 ]
-[e [\ -> _SSD `i , $ -> 0 `i 101
- , $ -> 1 `i 102
- , $ -> 2 `i 103
- , $ -> 3 `i 104
- , $ -> 4 `i 105
- , $ -> 5 `i 106
- , $ -> 6 `i 107
- , $ -> 7 `i 108
- , $ -> 8 `i 109
- , $ -> 9 `i 110
- , $ -> 10 `i 111
- 99 ]
-[e :U 99 ]
 "96
 [; ;SSD/SSD.c: 96: }
-[e :UE 98 ]
+[e :UE 99 ]
 }
 "109
 [; ;SSD/SSD.c: 109: void SSD_Blink(uint16_t Times_Ms)
@@ -437,19 +457,19 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "111
 [; ;SSD/SSD.c: 111:   static uint8_t Counter=1;
-[v F922 `uc ~T0 @X0 1 s Counter ]
-[i F922
+[v F932 `uc ~T0 @X0 1 s Counter ]
+[i F932
 -> -> 1 `i `uc
 ]
 "113
 [; ;SSD/SSD.c: 113:   if(Counter*20==Times_Ms)
-[e $ ! == -> * -> F922 `i -> 20 `i `ui _Times_Ms 113  ]
+[e $ ! == -> * -> F932 `i -> 20 `i `ui _Times_Ms 114  ]
 "114
 [; ;SSD/SSD.c: 114:   {
 {
 "115
 [; ;SSD/SSD.c: 115:       if(Enable_SSD==Enable_SSD_On)
-[e $ ! == -> _Enable_SSD `ui -> . `E879 1 `ui 114  ]
+[e $ ! == -> _Enable_SSD `ui -> . `E879 1 `ui 115  ]
 "116
 [; ;SSD/SSD.c: 116:       {
 {
@@ -465,11 +485,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "120
 [; ;SSD/SSD.c: 120:       }
 }
-[e $U 115  ]
+[e $U 116  ]
 "121
 [; ;SSD/SSD.c: 121:       else if(Enable_SSD==Enable_SSD_Off)
-[e :U 114 ]
-[e $ ! == -> _Enable_SSD `ui -> . `E879 0 `ui 116  ]
+[e :U 115 ]
+[e $ ! == -> _Enable_SSD `ui -> . `E879 0 `ui 117  ]
 "122
 [; ;SSD/SSD.c: 122:       {
 {
@@ -479,21 +499,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 "124
 [; ;SSD/SSD.c: 124:       }
 }
+[e :U 117 ]
 [e :U 116 ]
-[e :U 115 ]
 "125
 [; ;SSD/SSD.c: 125:         Counter =1;
-[e = F922 -> -> 1 `i `uc ]
+[e = F932 -> -> 1 `i `uc ]
 "126
 [; ;SSD/SSD.c: 126:   }
 }
-[e :U 113 ]
+[e :U 114 ]
 "127
 [; ;SSD/SSD.c: 127:   Counter++;
-[e ++ F922 -> -> 1 `i `uc ]
+[e ++ F932 -> -> 1 `i `uc ]
 "128
 [; ;SSD/SSD.c: 128: }
-[e :UE 112 ]
+[e :UE 113 ]
 }
 "140
 [; ;SSD/SSD.c: 140: void SSD_SelectDisplay(void)
@@ -505,7 +525,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "144
 [; ;SSD/SSD.c: 144:   if(Mode.Select_Mode==Normal_Mode)
-[e $ ! == -> . _Mode 0 `ui -> . `E890 1 `ui 118  ]
+[e $ ! == -> . _Mode 0 `ui -> . `E890 1 `ui 119  ]
 "145
 [; ;SSD/SSD.c: 145:   {
 {
@@ -518,28 +538,28 @@ Version 4.0 HI-TECH Software Intermediate Code
 "148
 [; ;SSD/SSD.c: 148:   }
 }
-[e $U 119  ]
+[e $U 120  ]
 "149
 [; ;SSD/SSD.c: 149:   else if(Mode.Select_Mode==Setting_Mode)
-[e :U 118 ]
-[e $ ! == -> . _Mode 0 `ui -> . `E890 2 `ui 120  ]
+[e :U 119 ]
+[e $ ! == -> . _Mode 0 `ui -> . `E890 2 `ui 121  ]
 "150
 [; ;SSD/SSD.c: 150:   {
 {
 "151
 [; ;SSD/SSD.c: 151:    Tempreture=Temperature.Set_Temp;
-[e = _Tempreture . _Temperature 2 ]
+[e = _Tempreture . _Temperature 3 ]
 "152
 [; ;SSD/SSD.c: 152:       SSD_Blink(1000);
 [e ( _SSD_Blink (1 -> -> 1000 `i `ui ]
 "153
 [; ;SSD/SSD.c: 153:   }
 }
-[e $U 121  ]
+[e $U 122  ]
 "154
 [; ;SSD/SSD.c: 154:   else if(Mode.Select_Mode==Off_Mode)
-[e :U 120 ]
-[e $ ! == -> . _Mode 0 `ui -> . `E890 0 `ui 122  ]
+[e :U 121 ]
+[e $ ! == -> . _Mode 0 `ui -> . `E890 0 `ui 123  ]
 "155
 [; ;SSD/SSD.c: 155:   {
 {
@@ -552,12 +572,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 "159
 [; ;SSD/SSD.c: 159:   }
 }
+[e :U 123 ]
 [e :U 122 ]
-[e :U 121 ]
-[e :U 119 ]
+[e :U 120 ]
 "160
 [; ;SSD/SSD.c: 160: }
-[e :UE 117 ]
+[e :UE 118 ]
 }
 "173
 [; ;SSD/SSD.c: 173: void SSD_SelectDigit(void)
@@ -569,52 +589,52 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "175
 [; ;SSD/SSD.c: 175:     static uint8_t Enable_Digit_Selector=1;
-[v F925 `uc ~T0 @X0 1 s Enable_Digit_Selector ]
-[i F925
+[v F935 `uc ~T0 @X0 1 s Enable_Digit_Selector ]
+[i F935
 -> -> 1 `i `uc
 ]
 "176
 [; ;SSD/SSD.c: 176:     static uint8_t Digit_1=0;
-[v F926 `uc ~T0 @X0 1 s Digit_1 ]
-[i F926
+[v F936 `uc ~T0 @X0 1 s Digit_1 ]
+[i F936
 -> -> 0 `i `uc
 ]
 "177
 [; ;SSD/SSD.c: 177:     static uint8_t Digit_2=0;
-[v F927 `uc ~T0 @X0 1 s Digit_2 ]
-[i F927
+[v F937 `uc ~T0 @X0 1 s Digit_2 ]
+[i F937
 -> -> 0 `i `uc
 ]
 "179
 [; ;SSD/SSD.c: 179:     if(Mode.Select_Mode!=Off_Mode)
-[e $ ! != -> . _Mode 0 `ui -> . `E890 0 `ui 124  ]
+[e $ ! != -> . _Mode 0 `ui -> . `E890 0 `ui 125  ]
 "180
 [; ;SSD/SSD.c: 180:     {
 {
 "181
 [; ;SSD/SSD.c: 181:         if(Enable_SSD==Enable_SSD_On)
-[e $ ! == -> _Enable_SSD `ui -> . `E879 1 `ui 125  ]
+[e $ ! == -> _Enable_SSD `ui -> . `E879 1 `ui 126  ]
 "182
 [; ;SSD/SSD.c: 182:      {
 {
 "183
 [; ;SSD/SSD.c: 183:             Digit_1=Tempreture%10;
-[e = F926 -> % -> _Tempreture `i -> 10 `i `uc ]
+[e = F936 -> % -> _Tempreture `i -> 10 `i `uc ]
 "184
 [; ;SSD/SSD.c: 184:             Digit_2=Tempreture/10;
-[e = F927 -> / -> _Tempreture `i -> 10 `i `uc ]
+[e = F937 -> / -> _Tempreture `i -> 10 `i `uc ]
 "186
 [; ;SSD/SSD.c: 186:             Enable_Digit_Selector^=1;
-[e =^ F925 -> -> 1 `i `uc ]
+[e =^ F935 -> -> 1 `i `uc ]
 "188
 [; ;SSD/SSD.c: 188:             if(Enable_Digit_Selector==0)
-[e $ ! == -> F925 `i -> 0 `i 126  ]
+[e $ ! == -> F935 `i -> 0 `i 127  ]
 "189
 [; ;SSD/SSD.c: 189:             {
 {
 "190
 [; ;SSD/SSD.c: 190:               SSD=Digit_1;
-[e = _SSD F926 ]
+[e = _SSD F936 ]
 "191
 [; ;SSD/SSD.c: 191:                (PORTA &= ~(1<<4));
 [e =& _PORTA -> ~ << -> 1 `i -> 4 `i `Vuc ]
@@ -624,17 +644,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 "194
 [; ;SSD/SSD.c: 194:             }
 }
-[e $U 127  ]
+[e $U 128  ]
 "195
 [; ;SSD/SSD.c: 195:             else if(Enable_Digit_Selector==1)
-[e :U 126 ]
-[e $ ! == -> F925 `i -> 1 `i 128  ]
+[e :U 127 ]
+[e $ ! == -> F935 `i -> 1 `i 129  ]
 "196
 [; ;SSD/SSD.c: 196:             {
 {
 "197
 [; ;SSD/SSD.c: 197:               SSD=Digit_2;
-[e = _SSD F927 ]
+[e = _SSD F937 ]
 "198
 [; ;SSD/SSD.c: 198:               (PORTA &= ~(1<<5));
 [e =& _PORTA -> ~ << -> 1 `i -> 5 `i `Vuc ]
@@ -644,19 +664,19 @@ Version 4.0 HI-TECH Software Intermediate Code
 "201
 [; ;SSD/SSD.c: 201:             }
 }
+[e :U 129 ]
 [e :U 128 ]
-[e :U 127 ]
 "202
 [; ;SSD/SSD.c: 202:         }
 }
-[e :U 125 ]
+[e :U 126 ]
 "203
 [; ;SSD/SSD.c: 203:     }
 }
-[e $U 129  ]
+[e $U 130  ]
 "204
 [; ;SSD/SSD.c: 204:     else
-[e :U 124 ]
+[e :U 125 ]
 "205
 [; ;SSD/SSD.c: 205:     {
 {
@@ -666,8 +686,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "207
 [; ;SSD/SSD.c: 207:     }
 }
-[e :U 129 ]
+[e :U 130 ]
 "208
 [; ;SSD/SSD.c: 208: }
-[e :UE 123 ]
+[e :UE 124 ]
 }

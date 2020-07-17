@@ -250,145 +250,145 @@ Version 4.0 HI-TECH Software Intermediate Code
 "28 Buttons/../WaterHeater_Mode/WaterHeater_Mode.h
 [; ;Buttons/../WaterHeater_Mode/WaterHeater_Mode.h: 28: MODE_t Mode;
 [v _Mode `S96 ~T0 @X0 1 e ]
-"11 Buttons/Buttons.c
-[; ;Buttons/Buttons.c: 11: void On_Off_Init(void)
+"23 Buttons/Buttons.c
+[; ;Buttons/Buttons.c: 23: void On_Off_Init(void)
 [v _On_Off_Init `(v ~T0 @X0 1 ef ]
-"12
-[; ;Buttons/Buttons.c: 12: {
+"24
+[; ;Buttons/Buttons.c: 24: {
 {
 [e :U _On_Off_Init ]
 [f ]
-"14
-[; ;Buttons/Buttons.c: 14:     INTCONbits.INTE=1;
+"26
+[; ;Buttons/Buttons.c: 26:     INTCONbits.INTE=1;
 [e = . . _INTCONbits 0 4 -> -> 1 `i `uc ]
-"15
-[; ;Buttons/Buttons.c: 15:     INTEDG=1;
+"27
+[; ;Buttons/Buttons.c: 27:     INTEDG=1;
 [e = _INTEDG -> -> 1 `i `b ]
-"16
-[; ;Buttons/Buttons.c: 16:     INTCONbits.INTF=0;
+"28
+[; ;Buttons/Buttons.c: 28:     INTCONbits.INTF=0;
 [e = . . _INTCONbits 0 1 -> -> 0 `i `uc ]
-"18
-[; ;Buttons/Buttons.c: 18: }
+"30
+[; ;Buttons/Buttons.c: 30: }
 [e :UE 97 ]
 }
-"21
-[; ;Buttons/Buttons.c: 21: void EXTI_On_Off_CallBack(void)
+"43
+[; ;Buttons/Buttons.c: 43: void EXTI_On_Off_CallBack(void)
 [v _EXTI_On_Off_CallBack `(v ~T0 @X0 1 ef ]
-"22
-[; ;Buttons/Buttons.c: 22: {
+"44
+[; ;Buttons/Buttons.c: 44: {
 {
 [e :U _EXTI_On_Off_CallBack ]
 [f ]
-"23
-[; ;Buttons/Buttons.c: 23:  if((Mode.Select_Mode==Setting_Mode) || (Mode.Select_Mode==Normal_Mode))
+"45
+[; ;Buttons/Buttons.c: 45:  if((Mode.Select_Mode==Setting_Mode) || (Mode.Select_Mode==Normal_Mode))
 [e $ ! || == -> . _Mode 0 `ui -> . `E887 2 `ui == -> . _Mode 0 `ui -> . `E887 1 `ui 99  ]
-"24
-[; ;Buttons/Buttons.c: 24:  {
+"46
+[; ;Buttons/Buttons.c: 46:  {
 {
-"26
-[; ;Buttons/Buttons.c: 26:   Mode.Select_Mode=Off_Mode;
+"48
+[; ;Buttons/Buttons.c: 48:   Mode.Select_Mode=Off_Mode;
 [e = . _Mode 0 . `E887 0 ]
-"28
-[; ;Buttons/Buttons.c: 28:  }
+"50
+[; ;Buttons/Buttons.c: 50:  }
 }
 [e $U 100  ]
-"29
-[; ;Buttons/Buttons.c: 29:  else if (Mode.Select_Mode==Off_Mode)
+"51
+[; ;Buttons/Buttons.c: 51:  else if (Mode.Select_Mode==Off_Mode)
 [e :U 99 ]
 [e $ ! == -> . _Mode 0 `ui -> . `E887 0 `ui 101  ]
-"30
-[; ;Buttons/Buttons.c: 30:  {
+"52
+[; ;Buttons/Buttons.c: 52:  {
 {
-"32
-[; ;Buttons/Buttons.c: 32:   Mode.Select_Mode=Normal_Mode;
+"54
+[; ;Buttons/Buttons.c: 54:   Mode.Select_Mode=Normal_Mode;
 [e = . _Mode 0 . `E887 1 ]
-"34
-[; ;Buttons/Buttons.c: 34:  }
+"56
+[; ;Buttons/Buttons.c: 56:  }
 }
 [e :U 101 ]
 [e :U 100 ]
-"35
-[; ;Buttons/Buttons.c: 35: }
+"57
+[; ;Buttons/Buttons.c: 57: }
 [e :UE 98 ]
 }
-"37
-[; ;Buttons/Buttons.c: 37: void Buttons_MainFunction(void)
+"74
+[; ;Buttons/Buttons.c: 74: void Buttons_MainFunction(void)
 [v _Buttons_MainFunction `(v ~T0 @X0 1 ef ]
-"38
-[; ;Buttons/Buttons.c: 38: {
+"75
+[; ;Buttons/Buttons.c: 75: {
 {
 [e :U _Buttons_MainFunction ]
 [f ]
-"39
-[; ;Buttons/Buttons.c: 39:     if(((((PORTB>>2)&1)==0) ||(((PORTB>>1)&1)==0)))
+"76
+[; ;Buttons/Buttons.c: 76:     if(((((PORTB>>2)&1)==0) ||(((PORTB>>1)&1)==0)))
 [e $ ! || == & >> -> _PORTB `i -> 2 `i -> 1 `i -> 0 `i == & >> -> _PORTB `i -> 1 `i -> 1 `i -> 0 `i 103  ]
-"40
-[; ;Buttons/Buttons.c: 40:     {
+"77
+[; ;Buttons/Buttons.c: 77:     {
 {
-"41
-[; ;Buttons/Buttons.c: 41:      if(Mode.Select_Mode==Normal_Mode)
+"78
+[; ;Buttons/Buttons.c: 78:      if(Mode.Select_Mode==Normal_Mode)
 [e $ ! == -> . _Mode 0 `ui -> . `E887 1 `ui 104  ]
-"42
-[; ;Buttons/Buttons.c: 42:         {
+"79
+[; ;Buttons/Buttons.c: 79:         {
 {
-"43
-[; ;Buttons/Buttons.c: 43:          Mode.Select_Mode=Setting_Mode;
+"80
+[; ;Buttons/Buttons.c: 80:          Mode.Select_Mode=Setting_Mode;
 [e = . _Mode 0 . `E887 2 ]
-"44
-[; ;Buttons/Buttons.c: 44:         }
+"81
+[; ;Buttons/Buttons.c: 81:         }
 }
 [e $U 105  ]
-"45
-[; ;Buttons/Buttons.c: 45:         else if(Mode.Select_Mode==Setting_Mode)
+"82
+[; ;Buttons/Buttons.c: 82:         else if(Mode.Select_Mode==Setting_Mode)
 [e :U 104 ]
 [e $ ! == -> . _Mode 0 `ui -> . `E887 2 `ui 106  ]
-"46
-[; ;Buttons/Buttons.c: 46:         {
+"83
+[; ;Buttons/Buttons.c: 83:         {
 {
-"47
-[; ;Buttons/Buttons.c: 47:             if(((PORTB>>2)&1)==0)
+"84
+[; ;Buttons/Buttons.c: 84:             if(((PORTB>>2)&1)==0)
 [e $ ! == & >> -> _PORTB `i -> 2 `i -> 1 `i -> 0 `i 107  ]
-"48
-[; ;Buttons/Buttons.c: 48:             {
+"85
+[; ;Buttons/Buttons.c: 85:             {
 {
-"49
-[; ;Buttons/Buttons.c: 49:                 Buttons.UpFlag=Buttons.UpFlag=1;
+"86
+[; ;Buttons/Buttons.c: 86:                 Buttons.UpFlag=Buttons.UpFlag=1;
 [e = . _Buttons 0 = . _Buttons 0 -> -> 1 `i `uc ]
-"50
-[; ;Buttons/Buttons.c: 50:                 Buttons.DownFlag=0;
+"87
+[; ;Buttons/Buttons.c: 87:                 Buttons.DownFlag=0;
 [e = . _Buttons 1 -> -> 0 `i `uc ]
-"51
-[; ;Buttons/Buttons.c: 51:             }
+"88
+[; ;Buttons/Buttons.c: 88:             }
 }
 [e $U 108  ]
-"52
-[; ;Buttons/Buttons.c: 52:             else if(((PORTB>>1)&1)==0)
+"89
+[; ;Buttons/Buttons.c: 89:             else if(((PORTB>>1)&1)==0)
 [e :U 107 ]
 [e $ ! == & >> -> _PORTB `i -> 1 `i -> 1 `i -> 0 `i 109  ]
-"53
-[; ;Buttons/Buttons.c: 53:             {
+"90
+[; ;Buttons/Buttons.c: 90:             {
 {
-"54
-[; ;Buttons/Buttons.c: 54:                Buttons.DownFlag=Buttons.DownFlag=1;
+"91
+[; ;Buttons/Buttons.c: 91:                Buttons.DownFlag=Buttons.DownFlag=1;
 [e = . _Buttons 1 = . _Buttons 1 -> -> 1 `i `uc ]
-"55
-[; ;Buttons/Buttons.c: 55:                Buttons.UpFlag=0;
+"92
+[; ;Buttons/Buttons.c: 92:                Buttons.UpFlag=0;
 [e = . _Buttons 0 -> -> 0 `i `uc ]
-"56
-[; ;Buttons/Buttons.c: 56:             }
+"93
+[; ;Buttons/Buttons.c: 93:             }
 }
 [e :U 109 ]
 [e :U 108 ]
-"57
-[; ;Buttons/Buttons.c: 57:         }
+"94
+[; ;Buttons/Buttons.c: 94:         }
 }
 [e :U 106 ]
 [e :U 105 ]
-"58
-[; ;Buttons/Buttons.c: 58:     }
+"95
+[; ;Buttons/Buttons.c: 95:     }
 }
 [e :U 103 ]
-"59
-[; ;Buttons/Buttons.c: 59: }
+"96
+[; ;Buttons/Buttons.c: 96: }
 [e :UE 102 ]
 }

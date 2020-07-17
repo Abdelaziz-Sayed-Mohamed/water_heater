@@ -1971,6 +1971,108 @@ uint8_t EEPROM_Read(uint8_t Addr);
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
 # 10 "EEPROM/../Temperature/Temperature.h" 2
 
+# 1 "EEPROM/../Temperature/../ADC/ADC.h" 1
+# 10 "EEPROM/../Temperature/../ADC/ADC.h"
+# 1 "EEPROM/../Temperature/../ADC/../Config.h" 1
+
+
+
+
+
+#pragma config FOSC = HS
+#pragma config WDTE = OFF
+#pragma config PWRTE = OFF
+#pragma config BOREN = OFF
+#pragma config LVP = OFF
+#pragma config CPD = OFF
+#pragma config WRT = OFF
+#pragma config CP = OFF
+
+
+
+
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
+# 17 "EEPROM/../Temperature/../ADC/../Config.h" 2
+# 10 "EEPROM/../Temperature/../ADC/ADC.h" 2
+# 21 "EEPROM/../Temperature/../ADC/ADC.h"
+typedef struct _ADC_t
+{
+   uint8_t ADC_INIT_FLAG :1;
+ uint8_t ADC_START_FLAG :1;
+
+}ADC_t;
+
+ADC_t ADC_Info;
+
+void ADC_Init(void);
+void ADC_Start_Conv(void);
+void ADC_Value_Ready_CallBack(void);
+void ADC_Get_Value(uint8_t *Buffer);
+# 11 "EEPROM/../Temperature/Temperature.h" 2
+
+# 1 "EEPROM/../Temperature/../WaterHeater_Mode/WaterHeater_Mode.h" 1
+# 10 "EEPROM/../Temperature/../WaterHeater_Mode/WaterHeater_Mode.h"
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
+# 10 "EEPROM/../Temperature/../WaterHeater_Mode/WaterHeater_Mode.h" 2
+
+# 1 "EEPROM/../WaterHeater_Mode/../gpio/gpio.h" 1
+# 11 "EEPROM/../WaterHeater_Mode/../gpio/gpio.h"
+# 1 "EEPROM/../WaterHeater_Mode/../gpio/gpio_Cfg.h" 1
+# 11 "EEPROM/../WaterHeater_Mode/../gpio/gpio_Cfg.h"
+# 1 "EEPROM/../WaterHeater_Mode/../gpio/../Config.h" 1
+
+
+
+
+
+#pragma config FOSC = HS
+#pragma config WDTE = OFF
+#pragma config PWRTE = OFF
+#pragma config BOREN = OFF
+#pragma config LVP = OFF
+#pragma config CPD = OFF
+#pragma config WRT = OFF
+#pragma config CP = OFF
+
+
+
+
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
+# 17 "EEPROM/../WaterHeater_Mode/../gpio/../Config.h" 2
+# 11 "EEPROM/../WaterHeater_Mode/../gpio/gpio_Cfg.h" 2
+# 11 "EEPROM/../WaterHeater_Mode/../gpio/gpio.h" 2
+# 24 "EEPROM/../WaterHeater_Mode/../gpio/gpio.h"
+void GPIO_Init(void);
+# 11 "EEPROM/../Temperature/../WaterHeater_Mode/WaterHeater_Mode.h" 2
+
+
+
+typedef enum _Select_Mode_t
+{
+   Off_Mode=0,
+   Normal_Mode=1,
+   Setting_Mode=2
+}Select_Mode_t;
+
+
+typedef struct _MODE_t
+{
+ Select_Mode_t Select_Mode;
+ uint8_t Setting_Mode_Timer ;
+}MODE_t;
+
+MODE_t Mode;
+
+
+
+
+
+
+
+void ModeManager_Init(void);
+void Mode_Setting_Timer(uint16_t Timer_Ms);
+void ModeManager_MainFunction(void);
+# 12 "EEPROM/../Temperature/Temperature.h" 2
 
 
 
@@ -1980,6 +2082,7 @@ typedef struct _TEMP_t
 {
  uint8_t Temp_Value;
  uint8_t Average_Value;
+    uint8_t ADC_Value;
  uint8_t Set_Temp;
  uint8_t Average_Value_Ready_Flag :1;
     uint8_t Store_Set_Temp_Flag :1;
@@ -1990,13 +2093,13 @@ TEMP_t Temperature;
 
 
 
-
-void Temperature_Calc(uint8_t ADC_VALUE);
+void Temperature_MainFunction(void);
+void Temperature_Calc(void);
 # 10 "EEPROM/EEPROM.c" 2
 
 
 uint8_t EEPROM_Data=0;
-
+# 27 "EEPROM/EEPROM.c"
 void Get_EEPROM_Data(void)
 {
 
@@ -2014,8 +2117,7 @@ void Get_EEPROM_Data(void)
 
 
 }
-
-
+# 56 "EEPROM/EEPROM.c"
 void Set_EEPROM_Data(void)
 {
 
@@ -2029,7 +2131,7 @@ void Set_EEPROM_Data(void)
 
 
 }
-
+# 80 "EEPROM/EEPROM.c"
 void EEPROM_Write(uint8_t Data,uint8_t Addr)
 {
  I2c_Start();
@@ -2042,7 +2144,7 @@ void EEPROM_Write(uint8_t Data,uint8_t Addr)
  I2c_Stop();
 
 }
-
+# 104 "EEPROM/EEPROM.c"
 uint8_t EEPROM_Read(uint8_t Addr)
 {
   static uint8_t Data;

@@ -6,9 +6,18 @@
  */
 
 #include "ADC.h"
-#include"../Temperature/Temperature.h"
-#include"../WaterHeater_Mode/WaterHeater_Mode.h"
 
+
+/****************************************************************************************/
+/*    Function Name           : ADC_Init          			                            */
+/*    Function Description    : Init ADC With ch2 (A2)                                  */                                          
+/*    Parameter In            : None                                                    */
+/*    Parameter InOut         : None                                                    */
+/*    Parameter Out           : None                                                    */
+/*    Return Value            : None                                                    */
+/*	  Requirement             :                   				                        */
+/*    Notes                   :								                            */
+/****************************************************************************************/
 
 void ADC_Init(void)
 {
@@ -35,6 +44,17 @@ void ADC_Init(void)
     SET_ADC_INIT_FLAG;
 }
 
+/****************************************************************************************/
+/*    Function Name           : ADC_Start_Conv          			                    */
+/*    Function Description    : Check if adc init and start ADCON0bits.GO_DONE=1        */                                          
+/*    Parameter In            : None                                                    */
+/*    Parameter InOut         : None                                                    */
+/*    Parameter Out           : None                                                    */
+/*    Return Value            : None                                                    */
+/*	  Requirement             :                   				                        */
+/*    Notes                   :								                            */
+/****************************************************************************************/
+
 void ADC_Start_Conv(void)
 {    
 	if (IS_ADC_INIT)
@@ -44,21 +64,24 @@ void ADC_Start_Conv(void)
 	}
 }
 
-void ADC_Conv_MainFunction(void)
+/****************************************************************************************/
+/*    Function Name           : ADC_Get_Value          			                        */
+/*    Function Description    : Check if adc Started and Set adc value in buffer        */                                          
+/*    Parameter In            : None                                                    */
+/*    Parameter InOut         : None                                                    */
+/*    Parameter Out           : None                                                    */
+/*    Return Value            : None                                                    */
+/*	  Requirement             :                   				                        */
+/*    Notes                   :								                            */
+/****************************************************************************************/
+
+void ADC_Get_Value(uint8_t *Buffer)
 {
-	if( IS_ADC_STARTED  && Mode.Select_Mode==Normal_Mode)
-	{
-	    if(IS_CONV_DONE)
-	    {
-	   	 ADC_Value_Ready_CallBack();
-	   	 ADC_START_CONV;
-	    }
+	if(IS_ADC_STARTED&&IS_CONV_DONE)
+	{      
+        *Buffer=(ADRESH<<8)|(ADRESL);
+	   	ADC_START_CONV;   
 	}
 }
 
-void ADC_Value_Ready_CallBack(void)
-{
-  Temperature_Calc((ADRESH<<8)|(ADRESL));
-
-}
 

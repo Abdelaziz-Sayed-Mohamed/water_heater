@@ -1940,15 +1940,54 @@ MODE_t Mode;
 
 
 
-void Mode_Init(void);
-void Start_Setting_Timer(uint16_t Timer_Ms ,uint16_t Peroid_Task);
-void Mode_MainFunction(void);
+void ModeManager_Init(void);
+void Mode_Setting_Timer(uint16_t Timer_Ms);
+void ModeManager_MainFunction(void);
 # 8 "Elements/Elements.c" 2
 
 # 1 "Elements/../Temperature/Temperature.h" 1
 # 10 "Elements/../Temperature/Temperature.h"
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
 # 10 "Elements/../Temperature/Temperature.h" 2
+
+# 1 "Elements/../Temperature/../ADC/ADC.h" 1
+# 10 "Elements/../Temperature/../ADC/ADC.h"
+# 1 "Elements/../Temperature/../ADC/../Config.h" 1
+
+
+
+
+
+#pragma config FOSC = HS
+#pragma config WDTE = OFF
+#pragma config PWRTE = OFF
+#pragma config BOREN = OFF
+#pragma config LVP = OFF
+#pragma config CPD = OFF
+#pragma config WRT = OFF
+#pragma config CP = OFF
+
+
+
+
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
+# 17 "Elements/../Temperature/../ADC/../Config.h" 2
+# 10 "Elements/../Temperature/../ADC/ADC.h" 2
+# 21 "Elements/../Temperature/../ADC/ADC.h"
+typedef struct _ADC_t
+{
+   uint8_t ADC_INIT_FLAG :1;
+ uint8_t ADC_START_FLAG :1;
+
+}ADC_t;
+
+ADC_t ADC_Info;
+
+void ADC_Init(void);
+void ADC_Start_Conv(void);
+void ADC_Value_Ready_CallBack(void);
+void ADC_Get_Value(uint8_t *Buffer);
+# 11 "Elements/../Temperature/Temperature.h" 2
 
 
 
@@ -1959,6 +1998,7 @@ typedef struct _TEMP_t
 {
  uint8_t Temp_Value;
  uint8_t Average_Value;
+    uint8_t ADC_Value;
  uint8_t Set_Temp;
  uint8_t Average_Value_Ready_Flag :1;
     uint8_t Store_Set_Temp_Flag :1;
@@ -1969,11 +2009,10 @@ TEMP_t Temperature;
 
 
 
-
-void Temperature_Calc(uint8_t ADC_VALUE);
+void Temperature_MainFunction(void);
+void Temperature_Calc(void);
 # 9 "Elements/Elements.c" 2
-
-
+# 23 "Elements/Elements.c"
 void Elements_Init(void)
 {
  LED_Status=_LED_OFF;
@@ -1981,7 +2020,7 @@ void Elements_Init(void)
  (PORTC &= ~(1<<2));
 
 }
-
+# 42 "Elements/Elements.c"
 void LED_BLINKING(uint16_t Time_Ms)
 {
  static uint8_t Counter=1;
@@ -1996,8 +2035,7 @@ void LED_BLINKING(uint16_t Time_Ms)
     Counter++;
    }
 }
-
-
+# 67 "Elements/Elements.c"
 void LED_Control(void)
 {
     switch(LED_Status)
@@ -2013,6 +2051,7 @@ void LED_Control(void)
     }
 
 }
+# 94 "Elements/Elements.c"
 void Elements_MainFunction(void)
 {
   if(Temperature.Average_Value_Ready_Flag==1 && Mode.Select_Mode==Normal_Mode)

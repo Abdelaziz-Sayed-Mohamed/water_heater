@@ -9,6 +9,18 @@ static uint8_t Average_Nvalues = AVERAGE_BUFFER_SIZE ;
 static uint32_t temb_val[AVERAGE_BUFFER_SIZE];
 uint32_t Avrage_buffer=0;
 
+
+
+/****************************************************************************************/
+/*    Function Name           : Average_Value          			                        */
+/*    Function Description    : Calculate average value of Average_Nvalues              */                                          
+/*    Parameter In            : Value ,  Avrage_Values                                  */
+/*    Parameter InOut         : None                                                    */
+/*    Parameter Out           : None                                                    */
+/*    Return Value            : None                                                    */
+/*	  Requirement             :                   				                        */
+/*    Notes                   :								                            */
+/****************************************************************************************/
 void Average_Value(uint8_t Value,uint8_t *Avrage_Values)
 {
 	

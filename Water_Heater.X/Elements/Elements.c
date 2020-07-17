@@ -8,6 +8,18 @@
 #include"../WaterHeater_Mode/WaterHeater_Mode.h"
 #include"../Temperature/Temperature.h"
 
+
+
+/****************************************************************************************/
+/*    Function Name           : Elements_Init          			                        */
+/*    Function Description    : Init all elements with off state                        */                                          
+/*    Parameter In            : None                                                    */
+/*    Parameter InOut         : None                                                    */
+/*    Parameter Out           : None                                                    */
+/*    Return Value            : None                                                    */
+/*	  Requirement             :                   				                        */
+/*    Notes                   :								                            */
+/****************************************************************************************/
 void Elements_Init(void)
 {
 	LED_Status=_LED_OFF;
@@ -16,6 +28,17 @@ void Elements_Init(void)
 
 }
 
+
+/****************************************************************************************/
+/*    Function Name           : LED_BLINKING          			                        */
+/*    Function Description    : Blinking led every  Time_Ms                             */                                          
+/*    Parameter In            : Time_Ms                                                 */
+/*    Parameter InOut         : None                                                    */
+/*    Parameter Out           : None                                                    */
+/*    Return Value            : None                                                    */
+/*	  Requirement             :                   				                        */
+/*    Notes                   :								                            */
+/****************************************************************************************/
 void LED_BLINKING(uint16_t Time_Ms)
 {
  static uint8_t Counter=1;
@@ -31,7 +54,16 @@ void LED_BLINKING(uint16_t Time_Ms)
    }
 }
 
-
+/****************************************************************************************/
+/*    Function Name           : LED_Control          			                        */
+/*    Function Description    : Control LED according to led state                      */                                          
+/*    Parameter In            : None                                                 */
+/*    Parameter InOut         : None                                                    */
+/*    Parameter Out           : None                                                    */
+/*    Return Value            : None                                                    */
+/*	  Requirement             :                   				                        */
+/*    Notes                   :								                            */
+/****************************************************************************************/
 void LED_Control(void)
 {
     switch(LED_Status)
@@ -47,6 +79,18 @@ void LED_Control(void)
     }       
          
 }
+
+/****************************************************************************************/
+/*    Function Name           : Elements_MainFunction          			                */
+/*    Function Description    : control  Cooler and heater and set led state according
+ *                              to Temperature.Average_Value                            */                                          
+/*    Parameter In            : None                                                    */
+/*    Parameter InOut         : None                                                    */
+/*    Parameter Out           : None                                                    */
+/*    Return Value            : None                                                    */
+/*	  Requirement             :                   				                        */
+/*    Notes                   :								                            */
+/****************************************************************************************/
 void Elements_MainFunction(void)
 {
   if(IS_Average_Value_Ready && Mode.Select_Mode==Normal_Mode)           //Check if we read at least 10 ADC_VALUE and System in normal mode

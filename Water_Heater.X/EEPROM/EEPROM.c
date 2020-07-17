@@ -11,6 +11,19 @@
 
 uint8_t EEPROM_Data=0;
 
+
+
+/****************************************************************************************/
+/*    Function Name           : Get_EEPROM_Data          			                    */
+/*    Function Description    : Get stored data from eeprom and set
+ *                             Temperature.Set_Temp if data valid                       */                                          
+/*    Parameter In            : None                                                    */
+/*    Parameter InOut         : None                                                    */
+/*    Parameter Out           : None                                                    */
+/*    Return Value            : None                                                    */
+/*	  Requirement             :                   				                        */
+/*    Notes                   :								                            */
+/****************************************************************************************/
 void Get_EEPROM_Data(void)
 {
  #if EEPROM  
@@ -30,6 +43,16 @@ void Get_EEPROM_Data(void)
 }
 
 
+/****************************************************************************************/
+/*    Function Name           : Set_EEPROM_Data          			                    */
+/*    Function Description    : set data to eeprom if setting mode done                 */                                          
+/*    Parameter In            : None                                                    */
+/*    Parameter InOut         : None                                                    */
+/*    Parameter Out           : None                                                    */
+/*    Return Value            : None                                                    */
+/*	  Requirement             :                   				                        */
+/*    Notes                   :								                            */
+/****************************************************************************************/
 void Set_EEPROM_Data(void)
 {
 #if EEPROM
@@ -44,6 +67,16 @@ void Set_EEPROM_Data(void)
  
 }
 
+/****************************************************************************************/
+/*    Function Name           : EEPROM_Write          			                        */
+/*    Function Description    : write data in eeprom ins specific address               */                                          
+/*    Parameter In            : Data,Addr                                               */
+/*    Parameter InOut         : None                                                    */
+/*    Parameter Out           : None                                                    */
+/*    Return Value            : None                                                    */
+/*	  Requirement             :                   				                        */
+/*    Notes                   :								                            */
+/****************************************************************************************/
 void EEPROM_Write(uint8_t Data,uint8_t Addr)
 {
  I2c_Start();
@@ -57,6 +90,17 @@ void EEPROM_Write(uint8_t Data,uint8_t Addr)
  
 }
 
+
+/****************************************************************************************/
+/*    Function Name           : EEPROM_Read          			                        */
+/*    Function Description    : Read data from eeprom from specific address             */                                          
+/*    Parameter In            : Addr                                                    */
+/*    Parameter InOut         : None                                                    */
+/*    Parameter Out           : Data                                                    */
+/*    Return Value            : None                                                    */
+/*	  Requirement             :                   				                        */
+/*    Notes                   :								                            */
+/****************************************************************************************/
 uint8_t EEPROM_Read(uint8_t Addr)
 {
   static uint8_t Data;

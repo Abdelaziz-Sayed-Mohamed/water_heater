@@ -35,7 +35,7 @@ void main(void) {
   On_Off_Init();
   SSD_Init();
   Elements_Init();
-  Mode_Init();
+  ModeManager_Init();
   Get_EEPROM_Data();
   ADC_Start_Conv();
   Scheduler_Init();

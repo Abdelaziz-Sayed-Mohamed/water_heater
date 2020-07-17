@@ -1878,7 +1878,6 @@ typedef int16_t intptr_t;
 typedef uint16_t uintptr_t;
 # 17 "Interrupt/../Config.h" 2
 # 10 "Interrupt/Interrupt.h" 2
-# 7 "Interrupt/Interrupt.c" 2
 
 # 1 "Interrupt/../gpio/gpio.h" 1
 # 11 "Interrupt/../gpio/gpio.h"
@@ -1908,7 +1907,7 @@ typedef uint16_t uintptr_t;
 # 11 "Interrupt/../gpio/gpio.h" 2
 # 24 "Interrupt/../gpio/gpio.h"
 void GPIO_Init(void);
-# 8 "Interrupt/Interrupt.c" 2
+# 11 "Interrupt/Interrupt.h" 2
 
 # 1 "Interrupt/../Timer/Timer.h" 1
 # 10 "Interrupt/../Timer/Timer.h"
@@ -2048,7 +2047,7 @@ void Scheduler_ActivateTask(uint32_t SystemTick);
 
 void Timer0_CallBack(void);
 void Timer0_Init(void);
-# 9 "Interrupt/Interrupt.c" 2
+# 12 "Interrupt/Interrupt.h" 2
 
 # 1 "Interrupt/../Buttons/Buttons.h" 1
 # 11 "Interrupt/../Buttons/Buttons.h"
@@ -2099,7 +2098,23 @@ _BUTTONS_t Buttons;
 void Buttons_MainFunction(void);
 void On_Off_Init(void);
 void EXTI_On_Off_CallBack(void);
-# 10 "Interrupt/Interrupt.c" 2
+# 13 "Interrupt/Interrupt.h" 2
+
+
+typedef void (*CallBack_t)(void);
+
+typedef struct _CallBack_t
+{
+  CallBack_t ExtiCallBack;
+  CallBack_t Timer0CallBack;
+
+}Interrupt_CallBack_t;
+
+const Interrupt_CallBack_t Interrupt_CallBack={
+                                                  .ExtiCallBack=EXTI_On_Off_CallBack,
+                                                  .Timer0CallBack=Timer0_CallBack
+                                                };
+# 7 "Interrupt/Interrupt.c" 2
 
 
 void __attribute__((picinterrupt(("")))) myISR(void)
@@ -2108,14 +2123,13 @@ void __attribute__((picinterrupt(("")))) myISR(void)
  if(INTCONbits.INTF)
  {
         INTCONbits.INTF=0;
-  EXTI_On_Off_CallBack();
-
+  Interrupt_CallBack.ExtiCallBack();
  }
  else if(INTCONbits.TMR0IF)
  {
         INTCONbits.TMR0IF=0;
         TMR0=100;
-  Timer0_CallBack();
 
+  Interrupt_CallBack.Timer0CallBack();
  }
 }

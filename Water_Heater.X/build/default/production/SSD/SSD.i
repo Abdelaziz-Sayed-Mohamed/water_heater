@@ -1964,15 +1964,54 @@ MODE_t Mode;
 
 
 
-void Mode_Init(void);
-void Start_Setting_Timer(uint16_t Timer_Ms ,uint16_t Peroid_Task);
-void Mode_MainFunction(void);
+void ModeManager_Init(void);
+void Mode_Setting_Timer(uint16_t Timer_Ms);
+void ModeManager_MainFunction(void);
 # 10 "SSD/SSD.c" 2
 
 # 1 "SSD/../Temperature/Temperature.h" 1
 # 10 "SSD/../Temperature/Temperature.h"
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
 # 10 "SSD/../Temperature/Temperature.h" 2
+
+# 1 "SSD/../Temperature/../ADC/ADC.h" 1
+# 10 "SSD/../Temperature/../ADC/ADC.h"
+# 1 "SSD/../Temperature/../ADC/../Config.h" 1
+
+
+
+
+
+#pragma config FOSC = HS
+#pragma config WDTE = OFF
+#pragma config PWRTE = OFF
+#pragma config BOREN = OFF
+#pragma config LVP = OFF
+#pragma config CPD = OFF
+#pragma config WRT = OFF
+#pragma config CP = OFF
+
+
+
+
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
+# 17 "SSD/../Temperature/../ADC/../Config.h" 2
+# 10 "SSD/../Temperature/../ADC/ADC.h" 2
+# 21 "SSD/../Temperature/../ADC/ADC.h"
+typedef struct _ADC_t
+{
+   uint8_t ADC_INIT_FLAG :1;
+ uint8_t ADC_START_FLAG :1;
+
+}ADC_t;
+
+ADC_t ADC_Info;
+
+void ADC_Init(void);
+void ADC_Start_Conv(void);
+void ADC_Value_Ready_CallBack(void);
+void ADC_Get_Value(uint8_t *Buffer);
+# 11 "SSD/../Temperature/Temperature.h" 2
 
 
 
@@ -1983,6 +2022,7 @@ typedef struct _TEMP_t
 {
  uint8_t Temp_Value;
  uint8_t Average_Value;
+    uint8_t ADC_Value;
  uint8_t Set_Temp;
  uint8_t Average_Value_Ready_Flag :1;
     uint8_t Store_Set_Temp_Flag :1;
@@ -1993,8 +2033,8 @@ TEMP_t Temperature;
 
 
 
-
-void Temperature_Calc(uint8_t ADC_VALUE);
+void Temperature_MainFunction(void);
+void Temperature_Calc(void);
 # 11 "SSD/SSD.c" 2
 
 

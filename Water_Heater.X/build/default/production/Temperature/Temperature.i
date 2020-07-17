@@ -151,41 +151,6 @@ typedef int16_t intptr_t;
 typedef uint16_t uintptr_t;
 # 10 "Temperature/Temperature.h" 2
 
-
-
-
-
-
-typedef struct _TEMP_t
-{
- uint8_t Temp_Value;
- uint8_t Average_Value;
- uint8_t Set_Temp;
- uint8_t Average_Value_Ready_Flag :1;
-    uint8_t Store_Set_Temp_Flag :1;
- uint8_t Average_NValues;
-}TEMP_t;
-
-TEMP_t Temperature;
-
-
-
-
-void Temperature_Calc(uint8_t ADC_VALUE);
-# 8 "Temperature/Temperature.c" 2
-
-# 1 "Temperature/../Average/Average.h" 1
-# 11 "Temperature/../Average/Average.h"
-# 1 "Temperature/../Average/Average_Cfg.h" 1
-# 11 "Temperature/../Average/Average.h" 2
-
-# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
-# 12 "Temperature/../Average/Average.h" 2
-
-
-void Average_Value(uint8_t Value,uint8_t *Avrage_Values);
-# 9 "Temperature/Temperature.c" 2
-
 # 1 "Temperature/../ADC/ADC.h" 1
 # 10 "Temperature/../ADC/ADC.h"
 # 1 "Temperature/../ADC/../Config.h" 1
@@ -1932,15 +1897,125 @@ ADC_t ADC_Info;
 void ADC_Init(void);
 void ADC_Start_Conv(void);
 void ADC_Value_Ready_CallBack(void);
-void ADC_Conv_MainFunction(void);
-# 10 "Temperature/Temperature.c" 2
+void ADC_Get_Value(uint8_t *Buffer);
+# 11 "Temperature/Temperature.h" 2
+
+# 1 "Temperature/../WaterHeater_Mode/WaterHeater_Mode.h" 1
+# 10 "Temperature/../WaterHeater_Mode/WaterHeater_Mode.h"
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
+# 10 "Temperature/../WaterHeater_Mode/WaterHeater_Mode.h" 2
+
+# 1 "Temperature/../WaterHeater_Mode/../gpio/gpio.h" 1
+# 11 "Temperature/../WaterHeater_Mode/../gpio/gpio.h"
+# 1 "Temperature/../WaterHeater_Mode/../gpio/gpio_Cfg.h" 1
+# 11 "Temperature/../WaterHeater_Mode/../gpio/gpio_Cfg.h"
+# 1 "Temperature/../WaterHeater_Mode/../gpio/../Config.h" 1
 
 
 
 
-void Temperature_Calc(uint8_t ADC_VALUE)
+
+#pragma config FOSC = HS
+#pragma config WDTE = OFF
+#pragma config PWRTE = OFF
+#pragma config BOREN = OFF
+#pragma config LVP = OFF
+#pragma config CPD = OFF
+#pragma config WRT = OFF
+#pragma config CP = OFF
+
+
+
+
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
+# 17 "Temperature/../WaterHeater_Mode/../gpio/../Config.h" 2
+# 11 "Temperature/../WaterHeater_Mode/../gpio/gpio_Cfg.h" 2
+# 11 "Temperature/../WaterHeater_Mode/../gpio/gpio.h" 2
+# 24 "Temperature/../WaterHeater_Mode/../gpio/gpio.h"
+void GPIO_Init(void);
+# 11 "Temperature/../WaterHeater_Mode/WaterHeater_Mode.h" 2
+
+# 1 "Temperature/../WaterHeater_Mode/WaterHeater_Mode_Cfg.h" 1
+# 10 "Temperature/../WaterHeater_Mode/WaterHeater_Mode_Cfg.h"
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdbool.h" 1 3
+# 10 "Temperature/../WaterHeater_Mode/WaterHeater_Mode_Cfg.h" 2
+# 12 "Temperature/../WaterHeater_Mode/WaterHeater_Mode.h" 2
+
+
+typedef enum _Select_Mode_t
 {
- Temperature.Temp_Value=ADC_VALUE * 0.4882;
+   Off_Mode=0,
+   Normal_Mode=1,
+   Setting_Mode=2
+}Select_Mode_t;
+
+
+typedef struct _MODE_t
+{
+ Select_Mode_t Select_Mode;
+ uint8_t Setting_Mode_Timer ;
+}MODE_t;
+
+MODE_t Mode;
+
+
+
+
+
+
+
+void ModeManager_Init(void);
+void Mode_Setting_Timer(uint16_t Timer_Ms);
+void ModeManager_MainFunction(void);
+# 12 "Temperature/Temperature.h" 2
+
+
+
+
+
+typedef struct _TEMP_t
+{
+ uint8_t Temp_Value;
+ uint8_t Average_Value;
+    uint8_t ADC_Value;
+ uint8_t Set_Temp;
+ uint8_t Average_Value_Ready_Flag :1;
+    uint8_t Store_Set_Temp_Flag :1;
+ uint8_t Average_NValues;
+}TEMP_t;
+
+TEMP_t Temperature;
+
+
+
+void Temperature_MainFunction(void);
+void Temperature_Calc(void);
+# 8 "Temperature/Temperature.c" 2
+
+# 1 "Temperature/../Average/Average.h" 1
+# 11 "Temperature/../Average/Average.h"
+# 1 "Temperature/../Average/Average_Cfg.h" 1
+# 11 "Temperature/../Average/Average.h" 2
+
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
+# 12 "Temperature/../Average/Average.h" 2
+
+
+void Average_Value(uint8_t Value,uint8_t *Avrage_Values);
+# 9 "Temperature/Temperature.c" 2
+# 24 "Temperature/Temperature.c"
+void Temperature_MainFunction(void)
+{
+  if(Mode.Select_Mode==Normal_Mode)
+  {
+   ADC_Get_Value(&Temperature.ADC_Value);
+  }
+  Temperature_Calc();
+}
+# 45 "Temperature/Temperature.c"
+void Temperature_Calc(void)
+{
+ Temperature.Temp_Value=Temperature.ADC_Value * 0.4882;
  Average_Value(Temperature.Temp_Value, &Temperature.Average_Value);
  Temperature.Average_NValues=(Temperature.Average_NValues+1)%10U;
 

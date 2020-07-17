@@ -1938,7 +1938,7 @@ ADC_t ADC_Info;
 void ADC_Init(void);
 void ADC_Start_Conv(void);
 void ADC_Value_Ready_CallBack(void);
-void ADC_Conv_MainFunction(void);
+void ADC_Get_Value(uint8_t *Buffer);
 # 18 "main.c" 2
 
 # 1 "./Scheduler/Scheduler.h" 1
@@ -2201,39 +2201,17 @@ void EXTI_On_Off_CallBack(void);
 # 10 "./Temperature/Temperature.h" 2
 
 
-
-
-
-
-typedef struct _TEMP_t
-{
- uint8_t Temp_Value;
- uint8_t Average_Value;
- uint8_t Set_Temp;
- uint8_t Average_Value_Ready_Flag :1;
-    uint8_t Store_Set_Temp_Flag :1;
- uint8_t Average_NValues;
-}TEMP_t;
-
-TEMP_t Temperature;
-
-
-
-
-void Temperature_Calc(uint8_t ADC_VALUE);
-# 24 "main.c" 2
-
-# 1 "./WaterHeater_Mode/WaterHeater_Mode.h" 1
-# 10 "./WaterHeater_Mode/WaterHeater_Mode.h"
+# 1 "./Temperature/../WaterHeater_Mode/WaterHeater_Mode.h" 1
+# 10 "./Temperature/../WaterHeater_Mode/WaterHeater_Mode.h"
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
-# 10 "./WaterHeater_Mode/WaterHeater_Mode.h" 2
+# 10 "./Temperature/../WaterHeater_Mode/WaterHeater_Mode.h" 2
 
 
-# 1 "./WaterHeater_Mode/WaterHeater_Mode_Cfg.h" 1
-# 10 "./WaterHeater_Mode/WaterHeater_Mode_Cfg.h"
+# 1 "./Temperature/../WaterHeater_Mode/WaterHeater_Mode_Cfg.h" 1
+# 10 "./Temperature/../WaterHeater_Mode/WaterHeater_Mode_Cfg.h"
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdbool.h" 1 3
-# 10 "./WaterHeater_Mode/WaterHeater_Mode_Cfg.h" 2
-# 12 "./WaterHeater_Mode/WaterHeater_Mode.h" 2
+# 10 "./Temperature/../WaterHeater_Mode/WaterHeater_Mode_Cfg.h" 2
+# 12 "./Temperature/../WaterHeater_Mode/WaterHeater_Mode.h" 2
 
 
 typedef enum _Select_Mode_t
@@ -2258,10 +2236,34 @@ MODE_t Mode;
 
 
 
-void Mode_Init(void);
-void Start_Setting_Timer(uint16_t Timer_Ms ,uint16_t Peroid_Task);
-void Mode_MainFunction(void);
-# 25 "main.c" 2
+void ModeManager_Init(void);
+void Mode_Setting_Timer(uint16_t Timer_Ms);
+void ModeManager_MainFunction(void);
+# 12 "./Temperature/Temperature.h" 2
+
+
+
+
+
+typedef struct _TEMP_t
+{
+ uint8_t Temp_Value;
+ uint8_t Average_Value;
+    uint8_t ADC_Value;
+ uint8_t Set_Temp;
+ uint8_t Average_Value_Ready_Flag :1;
+    uint8_t Store_Set_Temp_Flag :1;
+ uint8_t Average_NValues;
+}TEMP_t;
+
+TEMP_t Temperature;
+
+
+
+void Temperature_MainFunction(void);
+void Temperature_Calc(void);
+# 24 "main.c" 2
+
 
 # 1 "./Average/Average.h" 1
 # 11 "./Average/Average.h"
@@ -2298,6 +2300,24 @@ void Average_Value(uint8_t Value,uint8_t *Avrage_Values);
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
 # 17 "./Interrupt/../Config.h" 2
 # 10 "./Interrupt/Interrupt.h" 2
+
+
+
+
+
+typedef void (*CallBack_t)(void);
+
+typedef struct _CallBack_t
+{
+  CallBack_t ExtiCallBack;
+  CallBack_t Timer0CallBack;
+
+}Interrupt_CallBack_t;
+
+const Interrupt_CallBack_t Interrupt_CallBack={
+                                                  .ExtiCallBack=EXTI_On_Off_CallBack,
+                                                  .Timer0CallBack=Timer0_CallBack
+                                                };
 # 27 "main.c" 2
 
 # 1 "./EEPROM/EEPROM.h" 1
@@ -2413,7 +2433,7 @@ void main(void) {
   On_Off_Init();
   SSD_Init();
   Elements_Init();
-  Mode_Init();
+  ModeManager_Init();
   Get_EEPROM_Data();
   ADC_Start_Conv();
   Scheduler_Init();

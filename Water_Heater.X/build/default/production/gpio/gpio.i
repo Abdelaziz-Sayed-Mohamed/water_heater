@@ -1886,8 +1886,7 @@ typedef uint16_t uintptr_t;
 # 24 "gpio/gpio.h"
 void GPIO_Init(void);
 # 9 "gpio/gpio.c" 2
-
-
+# 23 "gpio/gpio.c"
 void GPIO_Init(void)
 {
 

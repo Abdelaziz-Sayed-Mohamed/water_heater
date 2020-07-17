@@ -8,4 +8,6 @@ SSD/../gpio/gpio_Cfg.h  \
 SSD/../gpio/../Config.h  \
 SSD/../WaterHeater_Mode/WaterHeater_Mode.h  \
 SSD/../WaterHeater_Mode/WaterHeater_Mode_Cfg.h  \
-SSD/../Temperature/Temperature.h 
+SSD/../Temperature/Temperature.h  \
+SSD/../Temperature/../ADC/ADC.h  \
+SSD/../Temperature/../ADC/../Config.h 

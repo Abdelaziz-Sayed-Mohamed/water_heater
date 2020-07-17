@@ -7,6 +7,18 @@
 #include "Timer.h"
 uint32_t Tick_Num=0;
 
+
+
+/****************************************************************************************/
+/*    Function Name           : Timer0_Init          			                        */
+/*    Function Description    : Configure Timer 0                                        */                                          
+/*    Parameter In            : None                                                    */
+/*    Parameter InOut         : None                                                    */
+/*    Parameter Out           : None                                                    */
+/*    Return Value            : None                                                    */
+/*	  Requirement             :                   				                        */
+/*    Notes                   :								                            */
+/****************************************************************************************/
 void Timer0_Init(void)
 {
 	    /*Configure Timer 0*/
@@ -28,9 +40,19 @@ void Timer0_Init(void)
 
 }
 
+
+/****************************************************************************************/
+/*    Function Name           : Timer0_CallBack          			                    */
+/*    Function Description    : This function will call by interrupt per over flow                                                                    */                                          
+/*    Parameter In            : None                                                    */
+/*    Parameter InOut         : None                                                    */
+/*    Parameter Out           : None                                                    */
+/*    Return Value            : None                                                    */
+/*	  Requirement             :                   				                        */
+/*    Notes                   :								                            */
+/****************************************************************************************/
 void Timer0_CallBack(void)
 {
 	Tick_Num++;                         //Increment Tick_Num every interrupt
 	Scheduler_ActivateTask(Tick_Num );
 }
-

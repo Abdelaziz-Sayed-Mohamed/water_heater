@@ -253,63 +253,63 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _Tick_Num
 -> -> -> 0 `i `l `ul
 ]
-"10
-[; ;Timer/Timer.c: 10: void Timer0_Init(void)
+"22
+[; ;Timer/Timer.c: 22: void Timer0_Init(void)
 [v _Timer0_Init `(v ~T0 @X0 1 ef ]
-"11
-[; ;Timer/Timer.c: 11: {
+"23
+[; ;Timer/Timer.c: 23: {
 {
 [e :U _Timer0_Init ]
 [f ]
-"13
-[; ;Timer/Timer.c: 13:      OPTION_REGbits.T0CS=0;
+"25
+[; ;Timer/Timer.c: 25:      OPTION_REGbits.T0CS=0;
 [e = . . _OPTION_REGbits 0 3 -> -> 0 `i `uc ]
-"14
-[; ;Timer/Timer.c: 14:      OPTION_REGbits.PSA=0;
-[e = . . _OPTION_REGbits 0 1 -> -> 0 `i `uc ]
-"17
-[; ;Timer/Timer.c: 17:      OPTION_REGbits.PS0=1;
-[e = . . _OPTION_REGbits 1 0 -> -> 1 `i `uc ]
-"18
-[; ;Timer/Timer.c: 18:      OPTION_REGbits.PS1=1;
-[e = . . _OPTION_REGbits 1 1 -> -> 1 `i `uc ]
-"19
-[; ;Timer/Timer.c: 19:      OPTION_REGbits.PS2=1;
-[e = . . _OPTION_REGbits 1 2 -> -> 1 `i `uc ]
-"22
-[; ;Timer/Timer.c: 22:         INTCONbits.TMR0IE=1;
-[e = . . _INTCONbits 0 5 -> -> 1 `i `uc ]
-"23
-[; ;Timer/Timer.c: 23:         INTCONbits.PEIE=1;
-[e = . . _INTCONbits 0 6 -> -> 1 `i `uc ]
-"24
-[; ;Timer/Timer.c: 24:         INTCONbits.GIE=1;
-[e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
 "26
-[; ;Timer/Timer.c: 26:      TMR0=100;
-[e = _TMR0 -> -> 100 `i `uc ]
-"27
-[; ;Timer/Timer.c: 27:         INTCONbits.TMR0IF=0;
-[e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
+[; ;Timer/Timer.c: 26:      OPTION_REGbits.PSA=0;
+[e = . . _OPTION_REGbits 0 1 -> -> 0 `i `uc ]
 "29
-[; ;Timer/Timer.c: 29: }
+[; ;Timer/Timer.c: 29:      OPTION_REGbits.PS0=1;
+[e = . . _OPTION_REGbits 1 0 -> -> 1 `i `uc ]
+"30
+[; ;Timer/Timer.c: 30:      OPTION_REGbits.PS1=1;
+[e = . . _OPTION_REGbits 1 1 -> -> 1 `i `uc ]
+"31
+[; ;Timer/Timer.c: 31:      OPTION_REGbits.PS2=1;
+[e = . . _OPTION_REGbits 1 2 -> -> 1 `i `uc ]
+"34
+[; ;Timer/Timer.c: 34:         INTCONbits.TMR0IE=1;
+[e = . . _INTCONbits 0 5 -> -> 1 `i `uc ]
+"35
+[; ;Timer/Timer.c: 35:         INTCONbits.PEIE=1;
+[e = . . _INTCONbits 0 6 -> -> 1 `i `uc ]
+"36
+[; ;Timer/Timer.c: 36:         INTCONbits.GIE=1;
+[e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
+"38
+[; ;Timer/Timer.c: 38:      TMR0=100;
+[e = _TMR0 -> -> 100 `i `uc ]
+"39
+[; ;Timer/Timer.c: 39:         INTCONbits.TMR0IF=0;
+[e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
+"41
+[; ;Timer/Timer.c: 41: }
 [e :UE 96 ]
 }
-"31
-[; ;Timer/Timer.c: 31: void Timer0_CallBack(void)
+"54
+[; ;Timer/Timer.c: 54: void Timer0_CallBack(void)
 [v _Timer0_CallBack `(v ~T0 @X0 1 ef ]
-"32
-[; ;Timer/Timer.c: 32: {
+"55
+[; ;Timer/Timer.c: 55: {
 {
 [e :U _Timer0_CallBack ]
 [f ]
-"33
-[; ;Timer/Timer.c: 33:  Tick_Num++;
+"56
+[; ;Timer/Timer.c: 56:  Tick_Num++;
 [e ++ _Tick_Num -> -> -> 1 `i `l `ul ]
-"34
-[; ;Timer/Timer.c: 34:  Scheduler_ActivateTask(Tick_Num );
+"57
+[; ;Timer/Timer.c: 57:  Scheduler_ActivateTask(Tick_Num );
 [e ( _Scheduler_ActivateTask (1 _Tick_Num ]
-"35
-[; ;Timer/Timer.c: 35: }
+"58
+[; ;Timer/Timer.c: 58: }
 [e :UE 97 ]
 }

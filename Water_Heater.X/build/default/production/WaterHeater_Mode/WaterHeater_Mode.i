@@ -1919,9 +1919,9 @@ MODE_t Mode;
 
 
 
-void Mode_Init(void);
-void Start_Setting_Timer(uint16_t Timer_Ms ,uint16_t Peroid_Task);
-void Mode_MainFunction(void);
+void ModeManager_Init(void);
+void Mode_Setting_Timer(uint16_t Timer_Ms);
+void ModeManager_MainFunction(void);
 # 7 "WaterHeater_Mode/WaterHeater_Mode.c" 2
 
 
@@ -1929,6 +1929,45 @@ void Mode_MainFunction(void);
 # 10 "WaterHeater_Mode/../Temperature/Temperature.h"
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
 # 10 "WaterHeater_Mode/../Temperature/Temperature.h" 2
+
+# 1 "WaterHeater_Mode/../Temperature/../ADC/ADC.h" 1
+# 10 "WaterHeater_Mode/../Temperature/../ADC/ADC.h"
+# 1 "WaterHeater_Mode/../Temperature/../ADC/../Config.h" 1
+
+
+
+
+
+#pragma config FOSC = HS
+#pragma config WDTE = OFF
+#pragma config PWRTE = OFF
+#pragma config BOREN = OFF
+#pragma config LVP = OFF
+#pragma config CPD = OFF
+#pragma config WRT = OFF
+#pragma config CP = OFF
+
+
+
+
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
+# 17 "WaterHeater_Mode/../Temperature/../ADC/../Config.h" 2
+# 10 "WaterHeater_Mode/../Temperature/../ADC/ADC.h" 2
+# 21 "WaterHeater_Mode/../Temperature/../ADC/ADC.h"
+typedef struct _ADC_t
+{
+   uint8_t ADC_INIT_FLAG :1;
+ uint8_t ADC_START_FLAG :1;
+
+}ADC_t;
+
+ADC_t ADC_Info;
+
+void ADC_Init(void);
+void ADC_Start_Conv(void);
+void ADC_Value_Ready_CallBack(void);
+void ADC_Get_Value(uint8_t *Buffer);
+# 11 "WaterHeater_Mode/../Temperature/Temperature.h" 2
 
 
 
@@ -1939,6 +1978,7 @@ typedef struct _TEMP_t
 {
  uint8_t Temp_Value;
  uint8_t Average_Value;
+    uint8_t ADC_Value;
  uint8_t Set_Temp;
  uint8_t Average_Value_Ready_Flag :1;
     uint8_t Store_Set_Temp_Flag :1;
@@ -1949,8 +1989,8 @@ TEMP_t Temperature;
 
 
 
-
-void Temperature_Calc(uint8_t ADC_VALUE);
+void Temperature_MainFunction(void);
+void Temperature_Calc(void);
 # 9 "WaterHeater_Mode/WaterHeater_Mode.c" 2
 
 # 1 "WaterHeater_Mode/../Buttons/Buttons.h" 1
@@ -2107,9 +2147,8 @@ void Set_EEPROM_Data(void);
 void EEPROM_Write(uint8_t Data,uint8_t Addr);
 uint8_t EEPROM_Read(uint8_t Addr);
 # 11 "WaterHeater_Mode/WaterHeater_Mode.c" 2
-
-
-void Mode_Init(void)
+# 26 "WaterHeater_Mode/WaterHeater_Mode.c"
+void ModeManager_Init(void)
 {
  Mode.Select_Mode=Off_Mode;
 
@@ -2117,16 +2156,14 @@ void Mode_Init(void)
 
 
 }
-
-
-
-void Mode_MainFunction(void)
+# 46 "WaterHeater_Mode/WaterHeater_Mode.c"
+void ModeManager_MainFunction(void)
 {
 
    if(Mode.Select_Mode==Setting_Mode)
    {
 
-    Start_Setting_Timer(5000,500);
+    Mode_Setting_Timer(5000);
     if(Buttons.UpFlag &&!Buttons.DownFlag && Temperature.Set_Temp !=(75U))
      {
       Temperature.Set_Temp += (5U);
@@ -2142,12 +2179,10 @@ void Mode_MainFunction(void)
    }
 
 }
-
-
-
-void Start_Setting_Timer(uint16_t Timer_Ms ,uint16_t Peroid_Task)
+# 80 "WaterHeater_Mode/WaterHeater_Mode.c"
+void Mode_Setting_Timer(uint16_t Timer_Ms)
 {
- if(Mode.Setting_Mode_Timer*Peroid_Task==Timer_Ms)
+ if(Mode.Setting_Mode_Timer*500==Timer_Ms)
  {
   Temperature.Store_Set_Temp_Flag=1;
   Mode.Select_Mode=Normal_Mode;

@@ -8,6 +8,18 @@
 
 #include "gpio.h"
 
+
+
+/****************************************************************************************/
+/*    Function Name           : GPIO_Init          			                            */
+/*    Function Description    : set all GPIO pins direction                             */                                          
+/*    Parameter In            : None                                                    */
+/*    Parameter InOut         : None                                                    */
+/*    Parameter Out           : None                                                    */
+/*    Return Value            : None                                                    */
+/*	  Requirement             :                   				                        */
+/*    Notes                   :								                            */
+/****************************************************************************************/
 void GPIO_Init(void)
 {
  
