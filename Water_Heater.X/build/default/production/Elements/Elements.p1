@@ -1,15 +1,15 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"35 Elements/Elements.h
-[; ;Elements/Elements.h: 35: LED_STATUS_t LED_Status;
+"32 Elements/Elements.h
+[; ;Elements/Elements.h: 32: LED_STATUS_t LED_Status;
 [c E879 0 1 2 .. ]
 [n E879 _LED_STATUS_t _LED_OFF _LED_ON _LED_BLINK  ]
 "28 Elements/../WaterHeater_Mode/WaterHeater_Mode.h
 [; ;Elements/../WaterHeater_Mode/WaterHeater_Mode.h: 28: MODE_t Mode;
-[c E891 0 1 2 .. ]
-[n E891 _Select_Mode_t Off_Mode Normal_Mode Setting_Mode  ]
+[c E890 0 1 2 .. ]
+[n E890 _Select_Mode_t Off_Mode Normal_Mode Setting_Mode  ]
 "23
 [; ;Elements/../WaterHeater_Mode/WaterHeater_Mode.h: 23: {
-[s S95 `E891 1 `uc 1 ]
+[s S95 `E890 1 `uc 1 ]
 [n S95 _MODE_t Select_Mode Setting_Mode_Timer ]
 "17 Elements/../Temperature/Temperature.h
 [; ;Elements/../Temperature/Temperature.h: 17: {
@@ -217,8 +217,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2363
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2363: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
-"35 Elements/Elements.h
-[; ;Elements/Elements.h: 35: LED_STATUS_t LED_Status;
+"32 Elements/Elements.h
+[; ;Elements/Elements.h: 32: LED_STATUS_t LED_Status;
 [v _LED_Status `E879 ~T0 @X0 1 e ]
 "28 Elements/../WaterHeater_Mode/WaterHeater_Mode.h
 [; ;Elements/../WaterHeater_Mode/WaterHeater_Mode.h: 28: MODE_t Mode;
@@ -248,28 +248,27 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 97 ]
 }
 "19
-[; ;Elements/Elements.c: 19: void LED_BLINKING(uint16_t Time_Ms,uint16_t Task_Peroid)
-[v _LED_BLINKING `(v ~T0 @X0 1 ef2`ui`ui ]
+[; ;Elements/Elements.c: 19: void LED_BLINKING(uint16_t Time_Ms)
+[v _LED_BLINKING `(v ~T0 @X0 1 ef1`ui ]
 "20
 [; ;Elements/Elements.c: 20: {
 {
 [e :U _LED_BLINKING ]
 "19
-[; ;Elements/Elements.c: 19: void LED_BLINKING(uint16_t Time_Ms,uint16_t Task_Peroid)
+[; ;Elements/Elements.c: 19: void LED_BLINKING(uint16_t Time_Ms)
 [v _Time_Ms `ui ~T0 @X0 1 r1 ]
-[v _Task_Peroid `ui ~T0 @X0 1 r2 ]
 "20
 [; ;Elements/Elements.c: 20: {
 [f ]
 "21
 [; ;Elements/Elements.c: 21:  static uint8_t Counter=1;
-[v F921 `uc ~T0 @X0 1 s Counter ]
-[i F921
+[v F919 `uc ~T0 @X0 1 s Counter ]
+[i F919
 -> -> 1 `i `uc
 ]
 "23
-[; ;Elements/Elements.c: 23:    if(Counter*Task_Peroid==Time_Ms)
-[e $ ! == * -> F921 `ui _Task_Peroid _Time_Ms 99  ]
+[; ;Elements/Elements.c: 23:    if(Counter*100==Time_Ms)
+[e $ ! == -> * -> F919 `i -> 100 `i `ui _Time_Ms 99  ]
 "24
 [; ;Elements/Elements.c: 24:    {
 {
@@ -278,7 +277,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e =^ _PORTB -> << -> 1 `i -> 4 `i `Vuc ]
 "26
 [; ;Elements/Elements.c: 26:        Counter=1;
-[e = F921 -> -> 1 `i `uc ]
+[e = F919 -> -> 1 `i `uc ]
 "27
 [; ;Elements/Elements.c: 27:    }
 }
@@ -291,7 +290,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "30
 [; ;Elements/Elements.c: 30:     Counter++;
-[e ++ F921 -> -> 1 `i `uc ]
+[e ++ F919 -> -> 1 `i `uc ]
 "31
 [; ;Elements/Elements.c: 31:    }
 }
@@ -315,9 +314,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;Elements/Elements.c: 38:     {
 {
 "39
-[; ;Elements/Elements.c: 39:         case _LED_BLINK : LED_BLINKING(1000,100);
+[; ;Elements/Elements.c: 39:         case _LED_BLINK : LED_BLINKING(1000);
 [e :U 104 ]
-[e ( _LED_BLINKING (2 , -> -> 1000 `i `ui -> -> 100 `i `ui ]
+[e ( _LED_BLINKING (1 -> -> 1000 `i `ui ]
 "40
 [; ;Elements/Elements.c: 40:                           break;
 [e $U 102  ]
@@ -359,7 +358,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "52
 [; ;Elements/Elements.c: 52:   if(Temperature.Average_Value_Ready_Flag==1 && Mode.Select_Mode==Normal_Mode)
-[e $ ! && == -> . _Temperature 3 `i -> 1 `i == -> . _Mode 0 `ui -> . `E891 1 `ui 108  ]
+[e $ ! && == -> . _Temperature 3 `i -> 1 `i == -> . _Mode 0 `ui -> . `E890 1 `ui 108  ]
 "53
 [; ;Elements/Elements.c: 53:   {
 {

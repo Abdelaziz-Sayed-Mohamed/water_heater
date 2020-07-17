@@ -31,25 +31,25 @@ void I2c_Start(void)
 uint8_t I2c_Read(void)
 {
     uint8_t data;
-    RCEN=1;            //Receive data Byte From Slave
-    while(!BF);        //Wait for Receive Complete
-    data= SSPBUF;      //Get Data From Buffer
+    RCEN=1;              //Receive data Byte From Slave
+    while(!BF);          //Wait for Receive Complete
+    data= SSPBUF;        //Get Data From Buffer
     return data;
 }
 
 void I2c_Send_NAck(void)
 {
-    ACKDT=1;          //Prepare TO send NAck
-    ACKEN=1;          //Enable NAck Send
-    while(ACKEN);     //Wait To NAck Complete
+    ACKDT=1;              //Prepare TO send NAck
+    ACKEN=1;              //Enable NAck Send
+    while(ACKEN);         //Wait To NAck Complete
     
 }
 
 void I2c_Stop(void)
 {
-    PEN=1;          //Init Stop condition
-    while(PEN);        //Wait for Stop Condition to Complete(Auto Cleared by H.W)
-    SSPIF=0;        //Clear Interrupt Flag
+    PEN=1;                  //Init Stop condition
+    while(PEN);             //Wait for Stop Condition to Complete(Auto Cleared by H.W)
+    SSPIF=0;                //Clear Interrupt Flag
 }
 
 void I2c_Write(uint8_t data)

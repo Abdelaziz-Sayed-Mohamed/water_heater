@@ -3,16 +3,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./ADC/ADC.h: 22: {
 [s S95 :1 `uc 1 :1 `uc 1 ]
 [n S95 _ADC_t ADC_INIT_FLAG ADC_START_FLAG ]
-"39 ./SSD/SSD.h
-[; ;./SSD/SSD.h: 39: Enable_SSD_t Enable_SSD;
+"38 ./SSD/SSD.h
+[; ;./SSD/SSD.h: 38: Enable_SSD_t Enable_SSD;
 [c E989 0 1 .. ]
 [n E989 _Enable_SSD_t Enable_SSD_Off Enable_SSD_On  ]
-"35 ./Elements/Elements.h
-[; ;./Elements/Elements.h: 35: LED_STATUS_t LED_Status;
-[c E1001 0 1 2 .. ]
-[n E1001 _LED_STATUS_t _LED_OFF _LED_ON _LED_BLINK  ]
-"19 ./Buttons/Buttons.h
-[; ;./Buttons/Buttons.h: 19: {
+"32 ./Elements/Elements.h
+[; ;./Elements/Elements.h: 32: LED_STATUS_t LED_Status;
+[c E1000 0 1 2 .. ]
+[n E1000 _LED_STATUS_t _LED_OFF _LED_ON _LED_BLINK  ]
+"20 ./Buttons/Buttons.h
+[; ;./Buttons/Buttons.h: 20: {
 [s S97 :1 `uc 1 :1 `uc 1 ]
 [n S97 _BUTTONS_T UpFlag DownFlag ]
 "17 ./Temperature/Temperature.h
@@ -21,11 +21,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [n S98 _TEMP_t Temp_Value Average_Value Set_Temp Average_Value_Ready_Flag Store_Set_Temp_Flag Average_NValues ]
 "28 ./WaterHeater_Mode/WaterHeater_Mode.h
 [; ;./WaterHeater_Mode/WaterHeater_Mode.h: 28: MODE_t Mode;
-[c E1032 0 1 2 .. ]
-[n E1032 _Select_Mode_t Off_Mode Normal_Mode Setting_Mode  ]
+[c E1030 0 1 2 .. ]
+[n E1030 _Select_Mode_t Off_Mode Normal_Mode Setting_Mode  ]
 "23
 [; ;./WaterHeater_Mode/WaterHeater_Mode.h: 23: {
-[s S99 `E1032 1 `uc 1 ]
+[s S99 `E1030 1 `uc 1 ]
 [n S99 _MODE_t Select_Mode Setting_Mode_Timer ]
 [p mainexit ]
 "24 ./WaterHeater_Mode/../gpio/gpio.h
@@ -36,20 +36,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 "30 ./ADC/ADC.h
 [; ;./ADC/ADC.h: 30: void ADC_Init(void);
 [v _ADC_Init `(v ~T0 @X0 0 ef ]
-"32 ./Buttons/Buttons.h
-[; ;./Buttons/Buttons.h: 32: void On_Off_Init(void);
+"33 ./Buttons/Buttons.h
+[; ;./Buttons/Buttons.h: 33: void On_Off_Init(void);
 [v _On_Off_Init `(v ~T0 @X0 0 ef ]
-"41 ./SSD/SSD.h
-[; ;./SSD/SSD.h: 41: void SSD_Init(void);
+"40 ./SSD/SSD.h
+[; ;./SSD/SSD.h: 40: void SSD_Init(void);
 [v _SSD_Init `(v ~T0 @X0 0 ef ]
-"39 ./Elements/Elements.h
-[; ;./Elements/Elements.h: 39: void Elements_Init(void);
+"36 ./Elements/Elements.h
+[; ;./Elements/Elements.h: 36: void Elements_Init(void);
 [v _Elements_Init `(v ~T0 @X0 0 ef ]
 "36 ./WaterHeater_Mode/WaterHeater_Mode.h
 [; ;./WaterHeater_Mode/WaterHeater_Mode.h: 36: void Mode_Init(void);
 [v _Mode_Init `(v ~T0 @X0 0 ef ]
-"25 ./EEPROM/EEPROM.h
-[; ;./EEPROM/EEPROM.h: 25: void Get_EEPROM_Data(void);
+"21 ./EEPROM/EEPROM.h
+[; ;./EEPROM/EEPROM.h: 21: void Get_EEPROM_Data(void);
 [v _Get_EEPROM_Data `(v ~T0 @X0 0 ef ]
 "31 ./ADC/ADC.h
 [; ;./ADC/ADC.h: 31: void ADC_Start_Conv(void);
@@ -340,12 +340,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 [p x WRT = OFF ]
 "13
 [p x CP = OFF ]
-"39 ./SSD/SSD.h
-[; ;./SSD/SSD.h: 39: Enable_SSD_t Enable_SSD;
+"38 ./SSD/SSD.h
+[; ;./SSD/SSD.h: 38: Enable_SSD_t Enable_SSD;
 [v _Enable_SSD `E989 ~T0 @X0 1 e ]
-"35 ./Elements/Elements.h
-[; ;./Elements/Elements.h: 35: LED_STATUS_t LED_Status;
-[v _LED_Status `E1001 ~T0 @X0 1 e ]
+"32 ./Elements/Elements.h
+[; ;./Elements/Elements.h: 32: LED_STATUS_t LED_Status;
+[v _LED_Status `E1000 ~T0 @X0 1 e ]
 "6 ./EEPROM/../I2C/../Config.h
 [p x FOSC = HS ]
 "7
@@ -362,8 +362,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [p x WRT = OFF ]
 "13
 [p x CP = OFF ]
-"24 ./Buttons/Buttons.h
-[; ;./Buttons/Buttons.h: 24: _BUTTONS_t Buttons;
+"25 ./Buttons/Buttons.h
+[; ;./Buttons/Buttons.h: 25: _BUTTONS_t Buttons;
 [v _Buttons `S97 ~T0 @X0 1 e ]
 "26 ./Temperature/Temperature.h
 [; ;./Temperature/Temperature.h: 26: TEMP_t Temperature;
@@ -372,6 +372,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./WaterHeater_Mode/WaterHeater_Mode.h: 28: MODE_t Mode;
 [v _Mode `S99 ~T0 @X0 1 e ]
 "6 ./EEPROM/../I2C/../Config.h
+[p x FOSC = HS ]
+"7
+[p x WDTE = OFF ]
+"8
+[p x PWRTE = OFF ]
+"9
+[p x BOREN = OFF ]
+"10
+[p x LVP = OFF ]
+"11
+[p x CPD = OFF ]
+"12
+[p x WRT = OFF ]
+"13
+[p x CP = OFF ]
+"6
 [p x FOSC = HS ]
 "7
 [p x WDTE = OFF ]

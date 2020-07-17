@@ -12,4 +12,5 @@ Interrupt/../Timer/../Scheduler/Scheduler_cfg.h  \
 Interrupt/../Timer/../Scheduler/Tasks.h  \
 Interrupt/../Timer/../Scheduler/../Config.h  \
 Interrupt/../Buttons/Buttons.h  \
-Interrupt/../Buttons/../Config.h 
+Interrupt/../Buttons/../Config.h  \
+Interrupt/../Buttons/Buttons_Cfg.h 

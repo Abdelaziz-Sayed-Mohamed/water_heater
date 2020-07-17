@@ -8,7 +8,9 @@ WaterHeater_Mode/WaterHeater_Mode_Cfg.h  \
 WaterHeater_Mode/../Temperature/Temperature.h  \
 WaterHeater_Mode/../Buttons/Buttons.h  \
 WaterHeater_Mode/../Buttons/../Config.h  \
+WaterHeater_Mode/../Buttons/Buttons_Cfg.h  \
 WaterHeater_Mode/../EEPROM/EEPROM.h  \
 WaterHeater_Mode/../EEPROM/../Config.h  \
 WaterHeater_Mode/../EEPROM/../I2C/I2C.h  \
-WaterHeater_Mode/../EEPROM/../I2C/../Config.h 
+WaterHeater_Mode/../EEPROM/../I2C/../Config.h  \
+WaterHeater_Mode/../EEPROM/EEPROM_Cfg.h 

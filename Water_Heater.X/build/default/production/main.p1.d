@@ -14,9 +14,12 @@ Timer/Timer.h  \
 Timer/../Config.h  \
 SSD/SSD.h  \
 SSD/../Config.h  \
+SSD/SSD_Cfg.h  \
 Elements/Elements.h  \
+Elements/Elements_Cfg.h  \
 Buttons/Buttons.h  \
 Buttons/../Config.h  \
+Buttons/Buttons_Cfg.h  \
 Temperature/Temperature.h  \
 WaterHeater_Mode/WaterHeater_Mode.h  \
 WaterHeater_Mode/WaterHeater_Mode_Cfg.h  \
@@ -27,4 +30,5 @@ Interrupt/../Config.h  \
 EEPROM/EEPROM.h  \
 EEPROM/../Config.h  \
 EEPROM/../I2C/I2C.h  \
-EEPROM/../I2C/../Config.h 
+EEPROM/../I2C/../Config.h  \
+EEPROM/EEPROM_Cfg.h 

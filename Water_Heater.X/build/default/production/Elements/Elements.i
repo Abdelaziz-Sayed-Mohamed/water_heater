@@ -14,7 +14,9 @@
 
 
 # 1 "Elements/Elements.h" 1
-# 12 "Elements/Elements.h"
+# 11 "Elements/Elements.h"
+# 1 "Elements/Elements_Cfg.h" 1
+# 11 "Elements/Elements_Cfg.h"
 # 1 "Elements/../gpio/gpio.h" 1
 # 11 "Elements/../gpio/gpio.h"
 # 1 "Elements/../gpio/gpio_Cfg.h" 1
@@ -1885,8 +1887,9 @@ typedef uint16_t uintptr_t;
 # 11 "Elements/../gpio/gpio.h" 2
 # 24 "Elements/../gpio/gpio.h"
 void GPIO_Init(void);
-# 12 "Elements/Elements.h" 2
-# 28 "Elements/Elements.h"
+# 11 "Elements/Elements_Cfg.h" 2
+# 11 "Elements/Elements.h" 2
+# 25 "Elements/Elements.h"
 typedef enum _LED_STATUS_t
 {
   _LED_OFF=0,
@@ -1897,7 +1900,7 @@ typedef enum _LED_STATUS_t
 LED_STATUS_t LED_Status;
 
 void LED_Control(void);
-void LED_BLINKING(uint16_t Time_Ms,uint16_t Task_Peroid);
+void LED_BLINKING(uint16_t Time_Ms);
 void Elements_Init(void);
 void Elements_MainFunction(void);
 # 7 "Elements/Elements.c" 2
@@ -1979,11 +1982,11 @@ void Elements_Init(void)
 
 }
 
-void LED_BLINKING(uint16_t Time_Ms,uint16_t Task_Peroid)
+void LED_BLINKING(uint16_t Time_Ms)
 {
  static uint8_t Counter=1;
 
-   if(Counter*Task_Peroid==Time_Ms)
+   if(Counter*100==Time_Ms)
    {
     (PORTB^= (1<<4));
        Counter=1;
@@ -1999,7 +2002,7 @@ void LED_Control(void)
 {
     switch(LED_Status)
     {
-        case _LED_BLINK : LED_BLINKING(1000,100);
+        case _LED_BLINK : LED_BLINKING(1000);
                           break;
 
         case _LED_ON : (PORTB|= (1<<4));;

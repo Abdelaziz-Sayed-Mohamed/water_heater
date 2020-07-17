@@ -11,11 +11,7 @@
 
 #include"../Config.h"
 #include "../I2C/I2C.h"
-
-#define EEPROM                     STD_ON
-
-#define EEPROM_DATA_ADDR             0x0A
-#define SlaveAddr                    0xA0
+#include"EEPROM_Cfg.h"
 
 #define IS_Value_Vaild          ((EEPROM_Data%5)==0)
 #define IS_Store_Set_Temp_Ready   Temperature.Store_Set_Temp_Flag==1

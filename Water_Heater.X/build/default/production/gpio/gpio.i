@@ -1888,7 +1888,6 @@ void GPIO_Init(void);
 # 9 "gpio/gpio.c" 2
 
 
-
 void GPIO_Init(void)
 {
 

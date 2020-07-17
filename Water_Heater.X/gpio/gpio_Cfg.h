@@ -10,53 +10,53 @@
 
 #include"../Config.h"
 
-#define DOWN_BUTTON_PORT               PORTB
-#define DOWN_BUTTON_DIRECTION          TRISB
-#define DOWN_BUTTON_PIN                1
+#define _DOWN_BUTTON_PORT_               PORTB
+#define _DOWN_BUTTON_DIRECTION_          TRISB
+#define _DOWN_BUTTON_PIN_                1
     
-#define UP_BUTTON_PORT                 PORTB
-#define UP_BUTTON_DIRECTION            TRISB
-#define UP_BUTTON_PIN                  2
+#define _UP_BUTTON_PORT_                 PORTB
+#define _UP_BUTTON_DIRECTION_            TRISB
+#define _UP_BUTTON_PIN_                  2
     
-#define ON_OFF_BUTTON_PORT             PORTB
-#define ON_OFF_BUTTON_DIRECTION        TRISB
-#define ON_OFF_BUTTON_PIN              0
-    
-    
-#define LED_PORT                       PORTB
-#define LED_DIRECTION                  TRISB
-#define LED_PIN                        4
+#define _ON_OFF_BUTTON_PORT_             PORTB
+#define _ON_OFF_BUTTON_DIRECTION_        TRISB
+#define _ON_OFF_BUTTON_PIN_              0
     
     
-#define HEATER_PORT                    PORTC
-#define HEATER_DIRECTION               TRISC
-#define HEATER_PIN                     5
+#define _LED_PORT_                       PORTB
+#define _LED_DIRECTION_                  TRISB
+#define _LED_PIN_                        4
     
-#define COOLER_PORT                    PORTC
-#define COOLER_DIRECTION               TRISC
-#define COOLER_PIN                     2
     
-#define DIGIT1_PORT                    PORTA
-#define DIGIT1_DIRECTION               TRISA
-#define DIGIT1_PIN                     5
+#define _HEATER_PORT_                    PORTC
+#define _HEATER_DIRECTION_               TRISC
+#define _HEATER_PIN_                     5
     
-#define DIGIT2_PORT                    PORTA
-#define DIGIT2_DIRECTION               TRISA
-#define DIGIT2_PIN                     4
+#define _COOLER_PORT_                    PORTC
+#define _COOLER_DIRECTION_               TRISC
+#define _COOLER_PIN_                     2
+    
+#define _DIGIT1_PORT_                    PORTA
+#define _DIGIT1_DIRECTION_               TRISA
+#define _DIGIT1_PIN_                     5
+    
+#define _DIGIT2_PORT_                    PORTA
+#define _DIGIT2_DIRECTION_               TRISA
+#define _DIGIT2_PIN_                     4
 
-#define TEMPERATURE_SENSOR_PORT        PORTA
-#define TEMPERATURE_SENSOR_DIRECTION   TRISA
-#define TEMPERATURE_SENSOR_PIN         2
+#define _TEMPERATURE_SENSOR_PORT_        PORTA
+#define _TEMPERATURE_SENSOR_DIRECTION_   TRISA
+#define _TEMPERATURE_SENSOR_PIN_         2
 
-#define EEPROM_SCK_PORT                PORTC
-#define EEPROM_SCK_DIRECTION           TRISC
-#define EEPROM_SCK_PIN                 3
+#define _EEPROM_SCK_PORT_                PORTC
+#define _EEPROM_SCK_DIRECTION_           TRISC
+#define _EEPROM_SCK_PIN_                 3
     
-#define EEPROM_SDA_PORT                PORTC
-#define EEPROM_SDA_DIRECTION           TRISC
-#define EEPROM_SDA_PIN                 4
+#define _EEPROM_SDA_PORT_                PORTC
+#define _EEPROM_SDA_DIRECTION_           TRISC
+#define _EEPROM_SDA_PIN_                 4
     
-#define _7SEGMENT_PORT                 PORTD
-#define _7SEGMENT_DIRECTION            TRISD
+#define _7SEGMENT_PORT_                 PORTD
+#define _7SEGMENT_DIRECTION_            TRISD
 
 #endif /* GPIO_CFG_H_ */

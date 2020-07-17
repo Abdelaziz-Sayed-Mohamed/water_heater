@@ -16,11 +16,11 @@ void Elements_Init(void)
 
 }
 
-void LED_BLINKING(uint16_t Time_Ms,uint16_t Task_Peroid)
+void LED_BLINKING(uint16_t Time_Ms)
 {
  static uint8_t Counter=1;
 
-   if(Counter*Task_Peroid==Time_Ms)
+   if(Counter*LED_BLINK_TaskPeroid==Time_Ms)
    {
 	   LED_BLINK
        ResetLedCounter;        	   
@@ -36,7 +36,7 @@ void LED_Control(void)
 {
     switch(LED_Status)
     {
-        case _LED_BLINK : LED_BLINKING(LED_BLINK_TIME,LED_BLINK_TaskPeroid);
+        case _LED_BLINK : LED_BLINKING(LED_BLINK_TIME);
                           break;
             
         case _LED_ON    : LED_ON;

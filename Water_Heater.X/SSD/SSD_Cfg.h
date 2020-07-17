@@ -1,21 +1,25 @@
 /*
- * Display_Cfg.h
+ * SSD_Cfg.h
  *
  *  Created on: Jul 5, 2020
  *      Author: Abdelaziz Sayed
  */
 
-#ifndef DISPLAY_CFG_H_
-#define DISPLAY_CFG_H_
+#ifndef SSD_CFG_H_
+#define SSD_CFG_H_
+
+#include"../gpio/gpio.h"
 
 
+#define DIGIT1_PORT       _DIGIT1_PORT_ 
+#define DIGIT1_PIN        _DIGIT1_PIN_
+#define DIGIT2_PORT       _DIGIT2_PORT_
+#define DIGIT2_PIN        _DIGIT2_PIN_
+#define _7SEGMENT_PORT    _7SEGMENT_PORT_
+      
+#define SSD_Blink_Time                  1000  
+#define SSD_Blink_TaskPeroid            20
+       
 
 
-#define a               0
-#define b               1
-#define c               2
-#define d               3
-#define e               4
-#define f               5
-#define g               6
-#endif /* DISPLAY_CFG_H_ */
+#endif /* SSD_CFG_H_ */

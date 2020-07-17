@@ -1880,6 +1880,39 @@ typedef uint16_t uintptr_t;
 # 17 "Buttons/../Config.h" 2
 # 11 "Buttons/Buttons.h" 2
 
+# 1 "Buttons/Buttons_Cfg.h" 1
+# 10 "Buttons/Buttons_Cfg.h"
+# 1 "Buttons/../gpio/gpio.h" 1
+# 11 "Buttons/../gpio/gpio.h"
+# 1 "Buttons/../gpio/gpio_Cfg.h" 1
+# 11 "Buttons/../gpio/gpio_Cfg.h"
+# 1 "Buttons/../gpio/../Config.h" 1
+
+
+
+
+
+#pragma config FOSC = HS
+#pragma config WDTE = OFF
+#pragma config PWRTE = OFF
+#pragma config BOREN = OFF
+#pragma config LVP = OFF
+#pragma config CPD = OFF
+#pragma config WRT = OFF
+#pragma config CP = OFF
+
+
+
+
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
+# 17 "Buttons/../gpio/../Config.h" 2
+# 11 "Buttons/../gpio/gpio_Cfg.h" 2
+# 11 "Buttons/../gpio/gpio.h" 2
+# 24 "Buttons/../gpio/gpio.h"
+void GPIO_Init(void);
+# 10 "Buttons/Buttons_Cfg.h" 2
+# 12 "Buttons/Buttons.h" 2
+
 
 
 
@@ -1909,35 +1942,6 @@ void EXTI_On_Off_CallBack(void);
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
 # 10 "Buttons/../WaterHeater_Mode/WaterHeater_Mode.h" 2
 
-# 1 "Buttons/../WaterHeater_Mode/../gpio/gpio.h" 1
-# 11 "Buttons/../WaterHeater_Mode/../gpio/gpio.h"
-# 1 "Buttons/../WaterHeater_Mode/../gpio/gpio_Cfg.h" 1
-# 11 "Buttons/../WaterHeater_Mode/../gpio/gpio_Cfg.h"
-# 1 "Buttons/../WaterHeater_Mode/../gpio/../Config.h" 1
-
-
-
-
-
-#pragma config FOSC = HS
-#pragma config WDTE = OFF
-#pragma config PWRTE = OFF
-#pragma config BOREN = OFF
-#pragma config LVP = OFF
-#pragma config CPD = OFF
-#pragma config WRT = OFF
-#pragma config CP = OFF
-
-
-
-
-# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
-# 17 "Buttons/../WaterHeater_Mode/../gpio/../Config.h" 2
-# 11 "Buttons/../WaterHeater_Mode/../gpio/gpio_Cfg.h" 2
-# 11 "Buttons/../WaterHeater_Mode/../gpio/gpio.h" 2
-# 24 "Buttons/../WaterHeater_Mode/../gpio/gpio.h"
-void GPIO_Init(void);
-# 11 "Buttons/../WaterHeater_Mode/WaterHeater_Mode.h" 2
 
 # 1 "Buttons/../WaterHeater_Mode/WaterHeater_Mode_Cfg.h" 1
 # 10 "Buttons/../WaterHeater_Mode/WaterHeater_Mode_Cfg.h"
@@ -1973,9 +1977,8 @@ void Start_Setting_Timer(uint16_t Timer_Ms ,uint16_t Peroid_Task);
 void Mode_MainFunction(void);
 # 9 "Buttons/Buttons.c" 2
 
-
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdbool.h" 1 3
-# 11 "Buttons/Buttons.c" 2
+# 10 "Buttons/Buttons.c" 2
 
 void On_Off_Init(void)
 {

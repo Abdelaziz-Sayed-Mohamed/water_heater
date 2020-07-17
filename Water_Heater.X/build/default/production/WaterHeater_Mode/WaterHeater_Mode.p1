@@ -11,8 +11,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;WaterHeater_Mode/../Temperature/Temperature.h: 17: {
 [s S96 `uc 1 `uc 1 `uc 1 :1 `uc 1 :1 `uc 1 `uc 1 ]
 [n S96 _TEMP_t Temp_Value Average_Value Set_Temp Average_Value_Ready_Flag Store_Set_Temp_Flag Average_NValues ]
-"19 WaterHeater_Mode/../Buttons/Buttons.h
-[; ;WaterHeater_Mode/../Buttons/Buttons.h: 19: {
+"20 WaterHeater_Mode/../Buttons/Buttons.h
+[; ;WaterHeater_Mode/../Buttons/Buttons.h: 20: {
 [s S97 :1 `uc 1 :1 `uc 1 ]
 [n S97 _BUTTONS_T UpFlag DownFlag ]
 "37 WaterHeater_Mode/WaterHeater_Mode.h
@@ -236,10 +236,26 @@ Version 4.0 HI-TECH Software Intermediate Code
 [p x WRT = OFF ]
 "13
 [p x CP = OFF ]
-"24 WaterHeater_Mode/../Buttons/Buttons.h
-[; ;WaterHeater_Mode/../Buttons/Buttons.h: 24: _BUTTONS_t Buttons;
+"25 WaterHeater_Mode/../Buttons/Buttons.h
+[; ;WaterHeater_Mode/../Buttons/Buttons.h: 25: _BUTTONS_t Buttons;
 [v _Buttons `S97 ~T0 @X0 1 e ]
 "6 WaterHeater_Mode/../EEPROM/../I2C/../Config.h
+[p x FOSC = HS ]
+"7
+[p x WDTE = OFF ]
+"8
+[p x PWRTE = OFF ]
+"9
+[p x BOREN = OFF ]
+"10
+[p x LVP = OFF ]
+"11
+[p x CPD = OFF ]
+"12
+[p x WRT = OFF ]
+"13
+[p x CP = OFF ]
+"6
 [p x FOSC = HS ]
 "7
 [p x WDTE = OFF ]

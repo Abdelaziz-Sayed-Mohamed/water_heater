@@ -1922,7 +1922,38 @@ void I2c_Write(uint8_t data);
 uint8_t I2c_Read(void);
 void I2c_Send_NAck(void);
 # 13 "EEPROM/EEPROM.h" 2
-# 25 "EEPROM/EEPROM.h"
+
+# 1 "EEPROM/EEPROM_Cfg.h" 1
+# 11 "EEPROM/EEPROM_Cfg.h"
+# 1 "EEPROM/../I2C/../Config.h" 1
+
+
+
+
+
+#pragma config FOSC = HS
+#pragma config WDTE = OFF
+#pragma config PWRTE = OFF
+#pragma config BOREN = OFF
+#pragma config LVP = OFF
+#pragma config CPD = OFF
+#pragma config WRT = OFF
+#pragma config CP = OFF
+
+
+
+
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
+# 17 "EEPROM/../I2C/../Config.h" 2
+# 11 "EEPROM/EEPROM_Cfg.h" 2
+# 14 "EEPROM/EEPROM.h" 2
+
+
+
+
+
+
+
 void Get_EEPROM_Data(void);
 void Set_EEPROM_Data(void);
 void EEPROM_Write(uint8_t Data,uint8_t Addr);

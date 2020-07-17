@@ -1880,32 +1880,14 @@ typedef int16_t intptr_t;
 typedef uint16_t uintptr_t;
 # 17 "SSD/../Config.h" 2
 # 10 "SSD/SSD.h" 2
-# 33 "SSD/SSD.h"
-typedef enum _Enable_SSD_t
-{
- Enable_SSD_Off=0,
- Enable_SSD_On=1,
-}Enable_SSD_t;
 
-Enable_SSD_t Enable_SSD;
-
-void SSD_Init(void);
-void SSD_MainFunction(void);
-void SSD_SelectDisplay(void);
-void SSD_SelectDigit(void);
-void SSD_Blink(uint16_t Times_Ms,uint16_t Task_Peroid);
-# 9 "SSD/SSD.c" 2
-
-# 1 "SSD/../WaterHeater_Mode/WaterHeater_Mode.h" 1
-# 10 "SSD/../WaterHeater_Mode/WaterHeater_Mode.h"
-# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
-# 10 "SSD/../WaterHeater_Mode/WaterHeater_Mode.h" 2
-
-# 1 "SSD/../WaterHeater_Mode/../gpio/gpio.h" 1
-# 11 "SSD/../WaterHeater_Mode/../gpio/gpio.h"
-# 1 "SSD/../WaterHeater_Mode/../gpio/gpio_Cfg.h" 1
-# 11 "SSD/../WaterHeater_Mode/../gpio/gpio_Cfg.h"
-# 1 "SSD/../WaterHeater_Mode/../gpio/../Config.h" 1
+# 1 "SSD/SSD_Cfg.h" 1
+# 11 "SSD/SSD_Cfg.h"
+# 1 "SSD/../gpio/gpio.h" 1
+# 11 "SSD/../gpio/gpio.h"
+# 1 "SSD/../gpio/gpio_Cfg.h" 1
+# 11 "SSD/../gpio/gpio_Cfg.h"
+# 1 "SSD/../gpio/../Config.h" 1
 
 
 
@@ -1924,12 +1906,34 @@ void SSD_Blink(uint16_t Times_Ms,uint16_t Task_Peroid);
 
 
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
-# 17 "SSD/../WaterHeater_Mode/../gpio/../Config.h" 2
-# 11 "SSD/../WaterHeater_Mode/../gpio/gpio_Cfg.h" 2
-# 11 "SSD/../WaterHeater_Mode/../gpio/gpio.h" 2
-# 24 "SSD/../WaterHeater_Mode/../gpio/gpio.h"
+# 17 "SSD/../gpio/../Config.h" 2
+# 11 "SSD/../gpio/gpio_Cfg.h" 2
+# 11 "SSD/../gpio/gpio.h" 2
+# 24 "SSD/../gpio/gpio.h"
 void GPIO_Init(void);
-# 11 "SSD/../WaterHeater_Mode/WaterHeater_Mode.h" 2
+# 11 "SSD/SSD_Cfg.h" 2
+# 11 "SSD/SSD.h" 2
+# 32 "SSD/SSD.h"
+typedef enum _Enable_SSD_t
+{
+ Enable_SSD_Off=0,
+ Enable_SSD_On=1,
+}Enable_SSD_t;
+
+Enable_SSD_t Enable_SSD;
+
+void SSD_Init(void);
+void SSD_MainFunction(void);
+void SSD_SelectDisplay(void);
+void SSD_SelectDigit(void);
+void SSD_Blink(uint16_t Times_Ms);
+# 9 "SSD/SSD.c" 2
+
+# 1 "SSD/../WaterHeater_Mode/WaterHeater_Mode.h" 1
+# 10 "SSD/../WaterHeater_Mode/WaterHeater_Mode.h"
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
+# 10 "SSD/../WaterHeater_Mode/WaterHeater_Mode.h" 2
+
 
 # 1 "SSD/../WaterHeater_Mode/WaterHeater_Mode_Cfg.h" 1
 # 10 "SSD/../WaterHeater_Mode/WaterHeater_Mode_Cfg.h"
@@ -1965,7 +1969,6 @@ void Start_Setting_Timer(uint16_t Timer_Ms ,uint16_t Peroid_Task);
 void Mode_MainFunction(void);
 # 10 "SSD/SSD.c" 2
 
-
 # 1 "SSD/../Temperature/Temperature.h" 1
 # 10 "SSD/../Temperature/Temperature.h"
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
@@ -1992,20 +1995,19 @@ TEMP_t Temperature;
 
 
 void Temperature_Calc(uint8_t ADC_VALUE);
-# 12 "SSD/SSD.c" 2
+# 11 "SSD/SSD.c" 2
 
 
 static uint8_t SSD=0;
 static uint8_t Tempreture=0;
-
+# 27 "SSD/SSD.c"
 void SSD_Init(void)
 {
  (PORTA &= ~(1<<5)) ;
  (PORTA &= ~(1<<4)) ;
- PORTD=0b00111111;
+ PORTD=0;
 }
-
-
+# 44 "SSD/SSD.c"
 void SSD_MainFunction(void)
 {
 
@@ -2059,13 +2061,12 @@ void SSD_MainFunction(void)
         break;
     }
 }
-
-
-void SSD_Blink(uint16_t Times_Ms,uint16_t Task_Peroid)
+# 109 "SSD/SSD.c"
+void SSD_Blink(uint16_t Times_Ms)
 {
   static uint8_t Counter=1;
 
-  if(Counter*Task_Peroid==Times_Ms)
+  if(Counter*20==Times_Ms)
   {
       if(Enable_SSD==Enable_SSD_On)
       {
@@ -2081,20 +2082,20 @@ void SSD_Blink(uint16_t Times_Ms,uint16_t Task_Peroid)
   }
   Counter++;
 }
-
+# 140 "SSD/SSD.c"
 void SSD_SelectDisplay(void)
 {
 
 
   if(Mode.Select_Mode==Normal_Mode)
   {
-   Tempreture=Temperature.Average_Value;
+   Tempreture=Temperature.Temp_Value;
    Enable_SSD=Enable_SSD_On;
   }
   else if(Mode.Select_Mode==Setting_Mode)
   {
    Tempreture=Temperature.Set_Temp;
-      SSD_Blink(1000,20);
+      SSD_Blink(1000);
   }
   else if(Mode.Select_Mode==Off_Mode)
   {
@@ -2103,7 +2104,7 @@ void SSD_SelectDisplay(void)
 
   }
 }
-
+# 173 "SSD/SSD.c"
 void SSD_SelectDigit(void)
 {
     static uint8_t Enable_Digit_Selector=1;

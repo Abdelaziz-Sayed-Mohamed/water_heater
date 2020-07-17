@@ -2105,7 +2105,10 @@ void Timer0_Init(void);
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
 # 17 "./SSD/../Config.h" 2
 # 10 "./SSD/SSD.h" 2
-# 33 "./SSD/SSD.h"
+
+# 1 "./SSD/SSD_Cfg.h" 1
+# 11 "./SSD/SSD.h" 2
+# 32 "./SSD/SSD.h"
 typedef enum _Enable_SSD_t
 {
  Enable_SSD_Off=0,
@@ -2118,11 +2121,14 @@ void SSD_Init(void);
 void SSD_MainFunction(void);
 void SSD_SelectDisplay(void);
 void SSD_SelectDigit(void);
-void SSD_Blink(uint16_t Times_Ms,uint16_t Task_Peroid);
+void SSD_Blink(uint16_t Times_Ms);
 # 21 "main.c" 2
 
 # 1 "./Elements/Elements.h" 1
-# 28 "./Elements/Elements.h"
+# 11 "./Elements/Elements.h"
+# 1 "./Elements/Elements_Cfg.h" 1
+# 11 "./Elements/Elements.h" 2
+# 25 "./Elements/Elements.h"
 typedef enum _LED_STATUS_t
 {
   _LED_OFF=0,
@@ -2133,7 +2139,7 @@ typedef enum _LED_STATUS_t
 LED_STATUS_t LED_Status;
 
 void LED_Control(void);
-void LED_BLINKING(uint16_t Time_Ms,uint16_t Task_Peroid);
+void LED_BLINKING(uint16_t Time_Ms);
 void Elements_Init(void);
 void Elements_MainFunction(void);
 # 22 "main.c" 2
@@ -2161,6 +2167,9 @@ void Elements_MainFunction(void);
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
 # 17 "./Buttons/../Config.h" 2
 # 11 "./Buttons/Buttons.h" 2
+
+# 1 "./Buttons/Buttons_Cfg.h" 1
+# 12 "./Buttons/Buttons.h" 2
 
 
 
@@ -2357,7 +2366,38 @@ void I2c_Write(uint8_t data);
 uint8_t I2c_Read(void);
 void I2c_Send_NAck(void);
 # 13 "./EEPROM/EEPROM.h" 2
-# 25 "./EEPROM/EEPROM.h"
+
+# 1 "./EEPROM/EEPROM_Cfg.h" 1
+# 11 "./EEPROM/EEPROM_Cfg.h"
+# 1 "./EEPROM/../I2C/../Config.h" 1
+
+
+
+
+
+#pragma config FOSC = HS
+#pragma config WDTE = OFF
+#pragma config PWRTE = OFF
+#pragma config BOREN = OFF
+#pragma config LVP = OFF
+#pragma config CPD = OFF
+#pragma config WRT = OFF
+#pragma config CP = OFF
+
+
+
+
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
+# 17 "./EEPROM/../I2C/../Config.h" 2
+# 11 "./EEPROM/EEPROM_Cfg.h" 2
+# 14 "./EEPROM/EEPROM.h" 2
+
+
+
+
+
+
+
 void Get_EEPROM_Data(void);
 void Set_EEPROM_Data(void);
 void EEPROM_Write(uint8_t Data,uint8_t Addr);

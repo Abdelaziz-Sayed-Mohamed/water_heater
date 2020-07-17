@@ -1977,6 +1977,9 @@ void Temperature_Calc(uint8_t ADC_VALUE);
 # 17 "WaterHeater_Mode/../Buttons/../Config.h" 2
 # 11 "WaterHeater_Mode/../Buttons/Buttons.h" 2
 
+# 1 "WaterHeater_Mode/../Buttons/Buttons_Cfg.h" 1
+# 12 "WaterHeater_Mode/../Buttons/Buttons.h" 2
+
 
 
 
@@ -2067,7 +2070,38 @@ void I2c_Write(uint8_t data);
 uint8_t I2c_Read(void);
 void I2c_Send_NAck(void);
 # 13 "WaterHeater_Mode/../EEPROM/EEPROM.h" 2
-# 25 "WaterHeater_Mode/../EEPROM/EEPROM.h"
+
+# 1 "WaterHeater_Mode/../EEPROM/EEPROM_Cfg.h" 1
+# 11 "WaterHeater_Mode/../EEPROM/EEPROM_Cfg.h"
+# 1 "WaterHeater_Mode/../EEPROM/../I2C/../Config.h" 1
+
+
+
+
+
+#pragma config FOSC = HS
+#pragma config WDTE = OFF
+#pragma config PWRTE = OFF
+#pragma config BOREN = OFF
+#pragma config LVP = OFF
+#pragma config CPD = OFF
+#pragma config WRT = OFF
+#pragma config CP = OFF
+
+
+
+
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
+# 17 "WaterHeater_Mode/../EEPROM/../I2C/../Config.h" 2
+# 11 "WaterHeater_Mode/../EEPROM/EEPROM_Cfg.h" 2
+# 14 "WaterHeater_Mode/../EEPROM/EEPROM.h" 2
+
+
+
+
+
+
+
 void Get_EEPROM_Data(void);
 void Set_EEPROM_Data(void);
 void EEPROM_Write(uint8_t Data,uint8_t Addr);

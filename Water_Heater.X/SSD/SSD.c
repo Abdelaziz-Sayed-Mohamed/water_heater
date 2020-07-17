@@ -8,20 +8,39 @@
 
 #include "SSD.h"
 #include"../WaterHeater_Mode/WaterHeater_Mode.h"
-#include"../gpio/gpio.h"
 #include"../Temperature/Temperature.h"
 
 static uint8_t SSD=0;
 static uint8_t Tempreture=0;
 
+/****************************************************************************************/
+/*    Function Name           : SSD_Init          			                            */
+/*    Function Description    : Init SSD by Reset all SSD Pins                          */                                          
+/*    Parameter In            : None                                                    */
+/*    Parameter InOut         : None                                                    */
+/*    Parameter Out           : None                                                    */
+/*    Return Value            : None                                                    */
+/*	  Requirement             :                   				                        */
+/*    Notes                   :								                            */
+/****************************************************************************************/
+
 void SSD_Init(void)
 {
 	RESET_PIN(DIGIT1_PORT,DIGIT1_PIN) ;
 	RESET_PIN(DIGIT2_PORT,DIGIT2_PIN) ;
-	_7SEGMENT_PORT=SSD_Zero;
+	_7SEGMENT_PORT=Turn_Off_7seg_Port;
 }
 
-
+/****************************************************************************************/
+/*    Function Name           : SSD_MainFunction          			                    */
+/*    Function Description    : Display The Selected Temperature                        */                                          
+/*    Parameter In            : None                                                    */
+/*    Parameter InOut         : None                                                    */
+/*    Parameter Out           : None                                                    */
+/*    Return Value            : None                                                    */
+/*	  Requirement             :                   				                        */
+/*    Notes                   :								                            */
+/****************************************************************************************/
 void SSD_MainFunction(void)
 {
  
@@ -70,18 +89,28 @@ void SSD_MainFunction(void)
         _7SEGMENT_PORT=SSD_Nine;
         break;
         
-     case Display_Nothing:
+     case SSD_Nothing:
         _7SEGMENT_PORT=Turn_Off_7seg_Port;
         break;         
     }	
 }
 
+/****************************************************************************************/
+/*    Function Name           : SSD_Blink          			                            */
+/*    Function Description    : Blink The Digits of SSD Per Times_Ms                    */                                          
+/*    Parameter In            : Times_Ms                                                */
+/*    Parameter InOut         : None                                                    */
+/*    Parameter Out           : None                                                    */
+/*    Return Value            : None                                                    */
+/*	  Requirement             :                   				                        */
+/*    Notes                   :								                            */
+/****************************************************************************************/
 
-void SSD_Blink(uint16_t Times_Ms,uint16_t Task_Peroid) 
+void SSD_Blink(uint16_t Times_Ms) 
 {
   static uint8_t Counter=1;
 
-  if(Counter*Task_Peroid==Times_Ms)
+  if(Counter*SSD_Blink_TaskPeroid==Times_Ms)
   {
       if(Enable_SSD==Enable_SSD_On)
       {
@@ -98,19 +127,29 @@ void SSD_Blink(uint16_t Times_Ms,uint16_t Task_Peroid)
   Counter++;
 }
 
+/****************************************************************************************/
+/*    Function Name           : SSD_SelectDisplay          			                    */
+/*    Function Description    : Select What Will Display                                */                                          
+/*    Parameter In            : None                                                */
+/*    Parameter InOut         : None                                                    */
+/*    Parameter Out           : None                                                    */
+/*    Return Value            : None                                                    */
+/*	  Requirement             :                   				                        */
+/*    Notes                   :								                            */
+/****************************************************************************************/
 void SSD_SelectDisplay(void)
 {
   
    /*Select What Will Display*/
   if(Mode.Select_Mode==Normal_Mode)
   {
-	  Tempreture=Temperature.Average_Value;
+	  Tempreture=Temperature.Temp_Value;
 	  Enable_SSD=Enable_SSD_On;
   }
   else if(Mode.Select_Mode==Setting_Mode)
   {
 	  Tempreture=Temperature.Set_Temp;
-      SSD_Blink(SSD_Blink_Time,SSD_Blink_TaskPeroid);
+      SSD_Blink(SSD_Blink_Time);
   }
   else if(Mode.Select_Mode==Off_Mode)
   {
@@ -119,6 +158,17 @@ void SSD_SelectDisplay(void)
     
   }
 }
+
+/****************************************************************************************/
+/*    Function Name           : SSD_SelectDigit          			                    */
+/*    Function Description    : Select Digit will be Display                            */                                          
+/*    Parameter In            : None                                                    */
+/*    Parameter InOut         : None                                                    */
+/*    Parameter Out           : None                                                    */
+/*    Return Value            : None                                                    */
+/*	  Requirement             :                   				                        */
+/*    Notes                   :								                            */
+/****************************************************************************************/
 
 void SSD_SelectDigit(void)
 {
@@ -153,6 +203,6 @@ void SSD_SelectDigit(void)
     }
     else
     {
-     SSD=Display_Nothing;
+     SSD=SSD_Nothing;
     }    
 }

@@ -3,26 +3,25 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/E:/study/Repos/water_heater/Water_Heater.X/Display/Display.c</file>
             <file>file:/E:/study/Repos/water_heater/Water_Heater.X/Scheduler/Scheduler.c</file>
-            <file>file:/E:/study/Repos/water_heater/Water_Heater.X/EEPROM/EEPROM.c</file>
             <file>file:/E:/study/Repos/water_heater/Water_Heater.X/gpio/gpio.c</file>
+            <file>file:/E:/study/Repos/water_heater/Water_Heater.X/EEPROM/EEPROM.c</file>
+            <file>file:/E:/study/Repos/water_heater/Water_Heater.X/SSD/SSD.c</file>
             <file>file:/E:/study/Repos/water_heater/Water_Heater.X/Temperature/Temperature.c</file>
             <file>file:/E:/study/Repos/water_heater/Water_Heater.X/main.c</file>
             <file>file:/E:/study/Repos/water_heater/Water_Heater.X/Timer/Timer.c</file>
-            <file>file:/E:/study/Repos/water_heater/Water_Heater.X/Average/Average.c</file>
             <file>file:/E:/study/Repos/water_heater/Water_Heater.X/gpio/gpio.h</file>
-            <file>file:/E:/study/Repos/water_heater/Water_Heater.X/Average/Average.h</file>
+            <file>file:/E:/study/Repos/water_heater/Water_Heater.X/EEPROM/EEPROM.h</file>
             <file>file:/E:/study/Repos/water_heater/Water_Heater.X/gpio/gpio_Cfg.h</file>
             <file>file:/E:/study/Repos/water_heater/Water_Heater.X/Interrupt/Interrupt.c</file>
+            <file>file:/E:/study/Repos/water_heater/Water_Heater.X/SSD/SSD.h</file>
             <file>file:/E:/study/Repos/water_heater/Water_Heater.X/Scheduler/Tasks.c</file>
-            <file>file:/E:/study/Repos/water_heater/Water_Heater.X/Buttons/Buttons.h</file>
+            <file>file:/E:/study/Repos/water_heater/Water_Heater.X/ADC/ADC.c</file>
+            <file>file:/E:/study/Repos/water_heater/Water_Heater.X/Buttons/Buttons.c</file>
             <file>file:/E:/study/Repos/water_heater/Water_Heater.X/Elements/Elements.c</file>
             <file>file:/E:/study/Repos/water_heater/Water_Heater.X/I2C/I2C.c</file>
             <file>file:/E:/study/Repos/water_heater/Water_Heater.X/WaterHeater_Mode/WaterHeater_Mode.c</file>
             <file>file:/E:/study/Repos/water_heater/Water_Heater.X/Scheduler/Scheduler_cfg.c</file>
-            <file>file:/E:/study/Repos/water_heater/Water_Heater.X/WaterHeater_Mode/WaterHeater_Mode.h</file>
-            <file>file:/E:/study/Repos/water_heater/Water_Heater.X/Elements/Elements.h</file>
         </group>
     </open-files>
 </project-private>
