@@ -5,8 +5,8 @@
  *      Author: Abdelaziz Sayed
  */
 #include "Timer.h"
-uint32_t Tick_Num=0;
 
+uint32_t Tick_Num=0;
 
 
 /****************************************************************************************/
@@ -53,6 +53,6 @@ void Timer0_Init(void)
 /****************************************************************************************/
 void Timer0_CallBack(void)
 {
-	Tick_Num++;                         //Increment Tick_Num every interrupt
-	Scheduler_ActivateTask(Tick_Num );
+	Tick_Num++;                          //Increment Tick_Num every interrupt
+	Scheduler_ActivateTask(Tick_Num );   //Update Scheduler
 }

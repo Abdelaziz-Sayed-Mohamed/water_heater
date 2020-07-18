@@ -2196,6 +2196,62 @@ uint8_t EEPROM_Read(uint8_t Addr);
 # 1 "Scheduler/../Buttons/Buttons_Cfg.h" 1
 # 12 "Scheduler/../Buttons/Buttons.h" 2
 
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\string.h" 1 3
+
+
+
+
+
+# 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\__size_t.h" 1 3
+
+
+
+typedef unsigned size_t;
+# 6 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\string.h" 2 3
+
+# 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\__null.h" 1 3
+# 7 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\string.h" 2 3
+
+
+
+
+
+
+
+extern void * memcpy(void *, const void *, size_t);
+extern void * memmove(void *, const void *, size_t);
+extern void * memset(void *, int, size_t);
+# 36 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\string.h" 3
+extern char * strcat(char *, const char *);
+extern char * strcpy(char *, const char *);
+extern char * strncat(char *, const char *, size_t);
+extern char * strncpy(char *, const char *, size_t);
+extern char * strdup(const char *);
+extern char * strtok(char *, const char *);
+
+
+extern int memcmp(const void *, const void *, size_t);
+extern int strcmp(const char *, const char *);
+extern int stricmp(const char *, const char *);
+extern int strncmp(const char *, const char *, size_t);
+extern int strnicmp(const char *, const char *, size_t);
+extern void * memchr(const void *, int, size_t);
+extern size_t strcspn(const char *, const char *);
+extern char * strpbrk(const char *, const char *);
+extern size_t strspn(const char *, const char *);
+extern char * strstr(const char *, const char *);
+extern char * stristr(const char *, const char *);
+extern char * strerror(int);
+extern size_t strlen(const char *);
+extern char * strchr(const char *, int);
+extern char * strichr(const char *, int);
+extern char * strrchr(const char *, int);
+extern char * strrichr(const char *, int);
+# 13 "Scheduler/../Buttons/Buttons.h" 2
+
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdbool.h" 1 3
+# 14 "Scheduler/../Buttons/Buttons.h" 2
+
 
 
 
@@ -2209,15 +2265,10 @@ typedef struct _BUTTONS_T
 }_BUTTONS_t ;
 
 _BUTTONS_t Buttons;
-
-
-
-
-
-
+# 38 "Scheduler/../Buttons/Buttons.h"
 void Debouncer(void);
 void Buttons_MainFunction(void);
-void On_Off_Init(void);
+void Buttons_Init(void);
 void EXTI_On_Off_CallBack(void);
 # 15 "Scheduler/Tasks.c" 2
 
@@ -2226,15 +2277,15 @@ void EXTI_On_Off_CallBack(void);
 
 void Scheduler_Task1(void)
 {
-    Debouncer();
+
  SSD_MainFunction();
+    Buttons_MainFunction();
 
 }
 
 
 void Scheduler_Task2(void)
 {
-
  Temperature_MainFunction();
  Elements_MainFunction();
 }

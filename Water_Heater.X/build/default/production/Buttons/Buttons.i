@@ -1913,6 +1913,62 @@ void GPIO_Init(void);
 # 10 "Buttons/Buttons_Cfg.h" 2
 # 12 "Buttons/Buttons.h" 2
 
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\string.h" 1 3
+
+
+
+
+
+# 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\__size_t.h" 1 3
+
+
+
+typedef unsigned size_t;
+# 6 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\string.h" 2 3
+
+# 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\__null.h" 1 3
+# 7 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\string.h" 2 3
+
+
+
+
+
+
+
+extern void * memcpy(void *, const void *, size_t);
+extern void * memmove(void *, const void *, size_t);
+extern void * memset(void *, int, size_t);
+# 36 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\string.h" 3
+extern char * strcat(char *, const char *);
+extern char * strcpy(char *, const char *);
+extern char * strncat(char *, const char *, size_t);
+extern char * strncpy(char *, const char *, size_t);
+extern char * strdup(const char *);
+extern char * strtok(char *, const char *);
+
+
+extern int memcmp(const void *, const void *, size_t);
+extern int strcmp(const char *, const char *);
+extern int stricmp(const char *, const char *);
+extern int strncmp(const char *, const char *, size_t);
+extern int strnicmp(const char *, const char *, size_t);
+extern void * memchr(const void *, int, size_t);
+extern size_t strcspn(const char *, const char *);
+extern char * strpbrk(const char *, const char *);
+extern size_t strspn(const char *, const char *);
+extern char * strstr(const char *, const char *);
+extern char * stristr(const char *, const char *);
+extern char * strerror(int);
+extern size_t strlen(const char *);
+extern char * strchr(const char *, int);
+extern char * strichr(const char *, int);
+extern char * strrchr(const char *, int);
+extern char * strrichr(const char *, int);
+# 13 "Buttons/Buttons.h" 2
+
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdbool.h" 1 3
+# 14 "Buttons/Buttons.h" 2
+
 
 
 
@@ -1926,15 +1982,10 @@ typedef struct _BUTTONS_T
 }_BUTTONS_t ;
 
 _BUTTONS_t Buttons;
-
-
-
-
-
-
+# 38 "Buttons/Buttons.h"
 void Debouncer(void);
 void Buttons_MainFunction(void);
-void On_Off_Init(void);
+void Buttons_Init(void);
 void EXTI_On_Off_CallBack(void);
 # 8 "Buttons/Buttons.c" 2
 
@@ -1978,61 +2029,21 @@ void Mode_Setting_Timer(uint16_t Timer_Ms);
 void ModeManager_MainFunction(void);
 # 9 "Buttons/Buttons.c" 2
 
-# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdbool.h" 1 3
-# 10 "Buttons/Buttons.c" 2
 
-# 1 "Buttons/../SSD/SSD.h" 1
-# 10 "Buttons/../SSD/SSD.h"
-# 1 "Buttons/../SSD/../Config.h" 1
-
-
-
-
-
-#pragma config FOSC = HS
-#pragma config WDTE = OFF
-#pragma config PWRTE = OFF
-#pragma config BOREN = OFF
-#pragma config LVP = OFF
-#pragma config CPD = OFF
-#pragma config WRT = OFF
-#pragma config CP = OFF
-
-
-
-
-# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
-# 17 "Buttons/../SSD/../Config.h" 2
-# 10 "Buttons/../SSD/SSD.h" 2
-
-# 1 "Buttons/../SSD/SSD_Cfg.h" 1
-# 11 "Buttons/../SSD/SSD.h" 2
-# 31 "Buttons/../SSD/SSD.h"
-extern uint8_t Counter;
-typedef enum _Enable_SSD_t
-{
- Enable_SSD_Off=0,
- Enable_SSD_On=1,
-}Enable_SSD_t;
-
-Enable_SSD_t Enable_SSD;
-
-void SSD_Init(void);
-void SSD_MainFunction(void);
-void SSD_SelectDisplay(void);
-void SSD_SelectDigit(void);
-void SSD_Blink(uint16_t Times_Ms);
-# 11 "Buttons/Buttons.c" 2
-# 23 "Buttons/Buttons.c"
-void On_Off_Init(void)
+ static uint8_t Debounce_Up[3];
+ static uint8_t Debounce_Down[3];
+# 24 "Buttons/Buttons.c"
+void Buttons_Init(void)
 {
 
+    memset( Debounce_Up , 1 , sizeof( Debounce_Up ) );
+    memset( Debounce_Down , 1 , sizeof( Debounce_Down ) );
     INTCONbits.INTE=1;
     INTEDG=1;
     INTCONbits.INTF=0;
 
 }
-# 43 "Buttons/Buttons.c"
+# 46 "Buttons/Buttons.c"
 void EXTI_On_Off_CallBack(void)
 {
  if((Mode.Select_Mode==Setting_Mode) || (Mode.Select_Mode==Normal_Mode))
@@ -2048,85 +2059,40 @@ void EXTI_On_Off_CallBack(void)
 
  }
 }
-# 74 "Buttons/Buttons.c"
+# 77 "Buttons/Buttons.c"
 void Buttons_MainFunction(void)
 {
-    if(((((PORTB>>2)&1)==0) ||(((PORTB>>1)&1)==0)))
+    static uint8_t Counter_Debounce=0;
+    Debounce_Down[Counter_Debounce]=((PORTB>>1)&1);
+    Debounce_Up[Counter_Debounce]=((PORTB>>2)&1);
+    Counter_Debounce=(Counter_Debounce+1)%(3 +1);
+
+    if(Debounce_Up[0]==0 && Debounce_Up[1]==0 &&Debounce_Up[2]==0)
     {
-     if(Mode.Select_Mode==Normal_Mode)
+        if(Mode.Select_Mode==Setting_Mode)
+        {
+         Buttons.UpFlag=Buttons.UpFlag=1;
+        }
+        else if (Mode.Select_Mode==Normal_Mode)
         {
          Mode.Select_Mode=Setting_Mode;
         }
-        else if(Mode.Select_Mode==Setting_Mode)
-        {
-            if(((PORTB>>2)&1)==0)
-            {
-                Buttons.UpFlag=Buttons.UpFlag=1;
-                Buttons.DownFlag=0;
-                Enable_SSD=Enable_SSD_On;
-                Counter =1;
-            }
-            else if(((PORTB>>1)&1)==0)
-            {
-               Buttons.DownFlag=Buttons.DownFlag=1;
-               Buttons.UpFlag=0;
-
-            }
-        }
+        Debounce_Up[0]=1;Debounce_Up[1]=1; Debounce_Up[2]=1;
     }
-}
-void Debouncer(void)
-{
-    static uint8_t Depounce_Up[3];
-    static uint8_t Depounce_Down[3];
-    static uint8_t Counter_Up=0;
-    static uint8_t Counter_Down=0;
 
-    Depounce_Down[Counter_Up]=((PORTB>>1)&1);
-    Depounce_Up[Counter_Up]=((PORTB>>2)&1);
-    Counter_Up++;
-    if(Counter_Up==3)
+    if(Debounce_Down[0]==0 && Debounce_Down[1]==0 &&Debounce_Down[2]==0)
     {
-        if(Depounce_Up[0]==0 && Depounce_Up[1]==0 &&Depounce_Up[2]==0)
 
+        if(Mode.Select_Mode==Setting_Mode)
         {
-           if(Mode.Select_Mode==Setting_Mode)
-           {
-            Buttons.UpFlag=Buttons.UpFlag=1;
-            Depounce_Up[0]=1;
-            Depounce_Up[1]=1;
-            Depounce_Up[2]=1;
-
-            Buttons.DownFlag=0;
-           }
-           else if (Mode.Select_Mode==Normal_Mode)
-           {
-             Mode.Select_Mode=Setting_Mode;
-           }
+         Buttons.DownFlag=Buttons.DownFlag=1;
 
         }
-       if(Depounce_Down[0]==0 && Depounce_Down[1]==0 &&Depounce_Down[2]==0)
-       {
-
-           if(Mode.Select_Mode==Setting_Mode)
-           {
-            Buttons.DownFlag=Buttons.DownFlag=1;
-            Depounce_Down[0]=1;
-            Depounce_Down[1]=1;
-            Depounce_Down[2]=1;
-
-            Buttons.UpFlag=0;
-           }
-           else if (Mode.Select_Mode==Normal_Mode)
-           {
-             Mode.Select_Mode=Setting_Mode;
-           }
+        else if (Mode.Select_Mode==Normal_Mode)
+        {
+          Mode.Select_Mode=Setting_Mode;
         }
-        Counter_Up=0;
+        Debounce_Down[0]=1;Debounce_Down[1]=1; Debounce_Down[2]=1;
     }
-
-
-
-
 
 }

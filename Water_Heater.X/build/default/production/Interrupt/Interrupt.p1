@@ -1,6 +1,6 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"20 Interrupt/../Buttons/Buttons.h
-[; ;Interrupt/../Buttons/Buttons.h: 20: {
+"22 Interrupt/../Buttons/Buttons.h
+[; ;Interrupt/../Buttons/Buttons.h: 22: {
 [s S96 :1 `uc 1 :1 `uc 1 ]
 [n S96 _BUTTONS_T UpFlag DownFlag ]
 [v F993 `(v ~T0 @X0 0 tf ]
@@ -9,8 +9,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;Interrupt/Interrupt.h: 18: {
 [s S97 `*F993 1 `*F995 1 ]
 [n S97 _CallBack_t ExtiCallBack Timer0CallBack ]
-"35 Interrupt/../Buttons/Buttons.h
-[; ;Interrupt/../Buttons/Buttons.h: 35: void EXTI_On_Off_CallBack(void);
+"41 Interrupt/../Buttons/Buttons.h
+[; ;Interrupt/../Buttons/Buttons.h: 41: void EXTI_On_Off_CallBack(void);
 [v _EXTI_On_Off_CallBack `(v ~T0 @X0 0 ef ]
 "16 Interrupt/../Timer/Timer.h
 [; ;Interrupt/../Timer/Timer.h: 16: void Timer0_CallBack(void);
@@ -295,8 +295,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [p x WRT = OFF ]
 "13
 [p x CP = OFF ]
-"25 Interrupt/../Buttons/Buttons.h
-[; ;Interrupt/../Buttons/Buttons.h: 25: _BUTTONS_t Buttons;
+"27 Interrupt/../Buttons/Buttons.h
+[; ;Interrupt/../Buttons/Buttons.h: 27: _BUTTONS_t Buttons;
 [v _Buttons `S96 ~T0 @X0 1 e ]
 "24 Interrupt/Interrupt.h
 [; ;Interrupt/Interrupt.h: 24: const Interrupt_CallBack_t Interrupt_CallBack={

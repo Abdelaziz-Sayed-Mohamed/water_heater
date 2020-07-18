@@ -2020,6 +2020,62 @@ void Temperature_Calc(void);
 # 1 "WaterHeater_Mode/../Buttons/Buttons_Cfg.h" 1
 # 12 "WaterHeater_Mode/../Buttons/Buttons.h" 2
 
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\string.h" 1 3
+
+
+
+
+
+# 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\__size_t.h" 1 3
+
+
+
+typedef unsigned size_t;
+# 6 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\string.h" 2 3
+
+# 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\__null.h" 1 3
+# 7 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\string.h" 2 3
+
+
+
+
+
+
+
+extern void * memcpy(void *, const void *, size_t);
+extern void * memmove(void *, const void *, size_t);
+extern void * memset(void *, int, size_t);
+# 36 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\string.h" 3
+extern char * strcat(char *, const char *);
+extern char * strcpy(char *, const char *);
+extern char * strncat(char *, const char *, size_t);
+extern char * strncpy(char *, const char *, size_t);
+extern char * strdup(const char *);
+extern char * strtok(char *, const char *);
+
+
+extern int memcmp(const void *, const void *, size_t);
+extern int strcmp(const char *, const char *);
+extern int stricmp(const char *, const char *);
+extern int strncmp(const char *, const char *, size_t);
+extern int strnicmp(const char *, const char *, size_t);
+extern void * memchr(const void *, int, size_t);
+extern size_t strcspn(const char *, const char *);
+extern char * strpbrk(const char *, const char *);
+extern size_t strspn(const char *, const char *);
+extern char * strstr(const char *, const char *);
+extern char * stristr(const char *, const char *);
+extern char * strerror(int);
+extern size_t strlen(const char *);
+extern char * strchr(const char *, int);
+extern char * strichr(const char *, int);
+extern char * strrchr(const char *, int);
+extern char * strrichr(const char *, int);
+# 13 "WaterHeater_Mode/../Buttons/Buttons.h" 2
+
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdbool.h" 1 3
+# 14 "WaterHeater_Mode/../Buttons/Buttons.h" 2
+
 
 
 
@@ -2033,15 +2089,10 @@ typedef struct _BUTTONS_T
 }_BUTTONS_t ;
 
 _BUTTONS_t Buttons;
-
-
-
-
-
-
+# 38 "WaterHeater_Mode/../Buttons/Buttons.h"
 void Debouncer(void);
 void Buttons_MainFunction(void);
-void On_Off_Init(void);
+void Buttons_Init(void);
 void EXTI_On_Off_CallBack(void);
 # 10 "WaterHeater_Mode/WaterHeater_Mode.c" 2
 
@@ -2203,35 +2254,32 @@ void ModeManager_Init(void)
 # 48 "WaterHeater_Mode/WaterHeater_Mode.c"
 void ModeManager_MainFunction(void)
 {
-
    if(Mode.Select_Mode==Setting_Mode)
    {
-
     Mode_Setting_Timer(5000);
     if(Buttons.UpFlag &&!Buttons.DownFlag && Temperature.Set_Temp !=(75U))
      {
 
       Temperature.Set_Temp += (5U);
-      Mode.Setting_Mode_Timer=1;
-          Buttons.UpFlag=0;
-          Buttons.DownFlag=0;
-          Enable_SSD=Enable_SSD_On;
-               Counter =1;
+
      }
      else if(Buttons.DownFlag &&!Buttons.UpFlag&& Temperature.Set_Temp !=(35U))
      {
       Temperature.Set_Temp -= (5U);
-      Mode.Setting_Mode_Timer=1;
-          Buttons.DownFlag=0;
-          Buttons.UpFlag=0;
-          Enable_SSD=Enable_SSD_On;
-               Counter =1;
 
      }
-   }
+       if(Buttons.DownFlag || Buttons.UpFlag)
+       {
+          Mode.Setting_Mode_Timer=1;
+          Enable_SSD=Enable_SSD_On;
+          Counter =1;
+       }
 
+   }
+      Buttons.UpFlag=0;
+      Buttons.DownFlag=0;
 }
-# 90 "WaterHeater_Mode/WaterHeater_Mode.c"
+# 87 "WaterHeater_Mode/WaterHeater_Mode.c"
 void Mode_Setting_Timer(uint16_t Timer_Ms)
 {
  if(Mode.Setting_Mode_Timer*500==Timer_Ms)

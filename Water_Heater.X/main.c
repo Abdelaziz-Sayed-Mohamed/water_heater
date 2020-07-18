@@ -32,7 +32,7 @@ void main(void) {
   GPIO_Init();
   I2c_Init();
   ADC_Init();
-  On_Off_Init();
+  Buttons_Init();
   SSD_Init();
   Elements_Init();
   ModeManager_Init();

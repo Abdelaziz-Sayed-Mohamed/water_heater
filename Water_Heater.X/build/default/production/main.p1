@@ -10,7 +10,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./Elements/Elements.h: 32: LED_STATUS_t LED_Status;
 [c E1002 0 1 2 .. ]
 [n E1002 _LED_STATUS_t _LED_OFF _LED_ON _LED_BLINK  ]
-"20 ./Interrupt/../Buttons/Buttons.h
+"22 ./Interrupt/../Buttons/Buttons.h
 [s S97 :1 `uc 1 :1 `uc 1 ]
 [n S97 _BUTTONS_T UpFlag DownFlag ]
 "28 ./WaterHeater_Mode/WaterHeater_Mode.h
@@ -29,7 +29,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./Interrupt/Interrupt.h: 18: {
 [s S100 `*F1055 1 `*F1057 1 ]
 [n S100 _CallBack_t ExtiCallBack Timer0CallBack ]
-"35 ./Interrupt/../Buttons/Buttons.h
+"41 ./Interrupt/../Buttons/Buttons.h
 [v _EXTI_On_Off_CallBack `(v ~T0 @X0 0 ef ]
 "16 ./Interrupt/../Timer/Timer.h
 [v _Timer0_CallBack `(v ~T0 @X0 0 ef ]
@@ -41,8 +41,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _I2c_Init `(v ~T0 @X0 0 ef ]
 "30 ./Temperature/../ADC/ADC.h
 [v _ADC_Init `(v ~T0 @X0 0 ef ]
-"34 ./Interrupt/../Buttons/Buttons.h
-[v _On_Off_Init `(v ~T0 @X0 0 ef ]
+"40 ./Interrupt/../Buttons/Buttons.h
+[v _Buttons_Init `(v ~T0 @X0 0 ef ]
 "40 ./SSD/SSD.h
 [; ;./SSD/SSD.h: 40: void SSD_Init(void);
 [v _SSD_Init `(v ~T0 @X0 0 ef ]
@@ -362,7 +362,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [p x WRT = OFF ]
 "13
 [p x CP = OFF ]
-"25 ./Interrupt/../Buttons/Buttons.h
+"27 ./Interrupt/../Buttons/Buttons.h
 [v _Buttons `S97 ~T0 @X0 1 e ]
 "28 ./WaterHeater_Mode/WaterHeater_Mode.h
 [v _Mode `S98 ~T0 @X0 1 e ]
@@ -461,8 +461,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 34:   ADC_Init();
 [e ( _ADC_Init ..  ]
 "35
-[; ;main.c: 35:   On_Off_Init();
-[e ( _On_Off_Init ..  ]
+[; ;main.c: 35:   Buttons_Init();
+[e ( _Buttons_Init ..  ]
 "36
 [; ;main.c: 36:   SSD_Init();
 [e ( _SSD_Init ..  ]

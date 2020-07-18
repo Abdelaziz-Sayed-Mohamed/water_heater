@@ -2173,6 +2173,10 @@ void Elements_MainFunction(void);
 # 12 "./Buttons/Buttons.h" 2
 
 
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdbool.h" 1 3
+# 14 "./Buttons/Buttons.h" 2
+
+
 
 
 
@@ -2185,15 +2189,10 @@ typedef struct _BUTTONS_T
 }_BUTTONS_t ;
 
 _BUTTONS_t Buttons;
-
-
-
-
-
-
+# 38 "./Buttons/Buttons.h"
 void Debouncer(void);
 void Buttons_MainFunction(void);
-void On_Off_Init(void);
+void Buttons_Init(void);
 void EXTI_On_Off_CallBack(void);
 # 23 "main.c" 2
 
@@ -2432,7 +2431,7 @@ void main(void) {
   GPIO_Init();
   I2c_Init();
   ADC_Init();
-  On_Off_Init();
+  Buttons_Init();
   SSD_Init();
   Elements_Init();
   ModeManager_Init();

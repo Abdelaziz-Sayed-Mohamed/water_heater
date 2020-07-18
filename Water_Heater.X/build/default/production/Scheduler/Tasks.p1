@@ -20,16 +20,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;Scheduler/../Temperature/Temperature.h: 18: {
 [s S97 `uc 1 `uc 1 `uc 1 `uc 1 :1 `uc 1 :1 `uc 1 `uc 1 ]
 [n S97 _TEMP_t Temp_Value Average_Value ADC_Value Set_Temp Average_Value_Ready_Flag Store_Set_Temp_Flag Average_NValues ]
-"20 Scheduler/../Buttons/Buttons.h
-[; ;Scheduler/../Buttons/Buttons.h: 20: {
+"22 Scheduler/../Buttons/Buttons.h
+[; ;Scheduler/../Buttons/Buttons.h: 22: {
 [s S98 :1 `uc 1 :1 `uc 1 ]
 [n S98 _BUTTONS_T UpFlag DownFlag ]
-"32
-[; ;Scheduler/../Buttons/Buttons.h: 32: void Debouncer(void);
-[v _Debouncer `(v ~T0 @X0 0 ef ]
 "41 Scheduler/../SSD/SSD.h
 [; ;Scheduler/../SSD/SSD.h: 41: void SSD_MainFunction(void);
 [v _SSD_MainFunction `(v ~T0 @X0 0 ef ]
+"39 Scheduler/../Buttons/Buttons.h
+[; ;Scheduler/../Buttons/Buttons.h: 39: void Buttons_MainFunction(void);
+[v _Buttons_MainFunction `(v ~T0 @X0 0 ef ]
 "32 Scheduler/../Temperature/Temperature.h
 [; ;Scheduler/../Temperature/Temperature.h: 32: void Temperature_MainFunction(void);
 [v _Temperature_MainFunction `(v ~T0 @X0 0 ef ]
@@ -346,8 +346,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [p x WRT = OFF ]
 "13
 [p x CP = OFF ]
-"25 Scheduler/../Buttons/Buttons.h
-[; ;Scheduler/../Buttons/Buttons.h: 25: _BUTTONS_t Buttons;
+"27 Scheduler/../Buttons/Buttons.h
+[; ;Scheduler/../Buttons/Buttons.h: 27: _BUTTONS_t Buttons;
 [v _Buttons `S98 ~T0 @X0 1 e ]
 "19 Scheduler/Tasks.c
 [; ;Scheduler/Tasks.c: 19: void Scheduler_Task1(void)
@@ -357,21 +357,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [e :U _Scheduler_Task1 ]
 [f ]
-"21
-[; ;Scheduler/Tasks.c: 21:     Debouncer();
-[e ( _Debouncer ..  ]
 "22
 [; ;Scheduler/Tasks.c: 22:  SSD_MainFunction();
 [e ( _SSD_MainFunction ..  ]
-"24
-[; ;Scheduler/Tasks.c: 24: }
+"23
+[; ;Scheduler/Tasks.c: 23:     Buttons_MainFunction();
+[e ( _Buttons_MainFunction ..  ]
+"25
+[; ;Scheduler/Tasks.c: 25: }
 [e :UE 99 ]
 }
-"27
-[; ;Scheduler/Tasks.c: 27: void Scheduler_Task2(void)
-[v _Scheduler_Task2 `(v ~T0 @X0 1 ef ]
 "28
-[; ;Scheduler/Tasks.c: 28: {
+[; ;Scheduler/Tasks.c: 28: void Scheduler_Task2(void)
+[v _Scheduler_Task2 `(v ~T0 @X0 1 ef ]
+"29
+[; ;Scheduler/Tasks.c: 29: {
 {
 [e :U _Scheduler_Task2 ]
 [f ]

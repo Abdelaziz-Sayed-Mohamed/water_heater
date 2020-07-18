@@ -7,7 +7,4 @@ Buttons/../gpio/gpio.h  \
 Buttons/../gpio/gpio_Cfg.h  \
 Buttons/../gpio/../Config.h  \
 Buttons/../WaterHeater_Mode/WaterHeater_Mode.h  \
-Buttons/../WaterHeater_Mode/WaterHeater_Mode_Cfg.h  \
-Buttons/../SSD/SSD.h  \
-Buttons/../SSD/../Config.h  \
-Buttons/../SSD/SSD_Cfg.h 
+Buttons/../WaterHeater_Mode/WaterHeater_Mode_Cfg.h 
