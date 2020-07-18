@@ -2108,7 +2108,8 @@ void Timer0_Init(void);
 
 # 1 "./SSD/SSD_Cfg.h" 1
 # 11 "./SSD/SSD.h" 2
-# 32 "./SSD/SSD.h"
+# 31 "./SSD/SSD.h"
+extern uint8_t Counter;
 typedef enum _Enable_SSD_t
 {
  Enable_SSD_Off=0,

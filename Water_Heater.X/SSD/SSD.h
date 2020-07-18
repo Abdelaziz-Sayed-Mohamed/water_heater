@@ -28,7 +28,7 @@
 #define IS_Digit_2_Enabled              Enable_Digit_Selector==1
 #define ResetSSDCounter                 Counter =1
 #define Turn_Off_7seg_Port              0
-
+extern uint8_t Counter;
 typedef enum _Enable_SSD_t
 {
 	Enable_SSD_Off=0,

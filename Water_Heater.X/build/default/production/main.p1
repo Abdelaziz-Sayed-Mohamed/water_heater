@@ -4,30 +4,30 @@ Version 4.0 HI-TECH Software Intermediate Code
 [n S95 _ADC_t ADC_INIT_FLAG ADC_START_FLAG ]
 "38 ./SSD/SSD.h
 [; ;./SSD/SSD.h: 38: Enable_SSD_t Enable_SSD;
-[c E990 0 1 .. ]
-[n E990 _Enable_SSD_t Enable_SSD_Off Enable_SSD_On  ]
+[c E991 0 1 .. ]
+[n E991 _Enable_SSD_t Enable_SSD_Off Enable_SSD_On  ]
 "32 ./Elements/Elements.h
 [; ;./Elements/Elements.h: 32: LED_STATUS_t LED_Status;
-[c E1001 0 1 2 .. ]
-[n E1001 _LED_STATUS_t _LED_OFF _LED_ON _LED_BLINK  ]
+[c E1002 0 1 2 .. ]
+[n E1002 _LED_STATUS_t _LED_OFF _LED_ON _LED_BLINK  ]
 "20 ./Interrupt/../Buttons/Buttons.h
 [s S97 :1 `uc 1 :1 `uc 1 ]
 [n S97 _BUTTONS_T UpFlag DownFlag ]
 "28 ./WaterHeater_Mode/WaterHeater_Mode.h
-[c E1020 0 1 2 .. ]
-[n E1020 _Select_Mode_t Off_Mode Normal_Mode Setting_Mode  ]
+[c E1021 0 1 2 .. ]
+[n E1021 _Select_Mode_t Off_Mode Normal_Mode Setting_Mode  ]
 "23
-[s S98 `E1020 1 `uc 1 ]
+[s S98 `E1021 1 `uc 1 ]
 [n S98 _MODE_t Select_Mode Setting_Mode_Timer ]
 "18 ./Temperature/Temperature.h
 [; ;./Temperature/Temperature.h: 18: {
 [s S99 `uc 1 `uc 1 `uc 1 `uc 1 :1 `uc 1 :1 `uc 1 `uc 1 ]
 [n S99 _TEMP_t Temp_Value Average_Value ADC_Value Set_Temp Average_Value_Ready_Flag Store_Set_Temp_Flag Average_NValues ]
-[v F1053 `(v ~T0 @X0 0 tf ]
-[v F1055 `(v ~T0 @X0 0 tf ]
+[v F1054 `(v ~T0 @X0 0 tf ]
+[v F1056 `(v ~T0 @X0 0 tf ]
 "18 ./Interrupt/Interrupt.h
 [; ;./Interrupt/Interrupt.h: 18: {
-[s S100 `*F1053 1 `*F1055 1 ]
+[s S100 `*F1054 1 `*F1056 1 ]
 [n S100 _CallBack_t ExtiCallBack Timer0CallBack ]
 "34 ./Interrupt/../Buttons/Buttons.h
 [v _EXTI_On_Off_CallBack `(v ~T0 @X0 0 ef ]
@@ -342,10 +342,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [p x CP = OFF ]
 "38 ./SSD/SSD.h
 [; ;./SSD/SSD.h: 38: Enable_SSD_t Enable_SSD;
-[v _Enable_SSD `E990 ~T0 @X0 1 e ]
+[v _Enable_SSD `E991 ~T0 @X0 1 e ]
 "32 ./Elements/Elements.h
 [; ;./Elements/Elements.h: 32: LED_STATUS_t LED_Status;
-[v _LED_Status `E1001 ~T0 @X0 1 e ]
+[v _LED_Status `E1002 ~T0 @X0 1 e ]
 "6 ./EEPROM/../I2C/../Config.h
 [p x FOSC = HS ]
 "7

@@ -1913,7 +1913,8 @@ typedef uint16_t uintptr_t;
 void GPIO_Init(void);
 # 11 "SSD/SSD_Cfg.h" 2
 # 11 "SSD/SSD.h" 2
-# 32 "SSD/SSD.h"
+# 31 "SSD/SSD.h"
+extern uint8_t Counter;
 typedef enum _Enable_SSD_t
 {
  Enable_SSD_Off=0,
@@ -2040,6 +2041,7 @@ void Temperature_Calc(void);
 
 static uint8_t SSD=0;
 static uint8_t Tempreture=0;
+ uint8_t Counter=1;
 # 27 "SSD/SSD.c"
 void SSD_Init(void)
 {
@@ -2104,7 +2106,7 @@ void SSD_MainFunction(void)
 # 109 "SSD/SSD.c"
 void SSD_Blink(uint16_t Times_Ms)
 {
-  static uint8_t Counter=1;
+
 
   if(Counter*20==Times_Ms)
   {

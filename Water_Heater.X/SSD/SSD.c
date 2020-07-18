@@ -12,7 +12,7 @@
 
 static uint8_t SSD=0;
 static uint8_t Tempreture=0;
-
+ uint8_t Counter=1;
 /****************************************************************************************/
 /*    Function Name           : SSD_Init          			                            */
 /*    Function Description    : Init SSD by Reset all SSD Pins                          */                                          
@@ -108,7 +108,7 @@ void SSD_MainFunction(void)
 
 void SSD_Blink(uint16_t Times_Ms) 
 {
-  static uint8_t Counter=1;
+  
 
   if(Counter*SSD_Blink_TaskPeroid==Times_Ms)
   {

@@ -14,8 +14,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [n S96 _MODE_t Select_Mode Setting_Mode_Timer ]
 "38 Scheduler/../SSD/SSD.h
 [; ;Scheduler/../SSD/SSD.h: 38: Enable_SSD_t Enable_SSD;
-[c E917 0 1 .. ]
-[n E917 _Enable_SSD_t Enable_SSD_Off Enable_SSD_On  ]
+[c E918 0 1 .. ]
+[n E918 _Enable_SSD_t Enable_SSD_Off Enable_SSD_On  ]
 "18 Scheduler/../Temperature/Temperature.h
 [; ;Scheduler/../Temperature/Temperature.h: 18: {
 [s S97 `uc 1 `uc 1 `uc 1 `uc 1 :1 `uc 1 :1 `uc 1 `uc 1 ]
@@ -278,7 +278,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [p x CP = OFF ]
 "38 Scheduler/../SSD/SSD.h
 [; ;Scheduler/../SSD/SSD.h: 38: Enable_SSD_t Enable_SSD;
-[v _Enable_SSD `E917 ~T0 @X0 1 e ]
+[v _Enable_SSD `E918 ~T0 @X0 1 e ]
 "28 Scheduler/../Temperature/Temperature.h
 [; ;Scheduler/../Temperature/Temperature.h: 28: TEMP_t Temperature;
 [v _Temperature `S97 ~T0 @X0 1 e ]

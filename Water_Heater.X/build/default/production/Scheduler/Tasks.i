@@ -2018,7 +2018,8 @@ void ModeManager_MainFunction(void);
 
 # 1 "Scheduler/../SSD/SSD_Cfg.h" 1
 # 11 "Scheduler/../SSD/SSD.h" 2
-# 32 "Scheduler/../SSD/SSD.h"
+# 31 "Scheduler/../SSD/SSD.h"
+extern uint8_t Counter;
 typedef enum _Enable_SSD_t
 {
  Enable_SSD_Off=0,

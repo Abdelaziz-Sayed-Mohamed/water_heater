@@ -2147,7 +2147,50 @@ void Set_EEPROM_Data(void);
 void EEPROM_Write(uint8_t Data,uint8_t Addr);
 uint8_t EEPROM_Read(uint8_t Addr);
 # 11 "WaterHeater_Mode/WaterHeater_Mode.c" 2
-# 26 "WaterHeater_Mode/WaterHeater_Mode.c"
+
+# 1 "WaterHeater_Mode/../SSD/SSD.h" 1
+# 10 "WaterHeater_Mode/../SSD/SSD.h"
+# 1 "WaterHeater_Mode/../SSD/../Config.h" 1
+
+
+
+
+
+#pragma config FOSC = HS
+#pragma config WDTE = OFF
+#pragma config PWRTE = OFF
+#pragma config BOREN = OFF
+#pragma config LVP = OFF
+#pragma config CPD = OFF
+#pragma config WRT = OFF
+#pragma config CP = OFF
+
+
+
+
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
+# 17 "WaterHeater_Mode/../SSD/../Config.h" 2
+# 10 "WaterHeater_Mode/../SSD/SSD.h" 2
+
+# 1 "WaterHeater_Mode/../SSD/SSD_Cfg.h" 1
+# 11 "WaterHeater_Mode/../SSD/SSD.h" 2
+# 31 "WaterHeater_Mode/../SSD/SSD.h"
+extern uint8_t Counter;
+typedef enum _Enable_SSD_t
+{
+ Enable_SSD_Off=0,
+ Enable_SSD_On=1,
+}Enable_SSD_t;
+
+Enable_SSD_t Enable_SSD;
+
+void SSD_Init(void);
+void SSD_MainFunction(void);
+void SSD_SelectDisplay(void);
+void SSD_SelectDigit(void);
+void SSD_Blink(uint16_t Times_Ms);
+# 12 "WaterHeater_Mode/WaterHeater_Mode.c" 2
+# 27 "WaterHeater_Mode/WaterHeater_Mode.c"
 void ModeManager_Init(void)
 {
  Mode.Select_Mode=Off_Mode;
@@ -2156,7 +2199,7 @@ void ModeManager_Init(void)
 
 
 }
-# 46 "WaterHeater_Mode/WaterHeater_Mode.c"
+# 47 "WaterHeater_Mode/WaterHeater_Mode.c"
 void ModeManager_MainFunction(void)
 {
 
@@ -2166,20 +2209,27 @@ void ModeManager_MainFunction(void)
     Mode_Setting_Timer(5000);
     if(Buttons.UpFlag &&!Buttons.DownFlag && Temperature.Set_Temp !=(75U))
      {
+
       Temperature.Set_Temp += (5U);
+          Enable_SSD=Enable_SSD_On;
+          Counter =1;
       Mode.Setting_Mode_Timer=1;
           Buttons.UpFlag=0;
+
      }
      else if(Buttons.DownFlag &&!Buttons.UpFlag&& Temperature.Set_Temp !=(35U))
      {
       Temperature.Set_Temp -= (5U);
+          Enable_SSD=Enable_SSD_On;
+          Counter =1;
       Mode.Setting_Mode_Timer=1;
           Buttons.DownFlag=0;
+
      }
    }
 
 }
-# 80 "WaterHeater_Mode/WaterHeater_Mode.c"
+# 88 "WaterHeater_Mode/WaterHeater_Mode.c"
 void Mode_Setting_Timer(uint16_t Timer_Ms)
 {
  if(Mode.Setting_Mode_Timer*500==Timer_Ms)
