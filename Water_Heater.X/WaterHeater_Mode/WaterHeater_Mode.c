@@ -9,6 +9,7 @@
 #include "../Temperature/Temperature.h"
 #include"../Buttons/Buttons.h"
 #include"../EEPROM/EEPROM.h"
+#include"../SSD/SSD.h"
 
 
 
@@ -57,14 +58,18 @@ void ModeManager_MainFunction(void)
 	  	  Temperature.Set_Temp += TEMP_STEP;  //increase the set temperature by 5 degrees
 	  	  Reset_Setting_Timer;                //reset the setting time counter
           Reset_UpButton_Flag;                //Reset_DownButton_Flag 
-          
+          Reset_DownButton_Flag;
+          Enable_SSD=Enable_SSD_On;          //Enable SSD once SET_TEMP changed
+               ResetSSDCounter;                   // Reset SSD counter
 	    }
 	    else if(Buttons.DownFlag &&!Buttons.UpFlag&& Temperature.Set_Temp !=MIN_SET_TEMP) //Check the down button pressed and up button not pressed and setting limit time not expired
 	    {
 	  	  Temperature.Set_Temp -= TEMP_STEP; //decrease the set temperature by 5 degrees
 	  	  Reset_Setting_Timer;               //reset the setting time counter
           Reset_DownButton_Flag;             //Reset_DownButton_Flag 
-          
+          Reset_UpButton_Flag;
+          Enable_SSD=Enable_SSD_On;          //Enable SSD once SET_TEMP changed
+               ResetSSDCounter;                   // Reset SSD counter
           
 	    }
    }

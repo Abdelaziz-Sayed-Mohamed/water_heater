@@ -5,16 +5,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 [n S95 _BUTTONS_T UpFlag DownFlag ]
 "28 Buttons/../WaterHeater_Mode/WaterHeater_Mode.h
 [; ;Buttons/../WaterHeater_Mode/WaterHeater_Mode.h: 28: MODE_t Mode;
-[c E887 0 1 2 .. ]
-[n E887 _Select_Mode_t Off_Mode Normal_Mode Setting_Mode  ]
+[c E888 0 1 2 .. ]
+[n E888 _Select_Mode_t Off_Mode Normal_Mode Setting_Mode  ]
 "23
 [; ;Buttons/../WaterHeater_Mode/WaterHeater_Mode.h: 23: {
-[s S96 `E887 1 `uc 1 ]
+[s S96 `E888 1 `uc 1 ]
 [n S96 _MODE_t Select_Mode Setting_Mode_Timer ]
 "38 Buttons/../SSD/SSD.h
 [; ;Buttons/../SSD/SSD.h: 38: Enable_SSD_t Enable_SSD;
-[c E902 0 1 .. ]
-[n E902 _Enable_SSD_t Enable_SSD_Off Enable_SSD_On  ]
+[c E903 0 1 .. ]
+[n E903 _Enable_SSD_t Enable_SSD_Off Enable_SSD_On  ]
 "460 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 460:     struct {
 [s S18 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -275,7 +275,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [p x CP = OFF ]
 "38 Buttons/../SSD/SSD.h
 [; ;Buttons/../SSD/SSD.h: 38: Enable_SSD_t Enable_SSD;
-[v _Enable_SSD `E902 ~T0 @X0 1 e ]
+[v _Enable_SSD `E903 ~T0 @X0 1 e ]
 "23 Buttons/Buttons.c
 [; ;Buttons/Buttons.c: 23: void On_Off_Init(void)
 [v _On_Off_Init `(v ~T0 @X0 1 ef ]
@@ -307,13 +307,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "45
 [; ;Buttons/Buttons.c: 45:  if((Mode.Select_Mode==Setting_Mode) || (Mode.Select_Mode==Normal_Mode))
-[e $ ! || == -> . _Mode 0 `ui -> . `E887 2 `ui == -> . _Mode 0 `ui -> . `E887 1 `ui 99  ]
+[e $ ! || == -> . _Mode 0 `ui -> . `E888 2 `ui == -> . _Mode 0 `ui -> . `E888 1 `ui 99  ]
 "46
 [; ;Buttons/Buttons.c: 46:  {
 {
 "48
 [; ;Buttons/Buttons.c: 48:   Mode.Select_Mode=Off_Mode;
-[e = . _Mode 0 . `E887 0 ]
+[e = . _Mode 0 . `E888 0 ]
 "50
 [; ;Buttons/Buttons.c: 50:  }
 }
@@ -321,13 +321,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 "51
 [; ;Buttons/Buttons.c: 51:  else if (Mode.Select_Mode==Off_Mode)
 [e :U 99 ]
-[e $ ! == -> . _Mode 0 `ui -> . `E887 0 `ui 101  ]
+[e $ ! == -> . _Mode 0 `ui -> . `E888 0 `ui 101  ]
 "52
 [; ;Buttons/Buttons.c: 52:  {
 {
 "54
 [; ;Buttons/Buttons.c: 54:   Mode.Select_Mode=Normal_Mode;
-[e = . _Mode 0 . `E887 1 ]
+[e = . _Mode 0 . `E888 1 ]
 "56
 [; ;Buttons/Buttons.c: 56:  }
 }
@@ -353,13 +353,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "78
 [; ;Buttons/Buttons.c: 78:      if(Mode.Select_Mode==Normal_Mode)
-[e $ ! == -> . _Mode 0 `ui -> . `E887 1 `ui 104  ]
+[e $ ! == -> . _Mode 0 `ui -> . `E888 1 `ui 104  ]
 "79
 [; ;Buttons/Buttons.c: 79:         {
 {
 "80
 [; ;Buttons/Buttons.c: 80:          Mode.Select_Mode=Setting_Mode;
-[e = . _Mode 0 . `E887 2 ]
+[e = . _Mode 0 . `E888 2 ]
 "81
 [; ;Buttons/Buttons.c: 81:         }
 }
@@ -367,7 +367,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "82
 [; ;Buttons/Buttons.c: 82:         else if(Mode.Select_Mode==Setting_Mode)
 [e :U 104 ]
-[e $ ! == -> . _Mode 0 `ui -> . `E887 2 `ui 106  ]
+[e $ ! == -> . _Mode 0 `ui -> . `E888 2 `ui 106  ]
 "83
 [; ;Buttons/Buttons.c: 83:         {
 {
@@ -385,7 +385,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . _Buttons 1 -> -> 0 `i `uc ]
 "88
 [; ;Buttons/Buttons.c: 88:                 Enable_SSD=Enable_SSD_On;
-[e = _Enable_SSD . `E902 1 ]
+[e = _Enable_SSD . `E903 1 ]
 "89
 [; ;Buttons/Buttons.c: 89:                 Counter =1;
 [e = _Counter -> -> 1 `i `uc ]
@@ -406,27 +406,173 @@ Version 4.0 HI-TECH Software Intermediate Code
 "94
 [; ;Buttons/Buttons.c: 94:                Buttons.UpFlag=0;
 [e = . _Buttons 0 -> -> 0 `i `uc ]
-"95
-[; ;Buttons/Buttons.c: 95:                Enable_SSD=Enable_SSD_On;
-[e = _Enable_SSD . `E902 1 ]
 "96
-[; ;Buttons/Buttons.c: 96:                Counter =1;
-[e = _Counter -> -> 1 `i `uc ]
-"97
-[; ;Buttons/Buttons.c: 97:             }
+[; ;Buttons/Buttons.c: 96:             }
 }
 [e :U 109 ]
 [e :U 108 ]
-"98
-[; ;Buttons/Buttons.c: 98:         }
+"97
+[; ;Buttons/Buttons.c: 97:         }
 }
 [e :U 106 ]
 [e :U 105 ]
-"99
-[; ;Buttons/Buttons.c: 99:     }
+"98
+[; ;Buttons/Buttons.c: 98:     }
 }
 [e :U 103 ]
-"100
-[; ;Buttons/Buttons.c: 100: }
+"99
+[; ;Buttons/Buttons.c: 99: }
 [e :UE 102 ]
+}
+"100
+[; ;Buttons/Buttons.c: 100: void Debouncer(void)
+[v _Debouncer `(v ~T0 @X0 1 ef ]
+"101
+[; ;Buttons/Buttons.c: 101: {
+{
+[e :U _Debouncer ]
+[f ]
+"102
+[; ;Buttons/Buttons.c: 102:     static uint8_t Depounce_Up[3];
+[v F918 `uc ~T0 @X0 -> 3 `i s Depounce_Up ]
+"103
+[; ;Buttons/Buttons.c: 103:     static uint8_t Depounce_Down[3];
+[v F919 `uc ~T0 @X0 -> 3 `i s Depounce_Down ]
+"104
+[; ;Buttons/Buttons.c: 104:     static uint8_t Counter_Up=0;
+[v F920 `uc ~T0 @X0 1 s Counter_Up ]
+[i F920
+-> -> 0 `i `uc
+]
+"105
+[; ;Buttons/Buttons.c: 105:     static uint8_t Counter_Down=0;
+[v F921 `uc ~T0 @X0 1 s Counter_Down ]
+[i F921
+-> -> 0 `i `uc
+]
+"107
+[; ;Buttons/Buttons.c: 107:     Depounce_Down[Counter_Up]=((PORTB>>1)&1);
+[e = *U + &U F919 * -> F920 `ux -> -> # *U &U F919 `ui `ux -> & >> -> _PORTB `i -> 1 `i -> 1 `i `uc ]
+"108
+[; ;Buttons/Buttons.c: 108:     Depounce_Up[Counter_Up]=((PORTB>>2)&1);
+[e = *U + &U F918 * -> F920 `ux -> -> # *U &U F918 `ui `ux -> & >> -> _PORTB `i -> 2 `i -> 1 `i `uc ]
+"109
+[; ;Buttons/Buttons.c: 109:     Counter_Up++;
+[e ++ F920 -> -> 1 `i `uc ]
+"110
+[; ;Buttons/Buttons.c: 110:     if(Counter_Up==3)
+[e $ ! == -> F920 `i -> 3 `i 111  ]
+"111
+[; ;Buttons/Buttons.c: 111:     {
+{
+"112
+[; ;Buttons/Buttons.c: 112:         if(Depounce_Up[0]==0 && Depounce_Up[1]==0 &&Depounce_Up[2]==0)
+[e $ ! && && == -> *U + &U F918 * -> -> -> 0 `i `ui `ux -> -> # *U &U F918 `ui `ux `i -> 0 `i == -> *U + &U F918 * -> -> -> 1 `i `ui `ux -> -> # *U &U F918 `ui `ux `i -> 0 `i == -> *U + &U F918 * -> -> -> 2 `i `ui `ux -> -> # *U &U F918 `ui `ux `i -> 0 `i 112  ]
+"114
+[; ;Buttons/Buttons.c: 114:         {
+{
+"115
+[; ;Buttons/Buttons.c: 115:            if(Mode.Select_Mode==Setting_Mode)
+[e $ ! == -> . _Mode 0 `ui -> . `E888 2 `ui 113  ]
+"116
+[; ;Buttons/Buttons.c: 116:            {
+{
+"117
+[; ;Buttons/Buttons.c: 117:             Buttons.UpFlag=Buttons.UpFlag=1;
+[e = . _Buttons 0 = . _Buttons 0 -> -> 1 `i `uc ]
+"118
+[; ;Buttons/Buttons.c: 118:             Depounce_Up[0]=1;
+[e = *U + &U F918 * -> -> -> 0 `i `ui `ux -> -> # *U &U F918 `ui `ux -> -> 1 `i `uc ]
+"119
+[; ;Buttons/Buttons.c: 119:             Depounce_Up[1]=1;
+[e = *U + &U F918 * -> -> -> 1 `i `ui `ux -> -> # *U &U F918 `ui `ux -> -> 1 `i `uc ]
+"120
+[; ;Buttons/Buttons.c: 120:             Depounce_Up[2]=1;
+[e = *U + &U F918 * -> -> -> 2 `i `ui `ux -> -> # *U &U F918 `ui `ux -> -> 1 `i `uc ]
+"122
+[; ;Buttons/Buttons.c: 122:             Buttons.DownFlag=0;
+[e = . _Buttons 1 -> -> 0 `i `uc ]
+"123
+[; ;Buttons/Buttons.c: 123:            }
+}
+[e $U 114  ]
+"124
+[; ;Buttons/Buttons.c: 124:            else if (Mode.Select_Mode==Normal_Mode)
+[e :U 113 ]
+[e $ ! == -> . _Mode 0 `ui -> . `E888 1 `ui 115  ]
+"125
+[; ;Buttons/Buttons.c: 125:            {
+{
+"126
+[; ;Buttons/Buttons.c: 126:              Mode.Select_Mode=Setting_Mode;
+[e = . _Mode 0 . `E888 2 ]
+"127
+[; ;Buttons/Buttons.c: 127:            }
+}
+[e :U 115 ]
+[e :U 114 ]
+"129
+[; ;Buttons/Buttons.c: 129:         }
+}
+[e :U 112 ]
+"130
+[; ;Buttons/Buttons.c: 130:        if(Depounce_Down[0]==0 && Depounce_Down[1]==0 &&Depounce_Down[2]==0)
+[e $ ! && && == -> *U + &U F919 * -> -> -> 0 `i `ui `ux -> -> # *U &U F919 `ui `ux `i -> 0 `i == -> *U + &U F919 * -> -> -> 1 `i `ui `ux -> -> # *U &U F919 `ui `ux `i -> 0 `i == -> *U + &U F919 * -> -> -> 2 `i `ui `ux -> -> # *U &U F919 `ui `ux `i -> 0 `i 116  ]
+"131
+[; ;Buttons/Buttons.c: 131:        {
+{
+"133
+[; ;Buttons/Buttons.c: 133:            if(Mode.Select_Mode==Setting_Mode)
+[e $ ! == -> . _Mode 0 `ui -> . `E888 2 `ui 117  ]
+"134
+[; ;Buttons/Buttons.c: 134:            {
+{
+"135
+[; ;Buttons/Buttons.c: 135:             Buttons.DownFlag=Buttons.DownFlag=1;
+[e = . _Buttons 1 = . _Buttons 1 -> -> 1 `i `uc ]
+"136
+[; ;Buttons/Buttons.c: 136:             Depounce_Down[0]=1;
+[e = *U + &U F919 * -> -> -> 0 `i `ui `ux -> -> # *U &U F919 `ui `ux -> -> 1 `i `uc ]
+"137
+[; ;Buttons/Buttons.c: 137:             Depounce_Down[1]=1;
+[e = *U + &U F919 * -> -> -> 1 `i `ui `ux -> -> # *U &U F919 `ui `ux -> -> 1 `i `uc ]
+"138
+[; ;Buttons/Buttons.c: 138:             Depounce_Down[2]=1;
+[e = *U + &U F919 * -> -> -> 2 `i `ui `ux -> -> # *U &U F919 `ui `ux -> -> 1 `i `uc ]
+"140
+[; ;Buttons/Buttons.c: 140:             Buttons.UpFlag=0;
+[e = . _Buttons 0 -> -> 0 `i `uc ]
+"141
+[; ;Buttons/Buttons.c: 141:            }
+}
+[e $U 118  ]
+"142
+[; ;Buttons/Buttons.c: 142:            else if (Mode.Select_Mode==Normal_Mode)
+[e :U 117 ]
+[e $ ! == -> . _Mode 0 `ui -> . `E888 1 `ui 119  ]
+"143
+[; ;Buttons/Buttons.c: 143:            {
+{
+"144
+[; ;Buttons/Buttons.c: 144:              Mode.Select_Mode=Setting_Mode;
+[e = . _Mode 0 . `E888 2 ]
+"145
+[; ;Buttons/Buttons.c: 145:            }
+}
+[e :U 119 ]
+[e :U 118 ]
+"146
+[; ;Buttons/Buttons.c: 146:         }
+}
+[e :U 116 ]
+"147
+[; ;Buttons/Buttons.c: 147:         Counter_Up=0;
+[e = F920 -> -> 0 `i `uc ]
+"148
+[; ;Buttons/Buttons.c: 148:     }
+}
+[e :U 111 ]
+"154
+[; ;Buttons/Buttons.c: 154: }
+[e :UE 110 ]
 }

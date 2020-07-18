@@ -2215,6 +2215,7 @@ _BUTTONS_t Buttons;
 
 
 
+void Debouncer(void);
 void Buttons_MainFunction(void);
 void On_Off_Init(void);
 void EXTI_On_Off_CallBack(void);
@@ -2225,13 +2226,15 @@ void EXTI_On_Off_CallBack(void);
 
 void Scheduler_Task1(void)
 {
+    Debouncer();
  SSD_MainFunction();
+
 }
 
 
 void Scheduler_Task2(void)
 {
-    Buttons_MainFunction();
+
  Temperature_MainFunction();
  Elements_MainFunction();
 }

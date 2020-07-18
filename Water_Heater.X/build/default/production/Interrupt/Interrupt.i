@@ -2095,6 +2095,7 @@ _BUTTONS_t Buttons;
 
 
 
+void Debouncer(void);
 void Buttons_MainFunction(void);
 void On_Off_Init(void);
 void EXTI_On_Off_CallBack(void);

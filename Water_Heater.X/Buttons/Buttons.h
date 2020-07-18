@@ -29,6 +29,7 @@ _BUTTONS_t Buttons;
 #define Set_DownButton_Flag    Buttons.DownFlag=1
 #define Reset_UpButton_Flag    Buttons.UpFlag=0
 #define Reset_DownButton_Flag  Buttons.DownFlag=0
+void Debouncer(void);
 void Buttons_MainFunction(void);
 void On_Off_Init(void);
 void EXTI_On_Off_CallBack(void);

@@ -92,9 +92,63 @@ void Buttons_MainFunction(void)
             {
                Buttons.DownFlag=Set_DownButton_Flag;
                Reset_UpButton_Flag;
-               Enable_SSD=Enable_SSD_On;          //Enable SSD once SET_TEMP changed
-               ResetSSDCounter;                   // Reset SSD counter
+               
             }    
         }                
     }
+}
+void Debouncer(void)
+{
+    static uint8_t Depounce_Up[3];
+    static uint8_t Depounce_Down[3];
+    static uint8_t Counter_Up=0;
+    static uint8_t Counter_Down=0;
+    
+    Depounce_Down[Counter_Up]=READ_PIN(DOWN_BUTTON_PORT,DOWN_BUTTON_PIN);
+    Depounce_Up[Counter_Up]=READ_PIN(UP_BUTTON_PORT,UP_BUTTON_PIN);
+    Counter_Up++;
+    if(Counter_Up==3)        
+    {
+        if(Depounce_Up[0]==Button_Pressed && Depounce_Up[1]==Button_Pressed &&Depounce_Up[2]==Button_Pressed)
+                
+        {
+           if(Mode.Select_Mode==Setting_Mode)
+           {
+            Buttons.UpFlag=Set_UpButton_Flag;
+            Depounce_Up[0]=Button_NotPressed;
+            Depounce_Up[1]=Button_NotPressed;
+            Depounce_Up[2]=Button_NotPressed;
+          
+            Reset_DownButton_Flag;
+           }
+           else if (Mode.Select_Mode==Normal_Mode)
+           {
+             Mode.Select_Mode=Setting_Mode;
+           }    
+           
+        }
+       if(Depounce_Down[0]==Button_Pressed && Depounce_Down[1]==Button_Pressed &&Depounce_Down[2]==Button_Pressed)
+       {        
+        
+           if(Mode.Select_Mode==Setting_Mode)
+           {
+            Buttons.DownFlag=Set_DownButton_Flag;
+            Depounce_Down[0]=Button_NotPressed;
+            Depounce_Down[1]=Button_NotPressed;
+            Depounce_Down[2]=Button_NotPressed;
+      
+            Reset_UpButton_Flag;
+           }
+           else if (Mode.Select_Mode==Normal_Mode)
+           {
+             Mode.Select_Mode=Setting_Mode;
+           }    
+        }
+        Counter_Up=0;
+    }   
+    
+    
+    
+  
+ 
 }

@@ -1932,6 +1932,7 @@ _BUTTONS_t Buttons;
 
 
 
+void Debouncer(void);
 void Buttons_MainFunction(void);
 void On_Off_Init(void);
 void EXTI_On_Off_CallBack(void);
@@ -2069,9 +2070,63 @@ void Buttons_MainFunction(void)
             {
                Buttons.DownFlag=Buttons.DownFlag=1;
                Buttons.UpFlag=0;
-               Enable_SSD=Enable_SSD_On;
-               Counter =1;
+
             }
         }
     }
+}
+void Debouncer(void)
+{
+    static uint8_t Depounce_Up[3];
+    static uint8_t Depounce_Down[3];
+    static uint8_t Counter_Up=0;
+    static uint8_t Counter_Down=0;
+
+    Depounce_Down[Counter_Up]=((PORTB>>1)&1);
+    Depounce_Up[Counter_Up]=((PORTB>>2)&1);
+    Counter_Up++;
+    if(Counter_Up==3)
+    {
+        if(Depounce_Up[0]==0 && Depounce_Up[1]==0 &&Depounce_Up[2]==0)
+
+        {
+           if(Mode.Select_Mode==Setting_Mode)
+           {
+            Buttons.UpFlag=Buttons.UpFlag=1;
+            Depounce_Up[0]=1;
+            Depounce_Up[1]=1;
+            Depounce_Up[2]=1;
+
+            Buttons.DownFlag=0;
+           }
+           else if (Mode.Select_Mode==Normal_Mode)
+           {
+             Mode.Select_Mode=Setting_Mode;
+           }
+
+        }
+       if(Depounce_Down[0]==0 && Depounce_Down[1]==0 &&Depounce_Down[2]==0)
+       {
+
+           if(Mode.Select_Mode==Setting_Mode)
+           {
+            Buttons.DownFlag=Buttons.DownFlag=1;
+            Depounce_Down[0]=1;
+            Depounce_Down[1]=1;
+            Depounce_Down[2]=1;
+
+            Buttons.UpFlag=0;
+           }
+           else if (Mode.Select_Mode==Normal_Mode)
+           {
+             Mode.Select_Mode=Setting_Mode;
+           }
+        }
+        Counter_Up=0;
+    }
+
+
+
+
+
 }
