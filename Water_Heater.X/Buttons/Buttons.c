@@ -8,7 +8,7 @@
 #include "Buttons.h"
 #include"../WaterHeater_Mode/WaterHeater_Mode.h"
 #include"stdbool.h"
-
+#include"../SSD/SSD.h"
 
 /****************************************************************************************/
 /*    Function Name           : On_Off_Init          			                        */
@@ -85,11 +85,15 @@ void Buttons_MainFunction(void)
             {
                 Buttons.UpFlag=Set_UpButton_Flag;
                 Reset_DownButton_Flag;
+                Enable_SSD=Enable_SSD_On;          //Enable SSD once SET_TEMP changed
+                ResetSSDCounter;                   // Reset SSD counter
             }
             else if(READ_PIN(DOWN_BUTTON_PORT,DOWN_BUTTON_PIN)==Button_Pressed)
             {
                Buttons.DownFlag=Set_DownButton_Flag;
                Reset_UpButton_Flag;
+               Enable_SSD=Enable_SSD_On;          //Enable SSD once SET_TEMP changed
+               ResetSSDCounter;                   // Reset SSD counter
             }    
         }                
     }

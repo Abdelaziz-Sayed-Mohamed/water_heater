@@ -1979,6 +1979,49 @@ void ModeManager_MainFunction(void);
 
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdbool.h" 1 3
 # 10 "Buttons/Buttons.c" 2
+
+# 1 "Buttons/../SSD/SSD.h" 1
+# 10 "Buttons/../SSD/SSD.h"
+# 1 "Buttons/../SSD/../Config.h" 1
+
+
+
+
+
+#pragma config FOSC = HS
+#pragma config WDTE = OFF
+#pragma config PWRTE = OFF
+#pragma config BOREN = OFF
+#pragma config LVP = OFF
+#pragma config CPD = OFF
+#pragma config WRT = OFF
+#pragma config CP = OFF
+
+
+
+
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
+# 17 "Buttons/../SSD/../Config.h" 2
+# 10 "Buttons/../SSD/SSD.h" 2
+
+# 1 "Buttons/../SSD/SSD_Cfg.h" 1
+# 11 "Buttons/../SSD/SSD.h" 2
+# 31 "Buttons/../SSD/SSD.h"
+extern uint8_t Counter;
+typedef enum _Enable_SSD_t
+{
+ Enable_SSD_Off=0,
+ Enable_SSD_On=1,
+}Enable_SSD_t;
+
+Enable_SSD_t Enable_SSD;
+
+void SSD_Init(void);
+void SSD_MainFunction(void);
+void SSD_SelectDisplay(void);
+void SSD_SelectDigit(void);
+void SSD_Blink(uint16_t Times_Ms);
+# 11 "Buttons/Buttons.c" 2
 # 23 "Buttons/Buttons.c"
 void On_Off_Init(void)
 {
@@ -2019,11 +2062,15 @@ void Buttons_MainFunction(void)
             {
                 Buttons.UpFlag=Buttons.UpFlag=1;
                 Buttons.DownFlag=0;
+                Enable_SSD=Enable_SSD_On;
+                Counter =1;
             }
             else if(((PORTB>>1)&1)==0)
             {
                Buttons.DownFlag=Buttons.DownFlag=1;
                Buttons.UpFlag=0;
+               Enable_SSD=Enable_SSD_On;
+               Counter =1;
             }
         }
     }

@@ -11,6 +11,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;Buttons/../WaterHeater_Mode/WaterHeater_Mode.h: 23: {
 [s S96 `E887 1 `uc 1 ]
 [n S96 _MODE_t Select_Mode Setting_Mode_Timer ]
+"38 Buttons/../SSD/SSD.h
+[; ;Buttons/../SSD/SSD.h: 38: Enable_SSD_t Enable_SSD;
+[c E902 0 1 .. ]
+[n E902 _Enable_SSD_t Enable_SSD_Off Enable_SSD_On  ]
 "460 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 460:     struct {
 [s S18 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -32,7 +36,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "216
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 216: extern volatile unsigned char PORTB __attribute__((address(0x006)));
 [v _PORTB `Vuc ~T0 @X0 0 e@6 ]
-"6 Buttons/../gpio/../Config.h
+"31 Buttons/../SSD/SSD.h
+[; ;Buttons/../SSD/SSD.h: 31: extern uint8_t Counter;
+[v _Counter `uc ~T0 @X0 0 e ]
+"6 Buttons/../SSD/../Config.h
 [p x FOSC = HS ]
 "7
 [p x WDTE = OFF ]
@@ -228,7 +235,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2363
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2363: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
-"6 Buttons/../gpio/../Config.h
+"6 Buttons/../SSD/../Config.h
 [p x FOSC = HS ]
 "7
 [p x WDTE = OFF ]
@@ -250,6 +257,25 @@ Version 4.0 HI-TECH Software Intermediate Code
 "28 Buttons/../WaterHeater_Mode/WaterHeater_Mode.h
 [; ;Buttons/../WaterHeater_Mode/WaterHeater_Mode.h: 28: MODE_t Mode;
 [v _Mode `S96 ~T0 @X0 1 e ]
+"6 Buttons/../SSD/../Config.h
+[p x FOSC = HS ]
+"7
+[p x WDTE = OFF ]
+"8
+[p x PWRTE = OFF ]
+"9
+[p x BOREN = OFF ]
+"10
+[p x LVP = OFF ]
+"11
+[p x CPD = OFF ]
+"12
+[p x WRT = OFF ]
+"13
+[p x CP = OFF ]
+"38 Buttons/../SSD/SSD.h
+[; ;Buttons/../SSD/SSD.h: 38: Enable_SSD_t Enable_SSD;
+[v _Enable_SSD `E902 ~T0 @X0 1 e ]
 "23 Buttons/Buttons.c
 [; ;Buttons/Buttons.c: 23: void On_Off_Init(void)
 [v _On_Off_Init `(v ~T0 @X0 1 ef ]
@@ -358,37 +384,49 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;Buttons/Buttons.c: 87:                 Buttons.DownFlag=0;
 [e = . _Buttons 1 -> -> 0 `i `uc ]
 "88
-[; ;Buttons/Buttons.c: 88:             }
+[; ;Buttons/Buttons.c: 88:                 Enable_SSD=Enable_SSD_On;
+[e = _Enable_SSD . `E902 1 ]
+"89
+[; ;Buttons/Buttons.c: 89:                 Counter =1;
+[e = _Counter -> -> 1 `i `uc ]
+"90
+[; ;Buttons/Buttons.c: 90:             }
 }
 [e $U 108  ]
-"89
-[; ;Buttons/Buttons.c: 89:             else if(((PORTB>>1)&1)==0)
+"91
+[; ;Buttons/Buttons.c: 91:             else if(((PORTB>>1)&1)==0)
 [e :U 107 ]
 [e $ ! == & >> -> _PORTB `i -> 1 `i -> 1 `i -> 0 `i 109  ]
-"90
-[; ;Buttons/Buttons.c: 90:             {
-{
-"91
-[; ;Buttons/Buttons.c: 91:                Buttons.DownFlag=Buttons.DownFlag=1;
-[e = . _Buttons 1 = . _Buttons 1 -> -> 1 `i `uc ]
 "92
-[; ;Buttons/Buttons.c: 92:                Buttons.UpFlag=0;
-[e = . _Buttons 0 -> -> 0 `i `uc ]
+[; ;Buttons/Buttons.c: 92:             {
+{
 "93
-[; ;Buttons/Buttons.c: 93:             }
+[; ;Buttons/Buttons.c: 93:                Buttons.DownFlag=Buttons.DownFlag=1;
+[e = . _Buttons 1 = . _Buttons 1 -> -> 1 `i `uc ]
+"94
+[; ;Buttons/Buttons.c: 94:                Buttons.UpFlag=0;
+[e = . _Buttons 0 -> -> 0 `i `uc ]
+"95
+[; ;Buttons/Buttons.c: 95:                Enable_SSD=Enable_SSD_On;
+[e = _Enable_SSD . `E902 1 ]
+"96
+[; ;Buttons/Buttons.c: 96:                Counter =1;
+[e = _Counter -> -> 1 `i `uc ]
+"97
+[; ;Buttons/Buttons.c: 97:             }
 }
 [e :U 109 ]
 [e :U 108 ]
-"94
-[; ;Buttons/Buttons.c: 94:         }
+"98
+[; ;Buttons/Buttons.c: 98:         }
 }
 [e :U 106 ]
 [e :U 105 ]
-"95
-[; ;Buttons/Buttons.c: 95:     }
+"99
+[; ;Buttons/Buttons.c: 99:     }
 }
 [e :U 103 ]
-"96
-[; ;Buttons/Buttons.c: 96: }
+"100
+[; ;Buttons/Buttons.c: 100: }
 [e :UE 102 ]
 }

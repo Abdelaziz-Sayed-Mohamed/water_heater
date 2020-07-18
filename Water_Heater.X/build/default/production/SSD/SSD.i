@@ -2124,7 +2124,7 @@ void SSD_Blink(uint16_t Times_Ms)
   }
   Counter++;
 }
-# 140 "SSD/SSD.c"
+# 141 "SSD/SSD.c"
 void SSD_SelectDisplay(void)
 {
 
@@ -2146,7 +2146,7 @@ void SSD_SelectDisplay(void)
 
   }
 }
-# 173 "SSD/SSD.c"
+# 174 "SSD/SSD.c"
 void SSD_SelectDigit(void)
 {
     static uint8_t Enable_Digit_Selector=1;

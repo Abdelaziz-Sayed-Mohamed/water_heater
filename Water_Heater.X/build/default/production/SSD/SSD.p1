@@ -515,179 +515,179 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;SSD/SSD.c: 128: }
 [e :UE 113 ]
 }
-"140
-[; ;SSD/SSD.c: 140: void SSD_SelectDisplay(void)
-[v _SSD_SelectDisplay `(v ~T0 @X0 1 ef ]
 "141
-[; ;SSD/SSD.c: 141: {
+[; ;SSD/SSD.c: 141: void SSD_SelectDisplay(void)
+[v _SSD_SelectDisplay `(v ~T0 @X0 1 ef ]
+"142
+[; ;SSD/SSD.c: 142: {
 {
 [e :U _SSD_SelectDisplay ]
 [f ]
-"144
-[; ;SSD/SSD.c: 144:   if(Mode.Select_Mode==Normal_Mode)
-[e $ ! == -> . _Mode 0 `ui -> . `E891 1 `ui 119  ]
 "145
-[; ;SSD/SSD.c: 145:   {
-{
+[; ;SSD/SSD.c: 145:   if(Mode.Select_Mode==Normal_Mode)
+[e $ ! == -> . _Mode 0 `ui -> . `E891 1 `ui 119  ]
 "146
-[; ;SSD/SSD.c: 146:    Tempreture=Temperature.Temp_Value;
-[e = _Tempreture . _Temperature 0 ]
+[; ;SSD/SSD.c: 146:   {
+{
 "147
-[; ;SSD/SSD.c: 147:    Enable_SSD=Enable_SSD_On;
-[e = _Enable_SSD . `E880 1 ]
+[; ;SSD/SSD.c: 147:    Tempreture=Temperature.Temp_Value;
+[e = _Tempreture . _Temperature 0 ]
 "148
-[; ;SSD/SSD.c: 148:   }
+[; ;SSD/SSD.c: 148:    Enable_SSD=Enable_SSD_On;
+[e = _Enable_SSD . `E880 1 ]
+"149
+[; ;SSD/SSD.c: 149:   }
 }
 [e $U 120  ]
-"149
-[; ;SSD/SSD.c: 149:   else if(Mode.Select_Mode==Setting_Mode)
+"150
+[; ;SSD/SSD.c: 150:   else if(Mode.Select_Mode==Setting_Mode)
 [e :U 119 ]
 [e $ ! == -> . _Mode 0 `ui -> . `E891 2 `ui 121  ]
-"150
-[; ;SSD/SSD.c: 150:   {
-{
 "151
-[; ;SSD/SSD.c: 151:    Tempreture=Temperature.Set_Temp;
-[e = _Tempreture . _Temperature 3 ]
+[; ;SSD/SSD.c: 151:   {
+{
 "152
-[; ;SSD/SSD.c: 152:       SSD_Blink(1000);
-[e ( _SSD_Blink (1 -> -> 1000 `i `ui ]
+[; ;SSD/SSD.c: 152:    Tempreture=Temperature.Set_Temp;
+[e = _Tempreture . _Temperature 3 ]
 "153
-[; ;SSD/SSD.c: 153:   }
+[; ;SSD/SSD.c: 153:       SSD_Blink(1000);
+[e ( _SSD_Blink (1 -> -> 1000 `i `ui ]
+"154
+[; ;SSD/SSD.c: 154:   }
 }
 [e $U 122  ]
-"154
-[; ;SSD/SSD.c: 154:   else if(Mode.Select_Mode==Off_Mode)
+"155
+[; ;SSD/SSD.c: 155:   else if(Mode.Select_Mode==Off_Mode)
 [e :U 121 ]
 [e $ ! == -> . _Mode 0 `ui -> . `E891 0 `ui 123  ]
-"155
-[; ;SSD/SSD.c: 155:   {
-{
 "156
-[; ;SSD/SSD.c: 156:   (PORTA &= ~(1<<5)) ;
-[e =& _PORTA -> ~ << -> 1 `i -> 5 `i `Vuc ]
+[; ;SSD/SSD.c: 156:   {
+{
 "157
-[; ;SSD/SSD.c: 157:   (PORTA &= ~(1<<4)) ;
+[; ;SSD/SSD.c: 157:   (PORTA &= ~(1<<5)) ;
+[e =& _PORTA -> ~ << -> 1 `i -> 5 `i `Vuc ]
+"158
+[; ;SSD/SSD.c: 158:   (PORTA &= ~(1<<4)) ;
 [e =& _PORTA -> ~ << -> 1 `i -> 4 `i `Vuc ]
-"159
-[; ;SSD/SSD.c: 159:   }
+"160
+[; ;SSD/SSD.c: 160:   }
 }
 [e :U 123 ]
 [e :U 122 ]
 [e :U 120 ]
-"160
-[; ;SSD/SSD.c: 160: }
+"161
+[; ;SSD/SSD.c: 161: }
 [e :UE 118 ]
 }
-"173
-[; ;SSD/SSD.c: 173: void SSD_SelectDigit(void)
-[v _SSD_SelectDigit `(v ~T0 @X0 1 ef ]
 "174
-[; ;SSD/SSD.c: 174: {
+[; ;SSD/SSD.c: 174: void SSD_SelectDigit(void)
+[v _SSD_SelectDigit `(v ~T0 @X0 1 ef ]
+"175
+[; ;SSD/SSD.c: 175: {
 {
 [e :U _SSD_SelectDigit ]
 [f ]
-"175
-[; ;SSD/SSD.c: 175:     static uint8_t Enable_Digit_Selector=1;
+"176
+[; ;SSD/SSD.c: 176:     static uint8_t Enable_Digit_Selector=1;
 [v F936 `uc ~T0 @X0 1 s Enable_Digit_Selector ]
 [i F936
 -> -> 1 `i `uc
 ]
-"176
-[; ;SSD/SSD.c: 176:     static uint8_t Digit_1=0;
+"177
+[; ;SSD/SSD.c: 177:     static uint8_t Digit_1=0;
 [v F937 `uc ~T0 @X0 1 s Digit_1 ]
 [i F937
 -> -> 0 `i `uc
 ]
-"177
-[; ;SSD/SSD.c: 177:     static uint8_t Digit_2=0;
+"178
+[; ;SSD/SSD.c: 178:     static uint8_t Digit_2=0;
 [v F938 `uc ~T0 @X0 1 s Digit_2 ]
 [i F938
 -> -> 0 `i `uc
 ]
-"179
-[; ;SSD/SSD.c: 179:     if(Mode.Select_Mode!=Off_Mode)
-[e $ ! != -> . _Mode 0 `ui -> . `E891 0 `ui 125  ]
 "180
-[; ;SSD/SSD.c: 180:     {
-{
+[; ;SSD/SSD.c: 180:     if(Mode.Select_Mode!=Off_Mode)
+[e $ ! != -> . _Mode 0 `ui -> . `E891 0 `ui 125  ]
 "181
-[; ;SSD/SSD.c: 181:         if(Enable_SSD==Enable_SSD_On)
-[e $ ! == -> _Enable_SSD `ui -> . `E880 1 `ui 126  ]
+[; ;SSD/SSD.c: 181:     {
+{
 "182
-[; ;SSD/SSD.c: 182:      {
-{
+[; ;SSD/SSD.c: 182:         if(Enable_SSD==Enable_SSD_On)
+[e $ ! == -> _Enable_SSD `ui -> . `E880 1 `ui 126  ]
 "183
-[; ;SSD/SSD.c: 183:             Digit_1=Tempreture%10;
-[e = F937 -> % -> _Tempreture `i -> 10 `i `uc ]
-"184
-[; ;SSD/SSD.c: 184:             Digit_2=Tempreture/10;
-[e = F938 -> / -> _Tempreture `i -> 10 `i `uc ]
-"186
-[; ;SSD/SSD.c: 186:             Enable_Digit_Selector^=1;
-[e =^ F936 -> -> 1 `i `uc ]
-"188
-[; ;SSD/SSD.c: 188:             if(Enable_Digit_Selector==0)
-[e $ ! == -> F936 `i -> 0 `i 127  ]
-"189
-[; ;SSD/SSD.c: 189:             {
+[; ;SSD/SSD.c: 183:      {
 {
+"184
+[; ;SSD/SSD.c: 184:             Digit_1=Tempreture%10;
+[e = F937 -> % -> _Tempreture `i -> 10 `i `uc ]
+"185
+[; ;SSD/SSD.c: 185:             Digit_2=Tempreture/10;
+[e = F938 -> / -> _Tempreture `i -> 10 `i `uc ]
+"187
+[; ;SSD/SSD.c: 187:             Enable_Digit_Selector^=1;
+[e =^ F936 -> -> 1 `i `uc ]
+"189
+[; ;SSD/SSD.c: 189:             if(Enable_Digit_Selector==0)
+[e $ ! == -> F936 `i -> 0 `i 127  ]
 "190
-[; ;SSD/SSD.c: 190:               SSD=Digit_1;
-[e = _SSD F937 ]
+[; ;SSD/SSD.c: 190:             {
+{
 "191
-[; ;SSD/SSD.c: 191:                (PORTA &= ~(1<<4));
-[e =& _PORTA -> ~ << -> 1 `i -> 4 `i `Vuc ]
+[; ;SSD/SSD.c: 191:               SSD=Digit_1;
+[e = _SSD F937 ]
 "192
-[; ;SSD/SSD.c: 192:                (PORTA|= (1<<5)) ;
+[; ;SSD/SSD.c: 192:                (PORTA &= ~(1<<4));
+[e =& _PORTA -> ~ << -> 1 `i -> 4 `i `Vuc ]
+"193
+[; ;SSD/SSD.c: 193:                (PORTA|= (1<<5)) ;
 [e =| _PORTA -> << -> 1 `i -> 5 `i `Vuc ]
-"194
-[; ;SSD/SSD.c: 194:             }
+"195
+[; ;SSD/SSD.c: 195:             }
 }
 [e $U 128  ]
-"195
-[; ;SSD/SSD.c: 195:             else if(Enable_Digit_Selector==1)
+"196
+[; ;SSD/SSD.c: 196:             else if(Enable_Digit_Selector==1)
 [e :U 127 ]
 [e $ ! == -> F936 `i -> 1 `i 129  ]
-"196
-[; ;SSD/SSD.c: 196:             {
-{
 "197
-[; ;SSD/SSD.c: 197:               SSD=Digit_2;
-[e = _SSD F938 ]
+[; ;SSD/SSD.c: 197:             {
+{
 "198
-[; ;SSD/SSD.c: 198:               (PORTA &= ~(1<<5));
-[e =& _PORTA -> ~ << -> 1 `i -> 5 `i `Vuc ]
+[; ;SSD/SSD.c: 198:               SSD=Digit_2;
+[e = _SSD F938 ]
 "199
-[; ;SSD/SSD.c: 199:               (PORTA|= (1<<4));
+[; ;SSD/SSD.c: 199:               (PORTA &= ~(1<<5));
+[e =& _PORTA -> ~ << -> 1 `i -> 5 `i `Vuc ]
+"200
+[; ;SSD/SSD.c: 200:               (PORTA|= (1<<4));
 [e =| _PORTA -> << -> 1 `i -> 4 `i `Vuc ]
-"201
-[; ;SSD/SSD.c: 201:             }
+"202
+[; ;SSD/SSD.c: 202:             }
 }
 [e :U 129 ]
 [e :U 128 ]
-"202
-[; ;SSD/SSD.c: 202:         }
+"203
+[; ;SSD/SSD.c: 203:         }
 }
 [e :U 126 ]
-"203
-[; ;SSD/SSD.c: 203:     }
+"204
+[; ;SSD/SSD.c: 204:     }
 }
 [e $U 130  ]
-"204
-[; ;SSD/SSD.c: 204:     else
-[e :U 125 ]
 "205
-[; ;SSD/SSD.c: 205:     {
-{
+[; ;SSD/SSD.c: 205:     else
+[e :U 125 ]
 "206
-[; ;SSD/SSD.c: 206:      SSD=10;
-[e = _SSD -> -> 10 `i `uc ]
+[; ;SSD/SSD.c: 206:     {
+{
 "207
-[; ;SSD/SSD.c: 207:     }
+[; ;SSD/SSD.c: 207:      SSD=10;
+[e = _SSD -> -> 10 `i `uc ]
+"208
+[; ;SSD/SSD.c: 208:     }
 }
 [e :U 130 ]
-"208
-[; ;SSD/SSD.c: 208: }
+"209
+[; ;SSD/SSD.c: 209: }
 [e :UE 124 ]
 }

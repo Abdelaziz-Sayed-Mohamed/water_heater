@@ -15,7 +15,4 @@ WaterHeater_Mode/../EEPROM/EEPROM.h  \
 WaterHeater_Mode/../EEPROM/../Config.h  \
 WaterHeater_Mode/../EEPROM/../I2C/I2C.h  \
 WaterHeater_Mode/../EEPROM/../I2C/../Config.h  \
-WaterHeater_Mode/../EEPROM/EEPROM_Cfg.h  \
-WaterHeater_Mode/../SSD/SSD.h  \
-WaterHeater_Mode/../SSD/../Config.h  \
-WaterHeater_Mode/../SSD/SSD_Cfg.h 
+WaterHeater_Mode/../EEPROM/EEPROM_Cfg.h 
