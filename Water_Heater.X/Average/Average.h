@@ -11,6 +11,6 @@
 #include "Average_Cfg.h"
 #include "stdint.h"
 
-void Average_Value(uint8_t Value,uint8_t *Avrage_Values);
+void Average_Value(uint16_t Value,uint16_t *Avrage_Values);
 
 #endif /*AVERAGE_H_ */

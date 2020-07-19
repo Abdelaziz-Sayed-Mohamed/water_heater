@@ -30,6 +30,6 @@ ADC_t ADC_Info;
 void ADC_Init(void);
 void ADC_Start_Conv(void);
 void ADC_Value_Ready_CallBack(void);
-void ADC_Get_Value(uint8_t *Buffer);
+void ADC_Get_Value(uint16_t *Buffer);
 
 #endif /* ADC_H_ */

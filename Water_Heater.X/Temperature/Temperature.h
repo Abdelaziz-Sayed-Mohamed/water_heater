@@ -16,9 +16,9 @@
 
 typedef struct _TEMP_t
 {
-	uint8_t Temp_Value;
-	uint8_t Average_Value;
-    uint8_t ADC_Value;
+	uint16_t Temp_Value;
+	uint16_t Average_Value;
+    uint16_t ADC_Value;
 	uint8_t Set_Temp;
 	uint8_t Average_Value_Ready_Flag  :1;
     uint8_t Store_Set_Temp_Flag  :1;

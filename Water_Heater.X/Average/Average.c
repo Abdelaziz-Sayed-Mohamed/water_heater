@@ -21,7 +21,7 @@ uint32_t Avrage_buffer=0;
 /*	  Requirement             :                   				                        */
 /*    Notes                   :								                            */
 /****************************************************************************************/
-void Average_Value(uint8_t Value,uint8_t *Avrage_Values)
+void Average_Value(uint16_t Value,uint16_t *Avrage_Values)
 {
 	
     Avrage_buffer=0;

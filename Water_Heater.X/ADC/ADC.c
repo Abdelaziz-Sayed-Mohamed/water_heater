@@ -75,7 +75,7 @@ void ADC_Start_Conv(void)
 /*    Notes                   :								                            */
 /****************************************************************************************/
 
-void ADC_Get_Value(uint8_t *Buffer)
+void ADC_Get_Value(uint16_t *Buffer)
 {
 	if(IS_ADC_STARTED&&IS_CONV_DONE)
 	{      
